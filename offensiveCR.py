@@ -1,3 +1,5 @@
+import math
+
 '''Function that calculates the prospecteve Offensive Challenge Rating (pros_off_CR) of the creature based on its damage per round (dmg_per_rnd)
 	This is the first step of calculating a creature's overall CR, which is to calculate its Offensive CR
 
@@ -182,20 +184,44 @@ def cal_pros_prof_bns(exptd_CR):
 		return pros_prof_bns
 
 	elif (exptd_CR in range(29, 31)):
-		pros_prof_bns = 5
+		pros_prof_bns = 9
 		return pros_prof_bns
 
 	else:
 		print("Error. Expected Challenge Rating must be between 0-30.")
 
+'''Function that calculates the creature's Strength bonus (STR_bns)
+	This is determined by the creature's Strength (STR)
+	
+	Returns STR_bns'''
+def cal_str_bns(STR):
+	STR_bns = math.floor((STR - 10)/2)
+	return STR_bns
+
+'''Function that calculates the creature's Dexterity bonus (DEX_bns)
+	This is determined by the creature's Dexterity (DEX)
+	
+	Returns DEX_bns'''
+def cal_dex_bns(DEX):
+	DEX_bns = math.floor((DEX - 10)/2)
+	return DEX_bns
+
 '''Function that calculates the monster's prospective attack bonus (pros_atk_bns) for melee or ranged attacks
 	This requires several parameters:
 		the prospective proficiency bonus (pros_prof_bns)
-		the creature's Strength (STR) or
-		the creature's Dexterity (DEX)
+		the creature's Strength bonus (STR_bns) or
+		the creature's Dexterity bonus (DEX_bns)
 		and whether the attack uses the creature's STR or DEX (str_or_dex)
 	
 	Returns pros_atk_bns'''
-def cal_pros_atk_bns(exptd_CR, STR, DEX, str_or_dex):
+def cal_pros_atk_bns(pros_prof_bns, STR_bns, DEX_bns, str_or_dex):
 	if (str_or_dex == "STR"):
-		return
+		pros_atk_bns = pros_prof_bns + STR_bns
+		return pros_atk_bns
+
+	elif (str_or_dex == "DEX"):
+		pros_atk_bns = pros_prof_bns + DEX_bns
+		return pros_atk_bns
+
+	else:
+		print("Error. Could not calculate prospective Attack Bonus.")

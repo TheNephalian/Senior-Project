@@ -295,3 +295,9 @@ def get_CR_rating(AC, HP_def_CR, in_AC):
         
     else:
         print("error")
+
+def cal_init_def_CR(hp, ac):
+    init_def_CR = cal_HP_defensive_CR(hp)
+    corr_AC = calculate_stuff(hp)
+
+    get_CR_rating(corr_AC, init_def_CR, ac)

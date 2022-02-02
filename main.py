@@ -1,8 +1,7 @@
 from testing import *
+from creatureCR import *
 
 '''Testing of functions'''
 function_test()
 
-
-test_cal_init_off_CR(53, 5, 15, False)
-
+print(cal_crtr_CR(100, 15, 19, False, 18, 250))

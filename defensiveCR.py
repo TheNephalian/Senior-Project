@@ -141,7 +141,7 @@ def cal_HP_defensive_CR(HP):
         return HP_def_CR
     
     else: 
-        print("error")
+        print("Error in defensiveCR.py cal_HP_defensive_CR")
         
 # function that will calculate in what armor class creature is depending on their HP
 # AC range 13-19
@@ -176,7 +176,7 @@ def calculate_stuff(HP):
         return AC
     
     else:
-        print("error")
+        print("Error in defensiveCR.py calculate_stuff")
         
 # Gets the offcial CR by adjusting the CR given from the HP according by what the user input AC to be
 
@@ -294,10 +294,11 @@ def get_CR_rating(AC, HP_def_CR, in_AC):
             return HP_def_CR - 3
         
     else:
-        print("error")
+        print("Error in defensiveCR.py get_CR_rating")
 
 def cal_init_def_CR(hp, ac):
     init_def_CR = cal_HP_defensive_CR(hp)
     corr_AC = calculate_stuff(hp)
 
-    get_CR_rating(corr_AC, init_def_CR, ac)
+    init_def_CR = get_CR_rating(corr_AC, init_def_CR, ac)
+    return init_def_CR

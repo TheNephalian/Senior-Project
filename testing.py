@@ -8,8 +8,8 @@ def function_test():
 	#test_cal_pros_offensive_CR()
 	#test_cal_pros_prof_bns()
 	#test_cal_attr_bns()
-	test_HP_def_CR()
-	test_true_CR()
+	#test_HP_def_CR()
+	#test_true_CR()
 	return
 
 '''Individual test functions'''

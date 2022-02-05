@@ -1,0 +1,191 @@
+This file is a .txt file filled with notes for better understanding what's expected from the UI regarding it's various user inputs/decisions and outputs/results by the END of the project. This is NOT expected soon. As we talked about in our meeting, what we'd like to see Friday 11th, Feb is a working UI with the base calculations and functions we have now.
+
+You can make things within this .txt make sense within the UI as you see fit, like if there's a range of specific options, make it a drop down or something like that, if there's a range of numbers, use a number wheel, etc.
+
+This will be formatted in the way a creature stat block is presented. We've already got input locations for some of this information. I trust you can find an intuitive or aesthetically pleasing location for the rest of it. I don't expect a total revamp of what you've got for the UI so far, but our app will differ from the website in that the user inputs all of this information to generate a creature. If you can't find a nice place or something, get a hold of me, and we'll figure it out sharing screens.
+
+For frame of reference, if this .txt says something like 'based on user inputs', that implies we got those imputs from somewhere else within the UI. If it says something like 'is input by the user', that implies the input is required there, at that moment/place.
+
+So ideally, the output of our app should be in a similar format to this. For a visual reference, look at our discord server photo, or look up dnd 5e creature stat blocks on google photos. They will greatly help. You can also always get in contact with me.
+
+Here goes.
+
+Name Block:
+Name
+[Size] [Creature Type] [Creature Subtype], [alignment] <- brackets only for seperation purposes
+
+Name can be any string of characters, no hard limit on number of characters
+
+Size can be one of the following
+- Tiny, Small, Medium, Large, Huge, Gargantuan
+
+Creature Type can be any of the following
+- Aberration, Beast, Celestial, Construct, Dragon, Elemental, Fey, Fiend, Giant, Humanoid, Monstrosity, Ooze, Plant, Undead
+
+Creature Subtype can be any string of characters, no hard limit or categories
+
+Alignment can be any of the following
+- Any Alignment, Any Chaotic Alignment, Any Evil Alignment, Any Good Alignment, Any Lawful Alignment, Any Non-Good Alignment, Any Non-Lawful Alignment, Chaotic Evil, Chaotic Good, Chaotic Neutral, Lawful Evil, Lawful Good, Lawful Neutral, Neutral, Neutral Evil, Neutral Good, Typically Chaotic Evil, Typically Chaotic Good, Typically Chaotic Neutral, Typtically Lawful Evil, Typically Lawful Good, Typically Lawful Neutral, Typically Neutral, Typically Neutral Evil, Typically Neutral Good, Unaligned
+--------------------------------------------------
+Stat Block pt. 1:
+Armor Class
+Hit Points
+Speed
+
+Armor Class can be any whole number, usually < 30
+
+Hit Points can be any integer value, but its based on other user inputs and will be calculated. However, it is displayed as follows
+ [int value] (number_of_hp_dice d + int_val)
+  Some examples: 135 (18d10 + 36)
+                 9 (2d8) <- notice how this creature has no second integer value. This is determined from a calculation resulting in a 0. A 0 should not be displayed, in the hit points display.
+
+Speed can be any integer value in multiples of 5, and usually <= 60. This also includes the type of movement the creature has. The different types of movement are as follows
+- normal movement (no special display), burrow, climb, fly (hover or not), swim <- these other movement types are indicated as such
+ A creature can have one or all of these movement speeds, with different values in each.
+  Some examples: 0 ft., fly 30 ft. <-the 0 means it has no ground movement speed.
+				 25 ft. <- this indicates the creature only has a ground movement speed.
+                 30 ft., fly 60 ft. (hover), <- hover is like an on/off display. If the creature flies but does not hover, then hover should not be seen in the stat block
+				 25 ft., 25 ft. burrow, 25 ft. swim <- notice how ft. always follows a movement speed value, and they are always seperated by commas
+ If a creature doesn't have a movement type, it should not be displayed.
+-------------------------------------------------
+Attribute block:
+STR		DEX		CON		INT		WIS		CHA
+int ()	int ()	int ()	int ()	int ()	int ()
+
+This block is formatted like so ^^. Each attribute is associated with the int value below it, and whatever values inside the parenthesis.
+This block displays these 6 values which the user will input. These inputs are usually <= 30.
+Inside the parenthesis, it could display a combination of the following format:
+ +/-int
+ Some examples: +0
+                -5
+				+3
+This is calculated based on the user's inputs to the creature's attributes.
+--------------------------------------------------
+Stat block pt. 2:
+Saving Throws
+Skills
+Damage Resistances
+Damage Vulnerabililites
+Damage Immunities
+Condition Immunities
+Senses
+Languages
+Challenge
+Proficiency Bonus
+
+Saving Throws are attributes the creature is proficient in. If a creature is proficient in an attribute, it should be displayed here. A creature can be proficient in one or more attributes. If it is proficient in one or more, they are always in the following order of precedence when displayed:
+ STR, DEX, CON, INT, WIS, CHA
+The display of each saving throw has the following format
+ ATTRIBUTE +/-int
+ Some examples: STR +6, CON -1, WIS +0 <- they are always seperated by a comma when more than one
+				CON +4, CHA +6
+				DEX +9
+ If a creature isn't proficient in the attribute, it should not be displayed.
+ The int value is calculated from other inputs.
+If a creature isn't proficient in ANY Saving Throws, then the Saving Throws portion of this block should not be displayed.
+ 
+Skills are similar to Saving Throws in some ways, however the list of possible skills is longer. The list of skills is as follows:
+ - Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation, Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival
+  They are always presented in that order of precedence.
+  A creature can be proficient in one or more skills, and if it isn't proficient in the skill, it should not be displayed.
+  It is displayed in the following format
+   Skill +/-int
+   Some examples: Acrobatics +4, Perception -1, Stealth +9 <- Skills are always seperated by commas when more than one
+				  Arcana +6 <- This creature is only proficient in one skill, Arcana
+	The int value is calculated from other user inputs
+If a creature isn't proficient in ANY Skills, then the Skills portion of this block should not be displayed.
+
+Damage Resistances, Vulnerabilities, and Immunities can be lumped up for easier coding. They are all a list of damage types. These are all the base damage types:
+ Acid, Bludgeoning, Cold, Fire, Force, Lightning, Necrotic, Piercing, Poison, Psychic, Radiant, Slashing, Thunder
+A creature can have Resistance, a Vulnerability to, or have Immunity against one or more of these damage types. However, sometimes there are groupings. We'll stick to the most common ones. They are as follows:
+  All <- This is typically possible only as a resistance, meaning the creature has resistance to all damage types
+  All damage but Force, Radiant, and Psychic <- typically only possibly as a resistance
+  Bludgeoning, Piercing, and Slashing from Magic Weapons <- Resistance or Immunity
+  Bludgeoning, Piercing, and Slashing from Nonmagical Attacks <- Resistance or Immunity
+  Bludgeoning, Piercing, and Slashing from Nonmagical Attacks that aren't Adamantine <- Resistance or Immunity
+  Bludgeoning, Piercing, and Slashing from Nonmagical Attacks that aren't Adamantine or Silvered <- Resistance or Immunity
+  Bludgeoning, Piercing, and Slashing from Nonmagical Attacks that aren't Silvered <- Resistance or Immunity
+  
+  We should ideally also allow a custom input of a damage type, for more fine-tuned damage adjustments. An input area for a string(s) should work fine. For example, the user could input: Piercing from Magic Weapons Wielded by Good Creatures
+         Slashing from a Vorpal Sword
+		 Damage Dealt by Traps
+If a creature has no Damage Resistance, then the Damage Resistance portion of this block should not be displayed. The same is true for Damage Vulnerabilities, and Damage Immunities.
+If a creature has a combination of Damage Resistances/Vulnerabilities/Immunities, they are displayed in the following format:
+ Damage Resistances [list of damage resistances]
+ Damage Vulnerabililites [list of damage vulnerabilities]
+ Damage Immunities [list of damage immunities]
+
+Condition Immunities are a list of conditions a creature could be immune to. If it isn't immune to the condition, then the condition should not be displayed. The various condition immunities are as follows (they are ordered in this precedence)
+ - Blinded, Charmed, Deafened, Exhaustion, Frightened, Grappled, Incapacitated, Invisible, Paralyzed, Petrified, Poisoned, Prone, Restrained, Stunned, Unconcsious
+If the creature has no Condition Immunities, then the Condition Immunities portion of this block should not be displayed.
+
+Senses are the various ways a creature can detect something. They are listed as follows:
+- Blindsight, Darkvision, Tremorsense, Truesight
+They are displayed in that order of precedence, and if a creature doesn't have one of these senses, that sense is not displayed.
+Along with these senses, a sense called Passive Perception is always displayed, even if the creature doesn't have one of the above senses. Passive Perception is always followed by an int value, which is calculated based on other user inputs.
+Additionally, the four listed senses always have a range to at which the creature can use that sense, typically in multiples of 10 ft. We can limit any of these ranges to 600 ft. for now.
+Some examples,
+ Truesight 60 ft., Passive Perception 18
+ Passive Perception 9
+ Blindsight 120 ft., Darkvision 60 ft., Passive Perception 12
+
+Languages are the various languages a creature can speak. They are as follows:
+- Abyssal, Celestial, Common, Deep Speech, Draconic, Dwarvish, Elvish, Giant, Gnomish, Goblic, Halfic, Infernal, Orc, Primordial, Sylvan, Undercommon
+They are always displayed in that order of precendence, and a creature can know one or more of these languages.
+Additionally, a creature can have Telepathy. This "language" is always followed by a range to at which the creature can use its Telepathy. This is an int value in multiples of 10 ft. Telepathy is always the last displayed. We can limit its range to 600 ft. for now.
+Some examples:
+ Abyssal, Common, Infernal, Telepathy 120 ft.
+ Common
+ Deep Speach, Primordial, Telepathy 300 ft.
+There should also be a string input for when/if a user wishes to input a custom language or descriptor.
+ For example, "Any language it knew in life." <- This is used mostly for undead capable of speech, like revenants.
+If a creature doesn't speak any language, the Language portion of this block is still displayed, and a broad/long hyphen is displayed there
+
+Challenge is an int, which is the creature's Challenge Rating. This value is calculated based on other user inputs.
+
+Proficiency is an int, which is a creature's proficiency bonus. This value is calculated based on other user inputs. It is displayed in the following format:
+ +int
+ For example, +6.
+-------------------------------------------------
+Feature block:
+This block lists the creature's features.
+They are formatted as follows:
+
+Name of feature. (<-bold and italicized) Feature discription.
+ An example would be
+ <b><i>Devil's Sight.</i></b> Magical darkness doesn't impede the devil's darkvision. <- All strings. Notice how the period after the name is part of the bold and italicized portion.)
+
+A creature can have any number of features. There's no hard limit, but any more than 10 is unrealistic and unreasonable, play-wise. We can limit it to 10 for now.
+
+We might have to play around with this block in the future, as some features add additional damage. We'll likely have to add some options like 'Does this feature add damage? Y/N' If yes, then an input area would be required to input the added damage.
+--------------------------------------------------
+Actions block
+
+Actions are typically attacks a creature can make on its turn. They are formatted as follows:
+
+Name of Attack. (<- bold and italicized) Attack Type: (<- italicized) Bonus to hit, range, number of targets. Hit: (<- italicized) int (number_of_damage_dice d dice_type + damage_bonus) [damage type] damage.
+ Some examples:
+  <b><i>Claw.</i></b> <i>Melee Weapon Attack:</i> +6 to hit, reach 5 ft., one target. <i>Hit:</i> 6 (1d6 + 3) piercing damage.
+  Lots of things to note here:
+   The name has a period to further seperate it.
+   The attack type has a colon.
+   The bonus to hit is a calculated value from other inputs.
+   The range is a value in multiples of 5 that the user inputs, always with ft. after.
+   The number of targets is input by the user, typically one. We'll keep it one for now.
+   Hit has a colon after it.
+   The int is a calculated value based on other user inputs.
+   The number of damage dice is input by the user, as well as the dice type for the attack.
+   The damage type is input by the user.
+   The attack description ends with 'damage.'
+
+There is another kind of action, that is more descriptive, such as a dragon's Wing Beat attack. They have format as follows.
+ Name of Attack (<- bold and italicized). Attack description.
+
+A string input text box(es) for these would probably work best. And in the future, we'll have to play with these, as they typically do damage, but there's no straightforward formatting to get it. So we'll need something akin to asking the user:
+ Is this attack an Area of Effect? Y/N
+ Does this attack use a Saving Throw? Input Saving Throw DC <- this is an int value
+ Attack's damage per hit? Input attack damage. It would have the following format:
+   number_of_damage_dice d dice_type
+   For example, 12d6
+
+There is still some more, but I'll leave it at this for now as this is plenty! Like I said, this will be expected as we get closer to the finish line. Please get a hold of me if you have any further questions.

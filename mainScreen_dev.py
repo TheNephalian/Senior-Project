@@ -1233,8 +1233,6 @@ class Ui_MainWindow(object):
 
 
 #################################
-    '''This function does not work because input is not an int
-        the type of user input must be changed.'''
     def exCRValChange(self, value):
         ###pros_prof_bns = cal_pros_prof_bns(self.exCRLineEdit.text())
         ###print("You typed "+ self.exCRLineEdit.text())
@@ -1279,7 +1277,7 @@ class Ui_MainWindow(object):
         print("Prospective Offensive CR is ", pros_off_CR)
 
         exptd_CR = self.exCRSpinBox.value
-        attr = self.strValChange(self, self.strSpinBox.value)
+        attr = cal_attr_bns(self.strSpinBox.value)
         uses_saves = False
         
         if (self.savesCheckBox.isChecked):

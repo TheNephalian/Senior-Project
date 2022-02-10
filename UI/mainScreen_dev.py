@@ -687,12 +687,58 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
+
+        # exCRLineEdit is the line edit for the Expected CR
+
+        # sizeComboBox is the combo box associated with size
+
+        # slider is the associated with the slider
+
+        # ArmorSpinBox is the the spinbox for Armor Class
+
+        # attkBonSpinBox is the spinbox for Attack Bonus/ save DC
+
+        # dprSpinBox is the spinbox Dammage per Round
+
+        # diceSpinBox is the spin box for hit Dice
+         
+        # constitSpinBox is the spin box for Constitution
+
+        # resComboBox is the combo box associated with Resistances/immunities
+
+        # saveComboBox is the combo box associated  with Save Proficiencies
+
+        # strSpinBox == STR    
+        # dexSpinBox == DEX
+        # conSpinBox == CON
+        # intSpinBox == INT
+        # wisSpinBox == WIS
+        # chaSpinBox == CHA
+
+        # savesCheckBox is the checkbox for Use saves?
+        # vulCheckBox is the checkbox for Vulnerabilities
+        # fliesCheckBox is the check box for Flies and can deal damage at range (CR 0-9 only):
+
         #######################
+        self.exCRLineEdit.returnPressed.connect(self.exCRLineChange)
         self.sizeComboBox.currentIndexChanged.connect(self.diceChange)
         self.slider.valueChanged.connect(self.sliderValChange)
         self.ArmorSpinBox.valueChanged.connect(self.armorValChange)
         self.attkBonSpinBox.valueChanged.connect(self.attkBonValChange)
         self.dprSpinBox.valueChanged.connect(self.dprValChange)
+        self.diceSpinBox.valueChanged.connect(self.diceValChange)
+        self.constitSpinBox.valueChanged.connect(self.constitValChange)
+        self.resComboBox.currentIndexChanged.connect(self.resValChange)
+        self.saveComboBox.currentIndexChanged.connect(self.saveValChange)
+        self.strSpinBox.valueChanged.connect(self.strValChange)
+        self.dexSpinBox.valueChanged.connect(self.dexValChange)
+        self.conSpinBox.valueChanged.connect(self.conValChange)
+        self.intSpinBox.valueChanged.connect(self.intValChange)
+        self.wisSpinBox.valueChanged.connect(self.wisValChange)
+        self.chaSpinBox.valueChanged.connect(self.chaValChange)
+        self.savesCheckBox.stateChanged.connect(self.savesChecker)
+        self.vulCheckBox.stateChanged.connect(self.vulChecker)
+        self.fliesCheckBox.stateChanged.connect(self.fliesChecker)
         #######################
 
         self.retranslateUi(MainWindow)
@@ -1146,7 +1192,42 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "22"))
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
+
+    # exCRLineChange is the line function for the Expected CR
+
+    # sizeComboBox is the function associated with size
+
+    # sliderValChange is the function associated with the slider
+
+    # armorValChange is the function for Armor Class
+
+    # attkBonValChange is the function for Attack Bonus/ save DC
+
+    # dprValChange is the function Dammage per Round
+
+    # diceValChange is the function for hit Dice
+         
+    # constitValChange is the function for Constitution
+
+    # resValChange is the function associated with Resistances/immunities
+
+    # saveValChange is the function associated  with Save Proficiencies
+
+    # strValChange == STR    
+    # dexValChange == DEX
+    # conValChange == CON
+    # intValChange == INT
+    # wisValChange == WIS
+    # chaValChange == CHA
+
+    # savesChecker is the function for Use saves?
+    # vulChecker is the function for Vulnerabilities
+    # fliesChecker is the function for Flies and can deal damage at range (CR 0-9 only):
+
+
 #################################
+    def exCRLineChange(self):
+        print("You typed "+self.exCRLineEdit.text())
     def diceChange(self, value):
         print("comboBox changed", value)
         if self.sizeComboBox.currentText() == "Tiny":
@@ -1161,6 +1242,43 @@ class Ui_MainWindow(object):
         print("this does nothing, WIP")
     def dprValChange(self,value):
         print("this does nothing, WIP")
+    def diceValChange(self,value):
+        print("this does nothing, WIP")
+    def constitValChange(self,value):
+        print("this does nothing, WIP")
+    def resValChange(self,value):
+        print("this does nothing, WIP")
+    def saveValChange(self, value):
+        print("this does nothing, WIP")
+    def strValChange(self,value):
+        print("this does nothing, WIP")
+    def dexValChange(self,value):
+        print("this does nothing, WIP")
+    def conValChange(self,value):
+        print("this does nothing, WIP")
+    def intValChange(self,value):
+        print("this does nothing, WIP")
+    def wisValChange(self,value):
+        print("this does nothing, WIP")
+    def chaValChange(self,value):
+        print("this does nothing, WIP")
+
+    def savesChecker(self,state):
+        if state == QtCore.Qt.Checked:
+            print('Checked')
+        else:
+            print('Unchecked')
+    def vulChecker(self,state):
+        if state == QtCore.Qt.Checked:
+            print('Checked')
+        else:
+            print('Unchecked')
+    def fliesChecker(self,state):
+        if state == QtCore.Qt.Checked:
+            print('Checked')
+        else:
+            print('Unchecked')
+    
 #################################
 
         

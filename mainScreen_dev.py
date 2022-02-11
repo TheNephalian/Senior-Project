@@ -731,6 +731,7 @@ class Ui_MainWindow(object):
         #######################
         ###self.exCRLineEdit.returnPressed.connect(self.exCRLineChange)
         self.exCRSpinBox.valueChanged.connect(self.exCRValChange)
+        self.hitPointsSpinBox.valueChanged.connnect(self.hitPointsValueChange)
         self.sizeComboBox.currentIndexChanged.connect(self.diceChange)
         self.slider.valueChanged.connect(self.sliderValChange)
         self.ArmorSpinBox.valueChanged.connect(self.armorValChange)
@@ -1241,6 +1242,9 @@ class Ui_MainWindow(object):
         ###print("You typed "+ self.exCRLineEdit.text())
         pros_prof_bns = cal_pros_prof_bns(value)
         print("Prospective proficiency bonus is ", pros_prof_bns)
+
+    def hitPointsValueChange(self, value):
+        print("WIP")
 
     def diceChange(self, value):
         # i need to work

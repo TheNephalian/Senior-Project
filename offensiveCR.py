@@ -200,7 +200,7 @@ def cal_pros_prof_bns(exptd_CR):
 	
 	Returns attr_bns'''
 def cal_attr_bns(attr):
-	attr_bns = math.floor((attr - 10)/2)
+	attr_bns = int(math.floor((attr - 10)/2))
 	return attr_bns
 
 '''Function that calculates the creature's prospective attack bonus (pros_atk_bns) for attacks

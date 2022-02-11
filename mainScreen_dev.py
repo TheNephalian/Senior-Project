@@ -1244,10 +1244,12 @@ class Ui_MainWindow(object):
         print("Prospective proficiency bonus is ", pros_prof_bns)
 
     def hitPointsValueChange(self, value):
+        global HpInput
+        HpInput = cal_HP_defensive_CR(value)
+        defCR = cal_init_def_CR(HpfromOtherVal,Ac)
         print("WIP")
 
     def diceChange(self, value):
-        # i need to work
         global sizeValue
         sizeValue = Size(value)
         print("comboBox changed", value)
@@ -1271,6 +1273,7 @@ class Ui_MainWindow(object):
         print("this does nothing, WIP")
         ####test####
         x = self.ArmorSpinBox.value()
+        global Ac
         Ac = this_fun_adds_AC(profVal, value)
         
         
@@ -1305,7 +1308,8 @@ class Ui_MainWindow(object):
         # me work
         global dieValue
         dieValue = die(value)
-        this_fun_cal_totalHP(dieValue,con_def, sizeValue.size, vulValue)
+        global HpfromOtherVal
+        HpfromOtherVal = this_fun_cal_totalHP(dieValue,con_def, sizeValue.size, vulValue)
         print("this does nothing, WIP")
 
     def constitValChange(self,value):

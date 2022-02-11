@@ -11,9 +11,12 @@
 
 from cgi import test
 from multiprocessing.sharedctypes import Value
+from re import S
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 from offensiveCR import *
+from defenseInputs import *
+from defensiveCR import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1240,6 +1243,9 @@ class Ui_MainWindow(object):
         print("Prospective proficiency bonus is ", pros_prof_bns)
 
     def diceChange(self, value):
+        # i need to work
+        global sizeValue
+        sizeValue = Size(value)
         print("comboBox changed", value)
         if self.sizeComboBox.currentText() == "Tiny":
             self.diceLabel.setText("d4")
@@ -1257,9 +1263,13 @@ class Ui_MainWindow(object):
     def sliderValChange(self,value):
         self.sliderValTxt.setText(str(value))
     def armorValChange(self,value):
+        # me work
         print("this does nothing, WIP")
         ####test####
         x = self.ArmorSpinBox.value()
+        Ac = this_fun_adds_AC(profVal, value)
+        
+        
         convertSTR = str(x)
         convertNUM = int(convertSTR)
         print (convertSTR)
@@ -1288,15 +1298,26 @@ class Ui_MainWindow(object):
         print("Offensive CR is", off_CR)
 
     def diceValChange(self,value):
+        # me work
+        global dieValue
+        dieValue = die(value)
+        this_fun_cal_totalHP(dieValue,con_def, sizeValue.size, vulValue)
         print("this does nothing, WIP")
 
     def constitValChange(self,value):
+        # me work
         con_bns = cal_attr_bns(value)
+        global con_def
+        con_def = Constitution(value)
         print("CON bonus is ", con_bns)
 
     def resValChange(self,value):
         print("this does nothing, WIP")
+        
     def saveValChange(self, value):
+        # me work
+        global profVal
+        profVal = saveProficienciesCal(value)
         print("this does nothing, WIP")
 
     def strValChange(self,value):
@@ -1329,6 +1350,9 @@ class Ui_MainWindow(object):
         else:
             print('Unchecked')
     def vulChecker(self,state):
+        # me work
+        global vulValue
+        vulValue = doesIthaveVulnerabilities(state)
         if state == QtCore.Qt.Checked:
             print('Checked')
         else:
@@ -1341,7 +1365,6 @@ class Ui_MainWindow(object):
     
 #################################
 
-        
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

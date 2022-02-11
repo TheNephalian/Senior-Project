@@ -302,3 +302,4 @@ def cal_init_def_CR(hp, ac):
 
     init_def_CR = get_CR_rating(corr_AC, init_def_CR, ac)
     return init_def_CR
+

@@ -1,5 +1,6 @@
 from offensiveCR import *
 from defensiveCR import *
+from defenseInputs import *
 
 '''Main test function
 	Call other test functions and comment out as desired'''
@@ -10,6 +11,7 @@ def function_test():
 	#test_cal_attr_bns()
 	#test_HP_def_CR()
 	#test_true_CR()
+	test_defenseInputs_that_change_HP()
 	return
 
 '''Individual test functions'''
@@ -73,4 +75,14 @@ def test_true_CR():
     current_creature_CR = cal_HP_defensive_CR(115)
     curr_AC = calculate_stuff(115)
     print(get_CR_rating(curr_AC ,current_creature_CR, 19)) ; '''Should print 6'''
+    
+def test_defenseInputs_that_change_HP():
+    print("Testing Die and Constitution")
+    print(this_fun_cal_totalHP(10,15,"Large",False)) #75
+    print(this_fun_cal_totalHP(10,15,"Tiny",False)) #45
+    print(this_fun_cal_totalHP(10,30,"Large",False)) #155
+    print(this_fun_cal_totalHP(22,11,"Large",False)) #121
+    
+    print(cal_init_def_CR(this_fun_cal_totalHP(10,15,"Large",False),this_fun_adds_AC(5,13))) # 2
+    
     

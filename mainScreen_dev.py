@@ -731,7 +731,7 @@ class Ui_MainWindow(object):
         #######################
         ###self.exCRLineEdit.returnPressed.connect(self.exCRLineChange)
         self.exCRSpinBox.valueChanged.connect(self.exCRValChange)
-        self.hitPointsSpinBox.valueChanged.connnect(self.hitPointsValueChange)
+        self.hitPointsSpinBox.valueChanged.connect(self.hitPointsValueChange)
         self.sizeComboBox.currentIndexChanged.connect(self.diceChange)
         self.slider.valueChanged.connect(self.sliderValChange)
         self.ArmorSpinBox.valueChanged.connect(self.armorValChange)
@@ -1273,8 +1273,8 @@ class Ui_MainWindow(object):
         print("this does nothing, WIP")
         ####test####
         x = self.ArmorSpinBox.value()
-        global Ac
-        Ac = this_fun_adds_AC(profVal, value)
+        #global Ac
+        #Ac = this_fun_adds_AC(profVal, value)
         
         
         convertSTR = str(x)
@@ -1292,6 +1292,14 @@ class Ui_MainWindow(object):
         pros_off_CR = cal_pros_offensive_CR(value)
         print("Calculating prospective Offensive CR based on damage per round.")
         print("Prospective Offensive CR is ", pros_off_CR)
+
+        '''convertSTR = str(x)
+        convertNUM = int(convertSTR)
+        print (convertSTR)
+        print(convertNUM)
+        base = 5
+        roundedNUM = base * round(convertNUM/base)
+        self.ArmorSpinBox.setValue(roundedNUM)'''
 
         exptd_CR = self.exCRSpinBox.value
         attr = cal_attr_bns(self.strSpinBox.value)

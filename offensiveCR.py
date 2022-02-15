@@ -237,6 +237,8 @@ def cal_corr_off_CR(exptd_CR, attr, uses_saves):
 
 	if (uses_saves == False):
 		atk_bns = cal_pros_atk_bns(pros_prof_bns, attr_bns)
+		
+		print("Prospective attack bonus is ")
 
 		if (atk_bns <=3):
 			corr_off_CR = 1/2
@@ -352,11 +354,117 @@ def cal_corr_off_CR(exptd_CR, attr, uses_saves):
 			which is determined by:
 				the creature's exptected Challenge Rating (exptd_CR)
 				the creature's associated attribute bonus'''
-def cal_init_off_CR(dmg_per_rnd, exptd_CR, attr, uses_saves):
+def cal_init_off_CR(dmg_per_rnd, attr, uses_saves):
 	pros_off_CR = cal_pros_offensive_CR(dmg_per_rnd)
-	corr_off_CR = cal_corr_off_CR(exptd_CR, attr, uses_saves)
+	corr_off_CR = cal_atk_bns_CR(attr, uses_saves)
 
 	init_off_CR = math.floor((pros_off_CR + corr_off_CR)/2)
 	return init_off_CR
 	
 
+def cal_atk_bns_CR(atk_bns, uses_saves):
+	if (uses_saves == False):
+
+		if (atk_bns <=3):
+			corr_off_CR = 1/2
+			return corr_off_CR
+
+		elif (atk_bns == 4):
+			corr_off_CR = 3
+			return corr_off_CR
+
+		elif (atk_bns == 5):
+			corr_off_CR = 4
+			return corr_off_CR
+
+		elif (atk_bns == 6):
+			corr_off_CR = 6
+			return corr_off_CR
+
+		elif (atk_bns == 7):
+			corr_off_CR = 9
+			return corr_off_CR
+
+		elif (atk_bns == 8):
+			corr_off_CR = 13
+			return corr_off_CR
+
+		elif (atk_bns == 9):
+			corr_off_CR = 16
+			return corr_off_CR
+
+		elif (atk_bns == 10):
+			corr_off_CR = 18
+			return corr_off_CR
+
+		elif (atk_bns == 11):
+			corr_off_CR = 22
+			return corr_off_CR
+
+		elif (atk_bns == 12):
+			corr_off_CR = 25
+			return corr_off_CR
+
+		elif (atk_bns == 13):
+			corr_off_CR = 28
+			return corr_off_CR
+
+		elif (atk_bns >= 14):
+			corr_off_CR = 30
+			return corr_off_CR
+
+		else:
+			print("Error. Could not determine atk_bns during cal_corr_off_CR")
+
+	elif (uses_saves == True):
+		save_DC = atk_bns + 10
+
+		if (save_DC <= 13):
+			corr_off_CR = 1/2
+			return corr_off_CR
+
+		elif (save_DC == 14):
+			corr_off_CR = 4
+			return corr_off_CR
+
+		elif (save_DC == 15):
+			corr_off_CR = 6
+			return corr_off_CR
+
+		elif (save_DC == 16):
+			corr_off_CR = 9
+			return corr_off_CR
+
+		elif (save_DC == 17):
+			corr_off_CR = 11
+			return corr_off_CR
+
+		elif (save_DC == 18):
+			corr_off_CR = 14
+			return corr_off_CR
+
+		elif (save_DC == 19):
+			corr_off_CR = 18
+			return corr_off_CR
+
+		elif (save_DC == 20):
+			corr_off_CR = 22
+			return corr_off_CR
+
+		elif (save_DC == 21):
+			corr_off_CR = 25
+			return corr_off_CR
+
+		elif (save_DC == 22):
+			corr_off_CR = 28
+			return corr_off_CR
+
+		elif (save_DC >= 23):
+			corr_off_CR = 30
+			return corr_off_CR
+
+		else:
+			print("Error. Could not determine save_DC during cal_corr_off_CR")
+
+	else:
+		print("Error. Could not determine if creature uses Save DCs during cal_corr_off_CR.")

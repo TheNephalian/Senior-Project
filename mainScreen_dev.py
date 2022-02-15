@@ -228,6 +228,8 @@ class Ui_MainWindow(object):
         self.slider = QtWidgets.QSlider(self.frame_2)
         self.slider.setOrientation(QtCore.Qt.Horizontal)
         self.slider.setTickPosition(QtWidgets.QSlider.TicksAbove)
+        self.slider.setMinimum(0)
+        self.slider.setMaximum(30)
         self.slider.setObjectName("slider")
         self.gridLayout_2.addWidget(self.slider, 11, 1, 1, 4)
         ###self.exCRLineEdit = QtWidgets.QLineEdit(self.frame_2)
@@ -1268,6 +1270,7 @@ class Ui_MainWindow(object):
 
     def sliderValChange(self,value):
         self.sliderValTxt.setText(str(value))
+
     def armorValChange(self,value):
         # me work
         print("this does nothing, WIP")
@@ -1286,31 +1289,33 @@ class Ui_MainWindow(object):
         self.ArmorSpinBox.setValue(roundedNUM)
 
     def attkBonValChange(self, value):
-        print("this does nothing, WIP")
+        uses_saves = False
+        if (self.savesCheckBox.isChecked):
+            uses_saves = True
+
+        atk_bns_CR = cal_atk_bns_CR(value, uses_saves)
+        
+        print("Calculating corrective Offensive CR based on attack bonus.")
+        print("Corrective Offensive CR is ", atk_bns_CR)
 
     def dprValChange(self,value):
         pros_off_CR = cal_pros_offensive_CR(value)
+
         print("Calculating prospective Offensive CR based on damage per round.")
         print("Prospective Offensive CR is ", pros_off_CR)
+        
+        attr = self.strSpinBox.value()
 
-        '''convertSTR = str(x)
-        convertNUM = int(convertSTR)
-        print (convertSTR)
-        print(convertNUM)
-        base = 5
-        roundedNUM = base * round(convertNUM/base)
-        self.ArmorSpinBox.setValue(roundedNUM)'''
-
-        exptd_CR = self.exCRSpinBox.value
-        attr = cal_attr_bns(self.strSpinBox.value)
         uses_saves = False
         
         if (self.savesCheckBox.isChecked):
             uses_saves = True
 
-        off_CR = cal_init_off_CR(value, exptd_CR, attr, uses_saves)
+        off_CR = cal_init_off_CR(value, attr, uses_saves)
 
         print("Offensive CR is", off_CR)
+
+        self.slider.setValue(off_CR)
 
     def diceValChange(self,value):
         # me work

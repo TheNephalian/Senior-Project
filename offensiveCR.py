@@ -359,11 +359,11 @@ def cal_init_off_CR(dmg_per_rnd, attr, uses_saves):
 	corr_off_CR = cal_atk_bns_CR(attr, uses_saves)
 
 	init_off_CR = math.floor((pros_off_CR + corr_off_CR)/2)
-	return init_off_CR
-	
+	return init_off_CR	
 
 def cal_atk_bns_CR(atk_bns, uses_saves):
 	if (uses_saves == False):
+		print("Uses saves is False.")
 
 		if (atk_bns <=3):
 			corr_off_CR = 1/2
@@ -417,6 +417,7 @@ def cal_atk_bns_CR(atk_bns, uses_saves):
 			print("Error. Could not determine atk_bns during cal_corr_off_CR")
 
 	elif (uses_saves == True):
+		print("Uses saves is True.")
 		save_DC = atk_bns + 10
 
 		if (save_DC <= 13):
@@ -468,3 +469,7 @@ def cal_atk_bns_CR(atk_bns, uses_saves):
 
 	else:
 		print("Error. Could not determine if creature uses Save DCs during cal_corr_off_CR.")
+
+def cal_off_CR(dmg_CR, atk_bns_CR):
+	off_CR = math.floor((dmg_CR + atk_bns_CR)/2)
+	return off_CR

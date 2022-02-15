@@ -1290,7 +1290,7 @@ class Ui_MainWindow(object):
 
     def attkBonValChange(self, value):
         uses_saves = False
-        if (self.savesCheckBox.isChecked):
+        if (self.savesCheckBox.isChecked()):
             uses_saves = True
 
         atk_bns_CR = cal_atk_bns_CR(value, uses_saves)
@@ -1298,24 +1298,37 @@ class Ui_MainWindow(object):
         print("Calculating corrective Offensive CR based on attack bonus.")
         print("Corrective Offensive CR is ", atk_bns_CR)
 
+        dpr_CR = cal_pros_offensive_CR(self.dprSpinBox.value())
+
+        off_CR = cal_off_CR(dpr_CR, atk_bns_CR)
+
+        print("Calculating prospective Offensive CR based on damage per round.")
+        print("Prospective Offensive CR is ", dpr_CR)
+
+        self.slider.setValue(off_CR)
+
+        print("Offensive CR is ", off_CR)
+
     def dprValChange(self,value):
         pros_off_CR = cal_pros_offensive_CR(value)
 
         print("Calculating prospective Offensive CR based on damage per round.")
         print("Prospective Offensive CR is ", pros_off_CR)
-        
-        attr = self.strSpinBox.value()
 
         uses_saves = False
-        
-        if (self.savesCheckBox.isChecked):
+        if (self.savesCheckBox.isChecked()):
             uses_saves = True
 
-        off_CR = cal_init_off_CR(value, attr, uses_saves)
+        atk_bns_CR = cal_atk_bns_CR(self.attkBonSpinBox.value(), uses_saves)
 
-        print("Offensive CR is", off_CR)
+        off_CR = cal_off_CR(pros_off_CR, atk_bns_CR)
+
+        print("Calculating corrective Offensive CR based on attack bonus.")
+        print("Corrective Offensive CR is ", atk_bns_CR)
 
         self.slider.setValue(off_CR)
+
+        print("Offensive CR is ", off_CR)
 
     def diceValChange(self,value):
         # me work

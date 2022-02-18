@@ -5,6 +5,24 @@ from creature import *
 import math
 
 '''
+Vulnerabilities - if checked, the creature's effective hit points is halved
+
+user input hit point value /2 -> defCRfun(hp) -> hpCR
+user input ac value -> defCRfun(ac) -> acCR
+
+hpCR, acCR -> defCRfun(hp, ac) -> defCR
+
+Resistances - if yes, the creature's hit points are effectively multiplied by 1.5
+
+user input hit point value * 1.5 -> defCRfun(hp) -> hpCR
+user input ac value -> defCRfun(ac) -> acCR
+
+hpCR, acCR -> defCRfun(hp, ac) -> defCR
+
+Immunities - if yes, the creature's hit points are effectively doubled
+
+user input hit point value * 2 -> defCRfun(hp) -> hpCR
+
 Size - Die - hp/die:
 Tiny - d4 - 2.5 hp
 Small - d6 - 3.5

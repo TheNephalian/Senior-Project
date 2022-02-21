@@ -4,7 +4,7 @@ import math
 # range for HP is 1-850
 
 def cal_HP_defensive_CR(HP):
-    if (HP <= 6):
+    if (HP > 0 and HP <= 6):
         HP_def_CR = 0
         return HP_def_CR
     
@@ -277,7 +277,7 @@ def get_CR_rating(AC, HP_def_CR, in_AC):
         elif(AC == 19):
             return HP_def_CR - 2
         
-    elif(in_AC == 13):
+    elif(in_AC <= 13):
         if(AC == 13):
             return HP_def_CR
         elif(AC == 14):
@@ -297,9 +297,13 @@ def get_CR_rating(AC, HP_def_CR, in_AC):
         print("Error in defensiveCR.py get_CR_rating")
 
 def cal_init_def_CR(hp, ac):
-    init_def_CR = cal_HP_defensive_CR(hp)
-    corr_AC = calculate_stuff(hp)
+    if(hp <= 0):
+        init_def_CR = 0
+        return init_def_CR
+    else:
+        init_def_CR = cal_HP_defensive_CR(hp)
+        corr_AC = calculate_stuff(hp)
 
-    init_def_CR = get_CR_rating(corr_AC, init_def_CR, ac)
-    return init_def_CR
+        init_def_CR = get_CR_rating(corr_AC, init_def_CR, ac)
+        return init_def_CR
 

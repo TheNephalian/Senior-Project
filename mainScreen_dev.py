@@ -1237,7 +1237,6 @@ class Ui_MainWindow(object):
     # vulChecker is the function for Vulnerabilities
     # fliesChecker is the function for Flies and can deal damage at range (CR 0-9 only):
 
-
 #################################
     def exCRValChange(self, value):
         ###pros_prof_bns = cal_pros_prof_bns(self.exCRLineEdit.text())
@@ -1246,14 +1245,41 @@ class Ui_MainWindow(object):
         print("Prospective proficiency bonus is ", pros_prof_bns)
 
     def hitPointsValueChange(self, value):
-        global HpInput
-        HpInput = cal_HP_defensive_CR(value)
-        defCR = cal_init_def_CR(HpfromOtherVal,Ac)
+        #self.hitPointsSpinBox.value() hit points val 
+        vuls = False
+        tfval = " "
+        HP = self.hitPointsSpinBox.value()
+        if(self.vulCheckBox.checkState() == 0):
+            vuls = doesIthaveVulnerabilities(False)
+            tfval = resistancesORimmunity(self.resComboBox.currentText())
+        else:
+            vuls = doesIthaveVulnerabilities(True)
+            tfval = resistancesORimmunity(self.resComboBox.currentText())
+        
+        
+        if (vuls == True and tfval == False):
+            HP = HP / 2
+            print("Defensive CR: ", cal_init_def_CR(HP, self.ArmorSpinBox.value()))
+        elif(vuls == False and tfval == True):
+            HP = HP * 2
+            print("Defensive CR: ", cal_init_def_CR(HP, self.ArmorSpinBox.value()))
+        elif(vuls == True and tfval == True):
+            print("Defensive CR: ", cal_init_def_CR(HP, self.ArmorSpinBox.value()))
+        else:
+            print("Defensive CR: ", cal_init_def_CR(HP, self.ArmorSpinBox.value()))
         print("WIP")
-
+        
+        
+        
+        
+        
     def diceChange(self, value):
-        global sizeValue
-        sizeValue = Size(value)
+        # self.sizeComboBox.currentText() is size of CR
+        if(self.vulCheckBox.checkState() == 0):
+            print("CR val: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+        else:
+            print("CR val: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            
         print("comboBox changed", value)
         if self.sizeComboBox.currentText() == "Tiny":
             self.diceLabel.setText("d4")
@@ -1272,21 +1298,9 @@ class Ui_MainWindow(object):
         self.sliderValTxt.setText(str(value))
 
     def armorValChange(self,value):
-        # me work
-        print("this does nothing, WIP")
-        ####test####
-        x = self.ArmorSpinBox.value()
-        #global Ac
-        #Ac = this_fun_adds_AC(profVal, value)
-        
-        
-        convertSTR = str(x)
-        convertNUM = int(convertSTR)
-        print (convertSTR)
-        print(convertNUM)
-        base = 5
-        roundedNUM = base * round(convertNUM/base)
-        self.ArmorSpinBox.setValue(roundedNUM)
+        # self.ArmorSpinBox.value() is the val of AC
+        this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())
+        print("Defensive CR: ", cal_init_def_CR(self.hitPointsSpinBox.value(), self.ArmorSpinBox.value()))
 
     def attkBonValChange(self, value):
         uses_saves = False
@@ -1331,28 +1345,32 @@ class Ui_MainWindow(object):
         print("Offensive CR is ", off_CR)
 
     def diceValChange(self,value):
-        # me work
-        global dieValue
-        dieValue = die(value)
-        global HpfromOtherVal
-        HpfromOtherVal = this_fun_cal_totalHP(dieValue,con_def, sizeValue.size, vulValue)
-        print("this does nothing, WIP")
+        #self.diceSpinBox.value() val of dice input 
+        if(self.vulCheckBox.checkState() == 0):
+            print("CR val: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+        else:
+            print("CR val: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
 
     def constitValChange(self,value):
-        # me work
-        con_bns = cal_attr_bns(value)
-        global con_def
-        con_def = Constitution(value)
-        print("CON bonus is ", con_bns)
+        #self.constitSpinBox.value() val of constitution 
+        if(self.vulCheckBox.checkState() == 0):
+            print("CR val: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+        else:
+            print("CR val: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
 
     def resValChange(self,value):
-        print("this does nothing, WIP")
+        #self.resComboBox.currentText() val of resistances and imunitties
+        if(self.vulCheckBox.checkState() == 0):
+            print("CR val: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+        else:
+            print("CR val: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
         
     def saveValChange(self, value):
-        # me work
-        global profVal
-        profVal = saveProficienciesCal(value)
-        print("this does nothing, WIP")
+        #saveProficienciesCal(self.saveComboBox.currentText() save proficiencies val 
+        if(self.vulCheckBox.checkState() == 0):
+            print("CR val: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+        else:
+            print("CR val: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
 
     def strValChange(self,value):
         str_bns = cal_attr_bns(value)
@@ -1384,9 +1402,14 @@ class Ui_MainWindow(object):
         else:
             print('Unchecked')
     def vulChecker(self,state):
-        # me work
-        global vulValue
-        vulValue = doesIthaveVulnerabilities(state)
+        #self.vulCheckBox.checkState() val of vulnerabilities 
+        if(self.vulCheckBox.checkState() == 0):
+            print("CR val: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+        else:
+            print("CR val: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+        
+        
+        
         if state == QtCore.Qt.Checked:
             print('Checked')
         else:

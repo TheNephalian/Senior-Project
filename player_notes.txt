@@ -15,11 +15,16 @@ The player class will need the following member variables:
 	int (Intelligence score)
 	wis (Wisdom score)
 	cha (Charisma score)
+		These scores go from 0-30, but for our players, from 10-20 is fine as the player levels up from lvl 1 to lvl 20
 
 	dex_bns (dexterity bonus)
 		any attribute bonus can be determined with: attr_bns = math.floor((attr - 10)/2))
 	dmg_per_rnd (damage per round)
 	atk_bns (attack bonus, can be determined from various things; we'll talk about this in our meeting FEB23)
+		These values also go up as the player levels up from lvl 1 to lvl 20 with the following range:
+			dex_bns: 0-5
+			dmg_per_rnd: 5-50
+			atk_bns: 4-10
 
 The player class will need the following member functions (not sure what kind of arguments will need for each):
 

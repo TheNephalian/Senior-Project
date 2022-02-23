@@ -174,8 +174,8 @@ Name of Attack. (<- bold and italicized) Attack Type: (<- italicized) Bonus to h
    The number of targets is input by the user, typically one. We'll keep it one for now.
    Hit has a colon after it.
    The int is a calculated value based on other user inputs.
-   The number of damage dice is input by the user, as well as the dice type for the attack.
-   The damage type is input by the user.
+   The number of damage dice is input by the user, as well as the dice type for the attack (any number of d 4, 6, 8, 10, or 12).
+   The damage type is input by the user (bludgeoning, piercing, slashing).
    The attack description ends with 'damage.'
 
 There is another kind of action, that is more descriptive, such as a dragon's Wing Beat attack. They have format as follows.
@@ -189,3 +189,15 @@ A string input text box(es) for these would probably work best. And in the futur
    For example, 12d6
 
 There is still some more, but I'll leave it at this for now as this is plenty! Like I said, this will be expected as we get closer to the finish line. Please get a hold of me if you have any further questions.
+
+------------------------------------------------------------------
+Combat Simulator
+
+The user will be able to choose which monster that fights
+The user will be able to choose how many players (up to 4, this dictates the player's class) and their level (keep in mind, there could be 4 fighters or any combination)
+The user will be able to choose how many combat simulations are run at that time (1, 10, 100, 1000)
+
+When the user clicks Run, the simulations start until all are performed.
+  It keeps track of how many times the creature is defeated, and how many times the players are defeated (individually and as a group. Group defeat detection is priority)
+
+Displays in percentage the likelyhood of the creature defeating the players as a group

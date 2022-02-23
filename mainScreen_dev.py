@@ -218,6 +218,7 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addItem(spacerItem2, 1, 2, 1, 3)
         self.hitPointsSpinBox = QtWidgets.QSpinBox(self.frame_2)
         self.hitPointsSpinBox.setObjectName("hitPointsSpinBox")
+        self.hitPointsSpinBox.setMaximum(850)
         self.gridLayout_2.addWidget(self.hitPointsSpinBox, 4, 2, 1, 1)
         self.resComboBox = QtWidgets.QComboBox(self.frame_2)
         self.resComboBox.setObjectName("resComboBox")

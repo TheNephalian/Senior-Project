@@ -1,0 +1,25 @@
+Step 1: Roll Initiative
+	Determines who goes first (turn order).
+		Our 1 monster vs. up to 4 players.
+
+Step 2: Perform an attack
+	Substep 1: Make an attack roll
+		This rolls a d20 and adds the attacker's attack bonus (this is the attacker's accuracy)
+		This is then compared to the defender's AC (how hard they are to hit)
+	Substep 2: Compare the result
+		If the attack roll is >= to the defender's AC, the attack hits, and damage is dealt
+		Otherwise, no damage is dealt (the attack misses)
+	Substep 3: Deal damage
+		Subtract the attack's damage from the defender's hit points
+
+Sample combat:
+Ancient Red Dragon, 500 hp, 55 dmg per turn.
+
+Players:	lvl 10 fighter (55, AC 18)
+			lvl 10 rogue (40, AC 20)
+			lvl 10 wizard (35, AC 15)
+			lvl 10 ranger (50, AC 16)
+
+	In true dnd combat, the dragon actually attacks with different attacks during its turn, each rolling their own attack roll and damage roll.
+	^^This way is "true" to dnd combat, but probably more complex coding.
+		In reality, the dragon attacks with three attacks dealing 21, 17, and 17 damage seperately if they hit.

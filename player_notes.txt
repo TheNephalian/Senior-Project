@@ -1,0 +1,72 @@
+This text file to describe the player class, and the subsequent 'dnd class' subclasses in regards to our app's combat simulator
+
+The player class will need the following member variables:
+
+	lvl (player level)
+	hp (hit points, the player's maximum hp)
+	curr_hp (the player's current hp, this will matter for combat)
+	ac (Armor class, how hard it is to hit them)
+	prof_bns (proficiency bonus, can be determined from player level)
+	is_defeated (a value that states whether or not the player is defeated, could be a boolean, normally False or 0)
+
+	str (Strength score)
+	dex (Dexterity score)
+	con (Constitution score)
+	int (Intelligence score)
+	wis (Wisdom score)
+	cha (Charisma score)
+
+	dex_bns (dexterity bonus)
+		any attribute bonus can be determined with: attr_bns = math.floor((attr - 10)/2))
+	dmg_per_rnd (damage per round)
+	atk_bns (attack bonus, can be determined from various things; we'll talk about this in our meeting FEB23)
+
+The player class will need the following member functions (not sure what kind of arguments will need for each):
+
+	Functions I'm pretty sure we'll need
+		attack_roll()
+			This function will perform the player's attack attempt.
+			It will roll one d20 and add that player's proficiency bonus and their associated attribute bonus
+				attribute bonus will be determined by the subclass, as follows:
+					artificer -> Intelligence bonus
+					barbarian -> Strength bonus
+					bard -> Charisma bonus
+					cleric -> Wisdom bonus
+					druid -> Wisdom bonus
+					fighter -> Strength or Dexterity bonus, whichever is higher
+					monk -> Dexterity or Wisdom bonus, whichever is higher
+					paladin -> Charisma or Strength bonus, whichever is higher
+					ranger -> Dexterity bonus
+					rogue -> Dexterity bonus
+					sorcerer -> Charisma bonus
+					warlock -> Charisma bonus
+					wizard -> Intelligence bonus
+
+		take_dmg(dmg_taken)
+			This function will determine the player's hp after taking damage.
+			It will also check whether the player should be defeated;
+				If the player's curr_hp is <= 0, then is_defeated should be True or 1, whatever you use.
+
+		roll_init()
+			This function rolls the player's Initiative, a number that determines who goes first in combat
+			It rolls a single d20 and adds the player's Dexterity bonus. This sum is the result
+
+		lvl_change(int lvls)
+			This function will manipulate the player's level (either up or down), i.e. manipulate the player's stats.
+			For example, a lvl 1 fighter has 10 hp. With this function, we add 2 lvls to the fighter. The fighter is now lvl 3, and its hp is now 20.
+			The numbers we'll use and how exactly we'll mess with them will have to be determined (FEB23 meeting)
+	
+	Functions I'm not so certain we'll need
+		getter/setter functions for each variables
+
+		default constructor
+
+		parameterized constructor
+
+The next 13 class could all be made into subclasses of the player class
+Each one represents a different character class a player can be
+	They are as follows:
+	artificer, barbarian, bard, cleric, druid, fighter, monk, paladin, ranger, sorcerer, warlock, wizard
+
+Each class will differ simply in their stats, which will be hard-coded. They'll all have the same functions inherited by the player superclass.
+	For now, use whatever numbers you'd like. We just need to be able to tie this to the UI soon and be able to test it.

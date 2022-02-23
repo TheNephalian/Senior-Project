@@ -69,12 +69,18 @@ Hp = 4 * 4.5 + 4 * (-2) = 10
 '''
 '''this function will get the input for the die'''
 def die(input_of_die):
-    if (input_of_die <= 0):
+    if (input_of_die < 0):
         print("error")
-    elif(input_of_die <= 50):
+    elif(input_of_die <= 189):
         return input_of_die
     else:
         print("error")
+        
+def resistancesORimmunity(ri):
+    if (ri == "Resistances" or ri == "Immunities"):
+        return True
+    else:
+        return False
 
 '''this function will get constitution attribute range'''
 def Constitution(constit):
@@ -167,10 +173,10 @@ AC is 'effectively' increased by 2 if the creature has 3 or 4,
 '''
 
 def saveProficienciesCal(cal):
-    if cal <= 2:
+    if cal == "0-2":
         increase = 0
         return increase
-    elif cal <= 4:
+    elif cal == "3-4":
         increase = 2
         return increase
     else:
@@ -191,21 +197,29 @@ def saveProficienciesCal(cal):
 #print(y.hp) # 5
 
 '''this fun gets the total HP based on the dice, constitution, size, and vulnerabilities '''
-def this_fun_cal_totalHP(dice, constitution, size, vul):
-    dice = die(dice)
-    constitution = Constitution(constitution)
-    size = Size(size)
-    vul = doesIthaveVulnerabilities(vul)
+def this_fun_cal_totalHP(dice, constitution, size, vul, ri):
+    if (dice == 0 and constitution == 0):
+        HP = 0
+        return HP 
+    else :
+        dice = die(dice)
+        constitution = Constitution(constitution)
+        size = Size(size)
+        vul = doesIthaveVulnerabilities(vul)
+        tfval = resistancesORimmunity(ri) 
+        HP =  dice * size.hp + dice * constitution
     
-    
-    HP =  dice * size.hp + dice * constitution
-    
-    if (vul == True):
+    if (vul == True and tfval == False):
        HP = HP / 2
        return HP
+    elif(vul == False and tfval == True):
+        HP = HP * 2
+        return HP
+    elif(vul == True and tfval == True):
+        return HP
     else:
         return HP
-    
+        
 
 
 
@@ -217,8 +231,10 @@ def this_fun_adds_AC(prof, currentAC):
         AC = currentAC + 1
         return AC
     else:
-        AC = currentAC + prof
+        profadded = saveProficienciesCal(prof)
+        AC = currentAC + profadded
         return AC
     
     
-cal_init_def_CR(this_fun_cal_totalHP(10,15,"Large",False),this_fun_adds_AC(5,3))
+#print(cal_init_def_CR(this_fun_cal_totalHP(1,1,"Tiny",False,False),this_fun_adds_AC(5,3))) # 0
+print(round(this_fun_cal_totalHP(0,1,"Tiny",False,False))) #-2

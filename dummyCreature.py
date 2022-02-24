@@ -30,7 +30,7 @@ class creature():
 		return init
 
 	def attack_roll(self):
-		atk_roll = random.randint(1,20) + self.prof_bns #+ attr_bns. This will vary depending on the creature/player class
+		atk_roll = random.randint(1,20) + self.atk_bns #+ attr_bns. This will vary depending on the creature/player class
 		return atk_roll
 
 	def take_dmg(self, dmg):

@@ -1,5 +1,4 @@
 from dummyCreature import *
-
 class ancientRedDragon (creature):
 	def __init__(self):
 		ancientRedDragon.__init__
@@ -20,4 +19,49 @@ class ancientRedDragon (creature):
 
 		self.dex_bns = 0
 		self.atk_bns = 17
-		self.dmg_per_rnd = 55
+		#self.dmg_per_rnd = 55
+
+		self.fbRecharge = True
+
+		def attack():
+			fireBreath()
+		
+			multiAttack()
+			return
+
+		def multiAttack():
+			bite()
+
+			claw()
+
+			claw()
+			return
+
+		def bite():
+			self.attack_roll()
+
+			dmgRoll = random.randint(1,10) + random.randint(1,10) + 10
+
+			return dmgRoll
+
+		def claw():
+			self.attack_roll()
+
+			dmgRoll = random.randint(1,6) + random.randint(1,6) + 10
+			return dmgRoll
+
+		def fireBreath():
+			if (self.fbRecharge == False):
+				rechargeRoll = random.randint(1,6)
+				if (rechargeRoll == 5 | rechargeRoll == 6):
+					self.fbRecharge = True
+
+			dmgRoll = 0
+
+			if (self.fbRecharge == True):
+				for i in range(26):
+					dmgRoll = dmgRoll + random.randint(1,6)
+
+				self.fbRecharge = False
+
+			return dmgRoll

@@ -20,4 +20,46 @@ class behir (creature):
 
 		self.dex_bns = 3
 		self.atk_bns = 10
-		self.dmg_per_rnd = 56
+		#self.dmg_per_rnd = 56
+		self.lbRecharge = True
+
+		def attack():
+			lightningBreath()
+		
+			multiAttack()
+			return
+
+		def multiAttack():
+			bite()
+
+			claw()
+			return
+
+		def bite():
+			self.attack_roll()
+
+			dmgRoll = random.randint(1,10) + random.randint(1,10) + 10
+
+			return dmgRoll
+
+		def claw():
+			self.attack_roll()
+
+			dmgRoll = random.randint(1,6) + random.randint(1,6) + 10
+			return dmgRoll
+
+		def lightningBreath():
+			if (self.fbRecharge == False):
+				rechargeRoll = random.randint(1,6)
+				if (rechargeRoll == 5 | rechargeRoll == 6):
+					self.fbRecharge = True
+
+			dmgRoll = 0
+
+			if (self.fbRecharge == True):
+				for i in range(26):
+					dmgRoll = dmgRoll + random.randint(1,6)
+
+				self.fbRecharge = False
+
+			return dmgRoll

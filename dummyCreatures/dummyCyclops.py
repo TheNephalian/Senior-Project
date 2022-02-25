@@ -20,4 +20,27 @@ class cyclops (creature):
 
 		self.dex_bns = 0
 		self.atk_bns = 9
-		self.dmg_per_rnd = 38
+
+		def attack():
+			totalDamage = multiattack()
+
+			return totalDamage
+
+		def multiattack():
+			dmg = greatclub() + greatclub()
+
+			return dmg
+
+		def greatclub():
+			#checks if attack hits
+			self.attack_roll()
+
+			dmgRoll = 0
+
+			#if hits, rolls 3d8 + 6
+			for i in range(3):
+				dmgRoll = dmgRoll + random.randint(1,8)
+
+			dmgRoll = dmgRoll + 6
+
+			return dmgRoll

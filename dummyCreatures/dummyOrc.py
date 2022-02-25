@@ -20,4 +20,21 @@ class orc (creature):
 
 		self.dex_bns = 1
 		self.atk_bns = 5
-		self.dmg_per_rnd = 9
+
+		def attack():
+			totalDmg = greataxe()
+
+			return totalDmg
+
+		def greataxe():
+			#checks if attack hits
+			self.attack_roll
+
+			dmgRoll = 0
+
+			#if hits, rolls 1d12 + 3
+			dmgRoll = dmgRoll + random.randint(1,12)
+			
+			dmgRoll = dmgRoll + 3
+
+			return dmgRoll

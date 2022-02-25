@@ -20,46 +20,65 @@ class behir (creature):
 
 		self.dex_bns = 3
 		self.atk_bns = 10
-		#self.dmg_per_rnd = 56
+		
 		self.lbRecharge = True
 
 		def attack():
-			lightningBreath()
-		
-			multiAttack()
-			return
+			totalDmg = lightningBreath() + multiAttack()
+
+			return totalDmg
 
 		def multiAttack():
-			bite()
+			dmg = bite() + constrict()
 
-			claw()
-			return
+			return dmg
 
 		def bite():
+			#checks if attack hits
 			self.attack_roll()
-
-			dmgRoll = random.randint(1,10) + random.randint(1,10) + 10
-
-			return dmgRoll
-
-		def claw():
-			self.attack_roll()
-
-			dmgRoll = random.randint(1,6) + random.randint(1,6) + 10
-			return dmgRoll
-
-		def lightningBreath():
-			if (self.fbRecharge == False):
-				rechargeRoll = random.randint(1,6)
-				if (rechargeRoll == 5 | rechargeRoll == 6):
-					self.fbRecharge = True
 
 			dmgRoll = 0
 
-			if (self.fbRecharge == True):
-				for i in range(26):
-					dmgRoll = dmgRoll + random.randint(1,6)
+			#if hits, rolls 3d10 + 6
+			for i in range(3):
+				dmgRoll = dmgRoll + random.randint(1,10)
 
-				self.fbRecharge = False
+			dmgRoll = dmgRoll + 6
+
+			return dmgRoll
+
+		def constrict():
+			#checks if attack hits
+			self.attack_roll()
+
+			dmgRoll = 0
+
+			#if hits, rolls 4d10 + 12
+			for i in range(4):
+				dmgRoll = dmgRoll + random.randint(1,10)
+
+			dmgRoll = dmgRoll + 12
+
+			return dmgRoll
+
+		def lightningBreath():
+			#checks if lightning breath is recharged
+			if (self.lbRecharge == False):
+				rechargeRoll = random.randint(1,6)
+				if (rechargeRoll == 5 | rechargeRoll == 6):
+					self.lbRecharge = True
+
+			#picks up to 2 players to deal damage to
+			'''
+			WIP
+			'''
+			dmgRoll = 0
+
+			#rolls 12d10
+			if (self.lbRecharge == True):
+				for i in range(12):
+					dmgRoll = dmgRoll + random.randint(1,10)
+
+				self.lbRecharge = False
 
 			return dmgRoll

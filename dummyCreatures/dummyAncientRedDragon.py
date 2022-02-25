@@ -19,45 +19,60 @@ class ancientRedDragon (creature):
 
 		self.dex_bns = 0
 		self.atk_bns = 17
-		#self.dmg_per_rnd = 55
 
 		self.fbRecharge = True
 
 		def attack():
-			fireBreath()
-		
-			multiAttack()
-			return
+			totalDmg = fireBreath() + multiAttack()
+
+			return totalDmg
 
 		def multiAttack():
-			bite()
+			dmg = bite() + claw() + claw()
 
-			claw()
-
-			claw()
-			return
+			return dmg
 
 		def bite():
+			#checks if attack hits
 			self.attack_roll()
 
-			dmgRoll = random.randint(1,10) + random.randint(1,10) + 10
+			dmgRoll = 0
+
+			#if hits, rolls 2d10 + 10
+			for i in range(2):
+				dmgRoll = dmgRoll + random.randint(1,10)
+
+			dmgRoll = dmgRoll + 10
 
 			return dmgRoll
 
 		def claw():
+			#checks if attack hits
 			self.attack_roll()
 
-			dmgRoll = random.randint(1,6) + random.randint(1,6) + 10
+			dmgRoll = 0
+
+			#if hits, rolls 2d6 + 10
+			for i in range(2):
+				dmgRoll = dmgRoll + random.randint(1,6)
+
+			dmgRoll = dmgRoll + 10
 			return dmgRoll
 
 		def fireBreath():
+			#checks if fire breath is recharged
 			if (self.fbRecharge == False):
 				rechargeRoll = random.randint(1,6)
 				if (rechargeRoll == 5 | rechargeRoll == 6):
 					self.fbRecharge = True
 
+			#picks up to two players to deal damage to
+			'''
+			WIP
+			'''
 			dmgRoll = 0
 
+			#rolls 26d6
 			if (self.fbRecharge == True):
 				for i in range(26):
 					dmgRoll = dmgRoll + random.randint(1,6)

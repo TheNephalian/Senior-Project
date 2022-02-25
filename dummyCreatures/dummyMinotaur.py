@@ -20,4 +20,22 @@ class minotaur (creature):
 
 		self.dex_bns = 0
 		self.atk_bns = 6
-		self.dmg_per_rnd = 22
+
+		def attack():
+			totalDmg = gore()
+
+			return totalDmg
+
+		def gore():
+			#checks if attack hits
+			self.attack_roll()
+
+			dmgRoll = 0
+
+			#if hits, rolls 4d8 + 4
+			for i in range(4):
+				dmgRoll = dmgRoll + random.randint(1,8)
+
+			dmgRoll = dmgRoll + 4
+
+			return dmgRoll

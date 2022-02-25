@@ -20,4 +20,31 @@ class bugBear (creature):
 
 		self.dex_bns = 2
 		self.atk_bns = 4
-		self.dmg_per_rnd = 13
+		
+		self.surprise_Attack = True
+
+		def attack():
+			totalDmg = morningstar()
+
+			return totalDmg
+
+		def morningstar():
+			#checks if attack hits
+			self.attack_roll()
+
+			dmgRoll = 0
+
+			#if hits, rolls 2d8 + 2
+			for i in range(2):
+				dmgRoll = dmgRoll + random.randint(1,8)
+			
+			dmgRoll = dmgRoll + 2
+
+			#checks if surprise attack (beginning of combat)
+			if (self.surprise_Attack == True):
+				for i in range(2):
+					dmgRoll = dmgRoll + random.randint(1,6)
+
+			self.surprise_Attack = False
+
+			return dmgRoll

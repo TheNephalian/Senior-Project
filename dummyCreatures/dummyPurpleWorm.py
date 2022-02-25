@@ -20,4 +20,41 @@ class purpleWorm (creature):
 
 		self.dex_bns = -2
 		self.atk_bns = 14
-		self.dmg_per_rnd = 104
+
+		def attack():
+			totalDmg = multiattack()
+
+			return totalDmg
+
+		def multiattack():
+			dmg = bite() + tailStinger()
+
+			return dmg
+
+		def bite():
+			#checks if attack hits
+			self.attack_roll()
+
+			dmgRoll = 0
+
+			#if hits, rolls 3d8 + 9
+			for i in range(3):
+				dmgRoll = dmgRoll + random.randint(1,8)
+
+			dmgRoll = dmgRoll + 9
+
+			return dmgRoll
+
+		def tailStinger():
+			#checks if attack hits
+			self.attack_roll
+
+			dmgRoll = 0
+
+			#if hits, rolls 15d6 + 9
+			for i in range(15):
+				dmgRoll = dmgRoll + random.randint(1,6)
+
+			dmgRoll = dmgRoll + 9
+
+			return dmgRoll

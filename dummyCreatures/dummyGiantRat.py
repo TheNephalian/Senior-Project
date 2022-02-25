@@ -20,4 +20,21 @@ class giantRat (creature):
 
 		self.dex_bns = 2
 		self.atk_bns = 4
-		self.dmg_per_rnd = 4
+
+		def attack():
+			totalDmg = bite()
+
+			return totalDmg
+		
+		def bite():
+			#checks if attack hits
+			self.attack_roll()
+
+			dmgRoll = 0
+			
+			#if hits, rolls 1d4 + 2
+			dmgRoll = dmgRoll + random.randint(1,4)
+			
+			dmgRoll = dmgRoll + 2
+
+			return dmgRoll

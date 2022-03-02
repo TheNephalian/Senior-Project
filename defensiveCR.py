@@ -179,131 +179,597 @@ def calculate_stuff(HP):
         print("Error in defensiveCR.py calculate_stuff")
         
 # Gets the offcial CR by adjusting the CR given from the HP according by what the user input AC to be
+#AC is the true AC from each CR depedning on the HP in_AC is the input value that user input into armor class
 
-def get_CR_rating(AC, HP_def_CR, in_AC):
+def get_CR_rating(AC, HP_def_CR, in_AC,saveProfVal):
+    in_AC = in_AC - saveProfVal
     if(in_AC == 19):
         if(AC == 13):
-            return HP_def_CR + 3
+            if(HP_def_CR == 0):
+                if(saveProfVal == 0):
+                    return 1/2
+                elif(saveProfVal == 2):
+                    return 1
+                else:
+                    return 2
+            elif(HP_def_CR == 1/8):
+                if(saveProfVal == 0):
+                    return 1
+                elif(saveProfVal == 2):
+                    return 2
+                else:
+                    return 3
+            elif(HP_def_CR == 1/4):
+                if(saveProfVal == 0):
+                    return 2
+                elif(saveProfVal == 2):
+                    return 3
+                else:
+                    return 4
+            elif(HP_def_CR == 1/2):
+                if(saveProfVal == 0):
+                    return 3
+                elif(saveProfVal == 2):
+                    return 4
+                else:
+                    return 5
+            else:
+                if(saveProfVal == 0):
+                    return HP_def_CR + 3
+                elif(saveProfVal == 2):
+                    return HP_def_CR + 4
+                else:
+                    return HP_def_CR + 5
         elif(AC == 14):
-            return HP_def_CR + 2
+            if(saveProfVal == 0):
+                return HP_def_CR + 2
+            elif(saveProfVal == 2):
+                return HP_def_CR + 3
+            else:
+                return HP_def_CR + 4
         elif(AC == 15):
-            return HP_def_CR + 2
+            if(saveProfVal == 0):
+                return HP_def_CR + 2
+            elif(saveProfVal == 2):
+                return HP_def_CR + 3
+            else:
+                return HP_def_CR + 4
         elif(AC == 16):
-            return HP_def_CR + 1
+            if(saveProfVal == 0):
+                return HP_def_CR + 1
+            elif(saveProfVal == 2):
+                return HP_def_CR + 2
+            else:
+                return HP_def_CR + 3
         elif(AC == 17):
-            return HP_def_CR + 1
+            if(saveProfVal == 0):
+                return HP_def_CR + 1
+            elif(saveProfVal == 2):
+                return HP_def_CR + 2
+            else:
+                return HP_def_CR + 3
         elif(AC == 18):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 19):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         
     elif(in_AC == 18):
+        #
         if(AC == 13):
-            return HP_def_CR + 2
+            if(HP_def_CR == 0):
+                if(saveProfVal == 0):
+                    return 1/4
+                elif(saveProfVal == 2):
+                    return 1/2
+                else:
+                    return 1
+            elif(HP_def_CR == 1/8):
+                if(saveProfVal == 0):
+                    return 1/2
+                elif(saveProfVal == 2):
+                    return 1
+                else:
+                    return 2
+            elif(HP_def_CR == 1/4):
+                if(saveProfVal == 0):
+                    return 1
+                elif(saveProfVal == 2):
+                    return 2
+                else:
+                    return 3
+            elif(HP_def_CR == 1/2):
+                if(saveProfVal == 0):
+                    return 2
+                elif(saveProfVal == 2):
+                    return 3
+                else:
+                    return 4
+            else:
+                if(saveProfVal == 0):
+                    return HP_def_CR + 2
+                elif(saveProfVal == 2):
+                    return HP_def_CR + 3
+                else:
+                    return HP_def_CR + 4
         elif(AC == 14):
-            return HP_def_CR + 2
+            if(saveProfVal == 0):
+                return HP_def_CR + 2
+            elif(saveProfVal == 2):
+                return HP_def_CR + 3
+            else:
+                return HP_def_CR + 4
         elif(AC == 15):
-            return HP_def_CR + 1
+            if(saveProfVal == 0):
+                return HP_def_CR + 1
+            elif(saveProfVal == 2):
+                return HP_def_CR + 2
+            else:
+                return HP_def_CR + 3
         elif(AC == 16):
-            return HP_def_CR + 1
+            if(saveProfVal == 0):
+                return HP_def_CR + 1
+            elif(saveProfVal == 2):
+                return HP_def_CR + 2
+            else:
+                return HP_def_CR + 3
         elif(AC == 17):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 18):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 19):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         
     elif(in_AC == 17):
+        #
         if(AC == 13):
-            return HP_def_CR + 2
+            if(HP_def_CR == 0):
+                if(saveProfVal == 0):
+                    return 1/4
+                elif(saveProfVal == 2):
+                    return 1/2
+                else:
+                    return 1
+            elif(HP_def_CR == 1/8):
+                if(saveProfVal == 0):
+                    return 1/2
+                elif(saveProfVal == 2):
+                    return 1
+                else:
+                    return 2
+            elif(HP_def_CR == 1/4):
+                if(saveProfVal == 0):
+                    return 1
+                elif(saveProfVal == 2):
+                    return 2
+                else:
+                    return 3
+            elif(HP_def_CR == 1/2):
+                if(saveProfVal == 0):
+                    return 2
+                elif(saveProfVal == 2):
+                    return 3
+                else:
+                    return 4
+            else:
+                if(saveProfVal == 0):
+                    return HP_def_CR + 2
+                elif(saveProfVal == 2):
+                    return HP_def_CR + 3
+                else:
+                    return HP_def_CR + 4
         elif(AC == 14):
-            return HP_def_CR + 1
+            if(saveProfVal == 0):
+                return HP_def_CR + 1
+            elif(saveProfVal == 2):
+                return HP_def_CR + 2
+            else:
+                return HP_def_CR + 3
         elif(AC == 15):
-            return HP_def_CR + 1
+            if(saveProfVal == 0):
+                return HP_def_CR + 1
+            elif(saveProfVal == 2):
+                return HP_def_CR + 2
+            else:
+                return HP_def_CR + 3
         elif(AC == 16):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 17):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 18):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 19):
-            return HP_def_CR - 1
+            if(saveProfVal == 0):
+                return HP_def_CR - 1
+            elif(saveProfVal == 2):
+                return HP_def_CR
+            else:
+                return HP_def_CR + 1
         
     elif(in_AC == 16):
+        #
         if(AC == 13):
-            return HP_def_CR + 1
+            if(HP_def_CR == 0):
+                if(saveProfVal == 0):
+                    return 1/8
+                elif(saveProfVal == 2):
+                    return 1/4
+                else:
+                    return 1/2
+            elif(HP_def_CR == 1/8):
+                if(saveProfVal == 0):
+                    return 1/4
+                elif(saveProfVal == 2):
+                    return 1/2
+                else:
+                    return 1
+            elif(HP_def_CR == 1/4):
+                if(saveProfVal == 0):
+                    return 1/2
+                elif(saveProfVal == 2):
+                    return 1
+                else:
+                    return 2
+            elif(HP_def_CR == 1/2):
+                if(saveProfVal == 0):
+                    return 1
+                elif(saveProfVal == 2):
+                    return 2
+                else:
+                    return 3
+            else:
+                if(saveProfVal == 0):
+                    return HP_def_CR + 1
+                elif(saveProfVal == 2):
+                    return HP_def_CR + 2
+                else:
+                    return HP_def_CR + 3
         elif(AC == 14):
-            return HP_def_CR + 1
+            if(saveProfVal == 0):
+                return HP_def_CR + 1
+            elif(saveProfVal == 2):
+                return HP_def_CR + 2
+            else:
+                return HP_def_CR + 3
         elif(AC == 15):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 16):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 17):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 18):
-            return HP_def_CR - 1
+            if(saveProfVal == 0):
+                return HP_def_CR - 1
+            elif(saveProfVal == 2):
+                return HP_def_CR
+            else:
+                return HP_def_CR + 1
         elif(AC == 19):
-            return HP_def_CR - 1
+            if(saveProfVal == 0):
+                return HP_def_CR - 1
+            elif(saveProfVal == 2):
+                return HP_def_CR
+            else:
+                return HP_def_CR + 1
         
     elif(in_AC == 15):
+        #
         if(AC == 13):
-            return HP_def_CR + 1
+            if(HP_def_CR == 0):
+                if(saveProfVal == 0):
+                    return 1/8
+                elif(saveProfVal == 2):
+                    return 1/4
+                else:
+                    return 1/2
+            elif(HP_def_CR == 1/8):
+                if(saveProfVal == 0):
+                    return 1/4
+                elif(saveProfVal == 2):
+                    return 1/2
+                else:
+                    return 1
+            elif(HP_def_CR == 1/4):
+                if(saveProfVal == 0):
+                    return 1/2
+                elif(saveProfVal == 2):
+                    return 1
+                else:
+                    return 2
+            elif(HP_def_CR == 1/2):
+                if(saveProfVal == 0):
+                    return 1
+                elif(saveProfVal == 2):
+                    return 2
+                else:
+                    return 3
+            else:
+                if(saveProfVal == 0):
+                    return HP_def_CR + 1
+                elif(saveProfVal == 2):
+                    return HP_def_CR + 2
+                else:
+                    return HP_def_CR + 3
         elif(AC == 14):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 15):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 16):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 17):
-            return HP_def_CR - 1
+            if(saveProfVal == 0):
+                return HP_def_CR - 1
+            elif(saveProfVal == 2):
+                return HP_def_CR
+            else:
+                return HP_def_CR + 1
         elif(AC == 18):
-            return HP_def_CR - 1 
+            if(saveProfVal == 0):
+                return HP_def_CR - 1
+            elif(saveProfVal == 2):
+                return HP_def_CR
+            else:
+                return HP_def_CR + 1 
         elif(AC == 19):
-            return HP_def_CR - 2
+            if(saveProfVal == 0):
+                return HP_def_CR - 2 
+            elif(saveProfVal == 2):
+                return HP_def_CR - 1
+            else:
+                return HP_def_CR
         
     elif(in_AC == 14):
+        #
         if(AC == 13):
-            return HP_def_CR
+            if(HP_def_CR == 0):
+                if(saveProfVal == 0):
+                    return HP_def_CR
+                elif(saveProfVal == 2):
+                    return 1/8
+                else:
+                    return 1/4
+            elif(HP_def_CR == 1/8):
+                if(saveProfVal == 0):
+                    return HP_def_CR
+                elif(saveProfVal == 2):
+                    return 1/4
+                else:
+                    return 1/2
+            elif(HP_def_CR == 1/4):
+                if(saveProfVal == 0):
+                    return HP_def_CR
+                elif(saveProfVal == 2):
+                    return 1/2
+                else:
+                    return 1
+            elif(HP_def_CR == 1/2):
+                if(saveProfVal == 0):
+                    return HP_def_CR
+                elif(saveProfVal == 2):
+                    return 1
+                else:
+                    return 2
+            else:
+                if(saveProfVal == 0):
+                    return HP_def_CR
+                elif(saveProfVal == 2):
+                    return HP_def_CR + 1
+                else:
+                    return HP_def_CR + 2
         elif(AC == 14):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 15):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 16):
-            return HP_def_CR - 1
+            if(saveProfVal == 0):
+                return HP_def_CR - 1
+            elif(saveProfVal == 2):
+                return HP_def_CR
+            else:
+                return HP_def_CR + 1
         elif(AC == 17):
-            return HP_def_CR - 1
+            if(saveProfVal == 0):
+                return HP_def_CR - 1
+            elif(saveProfVal == 2):
+                return HP_def_CR
+            else:
+                return HP_def_CR + 1
         elif(AC == 18):
-            return HP_def_CR - 2 
+            if(saveProfVal == 0):
+                return HP_def_CR - 2 
+            elif(saveProfVal == 2):
+                return HP_def_CR - 1
+            else:
+                return HP_def_CR
         elif(AC == 19):
-            return HP_def_CR - 2
+            if(saveProfVal == 0):
+                return HP_def_CR - 2 
+            elif(saveProfVal == 2):
+                return HP_def_CR - 1
+            else:
+                return HP_def_CR
         
     elif(in_AC <= 13):
+        #
         if(AC == 13):
-            return HP_def_CR
+            if(HP_def_CR == 0):
+                if(saveProfVal == 0):
+                    return HP_def_CR
+                elif(saveProfVal == 2):
+                    return 1/8
+                else:
+                    return 1/4
+            elif(HP_def_CR == 1/8):
+                if(saveProfVal == 0):
+                    return HP_def_CR
+                elif(saveProfVal == 2):
+                    return 1/4
+                else:
+                    return 1/2
+            elif(HP_def_CR == 1/4):
+                if(saveProfVal == 0):
+                    return HP_def_CR
+                elif(saveProfVal == 2):
+                    return 1/2
+                else:
+                    return 1
+            elif(HP_def_CR == 1/2):
+                if(saveProfVal == 0):
+                    return HP_def_CR
+                elif(saveProfVal == 2):
+                    return 1
+                else:
+                    return 2
+            else:
+                if(saveProfVal == 0):
+                    return HP_def_CR
+                elif(saveProfVal == 2):
+                    return HP_def_CR + 1
+                else:
+                    return HP_def_CR + 2
         elif(AC == 14):
-            return HP_def_CR
+            if(saveProfVal == 0):
+                return HP_def_CR
+            elif(saveProfVal == 2):
+                return HP_def_CR + 1
+            else:
+                return HP_def_CR + 2
         elif(AC == 15):
-            return HP_def_CR - 1
+            if(saveProfVal == 0):
+                return HP_def_CR - 1
+            elif(saveProfVal == 2):
+                return HP_def_CR
+            else:
+                return HP_def_CR + 1
         elif(AC == 16):
-            return HP_def_CR - 1
+            if(saveProfVal == 0):
+                return HP_def_CR - 1
+            elif(saveProfVal == 2):
+                return HP_def_CR
+            else:
+                return HP_def_CR + 1
         elif(AC == 17):
-            return HP_def_CR - 2
+            if(saveProfVal == 0):
+                return HP_def_CR - 2 
+            elif(saveProfVal == 2):
+                return HP_def_CR - 1
+            else:
+                return HP_def_CR
         elif(AC == 18):
-            return HP_def_CR - 2
+            if(saveProfVal == 0):
+                return HP_def_CR - 2 
+            elif(saveProfVal == 2):
+                return HP_def_CR - 1
+            else:
+                return HP_def_CR
         elif(AC == 19):
-            return HP_def_CR - 3
-        
+            if(saveProfVal == 0):
+                return HP_def_CR - 3
+            elif(saveProfVal == 2):
+                return HP_def_CR - 2
+            else:
+                return HP_def_CR - 1
     else:
         print("Error in defensiveCR.py get_CR_rating")
 
-def cal_init_def_CR(hp, ac):
+def cal_init_def_CR(hp, ac,saveProfVal):
     if(hp <= 0):
         init_def_CR = 0
         return init_def_CR
     else:
         init_def_CR = cal_HP_defensive_CR(hp)
         corr_AC = calculate_stuff(hp)
-
-        init_def_CR = get_CR_rating(corr_AC, init_def_CR, ac)
-        return init_def_CR
+        
+        #if (ac < 19):
+            #finish checking if ac is greater than 19
+        
+        print("AC from cal_init_def_CR: ", ac)
+        
+        init_def_CR = get_CR_rating(corr_AC, init_def_CR, ac,saveProfVal)
+        if(init_def_CR < 1):
+            return init_def_CR
+        elif(init_def_CR > 30):
+            init_def_CR = 30
+            return init_def_CR
+        else:
+            return int(init_def_CR)
 

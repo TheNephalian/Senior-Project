@@ -18,6 +18,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from offensiveCR import *
 from defenseInputs import *
 from defensiveCR import *
+import combat
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1321,7 +1322,6 @@ class Ui_MainWindow(object):
             HP = resistancesORimmunity(self.resComboBox.currentText(), HP)
             print("Defensive CR armorValChange: ", cal_init_def_CR(HP, this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
             
-            
     def attkBonValChange(self, value):
         uses_saves = False
         if (self.savesCheckBox.isChecked()):
@@ -1449,8 +1449,6 @@ class Ui_MainWindow(object):
         else:
             print("CR val vulChecker: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
         
-        
-        
         if state == QtCore.Qt.Checked:
             print('Checked')
         else:
@@ -1470,4 +1468,10 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
+
+    print("***COMBAT***")
+    comSim = combat.combatSimulation()
+
+    comSim.combatSim()
+
     sys.exit(app.exec_())

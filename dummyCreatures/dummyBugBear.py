@@ -1,9 +1,8 @@
 from dummyCreature import *
 
-class bugBear (creature):
+class BugBear (creature):
 	def __init__(self):
-		bugBear.__init__
-
+		self.name = "Bugbear"
 		self.armor_cls = 16
 		self.hit_pts = 27
 		self.curr_hp = self.hit_pts

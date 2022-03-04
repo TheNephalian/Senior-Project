@@ -31,6 +31,11 @@ class creature():
 		init = random.randint(1,20) + self.dex_bns
 		return init
 
+	def attack(self):
+		#find player
+
+		atk_roll = self.attack_roll()
+
 	def attack_roll(self):
 		atk_roll = random.randint(1,20) + self.atk_bns #+ attr_bns. This will vary depending on the creature/player class
 		return atk_roll

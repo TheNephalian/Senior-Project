@@ -2,6 +2,7 @@ import random
 
 class creature():
 	def __init__(self):
+		self.name = "Dummy Creature"
 		self.challnge_rtg = 0
         #We'll need to keep track of two hp values in order to perform combat.
         #   one represents the creature/player's hp before combat/at the beginning of the round
@@ -11,6 +12,7 @@ class creature():
 		self.armor_cls = 0
 		self.prof_bns = 0
 		self.is_defeated = False
+		self.initative = 0
 		
 		#The following attribute scores are all default values
    		#   These will vary based on the creature/player class
@@ -28,6 +30,11 @@ class creature():
 	def roll_init(self):
 		init = random.randint(1,20) + self.dex_bns
 		return init
+
+	def attack(self):
+		#find player
+
+		atk_roll = self.attack_roll()
 
 	def attack_roll(self):
 		atk_roll = random.randint(1,20) + self.atk_bns #+ attr_bns. This will vary depending on the creature/player class

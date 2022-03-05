@@ -18,6 +18,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from offensiveCR import *
 from defenseInputs import *
 from defensiveCR import *
+import combat
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -1256,24 +1257,25 @@ class Ui_MainWindow(object):
     def hitPointsValueChange(self, value):
         #self.hitPointsSpinBox.value() hit points val 
         HP = self.hitPointsSpinBox.value()
+        saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
         
         
         if(self.vulCheckBox.checkState() == 0):
             HP = doesIthaveVulnerabilities(False,HP)
             HP = resistancesORimmunity(self.resComboBox.currentText(), HP)
-            dice = this_fun_cal_hitDice(HP,self.sizeComboBox.currentText(), self.constitSpinBox.value())
-            if (dice < 1):
-                self.diceSpinBox.setMinimum(dice)
-            self.diceSpinBox.setValue(dice)
-            print("Defensive CR hitPointsValueChange: ", cal_init_def_CR(HP, this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            print("AC: ", this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()))
+            
+            print("Defensive CR hitPointsValueChange: ", cal_init_def_CR(HP, this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
+            deff_CR = cal_init_def_CR(HP, this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+            if(deff_CR >= 1):
+                self.slider.setValue(deff_CR)
         else:
             HP = doesIthaveVulnerabilities(True,HP)
             HP = resistancesORimmunity(self.resComboBox.currentText(), HP)
-            dice = this_fun_cal_hitDice(HP,self.sizeComboBox.currentText(), self.constitSpinBox.value())
-            if (dice < 1):
-                self.diceSpinBox.setMinimum(dice)
-            self.diceSpinBox.setValue(dice)
-            print("Defensive CR hitPointsValueChange: ", cal_init_def_CR(HP, this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            print("Defensive CR hitPointsValueChange: ", cal_init_def_CR(HP, this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
+            deff_CR = cal_init_def_CR(HP, this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+            if(deff_CR >= 1):
+                self.slider.setValue(deff_CR)
         print("WIP")
         
         
@@ -1282,18 +1284,19 @@ class Ui_MainWindow(object):
         
     def diceChange(self, value):
         # self.sizeComboBox.currentText() is size of CR
+        saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
         if(self.vulCheckBox.checkState() == 0):
             valueHP = this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText())
             if(valueHP < 1):
                 self.hitPointsSpinBox.setMinimum(valueHP)
             self.hitPointsSpinBox.setValue(valueHP)
-            print("CR val diceChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            print("CR val diceChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
         else:
             valueHP = this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText())
             if(valueHP < 1):
                 self.hitPointsSpinBox.setMinimum(valueHP)
             self.hitPointsSpinBox.setValue(valueHP)
-            print("CR val diceChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            print("CR val diceChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
             
         print("comboBox changed", value)
         if self.sizeComboBox.currentText() == "Tiny":
@@ -1314,16 +1317,22 @@ class Ui_MainWindow(object):
 
     def armorValChange(self,value):
         # self.ArmorSpinBox.value() is the val of AC
+        saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
         HP = self.hitPointsSpinBox.value()
         if(self.vulCheckBox.checkState() == 0):
             HP = doesIthaveVulnerabilities(False,HP)
             HP = resistancesORimmunity(self.resComboBox.currentText(), HP)
-            print("Defensive CR armorValChange: ", cal_init_def_CR(HP, this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            deff_CR = cal_init_def_CR(HP, this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+            if(deff_CR >= 1):
+                self.slider.setValue(deff_CR)
+            print("Defensive CR armorValChange: ", cal_init_def_CR(HP, this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
         else:
             HP = doesIthaveVulnerabilities(True,HP)
             HP = resistancesORimmunity(self.resComboBox.currentText(), HP)
-            print("Defensive CR armorValChange: ", cal_init_def_CR(HP, this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
-            
+            deff_CR = cal_init_def_CR(HP, this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+            if(deff_CR >= 1):
+                self.slider.setValue(deff_CR)
+            print("Defensive CR armorValChange: ", cal_init_def_CR(HP, this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
             
     def attkBonValChange(self, value):
         uses_saves = False
@@ -1369,47 +1378,63 @@ class Ui_MainWindow(object):
 
     def diceValChange(self,value):
         #self.diceSpinBox.value() val of dice input 
+        saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
         if(self.vulCheckBox.checkState() == 0):
-            print("CR val diceValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            print("CR val diceValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
             valueHP = this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText())
             if(valueHP < 1):
                 self.hitPointsSpinBox.setMinimum(valueHP)
             self.hitPointsSpinBox.setValue(valueHP)
         else:
-            print("CR val diceValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
-            valueHP = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()))
+            print("CR val diceValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
+            valueHP = this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText())
             if(valueHP < 1):
                 self.hitPointsSpinBox.setMinimum(valueHP)
             self.hitPointsSpinBox.setValue(valueHP)
 
     def constitValChange(self,value):
         #self.constitSpinBox.value() val of constitution 
+        saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
         if(self.vulCheckBox.checkState() == 0):
             valueHP = this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText())
             if(valueHP < 1):
                 self.hitPointsSpinBox.setMinimum(valueHP)
             self.hitPointsSpinBox.setValue(valueHP)
-            print("CR val constitValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            print("CR val constitValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
         else:
-            valueHP = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()))
+            valueHP = this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText())
             if(valueHP < 1):
                 self.hitPointsSpinBox.setMinimum(valueHP)
             self.hitPointsSpinBox.setValue(valueHP)
-            print("CR val constitValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            print("CR val constitValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
 
     def resValChange(self,value):
         #self.resComboBox.currentText() val of resistances and imunitties
+        saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
         if(self.vulCheckBox.checkState() == 0):
-            print("CR val resValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+            if(deff_CR >= 1):
+                self.slider.setValue(deff_CR)
+            print("CR val resValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
         else:
-            print("CR val resValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+            if(deff_CR >= 1):
+                self.slider.setValue(deff_CR)
+            print("CR val resValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
         
     def saveValChange(self, value):
-        #saveProficienciesCal(self.saveComboBox.currentText() save proficiencies val 
+        #saveProficienciesCal(self.saveComboBox.currentText() save proficiencies val
+        saveProfVal = saveProficienciesCal(self.saveComboBox.currentText()) 
         if(self.vulCheckBox.checkState() == 0):
-            print("CR val saveValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+            if(deff_CR >= 1):
+                self.slider.setValue(deff_CR)
+            print("CR val saveValChange 1: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
         else:
-            print("CR val saveValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+            if(deff_CR >= 1):
+                self.slider.setValue(deff_CR)
+            print("CR val saveValChange 2: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
 
     def strValChange(self,value):
         str_bns = cal_attr_bns(value)
@@ -1442,12 +1467,17 @@ class Ui_MainWindow(object):
             print('Unchecked')
     def vulChecker(self,state):
         #self.vulCheckBox.checkState() val of vulnerabilities 
+        saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
         if(self.vulCheckBox.checkState() == 0):
-            print("CR val vulChecker: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
+            deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+            if(deff_CR >= 1):
+                self.slider.setValue(deff_CR)
+            print("CR val vulChecker: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
         else:
-            print("CR val vulChecker: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value())))
-        
-        
+            deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+            if(deff_CR >= 1):
+                self.slider.setValue(deff_CR)
+            print("CR val vulChecker: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
         
         if state == QtCore.Qt.Checked:
             print('Checked')
@@ -1468,4 +1498,10 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
+
+    print("***COMBAT***")
+    comSim = combat.combatSimulation()
+
+    comSim.combatSim()
+
     sys.exit(app.exec_())

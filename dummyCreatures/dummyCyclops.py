@@ -1,9 +1,8 @@
 from dummyCreature import *
 
-class cyclops (creature):
+class Cyclops (creature):
 	def __init__(self):
-		cyclops.__init__
-
+		self.name = "Cyclops"
 		self.armor_cls = 14
 		self.hit_pts = 138
 		self.curr_hp = self.hit_pts

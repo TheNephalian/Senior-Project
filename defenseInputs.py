@@ -213,26 +213,15 @@ def this_fun_cal_totalHP(dice, constitution, size, vul, ri):
         HP =  dice * size.hp + dice * constitution
         HP = resistancesORimmunity(ri,HP) 
         HP = doesIthaveVulnerabilities(vul, HP)
-        return math.floor(HP)
-        
-def this_fun_cal_hitDice(hp,size,constitution):
-    constitution = Constitution(constitution)
-    size = Size(size)
-    dice = hp / (constitution + size.hp)
-    return round(dice)
-
+        if(HP < 1):
+            return 1
+        else:
+            return math.floor(HP)
 
 def this_fun_adds_AC(prof, currentAC):
-    if (currentAC == 19):
-        AC = currentAC
-        return AC
-    elif (currentAC == 18):
-        AC = currentAC + 1
-        return AC
-    else:
-        profadded = saveProficienciesCal(prof)
-        AC = currentAC + profadded
-        return AC
+    profadded = saveProficienciesCal(prof)
+    AC = currentAC + profadded
+    return AC
     
     
 #print(cal_init_def_CR(this_fun_cal_totalHP(1,1,"Tiny",False,False),this_fun_adds_AC(5,3))) # 0

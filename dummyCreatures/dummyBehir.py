@@ -1,9 +1,8 @@
 from dummyCreature import *
 
-class behir (creature):
+class Behir (creature):
 	def __init__(self):
-		behir.__init__
-
+		self.name = "Behir"
 		self.armor_cls = 17
 		self.hit_pts = 168
 		self.curr_hp = self.hit_pts

@@ -1,8 +1,7 @@
 from dummyCreature import *
-class ancientRedDragon (creature):
+class AncientRedDragon (creature):
 	def __init__(self):
-		ancientRedDragon.__init__
-
+		self.name = "Ancient Red Dragon"
 		self.armor_cls = 22
 		self.hit_pts = 546
 		self.curr_hp = self.hit_pts

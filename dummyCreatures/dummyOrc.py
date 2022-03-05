@@ -1,9 +1,8 @@
 from dummyCreature import *
 
-class orc (creature):
+class Orc (creature):
 	def __init__(self):
-		orc.__init__
-
+		self.name = "Orc"
 		self.armor_cls = 13
 		self.hit_pts = 15
 		self.curr_hp = self.hit_pts

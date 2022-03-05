@@ -1,9 +1,8 @@
 from dummyCreature import *
 
-class purpleWorm (creature):
+class PurpleWorm (creature):
 	def __init__(self):
-		purpleWorm.__init__
-
+		self.name = "Purple Worm"
 		self.armor_cls = 18
 		self.hit_pts = 247
 		self.curr_hp = self.hit_pts

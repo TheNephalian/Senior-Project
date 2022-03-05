@@ -761,11 +761,6 @@ def cal_init_def_CR(hp, ac,saveProfVal):
         init_def_CR = cal_HP_defensive_CR(hp)
         corr_AC = calculate_stuff(hp)
         
-        #if (ac < 19):
-            #finish checking if ac is greater than 19
-        
-        #print("AC from cal_init_def_CR: ", ac)
-        
         init_def_CR = get_CR_rating(corr_AC, init_def_CR, ac,saveProfVal)
         if(init_def_CR < 1):
             return init_def_CR

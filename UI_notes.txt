@@ -19,12 +19,12 @@ Name can be any string of characters, no hard limit on number of characters
 Size can be one of the following
 - Tiny, Small, Medium, Large, Huge, Gargantuan
 
-Creature Type can be any of the following
+***Second Tab*** Creature Type can be any of the following
 - Aberration, Beast, Celestial, Construct, Dragon, Elemental, Fey, Fiend, Giant, Humanoid, Monstrosity, Ooze, Plant, Undead
 
 Creature Subtype can be any string of characters, no hard limit or categories
 
-Alignment can be any of the following
+***Second Tab*** Alignment can be any of the following
 - Any Alignment, Any Chaotic Alignment, Any Evil Alignment, Any Good Alignment, Any Lawful Alignment, Any Non-Good Alignment, Any Non-Lawful Alignment, Chaotic Evil, Chaotic Good, Chaotic Neutral, Lawful Evil, Lawful Good, Lawful Neutral, Neutral, Neutral Evil, Neutral Good, Typically Chaotic Evil, Typically Chaotic Good, Typically Chaotic Neutral, Typtically Lawful Evil, Typically Lawful Good, Typically Lawful Neutral, Typically Neutral, Typically Neutral Evil, Typically Neutral Good, Unaligned
 --------------------------------------------------
 Stat Block pt. 1:
@@ -39,7 +39,7 @@ Hit Points can be any integer value, but its based on other user inputs and will
   Some examples: 135 (18d10 + 36)
                  9 (2d8) <- notice how this creature has no second integer value. This is determined from a calculation resulting in a 0. A 0 should not be displayed, in the hit points display.
 
-Speed can be any integer value in multiples of 5, and usually <= 60. This also includes the type of movement the creature has. The different types of movement are as follows
+***Second Tab*** Speed can be any integer value in multiples of 5, and usually <= 60. This also includes the type of movement the creature has. The different types of movement are as follows
 - normal movement (no special display), burrow, climb, fly (hover or not), swim <- these other movement types are indicated as such
  A creature can have one or all of these movement speeds, with different values in each.
   Some examples: 0 ft., fly 30 ft. <-the 0 means it has no ground movement speed.
@@ -73,7 +73,7 @@ Languages
 Challenge
 Proficiency Bonus
 
-Saving Throws are attributes the creature is proficient in. If a creature is proficient in an attribute, it should be displayed here. A creature can be proficient in one or more attributes. If it is proficient in one or more, they are always in the following order of precedence when displayed:
+***First Tab*** Saving Throws are attributes the creature is proficient in. If a creature is proficient in an attribute, it should be displayed here. A creature can be proficient in one or more attributes. If it is proficient in one or more, they are always in the following order of precedence when displayed:
  STR, DEX, CON, INT, WIS, CHA
 The display of each saving throw has the following format
  ATTRIBUTE +/-int
@@ -84,7 +84,7 @@ The display of each saving throw has the following format
  The int value is calculated from other inputs.
 If a creature isn't proficient in ANY Saving Throws, then the Saving Throws portion of this block should not be displayed.
  
-Skills are similar to Saving Throws in some ways, however the list of possible skills is longer. The list of skills is as follows:
+***Second Tab*** Skills are similar to Saving Throws in some ways, however the list of possible skills is longer. The list of skills is as follows:
  - Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation, Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival
   They are always presented in that order of precedence.
   A creature can be proficient in one or more skills, and if it isn't proficient in the skill, it should not be displayed.
@@ -95,6 +95,7 @@ Skills are similar to Saving Throws in some ways, however the list of possible s
 	The int value is calculated from other user inputs
 If a creature isn't proficient in ANY Skills, then the Skills portion of this block should not be displayed.
 
+***First Tab*** Damage Modifications
 Damage Resistances, Vulnerabilities, and Immunities can be lumped up for easier coding. They are all a list of damage types. These are all the base damage types:
  Acid, Bludgeoning, Cold, Fire, Force, Lightning, Necrotic, Piercing, Poison, Psychic, Radiant, Slashing, Thunder
 A creature can have Resistance, a Vulnerability to, or have Immunity against one or more of these damage types. However, sometimes there are groupings. We'll stick to the most common ones. They are as follows:
@@ -115,11 +116,11 @@ If a creature has a combination of Damage Resistances/Vulnerabilities/Immunities
  Damage Vulnerabililites [list of damage vulnerabilities]
  Damage Immunities [list of damage immunities]
 
-Condition Immunities are a list of conditions a creature could be immune to. If it isn't immune to the condition, then the condition should not be displayed. The various condition immunities are as follows (they are ordered in this precedence)
+***Second Tab*** Condition Immunities are a list of conditions a creature could be immune to. If it isn't immune to the condition, then the condition should not be displayed. The various condition immunities are as follows (they are ordered in this precedence)
  - Blinded, Charmed, Deafened, Exhaustion, Frightened, Grappled, Incapacitated, Invisible, Paralyzed, Petrified, Poisoned, Prone, Restrained, Stunned, Unconcsious
 If the creature has no Condition Immunities, then the Condition Immunities portion of this block should not be displayed.
 
-Senses are the various ways a creature can detect something. They are listed as follows:
+***Second Tab*** Senses are the various ways a creature can detect something. They are listed as follows:
 - Blindsight, Darkvision, Tremorsense, Truesight
 They are displayed in that order of precedence, and if a creature doesn't have one of these senses, that sense is not displayed.
 Along with these senses, a sense called Passive Perception is always displayed, even if the creature doesn't have one of the above senses. Passive Perception is always followed by an int value, which is calculated based on other user inputs.
@@ -129,7 +130,7 @@ Some examples,
  Passive Perception 9
  Blindsight 120 ft., Darkvision 60 ft., Passive Perception 12
 
-Languages are the various languages a creature can speak. They are as follows:
+***Second Tab*** Languages are the various languages a creature can speak. They are as follows:
 - Abyssal, Celestial, Common, Deep Speech, Draconic, Dwarvish, Elvish, Giant, Gnomish, Goblic, Halfic, Infernal, Orc, Primordial, Sylvan, Undercommon
 They are always displayed in that order of precendence, and a creature can know one or more of these languages.
 Additionally, a creature can have Telepathy. This "language" is always followed by a range to at which the creature can use its Telepathy. This is an int value in multiples of 10 ft. Telepathy is always the last displayed. We can limit its range to 600 ft. for now.

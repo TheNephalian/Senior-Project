@@ -151,10 +151,16 @@ class combatSimulation():
 
 		return
 		
+	def does_it_Hit(self):
+		
+		return
 
 	def combatSim(self):
 		print("Rolling initiative for all combatanants!")
 
 		self.rollInit()
+
+		for l in range (0, len(self.initiativeOrder)):
+			self.initiativeOrder[l].attack()
 
 		return

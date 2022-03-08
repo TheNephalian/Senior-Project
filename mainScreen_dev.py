@@ -1556,8 +1556,8 @@ if __name__ == "__main__":
     MainWindow.show()
 
     print("***COMBAT***")
-    #comSim = combat.combatSimulation()
+    comSim = combat.combatSimulation()
 
-    #comSim.combatSim()
+    comSim.combatSim()
 
     sys.exit(app.exec_())

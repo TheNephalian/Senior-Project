@@ -770,3 +770,6 @@ def cal_init_def_CR(hp, ac,saveProfVal):
         else:
             return int(init_def_CR)
 
+def get_Average_of_Deff_and_Off(deffCR, OffCR):
+    averg = (deffCR + OffCR)/2
+    return int(averg)

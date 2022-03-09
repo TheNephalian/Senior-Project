@@ -46,6 +46,13 @@ class Ui_Dialog(object):
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout.addWidget(self.scrollArea)
 
+        for i in  range(10000):
+            self.horizontalSlider.setValue(i)
+            # battle the characters
+
+            print(i)
+        print("test completed!")
+
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
@@ -54,6 +61,9 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.label.setText(_translate("Dialog", "Test Running !"))
         self.label_2.setText(_translate("Dialog", "yxz out of ABC"))
+
+        
+            
 
 
 if __name__ == "__main__":

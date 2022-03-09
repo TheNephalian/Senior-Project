@@ -1,15 +1,15 @@
 from dummyCreature import *
 
-class zombie (creature):
+class Zombie (creature):
 	def __init__(self):
-		zombie.__init__
-
+		self.name = "Zombie"
 		self.armor_cls = 8
 		self.hit_pts = 22
 		self.curr_hp = self.hit_pts
 		self.challnge_rtg = 1/4
 		self.prof_bns = 2
 		self.is_defeated = False
+		self.initative = 0
 
 		self.strength = 13
 		self.dexterity = 6

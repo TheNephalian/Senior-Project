@@ -1,9 +1,8 @@
 from dummyCreature import *
 
-class giantRat (creature):
+class GiantRat (creature):
 	def __init__(self):
-		giantRat.__init__
-
+		self.name = "Giant Rat"
 		self.armor_cls = 12
 		self.hit_pts = 7
 		self.curr_hp = self.hit_pts

@@ -68,10 +68,10 @@ The player class will need the following member functions (not sure what kind of
 
 		parameterized constructor
 
-The next 13 class could all be made into subclasses of the player class
-Each one represents a different character class a player can be
-	They are as follows:
-	artificer, barbarian, bard, cleric, druid, fighter, monk, paladin, ranger, sorcerer, warlock, wizard
+	The next 13 class could all be made into subclasses of the player class
+	Each one represents a different character class a player can be
+		They are as follows:
+		artificer, barbarian, bard, cleric, druid, fighter, monk, paladin, ranger, sorcerer, warlock, wizard
 
-Each class will differ simply in their stats, which will be hard-coded. They'll all have the same functions inherited by the player superclass.
-	For now, use whatever numbers you'd like. We just need to be able to tie this to the UI soon and be able to test it.
+	Each class will differ simply in their stats, which will be hard-coded. They'll all have the same functions inherited by the player superclass.
+		For now, use whatever numbers you'd like. We just need to be able to tie this to the UI soon and be able to test it.

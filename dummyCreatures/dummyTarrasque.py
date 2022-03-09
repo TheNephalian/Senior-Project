@@ -1,9 +1,8 @@
 from dummyCreature import *
 
-class tarrasque (creature):
+class Tarrasque (creature):
 	def __init__(self):
-		tarrasque.__init__
-
+		self.name = "Tarrasque"
 		self.armor_cls = 25
 		self.hit_pts = 676
 		self.curr_hp = self.hit_pts

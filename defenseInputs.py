@@ -76,11 +76,15 @@ def die(input_of_die):
     else:
         print("error")
         
-def resistancesORimmunity(ri):
-    if (ri == "Resistances" or ri == "Immunities"):
-        return True
+def resistancesORimmunity(ri,hp):
+    if (ri == "Resistances"):
+        hp = hp * 1.5
+        return math.floor(hp)
+    elif(ri == "Immunities"):
+        hp = hp * 2
+        return math.floor(hp)
     else:
-        return False
+        return math.floor(hp)
 
 '''this function will get constitution attribute range'''
 def Constitution(constit):
@@ -158,11 +162,12 @@ Vulnerabilities
 If a creature has any, it's hp are 'effectively' halved
 '''
 
-def doesIthaveVulnerabilities(vul):
+def doesIthaveVulnerabilities(vul, hp):
     if vul == True:
-        return vul
+        hp = hp / 2
+        return math.floor(hp)
     else:
-        return vul
+        return hp
 
 '''
 Save Proficiencies
@@ -199,41 +204,24 @@ def saveProficienciesCal(cal):
 '''this fun gets the total HP based on the dice, constitution, size, and vulnerabilities '''
 def this_fun_cal_totalHP(dice, constitution, size, vul, ri):
     if (dice == 0 and constitution == 0):
-        HP = 0
+        HP 
         return HP 
     else :
-        dice = die(dice)
+        #dice = die(dice)
         constitution = Constitution(constitution)
         size = Size(size)
-        vul = doesIthaveVulnerabilities(vul)
-        tfval = resistancesORimmunity(ri) 
         HP =  dice * size.hp + dice * constitution
-    
-    if (vul == True and tfval == False):
-       HP = HP / 2
-       return HP
-    elif(vul == False and tfval == True):
-        HP = HP * 2
-        return HP
-    elif(vul == True and tfval == True):
-        return HP
-    else:
-        return HP
-        
-
-
+        HP = resistancesORimmunity(ri,HP) 
+        HP = doesIthaveVulnerabilities(vul, HP)
+        if(HP < 1):
+            return 1
+        else:
+            return math.floor(HP)
 
 def this_fun_adds_AC(prof, currentAC):
-    if (currentAC == 19):
-        AC = currentAC
-        return AC
-    elif (currentAC == 18):
-        AC = currentAC + 1
-        return AC
-    else:
-        profadded = saveProficienciesCal(prof)
-        AC = currentAC + profadded
-        return AC
+    profadded = saveProficienciesCal(prof)
+    AC = currentAC + profadded
+    return AC
     
     
 #print(cal_init_def_CR(this_fun_cal_totalHP(1,1,"Tiny",False,False),this_fun_adds_AC(5,3))) # 0

@@ -1,9 +1,8 @@
 from dummyCreature import *
 
-class minotaur (creature):
+class Minotaur (creature):
 	def __init__(self):
-		minotaur.__init__
-
+		self.name = "Minotaur"
 		self.armor_cls = 14
 		self.hit_pts = 76
 		self.curr_hp = self.hit_pts

@@ -10,10 +10,17 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from testModScreen import *
+from StatBlockScreen import Ui_MainWindow
 
+#numRounds
 
 class Ui_Dialog(object):
 
+    def showDetails(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -28,21 +35,37 @@ class Ui_Dialog(object):
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.gridLayout = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName("gridLayout")
-        self.label = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName("label")
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+        self.label_3 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setObjectName("label_3")
+        self.gridLayout.addWidget(self.label_3, 2, 1, 1, 1)
+        self.testCompleteLabel = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.testCompleteLabel.setMaximumSize(QtCore.QSize(16777215, 20))
+        self.testCompleteLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.testCompleteLabel.setObjectName("testCompleteLabel")
+        self.testCompleteLabel.hide()
+        self.gridLayout.addWidget(self.testCompleteLabel, 3, 0, 1, 3)
+        self.label_2 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.label_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
+        self.label_4 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.label_4.setEnabled(True)
+        self.label_4.setObjectName("label_4")
+        self.gridLayout.addWidget(self.label_4, 2, 2, 1, 1)
         self.horizontalSlider = QtWidgets.QSlider(self.scrollAreaWidgetContents)
+        self.horizontalSlider.setMaximum(1000)
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider.setTickPosition(QtWidgets.QSlider.TicksAbove)
         self.horizontalSlider.setObjectName("horizontalSlider")
-        self.gridLayout.addWidget(self.horizontalSlider, 1, 0, 1, 1)
-        self.label_2 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.label_2.setFont(font)
-        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_2.setObjectName("label_2")
-        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.horizontalSlider, 1, 0, 1, 3)
+        self.label = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.label.setObjectName("label")
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 3)
+        self.pushButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents, clicked = lambda: self.showDetails())
+        self.pushButton.setEnabled(False)
+        self.pushButton.setObjectName("pushButton")
+        self.gridLayout.addWidget(self.pushButton, 4, 0, 1, 3)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout.addWidget(self.scrollArea)
 
@@ -52,6 +75,8 @@ class Ui_Dialog(object):
 
             print(i)
         print("test completed!")
+        self.pushButton.setEnabled(True)
+        self.testCompleteLabel.show()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -59,11 +84,12 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label.setText(_translate("Dialog", "Test Running !"))
-        self.label_2.setText(_translate("Dialog", "yxz out of ABC"))
-
-        
-            
+        self.label_3.setText(_translate("Dialog", "out of"))
+        self.testCompleteLabel.setText(_translate("Dialog", "<html><head/><body><p><span style=\" color:#ff0000;\">Test Complete !</span></p></body></html>"))
+        self.label_2.setText(_translate("Dialog", "ABC"))
+        self.label_4.setText(_translate("Dialog", "XYZ"))
+        self.label.setText(_translate("Dialog", "Test Running ! // put all combat dialouge here"))
+        self.pushButton.setText(_translate("Dialog", "Continue"))
 
 
 if __name__ == "__main__":

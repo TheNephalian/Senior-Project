@@ -15,7 +15,20 @@ numRounds = random.randint(1,10000)
 numRoundsWon = random.randint(0, numRounds)
 numRoundsLost = numRounds - numRoundsWon
 
+def gcd (n,m):
+    d = min(n,m)
+    while   n %  d  !=   0  or  m  %  d  !=   0:
+        d =  d  -  1
+    return  d
+def reduce (num, den):
+    if num == 0:
+      return  (0,   1)
+    g =  gcd(num,      den)
+    return  (num    //  g,   den   //  g)
 
+num = numRoundsWon
+den = numRoundsLost
+(n,d) = reduce(num, den)
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -88,7 +101,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_3.setText(_translate("MainWindow", "# of Rounds Won"))
-        self.ratioLabel.setText(_translate("MainWindow", "TextLabel"))
+        self.ratioLabel.setText(_translate("MainWindow", "%d/%d can be reduced to  %d/%d." % (num,den,n,d)))
         self.label_10.setText(_translate("MainWindow", "W/L Ratio"))
         self.numRoundsWonLabel.setText(_translate("MainWindow", str(numRoundsWon)))
         self.label_8.setText(_translate("MainWindow", "Win Percentage"))

@@ -155,12 +155,13 @@ class combatSimulation():
 		
 		return
 
+	#COMBAT IS WIP
 	def combatSim(self):
 		print("Rolling initiative for all combatanants!")
 
 		self.rollInit()
 
-		for l in range (0, len(self.initiativeOrder)):
-			self.initiativeOrder[l].attack()
+		#for l in range (0, len(self.initiativeOrder)):
+		#	self.initiativeOrder[l].attack()
 
 		return

@@ -160,7 +160,7 @@ class combatSimulation():
 
 		self.rollInit()
 
-		for l in range (0, len(self.initiativeOrder)):
-			self.initiativeOrder[l].attack()
+		#for l in range (0, len(self.initiativeOrder)):
+		#	self.initiativeOrder[l].attack()
 
 		return

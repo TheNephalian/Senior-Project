@@ -24,7 +24,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -43,9 +43,9 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-1310</y>
              <width>1219</width>
-             <height>2255</height>
+             <height>2242</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -778,6 +778,11 @@
                       <string>13</string>
                      </property>
                     </item>
+                    <item row="2" column="0">
+                     <property name="text">
+                      <string>1/4</string>
+                     </property>
+                    </item>
                     <item row="2" column="1">
                      <property name="text">
                       <string>50</string>
@@ -791,6 +796,11 @@
                     <item row="2" column="3">
                      <property name="text">
                       <string>13</string>
+                     </property>
+                    </item>
+                    <item row="2" column="4">
+                     <property name="text">
+                      <string>36-49</string>
                      </property>
                     </item>
                     <item row="2" column="5">
@@ -808,6 +818,11 @@
                       <string>13</string>
                      </property>
                     </item>
+                    <item row="3" column="0">
+                     <property name="text">
+                      <string>1/2</string>
+                     </property>
+                    </item>
                     <item row="3" column="1">
                      <property name="text">
                       <string>100</string>
@@ -821,6 +836,11 @@
                     <item row="3" column="3">
                      <property name="text">
                       <string>13</string>
+                     </property>
+                    </item>
+                    <item row="3" column="4">
+                     <property name="text">
+                      <string>50-70</string>
                      </property>
                     </item>
                     <item row="3" column="5">
@@ -838,6 +858,11 @@
                       <string>13</string>
                      </property>
                     </item>
+                    <item row="4" column="0">
+                     <property name="text">
+                      <string>1</string>
+                     </property>
+                    </item>
                     <item row="4" column="1">
                      <property name="text">
                       <string>200</string>
@@ -851,6 +876,11 @@
                     <item row="4" column="3">
                      <property name="text">
                       <string>13</string>
+                     </property>
+                    </item>
+                    <item row="4" column="4">
+                     <property name="text">
+                      <string>71-85</string>
                      </property>
                     </item>
                     <item row="4" column="5">
@@ -868,14 +898,29 @@
                       <string>13</string>
                      </property>
                     </item>
+                    <item row="5" column="0">
+                     <property name="text">
+                      <string>2</string>
+                     </property>
+                    </item>
                     <item row="5" column="1">
                      <property name="text">
                       <string>450</string>
                      </property>
                     </item>
+                    <item row="5" column="2">
+                     <property name="text">
+                      <string>2</string>
+                     </property>
+                    </item>
                     <item row="5" column="3">
                      <property name="text">
                       <string>13</string>
+                     </property>
+                    </item>
+                    <item row="5" column="4">
+                     <property name="text">
+                      <string>86-100</string>
                      </property>
                     </item>
                     <item row="5" column="5">
@@ -893,14 +938,29 @@
                       <string>13</string>
                      </property>
                     </item>
+                    <item row="6" column="0">
+                     <property name="text">
+                      <string>3</string>
+                     </property>
+                    </item>
                     <item row="6" column="1">
                      <property name="text">
                       <string>700</string>
                      </property>
                     </item>
+                    <item row="6" column="2">
+                     <property name="text">
+                      <string>2</string>
+                     </property>
+                    </item>
                     <item row="6" column="3">
                      <property name="text">
                       <string>13</string>
+                     </property>
+                    </item>
+                    <item row="6" column="4">
+                     <property name="text">
+                      <string>101-115</string>
                      </property>
                     </item>
                     <item row="6" column="5">
@@ -918,14 +978,29 @@
                       <string>13</string>
                      </property>
                     </item>
+                    <item row="7" column="0">
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
                     <item row="7" column="1">
                      <property name="text">
                       <string>1100</string>
                      </property>
                     </item>
+                    <item row="7" column="2">
+                     <property name="text">
+                      <string>3</string>
+                     </property>
+                    </item>
                     <item row="7" column="3">
                      <property name="text">
                       <string>14</string>
+                     </property>
+                    </item>
+                    <item row="7" column="4">
+                     <property name="text">
+                      <string>116-130</string>
                      </property>
                     </item>
                     <item row="7" column="5">
@@ -943,14 +1018,29 @@
                       <string>14</string>
                      </property>
                     </item>
+                    <item row="8" column="0">
+                     <property name="text">
+                      <string>5</string>
+                     </property>
+                    </item>
                     <item row="8" column="1">
                      <property name="text">
                       <string>1800</string>
                      </property>
                     </item>
+                    <item row="8" column="2">
+                     <property name="text">
+                      <string>3</string>
+                     </property>
+                    </item>
                     <item row="8" column="3">
                      <property name="text">
                       <string>15</string>
+                     </property>
+                    </item>
+                    <item row="8" column="4">
+                     <property name="text">
+                      <string>131-145</string>
                      </property>
                     </item>
                     <item row="8" column="5">
@@ -968,14 +1058,29 @@
                       <string>15</string>
                      </property>
                     </item>
+                    <item row="9" column="0">
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
                     <item row="9" column="1">
                      <property name="text">
                       <string>2300</string>
                      </property>
                     </item>
+                    <item row="9" column="2">
+                     <property name="text">
+                      <string>3</string>
+                     </property>
+                    </item>
                     <item row="9" column="3">
                      <property name="text">
                       <string>15</string>
+                     </property>
+                    </item>
+                    <item row="9" column="4">
+                     <property name="text">
+                      <string>146-160</string>
                      </property>
                     </item>
                     <item row="9" column="5">
@@ -993,14 +1098,29 @@
                       <string>15</string>
                      </property>
                     </item>
+                    <item row="10" column="0">
+                     <property name="text">
+                      <string>7</string>
+                     </property>
+                    </item>
                     <item row="10" column="1">
                      <property name="text">
                       <string>2900</string>
                      </property>
                     </item>
+                    <item row="10" column="2">
+                     <property name="text">
+                      <string>3</string>
+                     </property>
+                    </item>
                     <item row="10" column="3">
                      <property name="text">
                       <string>15</string>
+                     </property>
+                    </item>
+                    <item row="10" column="4">
+                     <property name="text">
+                      <string>161-175</string>
                      </property>
                     </item>
                     <item row="10" column="5">
@@ -1018,14 +1138,29 @@
                       <string>15</string>
                      </property>
                     </item>
+                    <item row="11" column="0">
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                    </item>
                     <item row="11" column="1">
                      <property name="text">
                       <string>3900</string>
                      </property>
                     </item>
+                    <item row="11" column="2">
+                     <property name="text">
+                      <string>3</string>
+                     </property>
+                    </item>
                     <item row="11" column="3">
                      <property name="text">
                       <string>16</string>
+                     </property>
+                    </item>
+                    <item row="11" column="4">
+                     <property name="text">
+                      <string>176-190</string>
                      </property>
                     </item>
                     <item row="11" column="5">
@@ -1043,14 +1178,29 @@
                       <string>16</string>
                      </property>
                     </item>
+                    <item row="12" column="0">
+                     <property name="text">
+                      <string>9</string>
+                     </property>
+                    </item>
                     <item row="12" column="1">
                      <property name="text">
                       <string>5000</string>
                      </property>
                     </item>
+                    <item row="12" column="2">
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
                     <item row="12" column="3">
                      <property name="text">
                       <string>16</string>
+                     </property>
+                    </item>
+                    <item row="12" column="4">
+                     <property name="text">
+                      <string>191-205</string>
                      </property>
                     </item>
                     <item row="12" column="5">
@@ -1068,14 +1218,29 @@
                       <string>16</string>
                      </property>
                     </item>
+                    <item row="13" column="0">
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                    </item>
                     <item row="13" column="1">
                      <property name="text">
                       <string>7200</string>
                      </property>
                     </item>
+                    <item row="13" column="2">
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
                     <item row="13" column="3">
                      <property name="text">
                       <string>17</string>
+                     </property>
+                    </item>
+                    <item row="13" column="4">
+                     <property name="text">
+                      <string>206-220</string>
                      </property>
                     </item>
                     <item row="13" column="5">
@@ -1093,14 +1258,29 @@
                       <string>16</string>
                      </property>
                     </item>
+                    <item row="14" column="0">
+                     <property name="text">
+                      <string>11</string>
+                     </property>
+                    </item>
                     <item row="14" column="1">
                      <property name="text">
                       <string>8400</string>
                      </property>
                     </item>
+                    <item row="14" column="2">
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
                     <item row="14" column="3">
                      <property name="text">
                       <string>17</string>
+                     </property>
+                    </item>
+                    <item row="14" column="4">
+                     <property name="text">
+                      <string>221-235</string>
                      </property>
                     </item>
                     <item row="14" column="5">
@@ -1118,14 +1298,29 @@
                       <string>17</string>
                      </property>
                     </item>
+                    <item row="15" column="0">
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                    </item>
                     <item row="15" column="1">
                      <property name="text">
                       <string>10000</string>
                      </property>
                     </item>
+                    <item row="15" column="2">
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
                     <item row="15" column="3">
                      <property name="text">
                       <string>17</string>
+                     </property>
+                    </item>
+                    <item row="15" column="4">
+                     <property name="text">
+                      <string>236-250</string>
                      </property>
                     </item>
                     <item row="15" column="5">
@@ -1143,14 +1338,29 @@
                       <string>18</string>
                      </property>
                     </item>
+                    <item row="16" column="0">
+                     <property name="text">
+                      <string>13</string>
+                     </property>
+                    </item>
                     <item row="16" column="1">
                      <property name="text">
                       <string>11500</string>
                      </property>
                     </item>
+                    <item row="16" column="2">
+                     <property name="text">
+                      <string>5</string>
+                     </property>
+                    </item>
                     <item row="16" column="3">
                      <property name="text">
                       <string>18</string>
+                     </property>
+                    </item>
+                    <item row="16" column="4">
+                     <property name="text">
+                      <string>251-265</string>
                      </property>
                     </item>
                     <item row="16" column="5">
@@ -1168,14 +1378,29 @@
                       <string>18</string>
                      </property>
                     </item>
+                    <item row="17" column="0">
+                     <property name="text">
+                      <string>14</string>
+                     </property>
+                    </item>
                     <item row="17" column="1">
                      <property name="text">
                       <string>13000</string>
                      </property>
                     </item>
+                    <item row="17" column="2">
+                     <property name="text">
+                      <string>5</string>
+                     </property>
+                    </item>
                     <item row="17" column="3">
                      <property name="text">
                       <string>18</string>
+                     </property>
+                    </item>
+                    <item row="17" column="4">
+                     <property name="text">
+                      <string>266-280</string>
                      </property>
                     </item>
                     <item row="17" column="5">
@@ -1193,14 +1418,29 @@
                       <string>18</string>
                      </property>
                     </item>
+                    <item row="18" column="0">
+                     <property name="text">
+                      <string>15</string>
+                     </property>
+                    </item>
                     <item row="18" column="1">
                      <property name="text">
                       <string>15000</string>
                      </property>
                     </item>
+                    <item row="18" column="2">
+                     <property name="text">
+                      <string>5</string>
+                     </property>
+                    </item>
                     <item row="18" column="3">
                      <property name="text">
                       <string>18</string>
+                     </property>
+                    </item>
+                    <item row="18" column="4">
+                     <property name="text">
+                      <string>281-295</string>
                      </property>
                     </item>
                     <item row="18" column="5">
@@ -1218,14 +1458,29 @@
                       <string>18</string>
                      </property>
                     </item>
+                    <item row="19" column="0">
+                     <property name="text">
+                      <string>16</string>
+                     </property>
+                    </item>
                     <item row="19" column="1">
                      <property name="text">
                       <string>18000</string>
                      </property>
                     </item>
+                    <item row="19" column="2">
+                     <property name="text">
+                      <string>5</string>
+                     </property>
+                    </item>
                     <item row="19" column="3">
                      <property name="text">
                       <string>18</string>
+                     </property>
+                    </item>
+                    <item row="19" column="4">
+                     <property name="text">
+                      <string>296-310</string>
                      </property>
                     </item>
                     <item row="19" column="5">
@@ -1243,14 +1498,29 @@
                       <string>18</string>
                      </property>
                     </item>
+                    <item row="20" column="0">
+                     <property name="text">
+                      <string>17</string>
+                     </property>
+                    </item>
                     <item row="20" column="1">
                      <property name="text">
                       <string>20000</string>
                      </property>
                     </item>
+                    <item row="20" column="2">
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
                     <item row="20" column="3">
                      <property name="text">
                       <string>19</string>
+                     </property>
+                    </item>
+                    <item row="20" column="4">
+                     <property name="text">
+                      <string>311-325</string>
                      </property>
                     </item>
                     <item row="20" column="5">
@@ -1268,14 +1538,29 @@
                       <string>19</string>
                      </property>
                     </item>
+                    <item row="21" column="0">
+                     <property name="text">
+                      <string>18</string>
+                     </property>
+                    </item>
                     <item row="21" column="1">
                      <property name="text">
                       <string>25000</string>
                      </property>
                     </item>
+                    <item row="21" column="2">
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
                     <item row="21" column="3">
                      <property name="text">
                       <string>19</string>
+                     </property>
+                    </item>
+                    <item row="21" column="4">
+                     <property name="text">
+                      <string>326-340</string>
                      </property>
                     </item>
                     <item row="21" column="5">
@@ -1293,14 +1578,29 @@
                       <string>19</string>
                      </property>
                     </item>
+                    <item row="22" column="0">
+                     <property name="text">
+                      <string>19</string>
+                     </property>
+                    </item>
                     <item row="22" column="1">
                      <property name="text">
                       <string>33000</string>
                      </property>
                     </item>
+                    <item row="22" column="2">
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
                     <item row="22" column="3">
                      <property name="text">
                       <string>19</string>
+                     </property>
+                    </item>
+                    <item row="22" column="4">
+                     <property name="text">
+                      <string>341-355</string>
                      </property>
                     </item>
                     <item row="22" column="5">
@@ -1318,14 +1618,29 @@
                       <string>19</string>
                      </property>
                     </item>
+                    <item row="23" column="0">
+                     <property name="text">
+                      <string>20</string>
+                     </property>
+                    </item>
                     <item row="23" column="1">
                      <property name="text">
                       <string>41000</string>
                      </property>
                     </item>
+                    <item row="23" column="2">
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
                     <item row="23" column="3">
                      <property name="text">
                       <string>19</string>
+                     </property>
+                    </item>
+                    <item row="23" column="4">
+                     <property name="text">
+                      <string>356-400</string>
                      </property>
                     </item>
                     <item row="23" column="5">
@@ -1343,14 +1658,29 @@
                       <string>19</string>
                      </property>
                     </item>
+                    <item row="24" column="0">
+                     <property name="text">
+                      <string>21</string>
+                     </property>
+                    </item>
                     <item row="24" column="1">
                      <property name="text">
                       <string>50000</string>
                      </property>
                     </item>
+                    <item row="24" column="2">
+                     <property name="text">
+                      <string>7</string>
+                     </property>
+                    </item>
                     <item row="24" column="3">
                      <property name="text">
                       <string>19</string>
+                     </property>
+                    </item>
+                    <item row="24" column="4">
+                     <property name="text">
+                      <string>401-445</string>
                      </property>
                     </item>
                     <item row="24" column="5">
@@ -1368,14 +1698,29 @@
                       <string>20</string>
                      </property>
                     </item>
+                    <item row="25" column="0">
+                     <property name="text">
+                      <string>22</string>
+                     </property>
+                    </item>
                     <item row="25" column="1">
                      <property name="text">
                       <string>32000</string>
                      </property>
                     </item>
+                    <item row="25" column="2">
+                     <property name="text">
+                      <string>7</string>
+                     </property>
+                    </item>
                     <item row="25" column="3">
                      <property name="text">
                       <string>19</string>
+                     </property>
+                    </item>
+                    <item row="25" column="4">
+                     <property name="text">
+                      <string>446-490</string>
                      </property>
                     </item>
                     <item row="25" column="5">
@@ -1393,14 +1738,29 @@
                       <string>20</string>
                      </property>
                     </item>
+                    <item row="26" column="0">
+                     <property name="text">
+                      <string>23</string>
+                     </property>
+                    </item>
                     <item row="26" column="1">
                      <property name="text">
                       <string>41000</string>
                      </property>
                     </item>
+                    <item row="26" column="2">
+                     <property name="text">
+                      <string>7</string>
+                     </property>
+                    </item>
                     <item row="26" column="3">
                      <property name="text">
                       <string>19</string>
+                     </property>
+                    </item>
+                    <item row="26" column="4">
+                     <property name="text">
+                      <string>491-535</string>
                      </property>
                     </item>
                     <item row="26" column="5">
@@ -1418,14 +1778,29 @@
                       <string>20</string>
                      </property>
                     </item>
+                    <item row="27" column="0">
+                     <property name="text">
+                      <string>24</string>
+                     </property>
+                    </item>
                     <item row="27" column="1">
                      <property name="text">
                       <string>50000</string>
                      </property>
                     </item>
+                    <item row="27" column="2">
+                     <property name="text">
+                      <string>7</string>
+                     </property>
+                    </item>
                     <item row="27" column="3">
                      <property name="text">
                       <string>19</string>
+                     </property>
+                    </item>
+                    <item row="27" column="4">
+                     <property name="text">
+                      <string>536-580</string>
                      </property>
                     </item>
                     <item row="27" column="5">
@@ -1443,14 +1818,29 @@
                       <string>21</string>
                      </property>
                     </item>
+                    <item row="28" column="0">
+                     <property name="text">
+                      <string>25</string>
+                     </property>
+                    </item>
                     <item row="28" column="1">
                      <property name="text">
-                      <string>6</string>
+                      <string>75000</string>
+                     </property>
+                    </item>
+                    <item row="28" column="2">
+                     <property name="text">
+                      <string>8</string>
                      </property>
                     </item>
                     <item row="28" column="3">
                      <property name="text">
                       <string>19</string>
+                     </property>
+                    </item>
+                    <item row="28" column="4">
+                     <property name="text">
+                      <string>581-625</string>
                      </property>
                     </item>
                     <item row="28" column="5">
@@ -1468,14 +1858,29 @@
                       <string>21</string>
                      </property>
                     </item>
+                    <item row="29" column="0">
+                     <property name="text">
+                      <string>26</string>
+                     </property>
+                    </item>
                     <item row="29" column="1">
                      <property name="text">
-                      <string>12</string>
+                      <string>90000</string>
+                     </property>
+                    </item>
+                    <item row="29" column="2">
+                     <property name="text">
+                      <string>8</string>
                      </property>
                     </item>
                     <item row="29" column="3">
                      <property name="text">
                       <string>19</string>
+                     </property>
+                    </item>
+                    <item row="29" column="4">
+                     <property name="text">
+                      <string>626-670</string>
                      </property>
                     </item>
                     <item row="29" column="5">
@@ -1493,9 +1898,29 @@
                       <string>21</string>
                      </property>
                     </item>
+                    <item row="30" column="0">
+                     <property name="text">
+                      <string>27</string>
+                     </property>
+                    </item>
+                    <item row="30" column="1">
+                     <property name="text">
+                      <string>105000</string>
+                     </property>
+                    </item>
+                    <item row="30" column="2">
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                    </item>
                     <item row="30" column="3">
                      <property name="text">
                       <string>19</string>
+                     </property>
+                    </item>
+                    <item row="30" column="4">
+                     <property name="text">
+                      <string>671-715</string>
                      </property>
                     </item>
                     <item row="30" column="5">
@@ -2490,14 +2915,14 @@
                <item row="0" column="1">
                 <widget class="QLabel" name="label_64">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>As a bonus action, the creature can move up to its speed toward a hostile creature it can see.</string>
                  </property>
                 </widget>
                </item>
                <item row="7" column="0">
                 <widget class="QCheckBox" name="checkBox_20">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Enlarge</string>
                  </property>
                 </widget>
                </item>
@@ -2518,35 +2943,35 @@
                <item row="9" column="0">
                 <widget class="QCheckBox" name="checkBox_27">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Heated Body</string>
                  </property>
                 </widget>
                </item>
                <item row="10" column="0">
                 <widget class="QCheckBox" name="checkBox_26">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Horrifying Visage</string>
                  </property>
                 </widget>
                </item>
                <item row="6" column="1">
                 <widget class="QLabel" name="label_58">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>While attached or grappling a creature, the creature takes only half damage dealt to it (rounded down), and the other creature takes the other half.</string>
                  </property>
                 </widget>
                </item>
                <item row="5" column="1">
                 <widget class="QLabel" name="label_59">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>The creature has the ability to restrain and/or grapple a target as part of an attack.</string>
                  </property>
                 </widget>
                </item>
                <item row="1" column="1">
                 <widget class="QLabel" name="label_63">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>The creature has advantage on attack rolls against any creature it has surprised.</string>
                  </property>
                 </widget>
                </item>
@@ -2560,14 +2985,14 @@
                <item row="20" column="0">
                 <widget class="QCheckBox" name="checkBox_10">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Shadow Stealth</string>
                  </property>
                 </widget>
                </item>
                <item row="15" column="0">
                 <widget class="QCheckBox" name="checkBox_19">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Pack Tactics</string>
                  </property>
                 </widget>
                </item>
@@ -2588,14 +3013,14 @@
                <item row="3" column="1">
                 <widget class="QLabel" name="label_61">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>If the creature is subjected to an effect that allows it to make a saving throw to only take half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.</string>
                  </property>
                 </widget>
                </item>
                <item row="21" column="0">
                 <widget class="QCheckBox" name="checkBox_9">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Stench</string>
                  </property>
                 </widget>
                </item>
@@ -2609,14 +3034,14 @@
                <item row="2" column="1">
                 <widget class="QLabel" name="label_62">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>The creature's weapon attacks are magical. When the creature hits with any weapon, the weapon deals extra radiant damage. Input this extra damage per round.</string>
                  </property>
                 </widget>
                </item>
                <item row="5" column="0">
                 <widget class="QCheckBox" name="checkBox_15">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Constrict</string>
                  </property>
                 </widget>
                </item>
@@ -2637,7 +3062,7 @@
                <item row="13" column="0">
                 <widget class="QCheckBox" name="checkBox_22">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Martial Advantage</string>
                  </property>
                 </widget>
                </item>
@@ -2651,21 +3076,21 @@
                <item row="22" column="0">
                 <widget class="QCheckBox" name="checkBox_7">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Superior Invisibility</string>
                  </property>
                 </widget>
                </item>
                <item row="18" column="0">
                 <widget class="QCheckBox" name="checkBox_14">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Regeneration</string>
                  </property>
                 </widget>
                </item>
                <item row="19" column="0">
                 <widget class="QCheckBox" name="checkBox_12">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Relentless</string>
                  </property>
                 </widget>
                </item>
@@ -2686,14 +3111,14 @@
                <item row="3" column="0">
                 <widget class="QCheckBox" name="checkBox_11">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Avoidance</string>
                  </property>
                 </widget>
                </item>
                <item row="4" column="0">
                 <widget class="QCheckBox" name="checkBox_13">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Blood Frenzy</string>
                  </property>
                 </widget>
                </item>
@@ -2714,14 +3139,14 @@
                <item row="4" column="1">
                 <widget class="QLabel" name="label_60">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>The creature has advantage on melee attack rolls against any creature that doesn't have all its hit points.</string>
                  </property>
                 </widget>
                </item>
                <item row="17" column="0">
                 <widget class="QCheckBox" name="checkBox_16">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Possession</string>
                  </property>
                 </widget>
                </item>
@@ -2742,14 +3167,14 @@
                <item row="24" column="0">
                 <widget class="QCheckBox" name="checkBox_6">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Web</string>
                  </property>
                 </widget>
                </item>
                <item row="23" column="0">
                 <widget class="QCheckBox" name="checkBox_5">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Undead Fortitude</string>
                  </property>
                 </widget>
                </item>
@@ -2763,7 +3188,7 @@
                <item row="12" column="0">
                 <widget class="QCheckBox" name="checkBox_24">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Magic Resistance</string>
                  </property>
                 </widget>
                </item>
@@ -2777,7 +3202,7 @@
                <item row="14" column="0">
                 <widget class="QCheckBox" name="checkBox_21">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Nimble Escape</string>
                  </property>
                 </widget>
                </item>
@@ -2791,14 +3216,14 @@
                <item row="16" column="0">
                 <widget class="QCheckBox" name="checkBox_17">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Parry</string>
                  </property>
                 </widget>
                </item>
                <item row="11" column="0">
                 <widget class="QCheckBox" name="checkBox_25">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Legendary Resistance</string>
                  </property>
                 </widget>
                </item>
@@ -2812,7 +3237,7 @@
                <item row="8" column="0">
                 <widget class="QCheckBox" name="checkBox_23">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Frightful Presence</string>
                  </property>
                 </widget>
                </item>
@@ -2826,7 +3251,7 @@
                <item row="6" column="0">
                 <widget class="QCheckBox" name="checkBox_18">
                  <property name="text">
-                  <string>CheckBox</string>
+                  <string>Damage Transfer</string>
                  </property>
                 </widget>
                </item>
@@ -2838,6 +3263,11 @@
          </widget>
         </item>
        </layout>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Page</string>
+       </attribute>
       </widget>
      </widget>
     </item>

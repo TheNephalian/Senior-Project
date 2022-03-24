@@ -23,7 +23,7 @@ import combat
 
 from testModScreen import Ui_testModWindow
 
-# from UI.mainScreen_logic import openWindow
+#from UI.mainScreen_logic import openWindow
 
 
 class Ui_MainWindow(object):
@@ -182,8 +182,6 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.label_3, 5, 0, 1, 1)
         self.sizeComboBox = QtWidgets.QComboBox(self.frame_2)
         self.sizeComboBox.setObjectName("sizeComboBox")
-        self.sizeComboBox.addItem("")
-        self.sizeComboBox.setItemText(0, "")
         self.sizeComboBox.addItem("")
         self.sizeComboBox.addItem("")
         self.sizeComboBox.addItem("")
@@ -1058,12 +1056,12 @@ class Ui_MainWindow(object):
         self.label_12.setText(_translate("MainWindow", "Resistances/Immunities:"))
         self.label_6.setText(_translate("MainWindow", "Constitution:"))
         self.label_3.setText(_translate("MainWindow", "Armor Class:"))
-        self.sizeComboBox.setItemText(1, _translate("MainWindow", "Tiny"))
-        self.sizeComboBox.setItemText(2, _translate("MainWindow", "Small"))
-        self.sizeComboBox.setItemText(3, _translate("MainWindow", "Medium"))
-        self.sizeComboBox.setItemText(4, _translate("MainWindow", "Large"))
-        self.sizeComboBox.setItemText(5, _translate("MainWindow", "Huge"))
-        self.sizeComboBox.setItemText(6, _translate("MainWindow", "Gargantuan"))
+        self.sizeComboBox.setItemText(0, _translate("MainWindow", "Tiny"))
+        self.sizeComboBox.setItemText(1, _translate("MainWindow", "Small"))
+        self.sizeComboBox.setItemText(2, _translate("MainWindow", "Medium"))
+        self.sizeComboBox.setItemText(3, _translate("MainWindow", "Large"))
+        self.sizeComboBox.setItemText(4, _translate("MainWindow", "Huge"))
+        self.sizeComboBox.setItemText(5, _translate("MainWindow", "Gargantuan"))
         self.vulCheckBox.setText(_translate("MainWindow", "Vulnerabilities:"))
         self.label_2.setText(_translate("MainWindow", "Hit Points:"))
         self.label_4.setText(_translate("MainWindow", "Size:"))
@@ -1071,7 +1069,7 @@ class Ui_MainWindow(object):
         self.saveComboBox.setItemText(1, _translate("MainWindow", "3-4"))
         self.saveComboBox.setItemText(2, _translate("MainWindow", "5-6"))
         self.label_5.setText(_translate("MainWindow", "Hit Dice:"))
-        self.exCRLineEdit.setText(_translate("MainWindow", "0"))
+        # self.exCRLineEdit.setText(_translate("MainWindow", "0"))
         self.diceLabel.setText(_translate("MainWindow", "d"))
         self.resComboBox.setItemText(0, _translate("MainWindow", "None"))
         self.resComboBox.setItemText(1, _translate("MainWindow", "Resistances"))
@@ -1568,7 +1566,7 @@ class Ui_MainWindow(object):
         self.testButton.setText(_translate("MainWindow", "Test"))
         self.resetButton.setText(_translate("MainWindow", "Reset"))
 
-        # exCRLineChange is the line function for the Expected CR
+    # exCRLineChange is the line function for the Expected CR
 
     # sizeComboBox is the function associated with size
 
@@ -1902,4 +1900,10 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
+
+    print("***COMBAT***")
+    comSim = combat.combatSimulation()
+
+    comSim.combatSim()
+
     sys.exit(app.exec_())

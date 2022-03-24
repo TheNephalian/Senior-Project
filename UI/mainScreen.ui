@@ -43,7 +43,7 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-1310</y>
+             <y>0</y>
              <width>1219</width>
              <height>2242</height>
             </rect>
@@ -2892,7 +2892,7 @@
              <x>0</x>
              <y>0</y>
              <width>1219</width>
-             <height>682</height>
+             <height>834</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -2908,7 +2908,7 @@
                <item row="22" column="1">
                 <widget class="QLabel" name="label_40">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>The creature can turn invisible as an action or bonus action</string>
                  </property>
                 </widget>
                </item>
@@ -2929,14 +2929,15 @@
                <item row="16" column="1">
                 <widget class="QLabel" name="label_48">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>The creature adds its proficiency bonus to its AC against one melee attack that would hit it as a reaction.</string>
                  </property>
                 </widget>
                </item>
                <item row="13" column="1">
                 <widget class="QLabel" name="label_51">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>The creature can deal extra damage to a creature it hits if that creature is with in 5 ft. of an ally of the 
+creature that isn't incapacitated. Input the extra damage inflicted per round.</string>
                  </property>
                 </widget>
                </item>
@@ -2957,7 +2958,8 @@
                <item row="6" column="1">
                 <widget class="QLabel" name="label_58">
                  <property name="text">
-                  <string>While attached or grappling a creature, the creature takes only half damage dealt to it (rounded down), and the other creature takes the other half.</string>
+                  <string>While attached or grappling a creature, the creature takes only half damage dealt to it (rounded down),
+ and the other creature takes the other half.</string>
                  </property>
                 </widget>
                </item>
@@ -2978,7 +2980,8 @@
                <item row="23" column="1">
                 <widget class="QLabel" name="label_45">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>If the creature would be reduced to 0 hit points, there is a chance that it can instead only be reduced to 1. 
+This feature is negated if the damage is from radiant nature.</string>
                  </property>
                 </widget>
                </item>
@@ -2999,21 +3002,26 @@
                <item row="18" column="1">
                 <widget class="QLabel" name="label_44">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>At the beginning of the creature's turn, it regains hit points and cannot be killed until this effect is
+mitigated in some way, usually through acid or fire damage. Input how many hit points it regains at the 
+beginning of its turn.</string>
                  </property>
                 </widget>
                </item>
                <item row="15" column="1">
                 <widget class="QLabel" name="label_49">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>The creature has advantage on an attack roll against a creature if at least one of the creature's allies is 
+within 5 feet of the creature and the ally isn't incapacitated</string>
                  </property>
                 </widget>
                </item>
                <item row="3" column="1">
                 <widget class="QLabel" name="label_61">
                  <property name="text">
-                  <string>If the creature is subjected to an effect that allows it to make a saving throw to only take half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.</string>
+                  <string>If the creature is subjected to an effect that allows it to make a saving throw to only take half damage, it 
+instead takes no 
+damage if it succeeds on the saving throw, and only half damage if it fails.</string>
                  </property>
                 </widget>
                </item>
@@ -3027,14 +3035,16 @@
                <item row="7" column="1">
                 <widget class="QLabel" name="label_57">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>The creature magically increases in size, along with anything it is wearing or carrying. Input the extra 
+damage inflicted per round whilst enlarged.</string>
                  </property>
                 </widget>
                </item>
                <item row="2" column="1">
                 <widget class="QLabel" name="label_62">
                  <property name="text">
-                  <string>The creature's weapon attacks are magical. When the creature hits with any weapon, the weapon deals extra radiant damage. Input this extra damage per round.</string>
+                  <string>The creature's weapon attacks are magical. When the creature hits with any weapon, the weapon
+ deals extra radiant damage. Input this extra damage per round.</string>
                  </property>
                 </widget>
                </item>
@@ -3048,14 +3058,15 @@
                <item row="10" column="1">
                 <widget class="QLabel" name="label_54">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>Each non-undead creature of the creature's choice within range must make a Wisdom saving throw or 
+be frightened for 1 minute.</string>
                  </property>
                 </widget>
                </item>
                <item row="17" column="1">
                 <widget class="QLabel" name="label_47">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>The creature can control another creature, during which time it cannot be targeted by nearly any effect.</string>
                  </property>
                 </widget>
                </item>
@@ -3069,7 +3080,7 @@
                <item row="20" column="1">
                 <widget class="QLabel" name="label_42">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>While in dim light or darkness, the creature can take the Hide action as a bonus action.</string>
                  </property>
                 </widget>
                </item>
@@ -3097,14 +3108,14 @@
                <item row="12" column="1">
                 <widget class="QLabel" name="label_52">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>The creature has advantage on saving throws against spells and other magical effects.</string>
                  </property>
                 </widget>
                </item>
                <item row="9" column="1">
                 <widget class="QLabel" name="label_55">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>Touching or hitting the creature while within 5 ft. of it causes damage</string>
                  </property>
                 </widget>
                </item>
@@ -3125,14 +3136,14 @@
                <item row="21" column="1">
                 <widget class="QLabel" name="label_41">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>Any creature other than the monster within 5 feet of it must make a saving throw or be poisoned.</string>
                  </property>
                 </widget>
                </item>
                <item row="19" column="1">
                 <widget class="QLabel" name="label_43">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>If the creature would be reduced to 0 hit points, there is a chance that it can instead only be reduced to 1.</string>
                  </property>
                 </widget>
                </item>
@@ -3153,7 +3164,7 @@
                <item row="14" column="1">
                 <widget class="QLabel" name="label_50">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>The creature can take the Disengage or Hide action as a bonus action on each of its turns</string>
                  </property>
                 </widget>
                </item>
@@ -3181,7 +3192,7 @@
                <item row="11" column="1">
                 <widget class="QLabel" name="label_53">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>If the creature fails a saving throw, it can choose to succeed instead. Input the number of uses per day.</string>
                  </property>
                 </widget>
                </item>
@@ -3209,7 +3220,7 @@
                <item row="24" column="1">
                 <widget class="QLabel" name="label_46">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>Ranged Weapon Attack that restrains the target on a hit.</string>
                  </property>
                 </widget>
                </item>
@@ -3230,7 +3241,8 @@
                <item row="8" column="1">
                 <widget class="QLabel" name="label_56">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>Each creature of the creature's choice within range must make a Wisdom saving throw or be frightened
+ for 1 minute</string>
                  </property>
                 </widget>
                </item>

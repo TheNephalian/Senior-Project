@@ -1481,16 +1481,17 @@ class Ui_MainWindow(object):
     def saveValChange(self, value):
         #saveProficienciesCal(self.saveComboBox.currentText() save proficiencies val
         saveProfVal = saveProficienciesCal(self.saveComboBox.currentText()) 
-        if(self.vulCheckBox.checkState() == 0):
-            deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
-            if(deff_CR >= 1):
-                self.slider.setValue(deff_CR)
-            print("CR val saveValChange 1: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
-        else:
-            deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
-            if(deff_CR >= 1):
-                self.slider.setValue(deff_CR)
-            print("CR val saveValChange 2: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
+        print("saveProfVal: ", saveProfVal)
+        # if(self.vulCheckBox.checkState() == 0):
+        #     deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+        #     if(deff_CR >= 1):
+        #         self.slider.setValue(deff_CR)
+        #     print("CR val saveValChange 1: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
+        # else:
+        #     deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+        #     if(deff_CR >= 1):
+        #         self.slider.setValue(deff_CR)
+        #     print("CR val saveValChange 2: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
 
     def strValChange(self,value):
         str_bns = cal_attr_bns(value)
@@ -1523,17 +1524,17 @@ class Ui_MainWindow(object):
             print('Unchecked')
     def vulChecker(self,state):
         #self.vulCheckBox.checkState() val of vulnerabilities 
-        saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
-        if(self.vulCheckBox.checkState() == 0):
-            deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
-            if(deff_CR >= 1):
-                self.slider.setValue(deff_CR)
-            print("CR val vulChecker: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
-        else:
-            deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
-            if(deff_CR >= 1):
-                self.slider.setValue(deff_CR)
-            print("CR val vulChecker: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
+        # saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
+        # if(self.vulCheckBox.checkState() == 0):
+        #     deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+        #     if(deff_CR >= 1):
+        #         self.slider.setValue(deff_CR)
+        #     print("CR val vulChecker: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
+        # else:
+        #     deff_CR = cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal)
+        #     if(deff_CR >= 1):
+        #         self.slider.setValue(deff_CR)
+        #     print("CR val vulChecker: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
         
         if state == QtCore.Qt.Checked:
             print('Checked')

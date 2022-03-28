@@ -204,7 +204,7 @@ def saveProficienciesCal(cal):
 '''this fun gets the total HP based on the dice, constitution, size, and vulnerabilities '''
 def this_fun_cal_totalHP(dice, constitution, size, vul, ri):
     if (dice == 0 and constitution == 0):
-        HP 
+        HP = 0
         return HP 
     else :
         #dice = die(dice)

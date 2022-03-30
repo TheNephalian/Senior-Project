@@ -24,7 +24,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -43,9 +43,9 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-73</y>
              <width>1219</width>
-             <height>2242</height>
+             <height>2227</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -79,25 +79,15 @@
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_3">
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="nameLineEdit"/>
+                  </item>
                   <item row="0" column="0">
                    <widget class="QLabel" name="label_14">
                     <property name="text">
                      <string>Name:</string>
                     </property>
                    </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QLineEdit" name="nameLineEdit"/>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_15">
-                    <property name="text">
-                     <string>Speed</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QSpinBox" name="SpeedSpinBox"/>
                   </item>
                  </layout>
                 </widget>
@@ -443,13 +433,6 @@
                  </layout>
                 </widget>
                </item>
-               <item row="7" column="0">
-                <widget class="QPushButton" name="pushButton_9">
-                 <property name="text">
-                  <string>Create Creature</string>
-                 </property>
-                </widget>
-               </item>
                <item row="6" column="0">
                 <widget class="QFrame" name="frame_3">
                  <property name="minimumSize">
@@ -470,13 +453,13 @@
                     <property name="minimumSize">
                      <size>
                       <width>850</width>
-                      <height>0</height>
+                      <height>956</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
                       <width>16777215</width>
-                      <height>975</height>
+                      <height>977</height>
                      </size>
                     </property>
                     <property name="font">
@@ -624,20 +607,6 @@
                     <row>
                      <property name="text">
                       <string>24</string>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <kerning>true</kerning>
-                      </font>
-                     </property>
-                     <property name="foreground">
-                      <brush brushstyle="NoBrush">
-                       <color alpha="255">
-                        <red>0</red>
-                        <green>0</green>
-                        <blue>0</blue>
-                       </color>
-                      </brush>
                      </property>
                     </row>
                     <row>
@@ -1783,14 +1752,9 @@
                       <string>24</string>
                      </property>
                     </item>
-                    <item row="27" column="1">
-                     <property name="text">
-                      <string>50000</string>
-                     </property>
-                    </item>
                     <item row="27" column="2">
                      <property name="text">
-                      <string>7</string>
+                      <string>8</string>
                      </property>
                     </item>
                     <item row="27" column="3">
@@ -1805,7 +1769,7 @@
                     </item>
                     <item row="27" column="5">
                      <property name="text">
-                      <string>11</string>
+                      <string>12</string>
                      </property>
                     </item>
                     <item row="27" column="6">
@@ -2008,24 +1972,50 @@
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_5">
-                  <item row="1" column="3">
-                   <widget class="QSpinBox" name="spinBox"/>
-                  </item>
-                  <item row="1" column="7">
-                   <widget class="QPushButton" name="pushButton_2">
+                  <item row="2" column="0">
+                   <widget class="QLineEdit" name="actionName_2">
                     <property name="maximumSize">
                      <size>
-                      <width>100</width>
+                      <width>400</width>
                       <height>16777215</height>
                      </size>
                     </property>
                     <property name="text">
-                     <string>Remove</string>
+                     <string>Name</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="1">
-                   <widget class="QComboBox" name="comboBox_6">
+                  <item row="2" column="3">
+                   <widget class="QSpinBox" name="reachSpinBox_2"/>
+                  </item>
+                  <item row="4" column="2">
+                   <widget class="QLabel" name="plusLabel_4">
+                    <property name="maximumSize">
+                     <size>
+                      <width>20</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>+0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLineEdit" name="actionName_3">
+                    <property name="maximumSize">
+                     <size>
+                      <width>400</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Name</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QComboBox" name="actionType_2">
                     <item>
                      <property name="text">
                       <string>Melee</string>
@@ -2038,8 +2028,209 @@
                     </item>
                    </widget>
                   </item>
-                  <item row="2" column="1">
-                   <widget class="QComboBox" name="comboBox_3">
+                  <item row="1" column="11">
+                   <widget class="QPushButton" name="pushButton_2">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Remove</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QComboBox" name="actionType_3">
+                    <item>
+                     <property name="text">
+                      <string>Melee</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Ranged</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QSpinBox" name="reachSpinBox_1"/>
+                  </item>
+                  <item row="1" column="10">
+                   <widget class="QPushButton" name="pushButton">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>Add</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="2">
+                   <widget class="QLabel" name="plusLabel_3">
+                    <property name="maximumSize">
+                     <size>
+                      <width>20</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>+0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="3">
+                   <widget class="QSpinBox" name="reachSpinBox_3"/>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QComboBox" name="actionType_1">
+                    <item>
+                     <property name="text">
+                      <string>Melee</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Ranged</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="0" column="9">
+                   <widget class="QLabel" name="label_39">
+                    <property name="text">
+                     <string>Damage</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="8">
+                   <widget class="QComboBox" name="actionDamageType_1">
+                    <item>
+                     <property name="text">
+                      <string>Acid</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Bludgeoning</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Cold</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>fire</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Force</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Lighting</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Necrotic</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Poison</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Slashing</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="2" column="8">
+                   <widget class="QComboBox" name="actionDamageType_2">
+                    <item>
+                     <property name="text">
+                      <string>Acid</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Bludgeoning</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Cold</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>fire</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Force</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Lighting</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Necrotic</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Poison</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Slashing</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QComboBox" name="actionType_4">
                     <item>
                      <property name="text">
                       <string>Melee</string>
@@ -2059,8 +2250,34 @@
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="0">
-                   <widget class="QLineEdit" name="lineEdit_2">
+                  <item row="1" column="9">
+                   <widget class="QSpinBox" name="actionDamage_1"/>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="plusLabel_1">
+                    <property name="maximumSize">
+                     <size>
+                      <width>20</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>+0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_29">
+                    <property name="text">
+                     <string>Type</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="9">
+                   <widget class="QSpinBox" name="actionDamage_2"/>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLineEdit" name="actionName_1">
                     <property name="maximumSize">
                      <size>
                       <width>400</width>
@@ -2069,6 +2286,61 @@
                     </property>
                     <property name="text">
                      <string>Name</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="11">
+                   <widget class="QPushButton" name="pushButton_4">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Remove</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="10">
+                   <widget class="QPushButton" name="pushButton_3">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>Add</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QLineEdit" name="actionName_4">
+                    <property name="maximumSize">
+                     <size>
+                      <width>400</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Name</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QLabel" name="plusLabel_2">
+                    <property name="maximumSize">
+                     <size>
+                      <width>20</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>+0</string>
                     </property>
                    </widget>
                   </item>
@@ -2086,307 +2358,346 @@
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="7">
-                   <widget class="QPushButton" name="pushButton_7">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Remove</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLineEdit" name="lineEdit_3">
-                    <property name="maximumSize">
-                     <size>
-                      <width>400</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Name</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="2">
-                   <widget class="QLabel" name="label_33">
-                    <property name="maximumSize">
-                     <size>
-                      <width>20</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>+0</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="7">
-                   <widget class="QPushButton" name="pushButton_4">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Remove</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="0">
-                   <widget class="QLineEdit" name="lineEdit_4">
-                    <property name="maximumSize">
-                     <size>
-                      <width>400</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Name</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="2">
-                   <widget class="QLabel" name="label_34">
-                    <property name="maximumSize">
-                     <size>
-                      <width>20</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>+0</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="6">
-                   <widget class="QPushButton" name="pushButton_6">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true"/>
-                    </property>
-                    <property name="text">
-                     <string>Add</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLineEdit" name="lineEdit">
-                    <property name="maximumSize">
-                     <size>
-                      <width>400</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Name</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QLabel" name="label_31">
-                    <property name="maximumSize">
-                     <size>
-                      <width>20</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>+0</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="2">
-                   <widget class="QLabel" name="label_32">
-                    <property name="maximumSize">
-                     <size>
-                      <width>20</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>+0</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="3">
-                   <widget class="QSpinBox" name="spinBox_3"/>
+                  <item row="3" column="4">
+                   <widget class="QSpinBox" name="spinBox_12"/>
                   </item>
                   <item row="2" column="4">
-                   <widget class="QComboBox" name="comboBox_4">
-                    <item>
-                     <property name="text">
-                      <string>Acid</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Bludgeoning</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Cold</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>fire</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Force</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Lighting</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Necrotic</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Poison</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Slashing</string>
-                     </property>
-                    </item>
-                   </widget>
+                   <widget class="QSpinBox" name="spinBox_11"/>
                   </item>
-                  <item row="1" column="1">
-                   <widget class="QComboBox" name="comboBox">
-                    <item>
-                     <property name="text">
-                      <string>Melee</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Ranged</string>
-                     </property>
-                    </item>
-                   </widget>
+                  <item row="1" column="4">
+                   <widget class="QSpinBox" name="spinBox_10"/>
                   </item>
-                  <item row="3" column="7">
-                   <widget class="QPushButton" name="pushButton_8">
+                  <item row="4" column="4">
+                   <widget class="QSpinBox" name="spinBox_13"/>
+                  </item>
+                  <item row="4" column="3">
+                   <widget class="QSpinBox" name="reachSpinBox_4"/>
+                  </item>
+                  <item row="3" column="5">
+                   <widget class="QLabel" name="label_67">
                     <property name="maximumSize">
                      <size>
-                      <width>100</width>
+                      <width>15</width>
                       <height>16777215</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="text">
-                     <string>Remove</string>
+                     <string>d</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="3">
-                   <widget class="QSpinBox" name="spinBox_4"/>
+                  <item row="4" column="5">
+                   <widget class="QLabel" name="label_68">
+                    <property name="maximumSize">
+                     <size>
+                      <width>15</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>d</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
                   </item>
-                  <item row="3" column="4">
-                   <widget class="QComboBox" name="comboBox_7">
-                    <item>
-                     <property name="text">
-                      <string>Acid</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Bludgeoning</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Cold</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>fire</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Force</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Lighting</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Necrotic</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Poison</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Slashing</string>
-                     </property>
-                    </item>
+                  <item row="2" column="5">
+                   <widget class="QLabel" name="label_66">
+                    <property name="maximumSize">
+                     <size>
+                      <width>15</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>d</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="5">
+                   <widget class="QLabel" name="label_65">
+                    <property name="maximumSize">
+                     <size>
+                      <width>15</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>d</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
                    </widget>
                   </item>
                   <item row="2" column="6">
-                   <widget class="QPushButton" name="pushButton_3">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true"/>
-                    </property>
-                    <property name="text">
-                     <string>Add</string>
-                    </property>
+                   <widget class="QComboBox" name="actionDice_2">
+                    <item>
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
                   <item row="3" column="6">
+                   <widget class="QComboBox" name="actionDice_3">
+                    <item>
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="4" column="6">
+                   <widget class="QComboBox" name="actionDice_4">
+                    <item>
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="1" column="6">
+                   <widget class="QComboBox" name="actionDice_1">
+                    <item>
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="3" column="8">
+                   <widget class="QComboBox" name="actionDamageType_3">
+                    <item>
+                     <property name="text">
+                      <string>Acid</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Bludgeoning</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Cold</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>fire</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Force</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Lighting</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Necrotic</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Poison</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Slashing</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="4" column="8">
+                   <widget class="QComboBox" name="actionDamageType_4">
+                    <item>
+                     <property name="text">
+                      <string>Acid</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Bludgeoning</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Cold</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>fire</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Force</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Lighting</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Necrotic</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Poison</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Slashing</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="3" column="9">
+                   <widget class="QSpinBox" name="actionDamage_3"/>
+                  </item>
+                  <item row="4" column="9">
+                   <widget class="QSpinBox" name="actionDamage_4"/>
+                  </item>
+                  <item row="3" column="10">
                    <widget class="QPushButton" name="pushButton_5">
                     <property name="maximumSize">
                      <size>
@@ -2402,8 +2713,21 @@
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="6">
-                   <widget class="QPushButton" name="pushButton">
+                  <item row="3" column="11">
+                   <widget class="QPushButton" name="pushButton_8">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string>Remove</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="10">
+                   <widget class="QPushButton" name="pushButton_6">
                     <property name="maximumSize">
                      <size>
                       <width>100</width>
@@ -2418,164 +2742,16 @@
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="1">
-                   <widget class="QComboBox" name="comboBox_5">
-                    <item>
-                     <property name="text">
-                      <string>Melee</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Ranged</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="2" column="3">
-                   <widget class="QSpinBox" name="spinBox_2"/>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QLabel" name="label_29">
-                    <property name="text">
-                     <string>Type</string>
+                  <item row="4" column="11">
+                   <widget class="QPushButton" name="pushButton_7">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
                     </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="4">
-                   <widget class="QComboBox" name="comboBox_2">
-                    <item>
-                     <property name="text">
-                      <string>Acid</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Bludgeoning</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Cold</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>fire</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Force</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Lighting</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Necrotic</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Poison</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Slashing</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="4" column="4">
-                   <widget class="QComboBox" name="comboBox_8">
-                    <item>
-                     <property name="text">
-                      <string>Acid</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Bludgeoning</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Cold</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>fire</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Force</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Lighting</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Necrotic</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Poison</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Slashing</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="1" column="5">
-                   <widget class="QSpinBox" name="spinBox_6"/>
-                  </item>
-                  <item row="2" column="5">
-                   <widget class="QSpinBox" name="spinBox_7"/>
-                  </item>
-                  <item row="3" column="5">
-                   <widget class="QSpinBox" name="spinBox_8"/>
-                  </item>
-                  <item row="4" column="5">
-                   <widget class="QSpinBox" name="spinBox_9"/>
-                  </item>
-                  <item row="0" column="5">
-                   <widget class="QLabel" name="label_39">
                     <property name="text">
-                     <string>Damage</string>
+                     <string>Remove</string>
                     </property>
                    </widget>
                   </item>
@@ -2775,23 +2951,30 @@
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QFormLayout" name="formLayout">
-                  <item row="0" column="1">
+                  <item row="1" column="1">
                    <widget class="QPushButton" name="testButton">
                     <property name="styleSheet">
-                     <string notr="true">background-color: rgb(85, 255, 127);</string>
+                     <string notr="true"/>
                     </property>
                     <property name="text">
                      <string>Test</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="0">
+                  <item row="1" column="0">
                    <widget class="QPushButton" name="resetButton">
                     <property name="styleSheet">
-                     <string notr="true">background-color: rgb(255, 85, 127);</string>
+                     <string notr="true"/>
                     </property>
                     <property name="text">
                      <string>Reset</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0" colspan="2">
+                   <widget class="QPushButton" name="pushButton_9">
+                    <property name="text">
+                     <string>Create Creature</string>
                     </property>
                    </widget>
                   </item>

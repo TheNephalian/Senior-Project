@@ -24,6 +24,7 @@ class combatSimulation():
 		p3.lvl_change(1)
 
 		p4 = dummyWizard.Wizard()
+		p4.lvl_change(1)
 
 		self.players.append(p1)
 		self.players.append(p2)
@@ -37,6 +38,9 @@ class combatSimulation():
 
 		self.initiativeOrder = [] #keeps track of initiative (turn order)
 
+	'''
+	Helper function for initiative order.
+	'''
 	def partition(self, arr, low, high):
 		i = (low - 1)
 		pivot = arr[high]
@@ -50,6 +54,9 @@ class combatSimulation():
 
 		return (i + 1)
 
+	'''
+	Helper function for initiative order.
+	'''
 	def quickSort(self, arr, low, high):
 		if len(arr) == 1:
 			return arr
@@ -60,7 +67,11 @@ class combatSimulation():
 			self.quickSort(arr, low, pi - 1)
 			self.quickSort(arr, pi + 1, high)
 
+	'''
+	Function that rolls initative for all combatanants
+	'''
 	def rollInit(self):
+		#First, determines number of players and rolls their initiatives
 		numPlayers = len(self.players)
 
 		#Player initiatives
@@ -69,19 +80,19 @@ class combatSimulation():
 
 			p1_init = self.players[0].roll_init()
 			self.players[0].initiative = p1_init
-			print("The", self.players[0].name, "got a", p1_init)
+			#print("The", self.players[0].name, "got a", p1_init)
 
 			p2_init = self.players[1].roll_init()
 			self.players[1].initiative = p2_init
-			print("The", self.players[1].name, "got a", p2_init)
+			#print("The", self.players[1].name, "got a", p2_init)
 
 			p3_init = self.players[2].roll_init()
 			self.players[2].initiative = p3_init
-			print("The", self.players[2].name, "got a", p3_init)
+			#print("The", self.players[2].name, "got a", p3_init)
 
 			p4_init = self.players[3].roll_init()
 			self.players[3].initiative = p4_init
-			print("The", self.players[3].name, "got a", p4_init)
+			#print("The", self.players[3].name, "got a", p4_init)
 
 			self.initiativeOrder.append(self.players[0])
 			self.initiativeOrder.append(self.players[1])
@@ -93,15 +104,15 @@ class combatSimulation():
 
 			p1_init = self.players[0].roll_init()
 			self.players[0].initiative = p1_init
-			print("The", self.players[0].name, "got a", p1_init)
+			#print("The", self.players[0].name, "got a", p1_init)
 
 			p2_init = self.players[1].roll_init()
 			self.players[1].initiative = p2_init
-			print("The", self.players[1].name, "got a", p2_init)
+			#print("The", self.players[1].name, "got a", p2_init)
 
 			p3_init = self.players[2].roll_init()
 			self.players[2].initiative = p3_init
-			print("The", self.players[2].name, "got a", p3_init)
+			#print("The", self.players[2].name, "got a", p3_init)
 
 			self.initiativeOrder.append(self.players[0])
 			self.initiativeOrder.append(self.players[1])
@@ -112,11 +123,11 @@ class combatSimulation():
 
 			p1_init = self.players[0].roll_init()
 			self.players[0].initiative = p1_init
-			print("The", self.players[0].name, "got a", p1_init)
+			#print("The", self.players[0].name, "got a", p1_init)
 
 			p2_init = self.players[1].roll_init()
 			self.players[1].initiative = p2_init
-			print("The", self.players[1].name, "got a", p2_init)
+			#print("The", self.players[1].name, "got a", p2_init)
 
 			self.initiativeOrder.append(self.players[0])
 			self.initiativeOrder.append(self.players[1])
@@ -126,7 +137,7 @@ class combatSimulation():
 
 			p1_init = self.players[0].roll_init()
 			self.players[0].initiative = p1_init
-			print("The", self.players[0].name, "got a", p1_init)
+			#print("The", self.players[0].name, "got a", p1_init)
 
 			self.initiativeOrder.append(self.players[0])
 
@@ -135,8 +146,9 @@ class combatSimulation():
 			return
 
 		#Creature initiative
+		print(self.creature.name, "rolling initiative...")
 		creature_init = self.creature.roll_init()
-		print("The", self.creature.name, "got a", creature_init)
+		#print("The", self.creature.name, "got a", creature_init)
 		self.creature.initiative = creature_init
 
 		self.initiativeOrder.append(self.creature)
@@ -149,11 +161,7 @@ class combatSimulation():
 		for k in range (0, len(self.initiativeOrder)):
 			print(self.initiativeOrder[k].name, self.initiativeOrder[k].initiative)
 
-		return
-		
-	def does_it_Hit(self):
-		
-		return
+		print("")
 
 	#COMBAT IS WIP
 	def combatSim(self):
@@ -161,7 +169,5 @@ class combatSimulation():
 
 		self.rollInit()
 
-		#for l in range (0, len(self.initiativeOrder)):
-		#	self.initiativeOrder[l].attack()
-
-		return
+		for l in range (0, len(self.initiativeOrder)):
+			self.initiativeOrder[l].attack(self)

@@ -24,11 +24,11 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
-        <string>Tab 1</string>
+        <string>Stats &amp; Actions</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
@@ -43,7 +43,7 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-73</y>
+             <y>0</y>
              <width>1219</width>
              <height>2227</height>
             </rect>
@@ -2107,7 +2107,7 @@
                   <item row="0" column="9">
                    <widget class="QLabel" name="label_39">
                     <property name="text">
-                     <string>Damage</string>
+                     <string>Attribute</string>
                     </property>
                    </widget>
                   </item>
@@ -2250,9 +2250,6 @@
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="9">
-                   <widget class="QSpinBox" name="actionDamage_1"/>
-                  </item>
                   <item row="1" column="2">
                    <widget class="QLabel" name="plusLabel_1">
                     <property name="maximumSize">
@@ -2272,9 +2269,6 @@
                      <string>Type</string>
                     </property>
                    </widget>
-                  </item>
-                  <item row="2" column="9">
-                   <widget class="QSpinBox" name="actionDamage_2"/>
                   </item>
                   <item row="1" column="0">
                    <widget class="QLineEdit" name="actionName_1">
@@ -2691,12 +2685,6 @@
                     </item>
                    </widget>
                   </item>
-                  <item row="3" column="9">
-                   <widget class="QSpinBox" name="actionDamage_3"/>
-                  </item>
-                  <item row="4" column="9">
-                   <widget class="QSpinBox" name="actionDamage_4"/>
-                  </item>
                   <item row="3" column="10">
                    <widget class="QPushButton" name="pushButton_5">
                     <property name="maximumSize">
@@ -2753,6 +2741,40 @@
                     <property name="text">
                      <string>Remove</string>
                     </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="9">
+                   <widget class="QComboBox" name="comboBox">
+                    <item>
+                     <property name="text">
+                      <string>STR</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>DEX</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CON</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>INT</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>WIS</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CHA</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
                  </layout>
@@ -3061,7 +3083,7 @@
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
-        <string>Tab 2</string>
+        <string>Features</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
@@ -3461,7 +3483,7 @@ be frightened for 1 minute.</string>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
-        <string>Page</string>
+        <string>Results</string>
        </attribute>
       </widget>
      </widget>

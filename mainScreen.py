@@ -1051,14 +1051,14 @@ class Ui_MainWindow(object):
         self.label_21.setText(_translate("MainWindow", "CHA"))
         self.label_20.setText(_translate("MainWindow", "WIS"))
         self.label_18.setText(_translate("MainWindow", "CON"))
-        self.label_22.setText(_translate("MainWindow", "TextLabel"))
+        self.label_22.setText(_translate("MainWindow", "(+0)"))
         self.label_19.setText(_translate("MainWindow", "INT"))
-        self.label_23.setText(_translate("MainWindow", "TextLabel"))
-        self.label_24.setText(_translate("MainWindow", "TextLabel"))
+        self.label_23.setText(_translate("MainWindow", "(+0)"))
+        self.label_24.setText(_translate("MainWindow", "(+0)"))
         self.label_16.setText(_translate("MainWindow", "STR"))
-        self.label_25.setText(_translate("MainWindow", "TextLabel"))
-        self.label_26.setText(_translate("MainWindow", "TextLabel"))
-        self.label_27.setText(_translate("MainWindow", "TextLabel"))
+        self.label_25.setText(_translate("MainWindow", "(+0)"))
+        self.label_26.setText(_translate("MainWindow", "(+0)"))
+        self.label_27.setText(_translate("MainWindow", "(+0)"))
         self.label_35.setText(_translate("MainWindow", "Warning:"))
         self.label_36.setText(_translate("MainWindow", "Please follow the format:"))
         self.label_12.setText(_translate("MainWindow", "Resistances/Immunities:"))
@@ -1647,11 +1647,6 @@ class Ui_MainWindow(object):
         AvgCR = get_Average_of_Deff_and_Off(deff_CR, off_CR)
         if(AvgCR >= 1):
             self.slider.setValue(AvgCR)
-                
-        
-        
-        
-        
         
     def diceChange(self, value):
         # self.sizeComboBox.currentText() is size of CR
@@ -1871,25 +1866,57 @@ class Ui_MainWindow(object):
         str_bns = cal_attr_bns(value)
         print("STR bonus is ", str_bns)
 
+        if (str_bns < 0):
+            self.label_22.setText("(" + str(str_bns) + ")")
+        else:
+            self.label_22.setText("(+" + str(str_bns) + ")")
+
     def dexValChange(self,value):
         dex_bns = cal_attr_bns(value)
         print("DEX bonus is ", dex_bns)
+
+        if (dex_bns < 0):
+            self.label_23.setText("(" + str(dex_bns) + ")")
+        else:
+            self.label_23.setText("(+" + str(dex_bns) + ")")
 
     def conValChange(self,value):
         con_bns = cal_attr_bns(value)
         print("CON bonus is ", con_bns)
 
+        if (con_bns < 0):
+            self.label_24.setText("(" + str(con_bns) + ")")
+        else:
+            self.label_24.setText("(+" + str(con_bns) + ")")
+
+        self.constitSpinBox.setValue(value)
+
     def intValChange(self,value):
         int_bns = cal_attr_bns(value)
         print("INT bonus is ", int_bns)
+
+        if (int_bns < 0):
+            self.label_25.setText("(" + str(int_bns) + ")")
+        else:
+            self.label_25.setText("(+" + str(int_bns) + ")")
 
     def wisValChange(self,value):
         wis_bns = cal_attr_bns(value)
         print("WIS bonus is ", wis_bns)
 
+        if (wis_bns < 0):
+            self.label_26.setText("(" + str(wis_bns) + ")")
+        else:
+            self.label_26.setText("(+" + str(wis_bns) + ")")
+
     def chaValChange(self,value):
         cha_bns = cal_attr_bns(value)
         print("CHA bonus is ", cha_bns)
+
+        if (cha_bns < 0):
+            self.label_27.setText("(" + str(cha_bns) + ")")
+        else:
+            self.label_27.setText("(+" + str(cha_bns) + ")")
 
     def savesChecker(self,state):
         if state == QtCore.Qt.Checked:

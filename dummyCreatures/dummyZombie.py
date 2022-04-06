@@ -21,3 +21,12 @@ class Zombie (creature):
 		self.dex_bns = -2
 		self.atk_bns = 3
 		self.dmg_per_rnd = 4
+
+	def roll_init(self):
+		return super().roll_init()
+
+	def takes_dmg(self, dmg):
+		super().takes_dmg(dmg)
+
+	def attack(self, enemy):
+		super().attack(enemy)

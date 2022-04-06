@@ -28,14 +28,32 @@ class Player():
     def attack_roll(self):
         atk_roll = random.randint(1,20) + self.atk_bns
         return atk_roll
+
+    def attack(self, enemy):
+        print(self.name, "attacks", enemy.creature.name + "!")
+
+        atk_roll = self.attack_roll()
+
+        if (atk_roll >= enemy.creature.armor_cls):
+            print(self.name, "hits!")
+            enemy.creature.takes_dmg(self.dmg_per_rnd)
+
+        else:
+            print(self.name, "misses!")
     
-    def take_dmg(self, dmg):
+    def takes_dmg(self, dmg):
         self.curr_hp = self.hp - dmg
         self.hp = self.curr_hp
+
+        print(self.name, "takes", dmg, "damage!")
         
-        if(self.hp <= 0):
-            self.is_defeated = True
+        if (self.hp <= 0):
+            self.defeated()
     
+    def defeated(self):
+        self.is_defeated = True
+
+        print(self.name, "is defeated!")
+
     def lvl_change(self, lvls):
         self.lvl = lvls
-        

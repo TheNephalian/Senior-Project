@@ -20,20 +20,23 @@ class Orc (creature):
 		self.dex_bns = 1
 		self.atk_bns = 5
 
-		def attack():
-			totalDmg = greataxe()
+	def roll_init(self):
+		return super().roll_init()
 
-			return totalDmg
+	def takes_dmg(self, dmg):
+		super().takes_dmg(dmg)
 
-		def greataxe():
-			#checks if attack hits
-			self.attack_roll
+	def attack(self, enemy):
+		totalDmg = self.greataxe()
 
-			dmgRoll = 0
+		super().attack(enemy, totalDmg)
 
-			#if hits, rolls 1d12 + 3
-			dmgRoll = dmgRoll + random.randint(1,12)
+	def greataxe(self):
+		dmgRoll = 0
+
+		#if hits, rolls 1d12 + 3
+		dmgRoll = dmgRoll + random.randint(1,12)
 			
-			dmgRoll = dmgRoll + 3
+		dmgRoll = dmgRoll + 3
 
-			return dmgRoll
+		return dmgRoll

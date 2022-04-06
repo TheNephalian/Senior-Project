@@ -22,10 +22,16 @@ class Fighter (Player):
         
 		self.dex_bns = 2
 		self.atk_bns = 5
-		self.dmg_per_rnd = 0
+		self.dmg_per_rnd = 5
 
 	def lvl_change(self, lvls):
 		return super().lvl_change(lvls)
 
 	def roll_init(self):
 		return super().roll_init()
+
+	def takes_dmg(self, dmg):
+		super().takes_dmg(dmg)
+
+	def attack(self, enemy):
+		super().attack(enemy)

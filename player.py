@@ -41,12 +41,19 @@ class Player():
         else:
             print(self.name, "misses!")
     
-    def take_dmg(self, dmg):
+    def takes_dmg(self, dmg):
         self.curr_hp = self.hp - dmg
         self.hp = self.curr_hp
+
+        print(self.name, "takes", dmg, "damage!")
         
-        if(self.hp <= 0):
-            self.is_defeated = True
+        if (self.hp <= 0):
+            self.defeated()
     
+    def defeated(self):
+        self.is_defeated = True
+
+        print(self.name, "is defeated!")
+
     def lvl_change(self, lvls):
         self.lvl = lvls

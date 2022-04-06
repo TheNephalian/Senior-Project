@@ -35,17 +35,20 @@ class creature():
 		atk_roll = random.randint(1,20) + self.atk_bns #+ attr_bns. This will vary depending on the creature/player class
 		return atk_roll
 
-	def attack(self, enemy):
+	def attack(self, enemy, dmg):
 		targetIndex = random.randint(0, len(enemy.players) - 1)
 
 		target = enemy.players[targetIndex]
 
-		print(self.name, "attacks", target.name + "!")
-
 		atk_roll = self.attack_roll()
 
+		print(self.name, "attacks", target.name + "!")
+
 		if (atk_roll >= target.ac):
-			...
+			target.takes_dmg(dmg)
+
+		else:
+			print(self.name, "misses!")
 
 	def takes_dmg(self, dmg):
 		self.curr_hp = self.hit_pts - dmg
@@ -55,4 +58,9 @@ class creature():
 		print(self.name + "'s hit points =", self.hit_pts )
 
 		if (self.hit_pts <= 0):
-			self.is_defeated = True
+			self.defeated()
+
+	def defeated(self):
+		self.is_defeated = True
+
+		print(self.name, "is defeated!")

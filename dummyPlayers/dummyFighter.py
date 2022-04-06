@@ -11,7 +11,7 @@ class Fighter (Player):
 		self.ac = 14
 		self.prof_bns = 2
 		self.is_defeated = False
-		self.initative = 0
+		self.initiative = 0
         
 		self.strength = 16
 		self.dexterity = 14
@@ -29,6 +29,9 @@ class Fighter (Player):
 
 	def roll_init(self):
 		return super().roll_init()
+
+	def takes_dmg(self, dmg):
+		super().takes_dmg(dmg)
 
 	def attack(self, enemy):
 		super().attack(enemy)

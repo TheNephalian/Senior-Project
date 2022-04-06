@@ -1,14 +1,19 @@
 import random
 from tkinter import E
-from dummyCreatures import dummyZombie
+from dummyCreatures import dummyBugBear, dummyOrc, dummyZombie
 from player import *
 from dummyPlayers import dummyFighter, dummyRanger, dummyRogue, dummyWizard
 
 class combatSimulation():
 	def __init__(self):
-		self.creature = dummyZombie.Zombie() #the creature that's in combat
+		#the creature that's in combat
+		#self.creature = dummyZombie.Zombie()
+		#self.creature = dummyOrc.Orc()
+		self.creature = dummyBugBear.BugBear()
 
 		self.players = [] #array that holds the players (up to 4) that are in combat
+
+		self.repeat_combat = True #boolean that will dicate whether combat continues or not.
 		
 		'''
 		This section will grab the chosen players from the user's input
@@ -28,8 +33,8 @@ class combatSimulation():
 
 		self.players.append(p1)
 		self.players.append(p2)
-		#self.players.append(p3)
-		#self.players.append(p4)
+		self.players.append(p3)
+		self.players.append(p4)
 
 		'''
 		This section will grab the chosen monster or load a custom moster
@@ -163,11 +168,32 @@ class combatSimulation():
 
 		print("")
 
+	def remove_from_combat(self):
+		if (self.creature.is_defeated == True):
+			self.repeat_combat = False
+
+		for m in range (0, len(self.players) - 1):
+			if (self.players[m].is_defeated == True):
+				print(self.players[m].name, "is defeated and should be removed from combat!")
+
+				self.repeat_combat = False
+
 	#COMBAT IS WIP
 	def combatSim(self):
 		print("Rolling initiative for all combatanants!")
 
 		self.rollInit()
 
-		for l in range (0, len(self.initiativeOrder)):
-			self.initiativeOrder[l].attack(self)
+		while (self.repeat_combat == True):
+			for l in range (0, len(self.initiativeOrder)):
+				self.remove_from_combat()
+
+				if (self.repeat_combat == False):
+					break
+
+				self.initiativeOrder[l].attack(self)
+
+				self.remove_from_combat()
+
+				if (self.repeat_combat == False):
+					break

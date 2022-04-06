@@ -30,5 +30,8 @@ class Ranger (Player):
 	def roll_init(self):
 		return super().roll_init()
 
+	def takes_dmg(self, dmg):
+		super().takes_dmg(dmg)
+
 	def attack(self, enemy):
 		super().attack(enemy)

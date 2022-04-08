@@ -19,12 +19,158 @@
   <property name="windowTitle">
    <string>Senior Project</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="font">
+    <font>
+     <family>Merriweather</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QScrollBar:vertical {
+	border: none;
+    width: 14px;
+    margin: 15px 0 15px 0;
+	border-radius: 0px;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: rgb(42, 54, 59);
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{	
+	background-color: rgba(42, 54, 59,20);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgba(42, 54, 59,20);
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+	height: 15px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: rgb(59, 59, 90);
+	height: 15px;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: rgb(255, 0, 127);
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: rgb(185, 0, 92);
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+QPushButton{
+ 	padding: .25em;
+ 	border: 1px solid black;
+ 	border-radius: 0.4em;
+ 	box-shadow: 0.1em 0.1em;
+}
+
+QPushButton::hover{
+	transform: translate(-0.05em, -0.05em);
+ 	box-shadow: 0.15em 0.15em;
+}
+
+QPushButton::active{
+	transform: translate(0.05em, 0.05em);
+ 	box-shadow: 0.05em 0.05em;
+}
+QSpinBox{
+	padding: .25em;
+	border: 1px solid rgb(42, 54, 59);
+	border-bottom: 2px solid rgb(232, 74, 95);
+	border-radius: 5px;
+}
+
+QSpinBox::up-button {
+    subcontrol-origin: border;
+    subcontrol-position: top right; /* position at the top right corner */
+
+    width: 16px; /* 16 + 2*1px border-width = 15px padding + 3px parent border */
+}
+QSpinBox::down-button {
+    subcontrol-origin: border;
+    subcontrol-position: bottom right; /* position at bottom right corner */
+
+    width: 16px;
+}
+
+QComboBox{
+	
+	padding: .25em;
+	border:1px solid rgb(42, 54, 59);
+	border-bottom: 2px Solid rgb(232, 74, 95);
+	border-radius: 5px;
+}
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+
+    border-left-width: 1px;
+    border-left-color: rgb(42, 54, 59);
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+}
+
+QLineEdit{
+	
+	border: 1px solid rgb(42, 54, 59);
+	border-bottom: 2px solid;
+	border-bottom-color: rgb(232, 74, 95);
+	border-radius: 5px;
+	padding-left:20px;
+	padding-right:20px;
+	height: 25px;
+}</string>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QTabWidget" name="tabWidget">
+      <property name="font">
+       <font>
+        <family>Merriweather</family>
+        <kerning>true</kerning>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -33,6 +179,12 @@
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
          <widget class="QScrollArea" name="scrollArea">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+            <kerning>true</kerning>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true"/>
           </property>
@@ -44,13 +196,19 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1219</width>
-             <height>2227</height>
+             <width>1222</width>
+             <height>2328</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
              <widget class="QFrame" name="frame">
+              <property name="font">
+               <font>
+                <family>Merriweather</family>
+                <kerning>true</kerning>
+               </font>
+              </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
@@ -72,6 +230,15 @@
                    <height>75</height>
                   </size>
                  </property>
+                 <property name="font">
+                  <font>
+                   <family>Merriweather</family>
+                   <kerning>true</kerning>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
                  </property>
@@ -80,10 +247,38 @@
                  </property>
                  <layout class="QGridLayout" name="gridLayout_3">
                   <item row="0" column="1">
-                   <widget class="QLineEdit" name="nameLineEdit"/>
+                   <widget class="QLineEdit" name="nameLineEdit">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
                   </item>
                   <item row="0" column="0">
                    <widget class="QLabel" name="label_14">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
                     <property name="text">
                      <string>Name:</string>
                     </property>
@@ -100,6 +295,12 @@
                    <height>0</height>
                   </size>
                  </property>
+                 <property name="font">
+                  <font>
+                   <family>Merriweather</family>
+                   <kerning>true</kerning>
+                  </font>
+                 </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
                  </property>
@@ -112,6 +313,12 @@
                   </property>
                   <item row="9" column="5">
                    <widget class="QLabel" name="label_12">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Resistances/Immunities:</string>
                     </property>
@@ -119,6 +326,12 @@
                   </item>
                   <item row="10" column="0">
                    <widget class="QLabel" name="label_6">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Constitution:</string>
                     </property>
@@ -126,6 +339,12 @@
                   </item>
                   <item row="11" column="1" colspan="4">
                    <widget class="QSlider" name="slider">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
@@ -135,10 +354,23 @@
                    </widget>
                   </item>
                   <item row="5" column="2">
-                   <widget class="QSpinBox" name="ArmorSpinBox"/>
+                   <widget class="QSpinBox" name="ArmorSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="5" column="0">
                    <widget class="QLabel" name="label_3">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Armor Class:</string>
                     </property>
@@ -146,6 +378,15 @@
                   </item>
                   <item row="8" column="2">
                    <widget class="QComboBox" name="sizeComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="editable">
+                     <bool>false</bool>
+                    </property>
                     <item>
                      <property name="text">
                       <string>Tiny</string>
@@ -179,10 +420,23 @@
                    </widget>
                   </item>
                   <item row="5" column="6">
-                   <widget class="QSpinBox" name="attkBonSpinBox"/>
+                   <widget class="QSpinBox" name="attkBonSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="8" column="6">
                    <widget class="QCheckBox" name="vulCheckBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Vulnerabilities:</string>
                     </property>
@@ -192,7 +446,9 @@
                    <widget class="QLabel" name="label_2">
                     <property name="font">
                      <font>
+                      <family>Merriweather</family>
                       <pointsize>12</pointsize>
+                      <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
@@ -202,6 +458,12 @@
                   </item>
                   <item row="1" column="2" colspan="3">
                    <spacer name="horizontalSpacer_4">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
@@ -215,6 +477,12 @@
                   </item>
                   <item row="8" column="0">
                    <widget class="QLabel" name="label_4">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Size:</string>
                     </property>
@@ -222,6 +490,12 @@
                   </item>
                   <item row="1" column="6">
                    <spacer name="horizontalSpacer_6">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
@@ -235,6 +509,12 @@
                   </item>
                   <item row="11" column="6">
                    <widget class="QComboBox" name="saveComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <item>
                      <property name="text">
                       <string>0-2</string>
@@ -260,10 +540,22 @@
                       <height>0</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                    </widget>
                   </item>
                   <item row="9" column="0">
                    <widget class="QLabel" name="label_5">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Hit Dice:</string>
                     </property>
@@ -271,21 +563,34 @@
                   </item>
                   <item row="10" column="6">
                    <widget class="QCheckBox" name="fliesCheckBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string/>
                     </property>
                    </widget>
                   </item>
                   <item row="10" column="2">
-                   <widget class="QSpinBox" name="constitSpinBox"/>
+                   <widget class="QSpinBox" name="constitSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="4" column="2">
-                   <widget class="QSpinBox" name="hitPointsSpinBox"/>
-                  </item>
-                  <item row="0" column="2" colspan="2">
-                   <widget class="QLineEdit" name="exCRLineEdit">
-                    <property name="text">
-                     <string>0</string>
+                   <widget class="QSpinBox" name="hitPointsSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
                     </property>
                    </widget>
                   </item>
@@ -293,7 +598,9 @@
                    <widget class="QLabel" name="diceLabel">
                     <property name="font">
                      <font>
+                      <family>Merriweather</family>
                       <bold>true</bold>
+                      <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
@@ -306,6 +613,12 @@
                   </item>
                   <item row="9" column="6">
                    <widget class="QComboBox" name="resComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <item>
                      <property name="text">
                       <string>None</string>
@@ -327,7 +640,9 @@
                    <widget class="QLabel" name="label_8">
                     <property name="font">
                      <font>
+                      <family>Merriweather</family>
                       <pointsize>20</pointsize>
+                      <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
@@ -336,7 +651,14 @@
                    </widget>
                   </item>
                   <item row="4" column="6">
-                   <widget class="QSpinBox" name="dprSpinBox"/>
+                   <widget class="QSpinBox" name="dprSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="1" column="0">
                    <widget class="QLabel" name="label">
@@ -348,7 +670,9 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>Merriweather</family>
                       <pointsize>20</pointsize>
+                      <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
@@ -364,10 +688,22 @@
                       <height>16777215</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                    </widget>
                   </item>
                   <item row="10" column="5">
                    <widget class="QLabel" name="label_11">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Flies and can deal damage at range (CR 0-9 only):</string>
                     </property>
@@ -375,6 +711,12 @@
                   </item>
                   <item row="7" column="6">
                    <widget class="QCheckBox" name="savesCheckBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Use Saves?</string>
                     </property>
@@ -388,6 +730,12 @@
                       <height>40</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Expected CR:</string>
                     </property>
@@ -395,6 +743,12 @@
                   </item>
                   <item row="1" column="1">
                    <spacer name="horizontalSpacer_3">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
@@ -411,6 +765,12 @@
                   </item>
                   <item row="4" column="5">
                    <widget class="QLabel" name="label_7">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Damage Per Round:</string>
                     </property>
@@ -418,6 +778,12 @@
                   </item>
                   <item row="11" column="5">
                    <widget class="QLabel" name="label_10">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Save Proficiencies</string>
                     </property>
@@ -425,8 +791,33 @@
                   </item>
                   <item row="5" column="5">
                    <widget class="QLabel" name="label_9">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Attack Bonus/Save DC:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2" colspan="2">
+                   <widget class="QLineEdit" name="exCRLineEdit">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>0</string>
                     </property>
                    </widget>
                   </item>
@@ -440,6 +831,12 @@
                    <width>0</width>
                    <height>975</height>
                   </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Merriweather</family>
+                   <kerning>true</kerning>
+                  </font>
                  </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
@@ -464,10 +861,19 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>Merriweather</family>
+                      <italic>false</italic>
                       <bold>false</bold>
                       <underline>false</underline>
                       <stylestrategy>PreferDefault</stylestrategy>
+                      <kerning>true</kerning>
                      </font>
+                    </property>
+                    <property name="showGrid">
+                     <bool>true</bool>
+                    </property>
+                    <property name="gridStyle">
+                     <enum>Qt::SolidLine</enum>
                     </property>
                     <row>
                      <property name="text">
@@ -1906,6 +2312,12 @@
                   </item>
                   <item>
                    <spacer name="horizontalSpacer">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
@@ -1924,7 +2336,9 @@
                 <widget class="QFrame" name="frame_8">
                  <property name="font">
                   <font>
+                   <family>Merriweather</family>
                    <pointsize>14</pointsize>
+                   <kerning>true</kerning>
                   </font>
                  </property>
                  <property name="frameShape">
@@ -1938,9 +2352,11 @@
                    <widget class="QLabel" name="label_37">
                     <property name="font">
                      <font>
+                      <family>Merriweather</family>
                       <pointsize>14</pointsize>
                       <bold>true</bold>
                       <underline>true</underline>
+                      <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
@@ -1949,22 +2365,56 @@
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QTextEdit" name="textEdit_5"/>
+                   <widget class="QTextEdit" name="textEdit_5">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="4" column="0">
-                   <widget class="QTextEdit" name="textEdit_6"/>
+                   <widget class="QTextEdit" name="textEdit_6">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="3" column="0">
-                   <widget class="QTextEdit" name="textEdit_7"/>
+                   <widget class="QTextEdit" name="textEdit_7">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="2" column="0">
-                   <widget class="QTextEdit" name="textEdit_8"/>
+                   <widget class="QTextEdit" name="textEdit_8">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </widget>
                </item>
                <item row="3" column="0">
                 <widget class="QFrame" name="frame_6">
+                 <property name="font">
+                  <font>
+                   <family>Merriweather</family>
+                   <kerning>true</kerning>
+                  </font>
+                 </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
                  </property>
@@ -1972,6 +2422,358 @@
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_5">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_28">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <pointsize>14</pointsize>
+                      <bold>true</bold>
+                      <underline>true</underline>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Actions</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_29">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Type</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_30">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Reach</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="8">
+                   <widget class="QLabel" name="label_39">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Attribute</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLineEdit" name="actionName_1">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>400</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Name</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QComboBox" name="actionType_1">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>Melee</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Ranged</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="plusLabel_1">
+                    <property name="maximumSize">
+                     <size>
+                      <width>20</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <pointsize>11</pointsize>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>+0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QSpinBox" name="reachSpinBox_1">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="4">
+                   <widget class="QSpinBox" name="spinBox_10">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="5">
+                   <widget class="QLabel" name="label_65">
+                    <property name="maximumSize">
+                     <size>
+                      <width>15</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <pointsize>11</pointsize>
+                      <bold>true</bold>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>d</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="6">
+                   <widget class="QComboBox" name="actionDice_1">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="1" column="7">
+                   <widget class="QComboBox" name="actionDamageType_1">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>Acid</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Bludgeoning</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Cold</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>fire</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Force</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Lighting</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Necrotic</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Poison</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Slashing</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="1" column="8">
+                   <widget class="QComboBox" name="attrComboBox_1">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>STR</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>DEX</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CON</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>INT</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>WIS</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CHA</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="1" column="9">
+                   <widget class="QPushButton" name="pushButton">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(153, 184, 152);</string>
+                    </property>
+                    <property name="text">
+                     <string>Add</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="10">
+                   <widget class="QPushButton" name="pushButton_2">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(255, 132, 124);</string>
+                    </property>
+                    <property name="text">
+                     <string>Remove</string>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="2" column="0">
                    <widget class="QLineEdit" name="actionName_2">
                     <property name="maximumSize">
@@ -1980,42 +2782,28 @@
                       <height>16777215</height>
                      </size>
                     </property>
-                    <property name="text">
-                     <string>Name</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="3">
-                   <widget class="QSpinBox" name="reachSpinBox_2"/>
-                  </item>
-                  <item row="4" column="2">
-                   <widget class="QLabel" name="plusLabel_4">
-                    <property name="maximumSize">
-                     <size>
-                      <width>20</width>
-                      <height>16777215</height>
-                     </size>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
                     </property>
                     <property name="text">
-                     <string>+0</string>
+                     <string/>
                     </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLineEdit" name="actionName_3">
-                    <property name="maximumSize">
-                     <size>
-                      <width>400</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
+                    <property name="placeholderText">
                      <string>Name</string>
                     </property>
                    </widget>
                   </item>
                   <item row="2" column="1">
                    <widget class="QComboBox" name="actionType_2">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <item>
                      <property name="text">
                       <string>Melee</string>
@@ -2028,91 +2816,113 @@
                     </item>
                    </widget>
                   </item>
-                  <item row="1" column="11">
-                   <widget class="QPushButton" name="pushButton_2">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Remove</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1">
-                   <widget class="QComboBox" name="actionType_3">
-                    <item>
-                     <property name="text">
-                      <string>Melee</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Ranged</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="1" column="3">
-                   <widget class="QSpinBox" name="reachSpinBox_1"/>
-                  </item>
-                  <item row="1" column="10">
-                   <widget class="QPushButton" name="pushButton">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true"/>
-                    </property>
-                    <property name="text">
-                     <string>Add</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="2">
-                   <widget class="QLabel" name="plusLabel_3">
+                  <item row="2" column="2">
+                   <widget class="QLabel" name="plusLabel_2">
                     <property name="maximumSize">
                      <size>
                       <width>20</width>
                       <height>16777215</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <pointsize>11</pointsize>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>+0</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="3">
-                   <widget class="QSpinBox" name="reachSpinBox_3"/>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QComboBox" name="actionType_1">
-                    <item>
-                     <property name="text">
-                      <string>Melee</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Ranged</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="0" column="9">
-                   <widget class="QLabel" name="label_39">
-                    <property name="text">
-                     <string>Attribute</string>
+                  <item row="2" column="3">
+                   <widget class="QSpinBox" name="reachSpinBox_2">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="8">
-                   <widget class="QComboBox" name="actionDamageType_1">
+                  <item row="2" column="4">
+                   <widget class="QSpinBox" name="spinBox_11">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="5">
+                   <widget class="QLabel" name="label_66">
+                    <property name="maximumSize">
+                     <size>
+                      <width>15</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <pointsize>11</pointsize>
+                      <bold>true</bold>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>d</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="6">
+                   <widget class="QComboBox" name="actionDice_2">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="2" column="7">
+                   <widget class="QComboBox" name="actionDamageType_2">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <item>
                      <property name="text">
                       <string>Acid</string>
@@ -2171,7 +2981,240 @@
                    </widget>
                   </item>
                   <item row="2" column="8">
-                   <widget class="QComboBox" name="actionDamageType_2">
+                   <widget class="QComboBox" name="attrComboBox_2">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>STR</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>DEX</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CON</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>INT</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>WIS</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CHA</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="2" column="9">
+                   <widget class="QPushButton" name="pushButton_3">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(153, 184, 152);</string>
+                    </property>
+                    <property name="text">
+                     <string>Add</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="10">
+                   <widget class="QPushButton" name="pushButton_4">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(255, 132, 124);</string>
+                    </property>
+                    <property name="text">
+                     <string>Remove</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLineEdit" name="actionName_3">
+                    <property name="maximumSize">
+                     <size>
+                      <width>400</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Name</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QComboBox" name="actionType_3">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>Melee</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Ranged</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="3" column="2">
+                   <widget class="QLabel" name="plusLabel_3">
+                    <property name="maximumSize">
+                     <size>
+                      <width>20</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <pointsize>11</pointsize>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>+0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="3">
+                   <widget class="QSpinBox" name="reachSpinBox_3">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="4">
+                   <widget class="QSpinBox" name="spinBox_12">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="5">
+                   <widget class="QLabel" name="label_67">
+                    <property name="maximumSize">
+                     <size>
+                      <width>15</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <pointsize>11</pointsize>
+                      <bold>true</bold>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>d</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="6">
+                   <widget class="QComboBox" name="actionDice_3">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="3" column="7">
+                   <widget class="QComboBox" name="actionDamageType_3">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <item>
                      <property name="text">
                       <string>Acid</string>
@@ -2229,8 +3272,122 @@
                     </item>
                    </widget>
                   </item>
+                  <item row="3" column="8">
+                   <widget class="QComboBox" name="attrComboBox_3">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>STR</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>DEX</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CON</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>INT</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>WIS</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CHA</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="3" column="9">
+                   <widget class="QPushButton" name="pushButton_5">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(153, 184, 152);</string>
+                    </property>
+                    <property name="text">
+                     <string>Add</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="10">
+                   <widget class="QPushButton" name="pushButton_8">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(255, 132, 124);</string>
+                    </property>
+                    <property name="text">
+                     <string>Remove</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QLineEdit" name="actionName_4">
+                    <property name="maximumSize">
+                     <size>
+                      <width>400</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Name</string>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="4" column="1">
                    <widget class="QComboBox" name="actionType_4">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <item>
                      <property name="text">
                       <string>Melee</string>
@@ -2243,148 +3400,43 @@
                     </item>
                    </widget>
                   </item>
-                  <item row="0" column="3">
-                   <widget class="QLabel" name="label_30">
-                    <property name="text">
-                     <string>Reach</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QLabel" name="plusLabel_1">
+                  <item row="4" column="2">
+                   <widget class="QLabel" name="plusLabel_4">
                     <property name="maximumSize">
                      <size>
                       <width>20</width>
                       <height>16777215</height>
                      </size>
                     </property>
-                    <property name="text">
-                     <string>+0</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QLabel" name="label_29">
-                    <property name="text">
-                     <string>Type</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLineEdit" name="actionName_1">
-                    <property name="maximumSize">
-                     <size>
-                      <width>400</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Name</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="11">
-                   <widget class="QPushButton" name="pushButton_4">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Remove</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="10">
-                   <widget class="QPushButton" name="pushButton_3">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true"/>
-                    </property>
-                    <property name="text">
-                     <string>Add</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="0">
-                   <widget class="QLineEdit" name="actionName_4">
-                    <property name="maximumSize">
-                     <size>
-                      <width>400</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Name</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="2">
-                   <widget class="QLabel" name="plusLabel_2">
-                    <property name="maximumSize">
-                     <size>
-                      <width>20</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>+0</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_28">
                     <property name="font">
                      <font>
-                      <pointsize>14</pointsize>
-                      <bold>true</bold>
-                      <underline>true</underline>
+                      <family>Merriweather</family>
+                      <pointsize>11</pointsize>
+                      <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
-                     <string>Actions</string>
+                     <string>+0</string>
                     </property>
                    </widget>
-                  </item>
-                  <item row="3" column="4">
-                   <widget class="QSpinBox" name="spinBox_12"/>
-                  </item>
-                  <item row="2" column="4">
-                   <widget class="QSpinBox" name="spinBox_11"/>
-                  </item>
-                  <item row="1" column="4">
-                   <widget class="QSpinBox" name="spinBox_10"/>
-                  </item>
-                  <item row="4" column="4">
-                   <widget class="QSpinBox" name="spinBox_13"/>
                   </item>
                   <item row="4" column="3">
-                   <widget class="QSpinBox" name="reachSpinBox_4"/>
-                  </item>
-                  <item row="3" column="5">
-                   <widget class="QLabel" name="label_67">
-                    <property name="maximumSize">
-                     <size>
-                      <width>15</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
+                   <widget class="QSpinBox" name="reachSpinBox_4">
                     <property name="font">
                      <font>
-                      <bold>true</bold>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
                      </font>
                     </property>
-                    <property name="text">
-                     <string>d</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   </widget>
+                  </item>
+                  <item row="4" column="4">
+                   <widget class="QSpinBox" name="spinBox_13">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
                     </property>
                    </widget>
                   </item>
@@ -2398,7 +3450,10 @@
                     </property>
                     <property name="font">
                      <font>
+                      <family>Merriweather</family>
+                      <pointsize>11</pointsize>
                       <bold>true</bold>
+                      <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
@@ -2407,110 +3462,16 @@
                     <property name="alignment">
                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                     </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="5">
-                   <widget class="QLabel" name="label_66">
-                    <property name="maximumSize">
-                     <size>
-                      <width>15</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>d</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="5">
-                   <widget class="QLabel" name="label_65">
-                    <property name="maximumSize">
-                     <size>
-                      <width>15</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>d</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="6">
-                   <widget class="QComboBox" name="actionDice_2">
-                    <item>
-                     <property name="text">
-                      <string>4</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>6</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>8</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>10</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>12</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="3" column="6">
-                   <widget class="QComboBox" name="actionDice_3">
-                    <item>
-                     <property name="text">
-                      <string>4</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>6</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>8</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>10</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>12</string>
-                     </property>
-                    </item>
                    </widget>
                   </item>
                   <item row="4" column="6">
                    <widget class="QComboBox" name="actionDice_4">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <item>
                      <property name="text">
                       <string>4</string>
@@ -2538,37 +3499,14 @@
                     </item>
                    </widget>
                   </item>
-                  <item row="1" column="6">
-                   <widget class="QComboBox" name="actionDice_1">
-                    <item>
-                     <property name="text">
-                      <string>4</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>6</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>8</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>10</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>12</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="3" column="8">
-                   <widget class="QComboBox" name="actionDamageType_3">
+                  <item row="4" column="7">
+                   <widget class="QComboBox" name="actionDamageType_4">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <item>
                      <property name="text">
                       <string>Acid</string>
@@ -2627,124 +3565,13 @@
                    </widget>
                   </item>
                   <item row="4" column="8">
-                   <widget class="QComboBox" name="actionDamageType_4">
-                    <item>
-                     <property name="text">
-                      <string>Acid</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Bludgeoning</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Cold</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>fire</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Force</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Lighting</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Necrotic</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Poison</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Slashing</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="3" column="10">
-                   <widget class="QPushButton" name="pushButton_5">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
+                   <widget class="QComboBox" name="attrComboBox_4">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
                     </property>
-                    <property name="styleSheet">
-                     <string notr="true"/>
-                    </property>
-                    <property name="text">
-                     <string>Add</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="11">
-                   <widget class="QPushButton" name="pushButton_8">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Remove</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="10">
-                   <widget class="QPushButton" name="pushButton_6">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true"/>
-                    </property>
-                    <property name="text">
-                     <string>Add</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="11">
-                   <widget class="QPushButton" name="pushButton_7">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text">
-                     <string>Remove</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="9">
-                   <widget class="QComboBox" name="comboBox">
                     <item>
                      <property name="text">
                       <string>STR</string>
@@ -2777,6 +3604,52 @@
                     </item>
                    </widget>
                   </item>
+                  <item row="4" column="9">
+                   <widget class="QPushButton" name="pushButton_6">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(153, 184, 152);</string>
+                    </property>
+                    <property name="text">
+                     <string>Add</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="10">
+                   <widget class="QPushButton" name="pushButton_7">
+                    <property name="maximumSize">
+                     <size>
+                      <width>100</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(255, 132, 124);</string>
+                    </property>
+                    <property name="text">
+                     <string>Remove</string>
+                    </property>
+                   </widget>
+                  </item>
                  </layout>
                 </widget>
                </item>
@@ -2788,6 +3661,12 @@
                    <height>90</height>
                   </size>
                  </property>
+                 <property name="font">
+                  <font>
+                   <family>Merriweather</family>
+                   <kerning>true</kerning>
+                  </font>
+                 </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
                  </property>
@@ -2797,16 +3676,35 @@
                  <layout class="QGridLayout" name="gridLayout_4">
                   <item row="1" column="11">
                    <widget class="QLabel" name="label_27">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>TextLabel</string>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QSpinBox" name="strSpinBox"/>
+                   <widget class="QSpinBox" name="strSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="1" column="10">
                    <widget class="QSpinBox" name="chaSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="maximum">
                      <number>30</number>
                     </property>
@@ -2814,6 +3712,12 @@
                   </item>
                   <item row="1" column="5">
                    <widget class="QLabel" name="label_24">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>TextLabel</string>
                     </property>
@@ -2821,6 +3725,12 @@
                   </item>
                   <item row="0" column="2">
                    <widget class="QLabel" name="label_17">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>DEX</string>
                     </property>
@@ -2830,13 +3740,33 @@
                    </widget>
                   </item>
                   <item row="1" column="4">
-                   <widget class="QSpinBox" name="conSpinBox"/>
+                   <widget class="QSpinBox" name="conSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="1" column="2">
-                   <widget class="QSpinBox" name="dexSpinBox"/>
+                   <widget class="QSpinBox" name="dexSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="1" column="3">
                    <widget class="QLabel" name="label_23">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>TextLabel</string>
                     </property>
@@ -2844,16 +3774,35 @@
                   </item>
                   <item row="1" column="1">
                    <widget class="QLabel" name="label_22">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>TextLabel</string>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="6">
-                   <widget class="QSpinBox" name="intSpinBox"/>
+                   <widget class="QSpinBox" name="intSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="0" column="6">
                    <widget class="QLabel" name="label_19">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>INT</string>
                     </property>
@@ -2864,6 +3813,12 @@
                   </item>
                   <item row="0" column="0">
                    <widget class="QLabel" name="label_16">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>STR</string>
                     </property>
@@ -2874,6 +3829,12 @@
                   </item>
                   <item row="1" column="9">
                    <widget class="QLabel" name="label_26">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>TextLabel</string>
                     </property>
@@ -2881,6 +3842,12 @@
                   </item>
                   <item row="0" column="8">
                    <widget class="QLabel" name="label_20">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>WIS</string>
                     </property>
@@ -2891,6 +3858,12 @@
                   </item>
                   <item row="1" column="7">
                    <widget class="QLabel" name="label_25">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>TextLabel</string>
                     </property>
@@ -2898,6 +3871,12 @@
                   </item>
                   <item row="0" column="10">
                    <widget class="QLabel" name="label_21">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>CHA</string>
                     </property>
@@ -2907,10 +3886,23 @@
                    </widget>
                   </item>
                   <item row="1" column="8">
-                   <widget class="QSpinBox" name="wisSpinBox"/>
+                   <widget class="QSpinBox" name="wisSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="0" column="4">
                    <widget class="QLabel" name="label_18">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>CON</string>
                     </property>
@@ -2921,6 +3913,12 @@
                   </item>
                   <item row="2" column="0">
                    <widget class="QCheckBox" name="checkBox_28">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Saving Throw</string>
                     </property>
@@ -2928,6 +3926,12 @@
                   </item>
                   <item row="2" column="2">
                    <widget class="QCheckBox" name="checkBox_29">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Saving Throw</string>
                     </property>
@@ -2935,6 +3939,12 @@
                   </item>
                   <item row="2" column="4">
                    <widget class="QCheckBox" name="checkBox_30">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Saving Throw</string>
                     </property>
@@ -2942,6 +3952,12 @@
                   </item>
                   <item row="2" column="6">
                    <widget class="QCheckBox" name="checkBox_31">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Saving Throw</string>
                     </property>
@@ -2949,6 +3965,12 @@
                   </item>
                   <item row="2" column="8">
                    <widget class="QCheckBox" name="checkBox_32">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Saving Throw</string>
                     </property>
@@ -2956,6 +3978,12 @@
                   </item>
                   <item row="2" column="10">
                    <widget class="QCheckBox" name="checkBox_33">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Saving Throw</string>
                     </property>
@@ -2966,6 +3994,12 @@
                </item>
                <item row="8" column="0">
                 <widget class="QFrame" name="frame_9">
+                 <property name="font">
+                  <font>
+                   <family>Merriweather</family>
+                   <kerning>true</kerning>
+                  </font>
+                 </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
                  </property>
@@ -2975,8 +4009,15 @@
                  <layout class="QFormLayout" name="formLayout">
                   <item row="1" column="1">
                    <widget class="QPushButton" name="testButton">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="styleSheet">
-                     <string notr="true"/>
+                     <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(153, 184, 152);</string>
                     </property>
                     <property name="text">
                      <string>Test</string>
@@ -2985,8 +4026,15 @@
                   </item>
                   <item row="1" column="0">
                    <widget class="QPushButton" name="resetButton">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="styleSheet">
-                     <string notr="true"/>
+                     <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(232, 74, 95);</string>
                     </property>
                     <property name="text">
                      <string>Reset</string>
@@ -2995,6 +4043,12 @@
                   </item>
                   <item row="0" column="0" colspan="2">
                    <widget class="QPushButton" name="pushButton_9">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Create Creature</string>
                     </property>
@@ -3005,6 +4059,12 @@
                </item>
                <item row="4" column="0">
                 <widget class="QFrame" name="frame_7">
+                 <property name="font">
+                  <font>
+                   <family>Merriweather</family>
+                   <kerning>true</kerning>
+                  </font>
+                 </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
                  </property>
@@ -3013,14 +4073,23 @@
                  </property>
                  <layout class="QGridLayout" name="gridLayout_6">
                   <item row="3" column="2">
-                   <widget class="QSpinBox" name="spinBox_5"/>
+                   <widget class="QSpinBox" name="spinBox_5">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="1" column="0">
                    <widget class="QLabel" name="label_35">
                     <property name="font">
                      <font>
+                      <family>Merriweather</family>
                       <italic>true</italic>
                       <bold>true</bold>
+                      <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
@@ -3030,6 +4099,12 @@
                   </item>
                   <item row="3" column="1">
                    <widget class="QCheckBox" name="checkBox">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Does damage?</string>
                     </property>
@@ -3037,6 +4112,12 @@
                   </item>
                   <item row="3" column="0">
                    <widget class="QLineEdit" name="lineEdit_5">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Name</string>
                     </property>
@@ -3044,26 +4125,58 @@
                   </item>
                   <item row="3" column="6">
                    <widget class="QCheckBox" name="checkBox_2">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>AOE?</string>
                     </property>
                    </widget>
                   </item>
                   <item row="3" column="4">
-                   <widget class="QComboBox" name="comboBox_9"/>
+                   <widget class="QComboBox" name="comboBox_9">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="2" column="0">
                    <widget class="QLabel" name="label_36">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>Please follow the format:</string>
                     </property>
                    </widget>
                   </item>
                   <item row="4" column="0" colspan="7">
-                   <widget class="QPlainTextEdit" name="plainTextEdit"/>
+                   <widget class="QPlainTextEdit" name="plainTextEdit">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
                   </item>
                   <item row="3" column="3">
                    <widget class="QLabel" name="label_38">
+                    <property name="font">
+                     <font>
+                      <family>Merriweather</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>d</string>
                     </property>
@@ -3096,7 +4209,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1219</width>
+             <width>1222</width>
              <height>834</height>
             </rect>
            </property>

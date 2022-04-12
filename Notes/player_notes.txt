@@ -59,7 +59,25 @@ The player class will need the following member functions (not sure what kind of
 		lvl_change(int lvls)
 			This function will manipulate the player's level (either up or down), i.e. manipulate the player's stats.
 			For example, a lvl 1 fighter has 10 hp. With this function, we add 2 lvls to the fighter. The fighter is now lvl 3, and its hp is now 20.
-			The numbers we'll use and how exactly we'll mess with them will have to be determined (FEB23 meeting)
+			The numbers we'll use and how exactly we'll mess with them will have to be determined
+
+			Average Damage/HP per Level by Class
+				Class/Level -	Damage -	Hit Points
+				Barbarian 1 -	7			12
+				Barbarian 20 -	50			184
+
+				Fighter 1	-	5			10
+				Fighter 20	- 	60			161
+
+				Ranger 1	- 	7			10
+				Ranger 20	- 	35			161
+
+				Rogue 1		-	8			8
+				Rogue 20	-	35			123
+				
+				Wizard 1	-	5			8
+				Wizard 20	-	50			123
+
 	
 	Functions I'm not so certain we'll need
 		getter/setter functions for each variables

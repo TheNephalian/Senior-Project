@@ -20,7 +20,8 @@
    <string>Senior Project</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">
+##background-color: rgba(254, 206, 168, 30);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="font">
@@ -53,7 +54,7 @@ QScrollBar::handle:vertical:pressed {
 /* BTN TOP - SCROLLBAR */
 QScrollBar::sub-line:vertical {
 	border: none;
-	background-color: rgb(59, 59, 90);
+	background-color: rgb(42, 54, 59);
 	height: 15px;
 	border-top-left-radius: 7px;
 	border-top-right-radius: 7px;
@@ -70,7 +71,7 @@ QScrollBar::sub-line:vertical:pressed {
 /* BTN BOTTOM - SCROLLBAR */
 QScrollBar::add-line:vertical {
 	border: none;
-	background-color: rgb(59, 59, 90);
+	background-color: rgb(42, 54, 59);
 	height: 15px;
 	border-bottom-left-radius: 7px;
 	border-bottom-right-radius: 7px;
@@ -162,7 +163,7 @@ QLineEdit{
      <widget class="QTabWidget" name="tabWidget">
       <property name="font">
        <font>
-        <family>Merriweather</family>
+        <family>Segoe UI</family>
         <kerning>true</kerning>
        </font>
       </property>
@@ -170,7 +171,7 @@ QLineEdit{
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -181,7 +182,7 @@ QLineEdit{
          <widget class="QScrollArea" name="scrollArea">
           <property name="font">
            <font>
-            <family>Merriweather</family>
+            <family>Segoe UI</family>
             <kerning>true</kerning>
            </font>
           </property>
@@ -197,7 +198,7 @@ QLineEdit{
              <x>0</x>
              <y>0</y>
              <width>1222</width>
-             <height>2328</height>
+             <height>1979</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -205,7 +206,7 @@ QLineEdit{
              <widget class="QFrame" name="frame">
               <property name="font">
                <font>
-                <family>Merriweather</family>
+                <family>Segoe UI</family>
                 <kerning>true</kerning>
                </font>
               </property>
@@ -216,28 +217,19 @@ QLineEdit{
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QGridLayout" name="gridLayout">
-               <item row="0" column="0">
-                <widget class="QFrame" name="frame_4">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
+               <item row="1" column="0">
+                <widget class="QFrame" name="frame_5">
                  <property name="maximumSize">
                   <size>
                    <width>16777215</width>
-                   <height>75</height>
+                   <height>90</height>
                   </size>
                  </property>
                  <property name="font">
                   <font>
-                   <family>Merriweather</family>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true"/>
                  </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
@@ -245,59 +237,330 @@ QLineEdit{
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
                  </property>
-                 <layout class="QGridLayout" name="gridLayout_3">
-                  <item row="0" column="1">
-                   <widget class="QLineEdit" name="nameLineEdit">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>0</height>
-                     </size>
-                    </property>
+                 <layout class="QGridLayout" name="gridLayout_4">
+                  <item row="1" column="10">
+                   <widget class="QSpinBox" name="chaSpinBox">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
-                    <property name="styleSheet">
-                     <string notr="true"/>
+                    <property name="maximum">
+                     <number>30</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="6">
+                   <widget class="QSpinBox" name="intSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QCheckBox" name="checkBox_28">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
                     </property>
                     <property name="text">
-                     <string/>
+                     <string>Saving Throw</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLabel" name="dexBonus">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>-5</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="8">
+                   <widget class="QSpinBox" name="wisSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QCheckBox" name="checkBox_29">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Saving Throw</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="6">
+                   <widget class="QCheckBox" name="checkBox_31">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Saving Throw</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QLabel" name="label_18">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>CON</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QSpinBox" name="strSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="10">
+                   <widget class="QCheckBox" name="checkBox_33">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Saving Throw</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="7">
+                   <widget class="QLabel" name="intBonus">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>-5</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_17">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>DEX</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QSpinBox" name="dexSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="9">
+                   <widget class="QLabel" name="wisBonus">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>-5</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="4">
+                   <widget class="QCheckBox" name="checkBox_30">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Saving Throw</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="4">
+                   <widget class="QSpinBox" name="conSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="6">
+                   <widget class="QLabel" name="label_19">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>INT</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="0">
-                   <widget class="QLabel" name="label_14">
+                   <widget class="QLabel" name="label_16">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
-                    <property name="styleSheet">
-                     <string notr="true"/>
+                    <property name="text">
+                     <string>STR</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLabel" name="strBonus">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
                     </property>
                     <property name="text">
-                     <string>Name:</string>
+                     <string>-5</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="5">
+                   <widget class="QLabel" name="conBonus">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>-5</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="8">
+                   <widget class="QLabel" name="label_20">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>WIS</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="10">
+                   <widget class="QLabel" name="label_21">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>CHA</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="8">
+                   <widget class="QCheckBox" name="checkBox_32">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Saving Throw</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="11">
+                   <widget class="QLabel" name="chaBonus">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>-5</string>
                     </property>
                    </widget>
                   </item>
                  </layout>
                 </widget>
                </item>
-               <item row="2" column="0">
-                <widget class="QFrame" name="frame_2">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
+               <item row="4" column="0">
+                <widget class="QFrame" name="frame_7">
                  <property name="font">
                   <font>
-                   <family>Merriweather</family>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
                  </property>
@@ -307,517 +570,114 @@ QLineEdit{
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
                  </property>
-                 <layout class="QGridLayout" name="gridLayout_2">
-                  <property name="sizeConstraint">
-                   <enum>QLayout::SetDefaultConstraint</enum>
-                  </property>
-                  <item row="9" column="5">
-                   <widget class="QLabel" name="label_12">
+                 <layout class="QGridLayout" name="gridLayout_6">
+                  <item row="3" column="2">
+                   <widget class="QSpinBox" name="spinBox_5">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Resistances/Immunities:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="10" column="0">
-                   <widget class="QLabel" name="label_6">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Constitution:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="11" column="1" colspan="4">
-                   <widget class="QSlider" name="slider">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="tickPosition">
-                     <enum>QSlider::TicksAbove</enum>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="5" column="2">
-                   <widget class="QSpinBox" name="ArmorSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="5" column="0">
-                   <widget class="QLabel" name="label_3">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Armor Class:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="8" column="2">
-                   <widget class="QComboBox" name="sizeComboBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="editable">
-                     <bool>false</bool>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>Tiny</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Small</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Medium</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Large</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Huge</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Gargantuan</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="5" column="6">
-                   <widget class="QSpinBox" name="attkBonSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="8" column="6">
-                   <widget class="QCheckBox" name="vulCheckBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Vulnerabilities:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="0">
-                   <widget class="QLabel" name="label_2">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <pointsize>12</pointsize>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Hit Points:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="2" colspan="3">
-                   <spacer name="horizontalSpacer_4">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item row="8" column="0">
-                   <widget class="QLabel" name="label_4">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Size:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="6">
-                   <spacer name="horizontalSpacer_6">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item row="11" column="6">
-                   <widget class="QComboBox" name="saveComboBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>0-2</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>3-4</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>5-6</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="9" column="2">
-                   <widget class="QSpinBox" name="diceSpinBox">
-                    <property name="minimumSize">
-                     <size>
-                      <width>244</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="9" column="0">
-                   <widget class="QLabel" name="label_5">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Hit Dice:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="10" column="6">
-                   <widget class="QCheckBox" name="fliesCheckBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="10" column="2">
-                   <widget class="QSpinBox" name="constitSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="2">
-                   <widget class="QSpinBox" name="hitPointsSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="9" column="3" colspan="2">
-                   <widget class="QLabel" name="diceLabel">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <bold>true</bold>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>d</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="9" column="6">
-                   <widget class="QComboBox" name="resComboBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>None</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Resistances</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Immunities</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="1" column="5">
-                   <widget class="QLabel" name="label_8">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <pointsize>20</pointsize>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Offenisive</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="6">
-                   <widget class="QSpinBox" name="dprSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QLabel" name="label">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>40</height>
-                     </size>
-                    </property>
+                   <widget class="QLabel" name="label_35">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
-                      <pointsize>20</pointsize>
+                      <family>Segoe UI</family>
+                      <italic>true</italic>
+                      <bold>true</bold>
                       <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
-                     <string>Defensive</string>
+                     <string>Warning:</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="11" column="0">
-                   <widget class="QLineEdit" name="sliderValTxt">
-                    <property name="maximumSize">
-                     <size>
-                      <width>115</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
+                  <item row="3" column="1">
+                   <widget class="QCheckBox" name="checkBox">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="10" column="5">
-                   <widget class="QLabel" name="label_11">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
-                     <string>Flies and can deal damage at range (CR 0-9 only):</string>
+                     <string>Does damage?</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="7" column="6">
-                   <widget class="QCheckBox" name="savesCheckBox">
+                  <item row="3" column="0">
+                   <widget class="QLineEdit" name="lineEdit_5">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
-                     <string>Use Saves?</string>
+                     <string>Name</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_13">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>40</height>
-                     </size>
-                    </property>
+                  <item row="3" column="6">
+                   <widget class="QCheckBox" name="checkBox_2">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
-                     <string>Expected CR:</string>
+                     <string>AOE?</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="1">
-                   <spacer name="horizontalSpacer_3">
+                  <item row="3" column="4">
+                   <widget class="QComboBox" name="comboBox_9">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                     <enum>QSizePolicy::Expanding</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>0</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
+                   </widget>
                   </item>
-                  <item row="4" column="5">
-                   <widget class="QLabel" name="label_7">
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="label_36">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
-                     <string>Damage Per Round:</string>
+                     <string>Please follow the format:</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="11" column="5">
-                   <widget class="QLabel" name="label_10">
+                  <item row="4" column="0" colspan="7">
+                   <widget class="QPlainTextEdit" name="plainTextEdit">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="3">
+                   <widget class="QLabel" name="label_38">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
-                     <string>Save Proficiencies</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="5" column="5">
-                   <widget class="QLabel" name="label_9">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Attack Bonus/Save DC:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2" colspan="2">
-                   <widget class="QLineEdit" name="exCRLineEdit">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>0</string>
+                     <string>d</string>
                     </property>
                    </widget>
                   </item>
@@ -834,7 +694,7 @@ QLineEdit{
                  </property>
                  <property name="font">
                   <font>
-                   <family>Merriweather</family>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
                  </property>
@@ -861,7 +721,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <italic>false</italic>
                       <bold>false</bold>
                       <underline>false</underline>
@@ -2314,7 +2174,7 @@ QLineEdit{
                    <spacer name="horizontalSpacer">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2332,12 +2192,17 @@ QLineEdit{
                  </layout>
                 </widget>
                </item>
-               <item row="5" column="0">
-                <widget class="QFrame" name="frame_8">
+               <item row="2" column="0">
+                <widget class="QFrame" name="frame_2">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
                  <property name="font">
                   <font>
-                   <family>Merriweather</family>
-                   <pointsize>14</pointsize>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
                  </property>
@@ -2347,61 +2212,518 @@ QLineEdit{
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
                  </property>
-                 <layout class="QGridLayout" name="gridLayout_7">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_37">
+                 <layout class="QGridLayout" name="gridLayout_2">
+                  <property name="sizeConstraint">
+                   <enum>QLayout::SetDefaultConstraint</enum>
+                  </property>
+                  <item row="5" column="0">
+                   <widget class="QLabel" name="label_3">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
-                      <pointsize>14</pointsize>
-                      <bold>true</bold>
-                      <underline>true</underline>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
-                     <string>Legendary Actions later...</string>
+                     <string>Armor Class:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2" colspan="3">
+                   <spacer name="horizontalSpacer_4">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="8" column="0">
+                   <widget class="QLabel" name="label_4">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Size:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_13">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Expected CR:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="10" column="6">
+                   <widget class="QCheckBox" name="fliesCheckBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="7" column="6">
+                   <widget class="QCheckBox" name="savesCheckBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Use Saves?</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="10" column="0">
+                   <widget class="QLabel" name="label_6">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Constitution:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="2">
+                   <widget class="QSpinBox" name="ArmorSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="11" column="1" colspan="4">
+                   <widget class="QSlider" name="slider">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="tickPosition">
+                     <enum>QSlider::TicksAbove</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="6">
+                   <spacer name="horizontalSpacer_6">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="2" colspan="2">
+                   <widget class="QLineEdit" name="exCRLineEdit">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="2">
+                   <widget class="QSpinBox" name="hitPointsSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="9" column="6">
+                   <widget class="QComboBox" name="resComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>None</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Resistances</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Immunities</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="11" column="5">
+                   <widget class="QLabel" name="label_10">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Save Proficiencies</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="5">
+                   <widget class="QLabel" name="label_8">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>20</pointsize>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Offenisive</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="9" column="2">
+                   <widget class="QSpinBox" name="diceSpinBox">
+                    <property name="minimumSize">
+                     <size>
+                      <width>244</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="10" column="2">
+                   <widget class="QSpinBox" name="constitSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
                     </property>
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QTextEdit" name="textEdit_5">
+                   <widget class="QLabel" name="label">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>40</height>
+                     </size>
+                    </property>
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
+                      <pointsize>20</pointsize>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Defensive</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <spacer name="horizontalSpacer_3">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Expanding</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>0</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="4" column="5">
+                   <widget class="QLabel" name="label_7">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Damage Per Round:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="10" column="5">
+                   <widget class="QLabel" name="label_11">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Flies and can deal damage at range (CR 0-9 only):</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="9" column="5">
+                   <widget class="QLabel" name="label_12">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Resistances/Immunities:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="9" column="0">
+                   <widget class="QLabel" name="label_5">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Hit Dice:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="6">
+                   <widget class="QSpinBox" name="dprSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="5">
+                   <widget class="QLabel" name="label_9">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Attack Bonus/Save DC:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="11" column="0">
+                   <widget class="QLineEdit" name="sliderValTxt">
+                    <property name="maximumSize">
+                     <size>
+                      <width>115</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="11" column="6">
+                   <widget class="QComboBox" name="saveComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>0-2</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>3-4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>5-6</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="5" column="6">
+                   <widget class="QSpinBox" name="attkBonSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
                    </widget>
                   </item>
                   <item row="4" column="0">
-                   <widget class="QTextEdit" name="textEdit_6">
+                   <widget class="QLabel" name="label_2">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
+                      <pointsize>12</pointsize>
                       <kerning>true</kerning>
                      </font>
+                    </property>
+                    <property name="text">
+                     <string>Hit Points:</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="0">
-                   <widget class="QTextEdit" name="textEdit_7">
+                  <item row="9" column="3" colspan="2">
+                   <widget class="QLabel" name="diceLabel">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
+                      <bold>true</bold>
                       <kerning>true</kerning>
                      </font>
+                    </property>
+                    <property name="text">
+                     <string>d</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="0">
-                   <widget class="QTextEdit" name="textEdit_8">
+                  <item row="8" column="6">
+                   <widget class="QCheckBox" name="vulCheckBox">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
+                    <property name="text">
+                     <string>Vulnerabilities:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="8" column="2">
+                   <widget class="QComboBox" name="sizeComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="editable">
+                     <bool>false</bool>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>Tiny</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Small</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Medium</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Large</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Huge</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Gargantuan</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
                  </layout>
@@ -2411,7 +2733,7 @@ QLineEdit{
                 <widget class="QFrame" name="frame_6">
                  <property name="font">
                   <font>
-                   <family>Merriweather</family>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
                  </property>
@@ -2422,62 +2744,77 @@ QLineEdit{
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_5">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_28">
+                  <item row="2" column="9">
+                   <widget class="QComboBox" name="attrComboBox_1">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
-                      <pointsize>14</pointsize>
-                      <bold>true</bold>
-                      <underline>true</underline>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
-                    <property name="text">
-                     <string>Actions</string>
-                    </property>
+                    <item>
+                     <property name="text">
+                      <string>STR</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>DEX</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CON</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>INT</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>WIS</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CHA</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
-                  <item row="0" column="1">
-                   <widget class="QLabel" name="label_29">
+                  <item row="6" column="4">
+                   <widget class="QSpinBox" name="reachSpinBox_2">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
-                    <property name="text">
-                     <string>Type</string>
-                    </property>
                    </widget>
                   </item>
-                  <item row="0" column="3">
-                   <widget class="QLabel" name="label_30">
+                  <item row="9" column="2">
+                   <widget class="QComboBox" name="actionType_3">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
-                    <property name="text">
-                     <string>Reach</string>
-                    </property>
+                    <item>
+                     <property name="text">
+                      <string>Melee</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Ranged</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
-                  <item row="0" column="8">
-                   <widget class="QLabel" name="label_39">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Attribute</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
+                  <item row="2" column="1">
                    <widget class="QLineEdit" name="actionName_1">
                     <property name="minimumSize">
                      <size>
@@ -2493,7 +2830,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2505,195 +2842,11 @@ QLineEdit{
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="1">
-                   <widget class="QComboBox" name="actionType_1">
+                  <item row="6" column="9">
+                   <widget class="QComboBox" name="attrComboBox_2">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>Melee</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Ranged</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QLabel" name="plusLabel_1">
-                    <property name="maximumSize">
-                     <size>
-                      <width>20</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <pointsize>11</pointsize>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>+0</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="3">
-                   <widget class="QSpinBox" name="reachSpinBox_1">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="4">
-                   <widget class="QSpinBox" name="spinBox_10">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="5">
-                   <widget class="QLabel" name="label_65">
-                    <property name="maximumSize">
-                     <size>
-                      <width>15</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <pointsize>11</pointsize>
-                      <bold>true</bold>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>d</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="6">
-                   <widget class="QComboBox" name="actionDice_1">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>4</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>6</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>8</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>10</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>12</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="1" column="7">
-                   <widget class="QComboBox" name="actionDamageType_1">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>Acid</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Bludgeoning</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Cold</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>fire</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Force</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Lighting</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Necrotic</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Poison</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Slashing</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="1" column="8">
-                   <widget class="QComboBox" name="attrComboBox_1">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2729,78 +2882,25 @@ QLineEdit{
                     </item>
                    </widget>
                   </item>
-                  <item row="1" column="9">
-                   <widget class="QPushButton" name="pushButton">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(42, 54, 59);
-background-color: rgb(153, 184, 152);</string>
-                    </property>
+                  <item row="1" column="0">
+                   <widget class="QCheckBox" name="checkBox_44">
                     <property name="text">
-                     <string>Add</string>
+                     <string>Multi-Attack?</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="10">
-                   <widget class="QPushButton" name="pushButton_2">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(42, 54, 59);
-background-color: rgb(255, 132, 124);</string>
-                    </property>
-                    <property name="text">
-                     <string>Remove</string>
+                  <item row="9" column="0">
+                   <widget class="QSpinBox" name="spinBox_3">
+                    <property name="maximum">
+                     <number>4</number>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="0">
-                   <widget class="QLineEdit" name="actionName_2">
-                    <property name="maximumSize">
-                     <size>
-                      <width>400</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
+                  <item row="11" column="2">
+                   <widget class="QComboBox" name="actionType_4">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="placeholderText">
-                     <string>Name</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1">
-                   <widget class="QComboBox" name="actionType_2">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2816,7 +2916,7 @@ background-color: rgb(255, 132, 124);</string>
                     </item>
                    </widget>
                   </item>
-                  <item row="2" column="2">
+                  <item row="6" column="3">
                    <widget class="QLabel" name="plusLabel_2">
                     <property name="maximumSize">
                      <size>
@@ -2826,7 +2926,7 @@ background-color: rgb(255, 132, 124);</string>
                     </property>
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <pointsize>11</pointsize>
                       <kerning>true</kerning>
                      </font>
@@ -2836,27 +2936,183 @@ background-color: rgb(255, 132, 124);</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="3">
-                   <widget class="QSpinBox" name="reachSpinBox_2">
+                  <item row="6" column="8">
+                   <widget class="QComboBox" name="actionDamageType_2">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>Acid</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Bludgeoning</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Cold</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>fire</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Force</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Lighting</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Necrotic</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Poison</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Slashing</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="2" column="3">
+                   <widget class="QLabel" name="plusLabel_1">
+                    <property name="maximumSize">
+                     <size>
+                      <width>20</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>11</pointsize>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>+0</string>
                     </property>
                    </widget>
                   </item>
                   <item row="2" column="4">
-                   <widget class="QSpinBox" name="spinBox_11">
+                   <widget class="QSpinBox" name="reachSpinBox_1">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="5">
+                  <item row="11" column="0">
+                   <widget class="QSpinBox" name="spinBox_4">
+                    <property name="maximum">
+                     <number>4</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="9" column="4">
+                   <widget class="QSpinBox" name="reachSpinBox_3">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="1">
+                   <widget class="QLineEdit" name="actionName_2">
+                    <property name="maximumSize">
+                     <size>
+                      <width>400</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Name</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="0">
+                   <widget class="QSpinBox" name="spinBox_2">
+                    <property name="maximum">
+                     <number>4</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="7">
+                   <widget class="QComboBox" name="actionDice_2">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="6" column="6">
                    <widget class="QLabel" name="label_66">
                     <property name="maximumSize">
                      <size>
@@ -2866,7 +3122,7 @@ background-color: rgb(255, 132, 124);</string>
                     </property>
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <pointsize>11</pointsize>
                       <bold>true</bold>
                       <kerning>true</kerning>
@@ -2880,11 +3136,11 @@ background-color: rgb(255, 132, 124);</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="6">
-                   <widget class="QComboBox" name="actionDice_2">
+                  <item row="11" column="7">
+                   <widget class="QComboBox" name="actionDice_4">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2915,11 +3171,100 @@ background-color: rgb(255, 132, 124);</string>
                     </item>
                    </widget>
                   </item>
-                  <item row="2" column="7">
-                   <widget class="QComboBox" name="actionDamageType_2">
+                  <item row="6" column="2">
+                   <widget class="QComboBox" name="actionType_2">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>Melee</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Ranged</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="2" column="7">
+                   <widget class="QComboBox" name="actionDice_1">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="2" column="6">
+                   <widget class="QLabel" name="label_65">
+                    <property name="maximumSize">
+                     <size>
+                      <width>15</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>11</pointsize>
+                      <bold>true</bold>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>d</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="5">
+                   <widget class="QSpinBox" name="spinBox_11">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="9" column="8">
+                   <widget class="QComboBox" name="actionDamageType_3">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2980,175 +3325,7 @@ background-color: rgb(255, 132, 124);</string>
                     </item>
                    </widget>
                   </item>
-                  <item row="2" column="8">
-                   <widget class="QComboBox" name="attrComboBox_2">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>STR</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>DEX</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>CON</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>INT</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>WIS</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>CHA</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="2" column="9">
-                   <widget class="QPushButton" name="pushButton_3">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(42, 54, 59);
-background-color: rgb(153, 184, 152);</string>
-                    </property>
-                    <property name="text">
-                     <string>Add</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="10">
-                   <widget class="QPushButton" name="pushButton_4">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(42, 54, 59);
-background-color: rgb(255, 132, 124);</string>
-                    </property>
-                    <property name="text">
-                     <string>Remove</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLineEdit" name="actionName_3">
-                    <property name="maximumSize">
-                     <size>
-                      <width>400</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="placeholderText">
-                     <string>Name</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1">
-                   <widget class="QComboBox" name="actionType_3">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>Melee</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Ranged</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="3" column="2">
-                   <widget class="QLabel" name="plusLabel_3">
-                    <property name="maximumSize">
-                     <size>
-                      <width>20</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <pointsize>11</pointsize>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>+0</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="3">
-                   <widget class="QSpinBox" name="reachSpinBox_3">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="4">
-                   <widget class="QSpinBox" name="spinBox_12">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="5">
+                  <item row="9" column="6">
                    <widget class="QLabel" name="label_67">
                     <property name="maximumSize">
                      <size>
@@ -3158,7 +3335,7 @@ background-color: rgb(255, 132, 124);</string>
                     </property>
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <pointsize>11</pointsize>
                       <bold>true</bold>
                       <kerning>true</kerning>
@@ -3172,46 +3349,89 @@ background-color: rgb(255, 132, 124);</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="6">
-                   <widget class="QComboBox" name="actionDice_3">
+                  <item row="9" column="5">
+                   <widget class="QSpinBox" name="spinBox_12">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
-                    <item>
-                     <property name="text">
-                      <string>4</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>6</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>8</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>10</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>12</string>
-                     </property>
-                    </item>
                    </widget>
                   </item>
-                  <item row="3" column="7">
-                   <widget class="QComboBox" name="actionDamageType_3">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_28">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
+                      <pointsize>14</pointsize>
+                      <bold>true</bold>
+                      <underline>true</underline>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Actions</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="5">
+                   <widget class="QSpinBox" name="spinBox_10">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="11" column="1">
+                   <widget class="QLineEdit" name="actionName_4">
+                    <property name="maximumSize">
+                     <size>
+                      <width>400</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Name</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="11" column="3">
+                   <widget class="QLabel" name="plusLabel_4">
+                    <property name="maximumSize">
+                     <size>
+                      <width>20</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>11</pointsize>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>+0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="11" column="8">
+                   <widget class="QComboBox" name="actionDamageType_4">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3272,11 +3492,141 @@ background-color: rgb(255, 132, 124);</string>
                     </item>
                    </widget>
                   </item>
-                  <item row="3" column="8">
-                   <widget class="QComboBox" name="attrComboBox_3">
+                  <item row="9" column="3">
+                   <widget class="QLabel" name="plusLabel_3">
+                    <property name="maximumSize">
+                     <size>
+                      <width>20</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
+                      <pointsize>11</pointsize>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>+0</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="8">
+                   <widget class="QComboBox" name="actionDamageType_1">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>Acid</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Bludgeoning</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Cold</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>fire</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Force</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Lighting</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Necrotic</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Poison</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Piercing</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Slashing</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="9" column="7">
+                   <widget class="QComboBox" name="actionDice_3">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="11" column="4">
+                   <widget class="QSpinBox" name="reachSpinBox_4">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="11" column="9">
+                   <widget class="QComboBox" name="attrComboBox_4">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3312,79 +3662,11 @@ background-color: rgb(255, 132, 124);</string>
                     </item>
                    </widget>
                   </item>
-                  <item row="3" column="9">
-                   <widget class="QPushButton" name="pushButton_5">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
+                  <item row="2" column="2">
+                   <widget class="QComboBox" name="actionType_1">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(42, 54, 59);
-background-color: rgb(153, 184, 152);</string>
-                    </property>
-                    <property name="text">
-                     <string>Add</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="10">
-                   <widget class="QPushButton" name="pushButton_8">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(42, 54, 59);
-background-color: rgb(255, 132, 124);</string>
-                    </property>
-                    <property name="text">
-                     <string>Remove</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="0">
-                   <widget class="QLineEdit" name="actionName_4">
-                    <property name="maximumSize">
-                     <size>
-                      <width>400</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="placeholderText">
-                     <string>Name</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="1">
-                   <widget class="QComboBox" name="actionType_4">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3400,47 +3682,49 @@ background-color: rgb(255, 132, 124);</string>
                     </item>
                    </widget>
                   </item>
-                  <item row="4" column="2">
-                   <widget class="QLabel" name="plusLabel_4">
+                  <item row="2" column="0">
+                   <widget class="QSpinBox" name="spinBox">
+                    <property name="maximum">
+                     <number>4</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="9" column="1">
+                   <widget class="QLineEdit" name="actionName_3">
                     <property name="maximumSize">
                      <size>
-                      <width>20</width>
+                      <width>400</width>
                       <height>16777215</height>
                      </size>
                     </property>
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
-                      <pointsize>11</pointsize>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
-                     <string>+0</string>
+                     <string/>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Name</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="3">
-                   <widget class="QSpinBox" name="reachSpinBox_4">
+                  <item row="1" column="4">
+                   <widget class="QLabel" name="label_30">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="4">
-                   <widget class="QSpinBox" name="spinBox_13">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
+                    <property name="text">
+                     <string>Reach</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="5">
+                  <item row="11" column="6">
                    <widget class="QLabel" name="label_68">
                     <property name="maximumSize">
                      <size>
@@ -3450,7 +3734,7 @@ background-color: rgb(255, 132, 124);</string>
                     </property>
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <pointsize>11</pointsize>
                       <bold>true</bold>
                       <kerning>true</kerning>
@@ -3464,111 +3748,24 @@ background-color: rgb(255, 132, 124);</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="6">
-                   <widget class="QComboBox" name="actionDice_4">
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="label_29">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
-                    <item>
-                     <property name="text">
-                      <string>4</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>6</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>8</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>10</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>12</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="4" column="7">
-                   <widget class="QComboBox" name="actionDamageType_4">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
+                    <property name="text">
+                     <string>Type</string>
                     </property>
-                    <item>
-                     <property name="text">
-                      <string>Acid</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Bludgeoning</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Cold</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>fire</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Force</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Lighting</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Necrotic</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Poison</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Piercing</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Slashing</string>
-                     </property>
-                    </item>
                    </widget>
                   </item>
-                  <item row="4" column="8">
-                   <widget class="QComboBox" name="attrComboBox_4">
+                  <item row="9" column="9">
+                   <widget class="QComboBox" name="attrComboBox_3">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3604,68 +3801,54 @@ background-color: rgb(255, 132, 124);</string>
                     </item>
                    </widget>
                   </item>
-                  <item row="4" column="9">
-                   <widget class="QPushButton" name="pushButton_6">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
+                  <item row="11" column="5">
+                   <widget class="QSpinBox" name="spinBox_13">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(42, 54, 59);
-background-color: rgb(153, 184, 152);</string>
-                    </property>
-                    <property name="text">
-                     <string>Add</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="10">
-                   <widget class="QPushButton" name="pushButton_7">
-                    <property name="maximumSize">
-                     <size>
-                      <width>100</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
+                  <item row="1" column="9">
+                   <widget class="QLabel" name="label_39">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(42, 54, 59);
-background-color: rgb(255, 132, 124);</string>
-                    </property>
                     <property name="text">
-                     <string>Remove</string>
+                     <string>Attribute</string>
                     </property>
                    </widget>
                   </item>
                  </layout>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QFrame" name="frame_5">
+               <item row="0" column="0">
+                <widget class="QFrame" name="frame_4">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
                  <property name="maximumSize">
                   <size>
                    <width>16777215</width>
-                   <height>90</height>
+                   <height>75</height>
                   </size>
                  </property>
                  <property name="font">
                   <font>
-                   <family>Merriweather</family>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
                  </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
@@ -3673,330 +3856,53 @@ background-color: rgb(255, 132, 124);</string>
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
                  </property>
-                 <layout class="QGridLayout" name="gridLayout_4">
-                  <item row="1" column="11">
-                   <widget class="QLabel" name="label_27">
+                 <layout class="QGridLayout" name="gridLayout_3">
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="nameLineEdit">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
                     </property>
                     <property name="text">
-                     <string>TextLabel</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QSpinBox" name="strSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="10">
-                   <widget class="QSpinBox" name="chaSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="maximum">
-                     <number>30</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="5">
-                   <widget class="QLabel" name="label_24">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>TextLabel</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QLabel" name="label_17">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>DEX</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="4">
-                   <widget class="QSpinBox" name="conSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QSpinBox" name="dexSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="3">
-                   <widget class="QLabel" name="label_23">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>TextLabel</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QLabel" name="label_22">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>TextLabel</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="6">
-                   <widget class="QSpinBox" name="intSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="6">
-                   <widget class="QLabel" name="label_19">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>INT</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
+                     <string/>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="0">
-                   <widget class="QLabel" name="label_16">
+                   <widget class="QLabel" name="label_14">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
                     </property>
                     <property name="text">
-                     <string>STR</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="9">
-                   <widget class="QLabel" name="label_26">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>TextLabel</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="8">
-                   <widget class="QLabel" name="label_20">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>WIS</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="7">
-                   <widget class="QLabel" name="label_25">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>TextLabel</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="10">
-                   <widget class="QLabel" name="label_21">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>CHA</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="8">
-                   <widget class="QSpinBox" name="wisSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="4">
-                   <widget class="QLabel" name="label_18">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>CON</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QCheckBox" name="checkBox_28">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Saving Throw</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="2">
-                   <widget class="QCheckBox" name="checkBox_29">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Saving Throw</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="4">
-                   <widget class="QCheckBox" name="checkBox_30">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Saving Throw</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="6">
-                   <widget class="QCheckBox" name="checkBox_31">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Saving Throw</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="8">
-                   <widget class="QCheckBox" name="checkBox_32">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Saving Throw</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="10">
-                   <widget class="QCheckBox" name="checkBox_33">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Saving Throw</string>
+                     <string>Name:</string>
                     </property>
                    </widget>
                   </item>
                  </layout>
                 </widget>
                </item>
-               <item row="8" column="0">
+               <item row="5" column="0">
                 <widget class="QFrame" name="frame_9">
                  <property name="font">
                   <font>
-                   <family>Merriweather</family>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
                  </property>
@@ -4007,28 +3913,11 @@ background-color: rgb(255, 132, 124);</string>
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QFormLayout" name="formLayout">
-                  <item row="1" column="1">
-                   <widget class="QPushButton" name="testButton">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(42, 54, 59);
-background-color: rgb(153, 184, 152);</string>
-                    </property>
-                    <property name="text">
-                     <string>Test</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="1" column="0">
                    <widget class="QPushButton" name="resetButton">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -4045,140 +3934,32 @@ background-color: rgb(232, 74, 95);</string>
                    <widget class="QPushButton" name="pushButton_9">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(85, 170, 255);</string>
                     </property>
                     <property name="text">
                      <string>Create Creature</string>
                     </property>
                    </widget>
                   </item>
-                 </layout>
-                </widget>
-               </item>
-               <item row="4" column="0">
-                <widget class="QFrame" name="frame_7">
-                 <property name="font">
-                  <font>
-                   <family>Merriweather</family>
-                   <kerning>true</kerning>
-                  </font>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_6">
-                  <item row="3" column="2">
-                   <widget class="QSpinBox" name="spinBox_5">
+                  <item row="1" column="1">
+                   <widget class="QPushButton" name="testButton">
                     <property name="font">
                      <font>
-                      <family>Merriweather</family>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_35">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <italic>true</italic>
-                      <bold>true</bold>
-                      <kerning>true</kerning>
-                     </font>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(153, 184, 152);</string>
                     </property>
                     <property name="text">
-                     <string>Warning:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1">
-                   <widget class="QCheckBox" name="checkBox">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Does damage?</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLineEdit" name="lineEdit_5">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Name</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="6">
-                   <widget class="QCheckBox" name="checkBox_2">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>AOE?</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="4">
-                   <widget class="QComboBox" name="comboBox_9">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="label_36">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Please follow the format:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="0" colspan="7">
-                   <widget class="QPlainTextEdit" name="plainTextEdit">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="3">
-                   <widget class="QLabel" name="label_38">
-                    <property name="font">
-                     <font>
-                      <family>Merriweather</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>d</string>
+                     <string>Test</string>
                     </property>
                    </widget>
                   </item>
@@ -4210,10 +3991,384 @@ background-color: rgb(232, 74, 95);</string>
              <x>0</x>
              <y>0</y>
              <width>1222</width>
-             <height>834</height>
+             <height>1395</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QFrame" name="frame_8">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_7">
+               <item row="1" column="0">
+                <widget class="QComboBox" name="comboBox">
+                 <item>
+                  <property name="text">
+                   <string>Any Alignment</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Any Chaotic Alignment</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Any Evil Alignment</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Any Good Alignment</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Any Lawful Alignment</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Any Non-Good Alignment</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Any Non-Lawful Alignment</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Chaotic Evil</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Chaotic Good</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Chaotic Neutral</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Lawful Evil</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Lawful Good</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Lawful Neutral</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Neutral</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Neutral Evil</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Neutral Good</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Typically Chaotic Evil</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Typtically Lawful Evil</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Typically Lawful Good</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Typically Lawful Neutral</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Typically Neutral</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Typically Neutral Evil</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Typically Neutral Good</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Unaligned</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_34">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Allignement:</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_11">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_9">
+               <item row="6" column="1">
+                <widget class="QCheckBox" name="checkBox_35">
+                 <property name="text">
+                  <string>Thieves' Cant</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="checkBox_38">
+                 <property name="text">
+                  <string>Orc</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QCheckBox" name="checkBox_36">
+                 <property name="text">
+                  <string>Sylvan</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QCheckBox" name="checkBox_39">
+                 <property name="text">
+                  <string>Halfling</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QCheckBox" name="checkBox_37">
+                 <property name="text">
+                  <string>Primordial</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QCheckBox" name="checkBox_34">
+                 <property name="text">
+                  <string>Undercommon</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QCheckBox" name="checkBox_40">
+                 <property name="text">
+                  <string>Goblin</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QCheckBox" name="checkBox_42">
+                 <property name="text">
+                  <string>Giant</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="checkBox_43">
+                 <property name="text">
+                  <string>Elvish</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QCheckBox" name="checkBox_41">
+                 <property name="text">
+                  <string>Gnomish</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_31">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Languages:</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_12">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_10">
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="checkBox_45">
+                 <property name="text">
+                  <string>Aberration</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QCheckBox" name="checkBox_51">
+                 <property name="text">
+                  <string>Elemental</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QCheckBox" name="checkBox_49">
+                 <property name="text">
+                  <string>Construct</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QCheckBox" name="checkBox_48">
+                 <property name="text">
+                  <string>Celestial</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="checkBox_46">
+                 <property name="text">
+                  <string>Beast</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QCheckBox" name="checkBox_47">
+                 <property name="text">
+                  <string>CheckBox</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_32">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Type:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QCheckBox" name="checkBox_50">
+                 <property name="text">
+                  <string>Dragon</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="0">
+                <widget class="QCheckBox" name="checkBox_52">
+                 <property name="text">
+                  <string>Fey</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="checkBox_53">
+                 <property name="text">
+                  <string>Fiend</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="checkBox_54">
+                 <property name="text">
+                  <string>Giant</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QCheckBox" name="checkBox_55">
+                 <property name="text">
+                  <string>Humanoid</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QCheckBox" name="checkBox_56">
+                 <property name="text">
+                  <string>Monstrosity</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QCheckBox" name="checkBox_57">
+                 <property name="text">
+                  <string>Ooze</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QCheckBox" name="checkBox_58">
+                 <property name="text">
+                  <string>Plant</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QCheckBox" name="checkBox_59">
+                 <property name="text">
+                  <string>Undead</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
             <item>
              <widget class="QFrame" name="frame_10">
               <property name="frameShape">
@@ -4223,118 +4378,37 @@ background-color: rgb(232, 74, 95);</string>
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QGridLayout" name="gridLayout_8">
-               <item row="22" column="1">
-                <widget class="QLabel" name="label_40">
+               <item row="8" column="1">
+                <widget class="QLabel" name="label_57">
                  <property name="text">
-                  <string>The creature can turn invisible as an action or bonus action</string>
+                  <string>The creature magically increases in size, along with anything it is wearing or carrying. Input the extra 
+damage inflicted per round whilst enlarged.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_64">
+               <item row="9" column="1">
+                <widget class="QLabel" name="label_56">
                  <property name="text">
-                  <string>As a bonus action, the creature can move up to its speed toward a hostile creature it can see.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="0">
-                <widget class="QCheckBox" name="checkBox_20">
-                 <property name="text">
-                  <string>Enlarge</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="16" column="1">
-                <widget class="QLabel" name="label_48">
-                 <property name="text">
-                  <string>The creature adds its proficiency bonus to its AC against one melee attack that would hit it as a reaction.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="13" column="1">
-                <widget class="QLabel" name="label_51">
-                 <property name="text">
-                  <string>The creature can deal extra damage to a creature it hits if that creature is with in 5 ft. of an ally of the 
-creature that isn't incapacitated. Input the extra damage inflicted per round.</string>
+                  <string>Each creature of the creature's choice within range must make a Wisdom saving throw or be frightened
+ for 1 minute</string>
                  </property>
                 </widget>
                </item>
                <item row="9" column="0">
-                <widget class="QCheckBox" name="checkBox_27">
+                <widget class="QCheckBox" name="checkBox_23">
                  <property name="text">
-                  <string>Heated Body</string>
+                  <string>Frightful Presence</string>
                  </property>
                 </widget>
                </item>
-               <item row="10" column="0">
-                <widget class="QCheckBox" name="checkBox_26">
+               <item row="13" column="1">
+                <widget class="QLabel" name="label_52">
                  <property name="text">
-                  <string>Horrifying Visage</string>
+                  <string>The creature has advantage on saving throws against spells and other magical effects.</string>
                  </property>
                 </widget>
                </item>
-               <item row="6" column="1">
-                <widget class="QLabel" name="label_58">
-                 <property name="text">
-                  <string>While attached or grappling a creature, the creature takes only half damage dealt to it (rounded down),
- and the other creature takes the other half.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="1">
-                <widget class="QLabel" name="label_59">
-                 <property name="text">
-                  <string>The creature has the ability to restrain and/or grapple a target as part of an attack.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QLabel" name="label_63">
-                 <property name="text">
-                  <string>The creature has advantage on attack rolls against any creature it has surprised.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="23" column="1">
-                <widget class="QLabel" name="label_45">
-                 <property name="text">
-                  <string>If the creature would be reduced to 0 hit points, there is a chance that it can instead only be reduced to 1. 
-This feature is negated if the damage is from radiant nature.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="20" column="0">
-                <widget class="QCheckBox" name="checkBox_10">
-                 <property name="text">
-                  <string>Shadow Stealth</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="15" column="0">
-                <widget class="QCheckBox" name="checkBox_19">
-                 <property name="text">
-                  <string>Pack Tactics</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="18" column="1">
-                <widget class="QLabel" name="label_44">
-                 <property name="text">
-                  <string>At the beginning of the creature's turn, it regains hit points and cannot be killed until this effect is
-mitigated in some way, usually through acid or fire damage. Input how many hit points it regains at the 
-beginning of its turn.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="15" column="1">
-                <widget class="QLabel" name="label_49">
-                 <property name="text">
-                  <string>The creature has advantage on an attack roll against a creature if at least one of the creature's allies is 
-within 5 feet of the creature and the ally isn't incapacitated</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
+               <item row="4" column="1">
                 <widget class="QLabel" name="label_61">
                  <property name="text">
                   <string>If the creature is subjected to an effect that allows it to make a saving throw to only take half damage, it 
@@ -4343,22 +4417,49 @@ damage if it succeeds on the saving throw, and only half damage if it fails.</st
                  </property>
                 </widget>
                </item>
-               <item row="21" column="0">
-                <widget class="QCheckBox" name="checkBox_9">
+               <item row="20" column="1">
+                <widget class="QLabel" name="label_43">
                  <property name="text">
-                  <string>Stench</string>
+                  <string>If the creature would be reduced to 0 hit points, there is a chance that it can instead only be reduced to 1.</string>
                  </property>
                 </widget>
                </item>
-               <item row="7" column="1">
-                <widget class="QLabel" name="label_57">
+               <item row="16" column="0">
+                <widget class="QCheckBox" name="checkBox_19">
                  <property name="text">
-                  <string>The creature magically increases in size, along with anything it is wearing or carrying. Input the extra 
-damage inflicted per round whilst enlarged.</string>
+                  <string>Pack Tactics</string>
                  </property>
                 </widget>
                </item>
                <item row="2" column="1">
+                <widget class="QLabel" name="label_63">
+                 <property name="text">
+                  <string>The creature has advantage on attack rolls against any creature it has surprised.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QCheckBox" name="checkBox_13">
+                 <property name="text">
+                  <string>Blood Frenzy</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="0">
+                <widget class="QCheckBox" name="checkBox_14">
+                 <property name="text">
+                  <string>Regeneration</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="15" column="1">
+                <widget class="QLabel" name="label_50">
+                 <property name="text">
+                  <string>The creature can take the Disengage or Hide action as a bonus action on each of its turns</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
                 <widget class="QLabel" name="label_62">
                  <property name="text">
                   <string>The creature's weapon attacks are magical. When the creature hits with any weapon, the weapon
@@ -4366,14 +4467,173 @@ damage inflicted per round whilst enlarged.</string>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="0">
-                <widget class="QCheckBox" name="checkBox_15">
+               <item row="23" column="1">
+                <widget class="QLabel" name="label_40">
                  <property name="text">
-                  <string>Constrict</string>
+                  <string>The creature can turn invisible as an action or bonus action</string>
                  </property>
                 </widget>
                </item>
-               <item row="10" column="1">
+               <item row="22" column="1">
+                <widget class="QLabel" name="label_41">
+                 <property name="text">
+                  <string>Any creature other than the monster within 5 feet of it must make a saving throw or be poisoned.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="21" column="0">
+                <widget class="QCheckBox" name="checkBox_10">
+                 <property name="text">
+                  <string>Shadow Stealth</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="17" column="1">
+                <widget class="QLabel" name="label_48">
+                 <property name="text">
+                  <string>The creature adds its proficiency bonus to its AC against one melee attack that would hit it as a reaction.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="14" column="0">
+                <widget class="QCheckBox" name="checkBox_22">
+                 <property name="text">
+                  <string>Martial Advantage</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QCheckBox" name="checkBox_11">
+                 <property name="text">
+                  <string>Avoidance</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QLabel" name="label_58">
+                 <property name="text">
+                  <string>While attached or grappling a creature, the creature takes only half damage dealt to it (rounded down),
+ and the other creature takes the other half.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="18" column="1">
+                <widget class="QLabel" name="label_47">
+                 <property name="text">
+                  <string>The creature can control another creature, during which time it cannot be targeted by nearly any effect.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="1">
+                <widget class="QLabel" name="label_44">
+                 <property name="text">
+                  <string>At the beginning of the creature's turn, it regains hit points and cannot be killed until this effect is
+mitigated in some way, usually through acid or fire damage. Input how many hit points it regains at the 
+beginning of its turn.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="checkBox_4">
+                 <property name="text">
+                  <string>Ambusher</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLabel" name="label_60">
+                 <property name="text">
+                  <string>The creature has advantage on melee attack rolls against any creature that doesn't have all its hit points.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="0">
+                <widget class="QCheckBox" name="checkBox_24">
+                 <property name="text">
+                  <string>Magic Resistance</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="15" column="0">
+                <widget class="QCheckBox" name="checkBox_21">
+                 <property name="text">
+                  <string>Nimble Escape</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="0">
+                <widget class="QCheckBox" name="checkBox_25">
+                 <property name="text">
+                  <string>Legendary Resistance</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="0">
+                <widget class="QCheckBox" name="checkBox_26">
+                 <property name="text">
+                  <string>Horrifying Visage</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="24" column="1">
+                <widget class="QLabel" name="label_45">
+                 <property name="text">
+                  <string>If the creature would be reduced to 0 hit points, there is a chance that it can instead only be reduced to 1. 
+This feature is negated if the damage is from radiant nature.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="0">
+                <widget class="QCheckBox" name="checkBox_6">
+                 <property name="text">
+                  <string>Web</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="17" column="0">
+                <widget class="QCheckBox" name="checkBox_17">
+                 <property name="text">
+                  <string>Parry</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="16" column="1">
+                <widget class="QLabel" name="label_49">
+                 <property name="text">
+                  <string>The creature has advantage on an attack roll against a creature if at least one of the creature's allies is 
+within 5 feet of the creature and the ally isn't incapacitated</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="24" column="0">
+                <widget class="QCheckBox" name="checkBox_5">
+                 <property name="text">
+                  <string>Undead Fortitude</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QCheckBox" name="checkBox_8">
+                 <property name="text">
+                  <string>Angelic Weapons</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="18" column="0">
+                <widget class="QCheckBox" name="checkBox_16">
+                 <property name="text">
+                  <string>Possession</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QCheckBox" name="checkBox_18">
+                 <property name="text">
+                  <string>Damage Transfer</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="1">
                 <widget class="QLabel" name="label_54">
                  <property name="text">
                   <string>Each non-undead creature of the creature's choice within range must make a Wisdom saving throw or 
@@ -4381,42 +4641,42 @@ be frightened for 1 minute.</string>
                  </property>
                 </widget>
                </item>
-               <item row="17" column="1">
-                <widget class="QLabel" name="label_47">
+               <item row="22" column="0">
+                <widget class="QCheckBox" name="checkBox_9">
                  <property name="text">
-                  <string>The creature can control another creature, during which time it cannot be targeted by nearly any effect.</string>
+                  <string>Stench</string>
                  </property>
                 </widget>
                </item>
-               <item row="13" column="0">
-                <widget class="QCheckBox" name="checkBox_22">
-                 <property name="text">
-                  <string>Martial Advantage</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="20" column="1">
+               <item row="21" column="1">
                 <widget class="QLabel" name="label_42">
                  <property name="text">
                   <string>While in dim light or darkness, the creature can take the Hide action as a bonus action.</string>
                  </property>
                 </widget>
                </item>
-               <item row="22" column="0">
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_64">
+                 <property name="text">
+                  <string>As a bonus action, the creature can move up to its speed toward a hostile creature it can see.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QCheckBox" name="checkBox_15">
+                 <property name="text">
+                  <string>Constrict</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="23" column="0">
                 <widget class="QCheckBox" name="checkBox_7">
                  <property name="text">
                   <string>Superior Invisibility</string>
                  </property>
                 </widget>
                </item>
-               <item row="18" column="0">
-                <widget class="QCheckBox" name="checkBox_14">
-                 <property name="text">
-                  <string>Regeneration</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="19" column="0">
+               <item row="20" column="0">
                 <widget class="QCheckBox" name="checkBox_12">
                  <property name="text">
                   <string>Relentless</string>
@@ -4424,164 +4684,72 @@ be frightened for 1 minute.</string>
                 </widget>
                </item>
                <item row="12" column="1">
-                <widget class="QLabel" name="label_52">
-                 <property name="text">
-                  <string>The creature has advantage on saving throws against spells and other magical effects.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="9" column="1">
-                <widget class="QLabel" name="label_55">
-                 <property name="text">
-                  <string>Touching or hitting the creature while within 5 ft. of it causes damage</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <widget class="QCheckBox" name="checkBox_11">
-                 <property name="text">
-                  <string>Avoidance</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="0">
-                <widget class="QCheckBox" name="checkBox_13">
-                 <property name="text">
-                  <string>Blood Frenzy</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="21" column="1">
-                <widget class="QLabel" name="label_41">
-                 <property name="text">
-                  <string>Any creature other than the monster within 5 feet of it must make a saving throw or be poisoned.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="19" column="1">
-                <widget class="QLabel" name="label_43">
-                 <property name="text">
-                  <string>If the creature would be reduced to 0 hit points, there is a chance that it can instead only be reduced to 1.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QLabel" name="label_60">
-                 <property name="text">
-                  <string>The creature has advantage on melee attack rolls against any creature that doesn't have all its hit points.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="17" column="0">
-                <widget class="QCheckBox" name="checkBox_16">
-                 <property name="text">
-                  <string>Possession</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="14" column="1">
-                <widget class="QLabel" name="label_50">
-                 <property name="text">
-                  <string>The creature can take the Disengage or Hide action as a bonus action on each of its turns</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QCheckBox" name="checkBox_3">
-                 <property name="text">
-                  <string>Aggressive</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="24" column="0">
-                <widget class="QCheckBox" name="checkBox_6">
-                 <property name="text">
-                  <string>Web</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="23" column="0">
-                <widget class="QCheckBox" name="checkBox_5">
-                 <property name="text">
-                  <string>Undead Fortitude</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="11" column="1">
                 <widget class="QLabel" name="label_53">
                  <property name="text">
                   <string>If the creature fails a saving throw, it can choose to succeed instead. Input the number of uses per day.</string>
                  </property>
                 </widget>
                </item>
-               <item row="12" column="0">
-                <widget class="QCheckBox" name="checkBox_24">
-                 <property name="text">
-                  <string>Magic Resistance</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QCheckBox" name="checkBox_8">
-                 <property name="text">
-                  <string>Angelic Weapons</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="14" column="0">
-                <widget class="QCheckBox" name="checkBox_21">
-                 <property name="text">
-                  <string>Nimble Escape</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="24" column="1">
+               <item row="25" column="1">
                 <widget class="QLabel" name="label_46">
                  <property name="text">
                   <string>Ranged Weapon Attack that restrains the target on a hit.</string>
                  </property>
                 </widget>
                </item>
-               <item row="16" column="0">
-                <widget class="QCheckBox" name="checkBox_17">
+               <item row="14" column="1">
+                <widget class="QLabel" name="label_51">
                  <property name="text">
-                  <string>Parry</string>
+                  <string>The creature can deal extra damage to a creature it hits if that creature is with in 5 ft. of an ally of the 
+creature that isn't incapacitated. Input the extra damage inflicted per round.</string>
                  </property>
                 </widget>
                </item>
-               <item row="11" column="0">
-                <widget class="QCheckBox" name="checkBox_25">
+               <item row="10" column="0">
+                <widget class="QCheckBox" name="checkBox_27">
                  <property name="text">
-                  <string>Legendary Resistance</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="1">
-                <widget class="QLabel" name="label_56">
-                 <property name="text">
-                  <string>Each creature of the creature's choice within range must make a Wisdom saving throw or be frightened
- for 1 minute</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="0">
-                <widget class="QCheckBox" name="checkBox_23">
-                 <property name="text">
-                  <string>Frightful Presence</string>
+                  <string>Heated Body</string>
                  </property>
                 </widget>
                </item>
                <item row="1" column="0">
-                <widget class="QCheckBox" name="checkBox_4">
+                <widget class="QCheckBox" name="checkBox_3">
                  <property name="text">
-                  <string>Ambusher</string>
+                  <string>Aggressive</string>
                  </property>
                 </widget>
                </item>
-               <item row="6" column="0">
-                <widget class="QCheckBox" name="checkBox_18">
+               <item row="6" column="1">
+                <widget class="QLabel" name="label_59">
                  <property name="text">
-                  <string>Damage Transfer</string>
+                  <string>The creature has the ability to restrain and/or grapple a target as part of an attack.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="1">
+                <widget class="QLabel" name="label_55">
+                 <property name="text">
+                  <string>Touching or hitting the creature while within 5 ft. of it causes damage</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="0">
+                <widget class="QCheckBox" name="checkBox_20">
+                 <property name="text">
+                  <string>Enlarge</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_15">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Traits/features:</string>
                  </property>
                 </widget>
                </item>

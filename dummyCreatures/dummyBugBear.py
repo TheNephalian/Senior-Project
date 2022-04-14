@@ -29,6 +29,8 @@ class BugBear (creature):
 		super().takes_dmg(dmg)
 
 	def attack(self, enemy):
+		totalDmg = 0
+
 		totalDmg = self.morningstar()
 
 		super().attack(enemy, totalDmg)
@@ -49,4 +51,4 @@ class BugBear (creature):
 
 			self.surprise_Attack = False
 
-			return dmgRoll
+		return dmgRoll

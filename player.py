@@ -30,16 +30,26 @@ class Player():
         return atk_roll
 
     def attack(self, enemy):
-        print(self.name, "attacks", enemy.creature.name + "!")
+        if (self.is_defeated == True):
+            print(self.name, "is defeated and is to be removed from combat.")
+            print()
+            
+            return
 
         atk_roll = self.attack_roll()
 
+        print(self.name, "attacks", enemy.creature.name + "!")
+        print(self.name, "rolled a", atk_roll, "against", enemy.creature.name + "'s AC of", enemy.creature.armor_cls)
+
         if (atk_roll >= enemy.creature.armor_cls):
             print(self.name, "hits!")
+
             enemy.creature.takes_dmg(self.dmg_per_rnd)
 
         else:
             print(self.name, "misses!")
+        
+        print()
     
     def takes_dmg(self, dmg):
         self.curr_hp = self.hp - dmg

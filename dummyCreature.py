@@ -43,12 +43,17 @@ class creature():
 		atk_roll = self.attack_roll()
 
 		print(self.name, "attacks", target.name + "!")
+		print(self.name, "rolled a", atk_roll, "against", target.name + "'s AC of", target.ac)
 
 		if (atk_roll >= target.ac):
+			print(self.name, "hits!")
+
 			target.takes_dmg(dmg)
 
 		else:
 			print(self.name, "misses!")
+		
+		print()
 
 	def takes_dmg(self, dmg):
 		self.curr_hp = self.hit_pts - dmg

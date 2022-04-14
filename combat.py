@@ -12,6 +12,10 @@ class combatSimulation():
 		self.creature = dummyBugBear.BugBear()
 
 		self.players = [] #array that holds the players (up to 4) that are in combat
+		
+		self.initiativeOrder = [] #keeps track of initiative (turn order)
+
+		self.round = 0 #int that keeps track of the number of rounds that have passed in combat
 
 		self.repeat_combat = True #boolean that will dicate whether combat continues or not.
 		
@@ -33,15 +37,13 @@ class combatSimulation():
 
 		self.players.append(p1)
 		self.players.append(p2)
-		self.players.append(p3)
-		self.players.append(p4)
+		#self.players.append(p3)
+		#self.players.append(p4)
 
 		'''
 		This section will grab the chosen monster or load a custom moster
 		For now, we'll hard code a monster
 		'''
-
-		self.initiativeOrder = [] #keeps track of initiative (turn order)
 
 	'''
 	Helper function for initiative order.
@@ -166,34 +168,65 @@ class combatSimulation():
 		for k in range (0, len(self.initiativeOrder)):
 			print(self.initiativeOrder[k].name, self.initiativeOrder[k].initiative)
 
-		print("")
+		print()
 
 	def remove_from_combat(self):
 		if (self.creature.is_defeated == True):
 			self.repeat_combat = False
 
-		for m in range (0, len(self.players) - 1):
-			if (self.players[m].is_defeated == True):
-				print(self.players[m].name, "is defeated and should be removed from combat!")
+			return False
+
+		for m in range (0, len(self.players)):
+			if (len(self.players) == 0):
+				print("All players have been defeated!")
 
 				self.repeat_combat = False
 
-	#COMBAT IS WIP
+				return False
+
+			if (m == len(self.players)):
+				return False
+
+			if (self.players[m].is_defeated == True):
+				player_to_be_removed = self.players[m]
+
+				print(player_to_be_removed.name, "is defeated and must be removed from combat.")
+
+				self.players.remove(player_to_be_removed)
+				self.initiativeOrder.remove(player_to_be_removed)
+
+				print(player_to_be_removed.name, "has been removed from combat.")
+				print()
+
+				print("**New Initiative Order**")
+				for k in range (0, len(self.initiativeOrder)):
+					print(self.initiativeOrder[k].name, self.initiativeOrder[k].initiative)
+
+				print()
+
+				return True
+
 	def combatSim(self):
 		print("Rolling initiative for all combatanants!")
 
 		self.rollInit()
 
-		while (self.repeat_combat == True):
-			for l in range (0, len(self.initiativeOrder)):
-				self.remove_from_combat()
+		print("Combat Log:")
 
+		while (self.repeat_combat == True):
+			self.round = self.round + 1
+
+			print("Round:", self.round)
+
+			for l in range (0, len(self.initiativeOrder)):
 				if (self.repeat_combat == False):
 					break
 
 				self.initiativeOrder[l].attack(self)
 
-				self.remove_from_combat()
+				if (self.remove_from_combat() == True):
+					if (l == len(self.initiativeOrder)):
+						break
 
 				if (self.repeat_combat == False):
 					break

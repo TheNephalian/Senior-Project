@@ -17,7 +17,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Senior Project</string>
+   <string>Salsimjo's Homebrew Creature Creator</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../Assets/Images/icon.png</normaloff>../Assets/Images/icon.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">
@@ -171,7 +175,7 @@ QLineEdit{
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -262,7 +266,7 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="2" column="0">
-                   <widget class="QCheckBox" name="checkBox_28">
+                   <widget class="QCheckBox" name="strSavingThrowCheckBox">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
@@ -298,7 +302,7 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="2" column="2">
-                   <widget class="QCheckBox" name="checkBox_29">
+                   <widget class="QCheckBox" name="dexSavingThrowCheckBox">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
@@ -311,7 +315,7 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="2" column="6">
-                   <widget class="QCheckBox" name="checkBox_31">
+                   <widget class="QCheckBox" name="intSavingThrowCheckBox">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
@@ -350,7 +354,7 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="2" column="10">
-                   <widget class="QCheckBox" name="checkBox_33">
+                   <widget class="QCheckBox" name="chaSavingThrowCheckBox">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
@@ -415,7 +419,7 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="2" column="4">
-                   <widget class="QCheckBox" name="checkBox_30">
+                   <widget class="QCheckBox" name="conSavingThrowCheckBox">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
@@ -528,7 +532,7 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="2" column="8">
-                   <widget class="QCheckBox" name="checkBox_32">
+                   <widget class="QCheckBox" name="wisSavingThrowCheckBox">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
@@ -597,7 +601,7 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="3" column="1">
-                   <widget class="QCheckBox" name="checkBox">
+                   <widget class="QCheckBox" name="doesDamageCheckBox">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
@@ -610,7 +614,7 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="3" column="0">
-                   <widget class="QLineEdit" name="lineEdit_5">
+                   <widget class="QLineEdit" name="nameLineEdit_2">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
@@ -623,7 +627,7 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="3" column="6">
-                   <widget class="QCheckBox" name="checkBox_2">
+                   <widget class="QCheckBox" name="aoeButton">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
@@ -643,6 +647,36 @@ QLineEdit{
                       <kerning>true</kerning>
                      </font>
                     </property>
+                    <item>
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>20</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
                   <item row="2" column="0">
@@ -2437,6 +2471,7 @@ QLineEdit{
                      <font>
                       <family>Segoe UI</family>
                       <pointsize>20</pointsize>
+                      <bold>false</bold>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2883,7 +2918,7 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="1" column="0">
-                   <widget class="QCheckBox" name="checkBox_44">
+                   <widget class="QCheckBox" name="multiAttackCheckBox">
                     <property name="text">
                      <string>Multi-Attack?</string>
                     </property>
@@ -3931,7 +3966,7 @@ background-color: rgb(232, 74, 95);</string>
                    </widget>
                   </item>
                   <item row="0" column="0" colspan="2">
-                   <widget class="QPushButton" name="pushButton_9">
+                   <widget class="QPushButton" name="createCreatureButton">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
@@ -3991,11 +4026,487 @@ background-color: rgb(153, 184, 152);</string>
              <x>0</x>
              <y>0</y>
              <width>1222</width>
-             <height>1395</height>
+             <height>1508</height>
             </rect>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout_5">
-            <item>
+           <layout class="QGridLayout" name="gridLayout_12">
+            <item row="3" column="0">
+             <widget class="QFrame" name="frame_13">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_11">
+               <item row="9" column="3">
+                <widget class="QLabel" name="stealthLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="1">
+                <widget class="QLabel" name="insightLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="3">
+                <widget class="QLabel" name="perceptionLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="3">
+                <widget class="QLabel" name="survivalLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLabel" name="arcanaLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QCheckBox" name="natureCheckBox">
+                 <property name="text">
+                  <string>Nature</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QCheckBox" name="perceptionCheckBox">
+                 <property name="text">
+                  <string>Perception</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QCheckBox" name="historyCheckBox">
+                 <property name="text">
+                  <string>History</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="2">
+                <widget class="QCheckBox" name="survivalCheckBox">
+                 <property name="text">
+                  <string>Survival</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLabel" name="animalHandlingLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="2">
+                <widget class="QCheckBox" name="slightOfHandCheckBox">
+                 <property name="text">
+                  <string>Sleight of Hand</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="0">
+                <widget class="QCheckBox" name="insightCheckBox">
+                 <property name="text">
+                  <string>Insight</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="acrobaticsCheckBox">
+                 <property name="text">
+                  <string>Acrobatics</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="3">
+                <widget class="QLabel" name="performanceLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="3">
+                <widget class="QLabel" name="religionLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLabel" name="athleticsLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_23">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Skills:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="2">
+                <widget class="QCheckBox" name="stealthCheckBox">
+                 <property name="text">
+                  <string>Stealth</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="2">
+                <widget class="QCheckBox" name="performanceCheckBox">
+                 <property name="text">
+                  <string>Performance</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="3">
+                <widget class="QLabel" name="persuasionLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="3">
+                <widget class="QLabel" name="natureLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QCheckBox" name="medicineCheckBox">
+                 <property name="text">
+                  <string>Medicine</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="3">
+                <widget class="QLabel" name="slightOfHandLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QCheckBox" name="deceptionCheckBox">
+                 <property name="text">
+                  <string>Deception</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="2">
+                <widget class="QCheckBox" name="persuasionCheckBox">
+                 <property name="text">
+                  <string>Persuasion</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QCheckBox" name="athleticsCheckBox">
+                 <property name="text">
+                  <string>Athletics</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="0">
+                <widget class="QCheckBox" name="investigationCheckBox">
+                 <property name="text">
+                  <string>Investigation</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="acrobaticsLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QLabel" name="historyLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="1">
+                <widget class="QLabel" name="investigationLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="0">
+                <widget class="QCheckBox" name="intimidationCheckBox">
+                 <property name="text">
+                  <string>Intimidation</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="3">
+                <widget class="QLabel" name="medicineLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QCheckBox" name="animalHandlingCheckBox">
+                 <property name="text">
+                  <string>Animal Handling</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QCheckBox" name="arcanaCheckBox">
+                 <property name="text">
+                  <string>Arcana</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="2">
+                <widget class="QCheckBox" name="religionCheckBox">
+                 <property name="text">
+                  <string>Religion</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="1">
+                <widget class="QLabel" name="intimidationLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QLabel" name="deceptionLevelLabel">
+                 <property name="text">
+                  <string>+0</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QFrame" name="frame_11">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_9">
+               <item row="6" column="0">
+                <widget class="QCheckBox" name="goblinCheckBox">
+                 <property name="text">
+                  <string>Goblin</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="orcCheckBox">
+                 <property name="text">
+                  <string>Orc</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QCheckBox" name="thievesCantCheckBox">
+                 <property name="text">
+                  <string>Thieves' Cant</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QCheckBox" name="halflingCheckBox">
+                 <property name="text">
+                  <string>Halfling</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="elvishCheckBox">
+                 <property name="text">
+                  <string>Elvish</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QCheckBox" name="undercommonCheckBox">
+                 <property name="text">
+                  <string>Undercommon</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_31">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Languages:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QCheckBox" name="giantCheckBox">
+                 <property name="text">
+                  <string>Giant</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QCheckBox" name="sylvanCheckBox">
+                 <property name="text">
+                  <string>Sylvan</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QCheckBox" name="primordialCheckBox">
+                 <property name="text">
+                  <string>Primordial</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QCheckBox" name="gnomishCheckBox">
+                 <property name="text">
+                  <string>Gnomish</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QFrame" name="frame_12">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_10">
+               <item row="1" column="0">
+                <widget class="QComboBox" name="typeComboBox">
+                 <item>
+                  <property name="text">
+                   <string>Aberration</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Beast</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Celestial</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Construct</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Dragon</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Elemental</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Fey</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Fiend</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Giant</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Humanoid</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Monstrosity</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Ooze</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Ooze</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Plant</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Undead</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_22">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Type:</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="1">
              <widget class="QFrame" name="frame_8">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -4005,7 +4516,7 @@ background-color: rgb(153, 184, 152);</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_7">
                <item row="1" column="0">
-                <widget class="QComboBox" name="comboBox">
+                <widget class="QComboBox" name="allignmentComboBox">
                  <item>
                   <property name="text">
                    <string>Any Alignment</string>
@@ -4139,237 +4650,227 @@ background-color: rgb(153, 184, 152);</string>
                  <property name="text">
                   <string>Allignement:</string>
                  </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QFrame" name="frame_11">
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_9">
-               <item row="6" column="1">
-                <widget class="QCheckBox" name="checkBox_35">
-                 <property name="text">
-                  <string>Thieves' Cant</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QCheckBox" name="checkBox_38">
-                 <property name="text">
-                  <string>Orc</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="1">
-                <widget class="QCheckBox" name="checkBox_36">
-                 <property name="text">
-                  <string>Sylvan</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="0">
-                <widget class="QCheckBox" name="checkBox_39">
-                 <property name="text">
-                  <string>Halfling</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QCheckBox" name="checkBox_37">
-                 <property name="text">
-                  <string>Primordial</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="1">
-                <widget class="QCheckBox" name="checkBox_34">
-                 <property name="text">
-                  <string>Undercommon</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="0">
-                <widget class="QCheckBox" name="checkBox_40">
-                 <property name="text">
-                  <string>Goblin</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="0">
-                <widget class="QCheckBox" name="checkBox_42">
-                 <property name="text">
-                  <string>Giant</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QCheckBox" name="checkBox_43">
-                 <property name="text">
-                  <string>Elvish</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="0">
-                <widget class="QCheckBox" name="checkBox_41">
-                 <property name="text">
-                  <string>Gnomish</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_31">
-                 <property name="font">
-                  <font>
-                   <pointsize>14</pointsize>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>Languages:</string>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
               </layout>
              </widget>
             </item>
-            <item>
-             <widget class="QFrame" name="frame_12">
+            <item row="3" column="1">
+             <widget class="QFrame" name="frame_15">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <layout class="QGridLayout" name="gridLayout_10">
-               <item row="1" column="0">
-                <widget class="QCheckBox" name="checkBox_45">
-                 <property name="text">
-                  <string>Aberration</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="0">
-                <widget class="QCheckBox" name="checkBox_51">
-                 <property name="text">
-                  <string>Elemental</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="0">
-                <widget class="QCheckBox" name="checkBox_49">
-                 <property name="text">
-                  <string>Construct</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="0">
-                <widget class="QCheckBox" name="checkBox_48">
-                 <property name="text">
-                  <string>Celestial</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QCheckBox" name="checkBox_46">
-                 <property name="text">
-                  <string>Beast</string>
-                 </property>
-                </widget>
-               </item>
+              <layout class="QGridLayout" name="gridLayout_14">
                <item row="3" column="0">
-                <widget class="QCheckBox" name="checkBox_47">
+                <widget class="QCheckBox" name="deafendedCheckBox">
                  <property name="text">
-                  <string>CheckBox</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_32">
-                 <property name="font">
-                  <font>
-                   <pointsize>14</pointsize>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>Type:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="0">
-                <widget class="QCheckBox" name="checkBox_50">
-                 <property name="text">
-                  <string>Dragon</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="0">
-                <widget class="QCheckBox" name="checkBox_52">
-                 <property name="text">
-                  <string>Fey</string>
+                  <string>Deafened</string>
                  </property>
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QCheckBox" name="checkBox_53">
+                <widget class="QCheckBox" name="grappledCheckBox">
                  <property name="text">
-                  <string>Fiend</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QCheckBox" name="checkBox_54">
-                 <property name="text">
-                  <string>Giant</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QCheckBox" name="checkBox_55">
-                 <property name="text">
-                  <string>Humanoid</string>
+                  <string>Grappled</string>
                  </property>
                 </widget>
                </item>
                <item row="4" column="1">
-                <widget class="QCheckBox" name="checkBox_56">
+                <widget class="QCheckBox" name="paralyzedCheckBox">
                  <property name="text">
-                  <string>Monstrosity</string>
+                  <string>Paralyzed</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="blindedCheckBox">
+                 <property name="text">
+                  <string>Blinded</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QCheckBox" name="invisibleCheckBox">
+                 <property name="text">
+                  <string>Invisible</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="charmedCheckBox">
+                 <property name="text">
+                  <string>Charmed</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QCheckBox" name="exhaustionCheckBox">
+                 <property name="text">
+                  <string>Exhaustion</string>
                  </property>
                 </widget>
                </item>
                <item row="5" column="1">
-                <widget class="QCheckBox" name="checkBox_57">
+                <widget class="QCheckBox" name="petrifiedCheckBox">
                  <property name="text">
-                  <string>Ooze</string>
+                  <string>Petrified</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_26">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Condition Immunities:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QCheckBox" name="frightenedCheckBox">
+                 <property name="text">
+                  <string>Frightened</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QCheckBox" name="incapacitatedCheckBox">
+                 <property name="text">
+                  <string>Incapacitated</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QCheckBox" name="poisonedCheckBox">
+                 <property name="text">
+                  <string>Poisoned</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QCheckBox" name="proneCheckBox">
+                 <property name="text">
+                  <string>Prone</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QCheckBox" name="stunnedCheckBox">
+                 <property name="text">
+                  <string>Stunned</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QCheckBox" name="restrainedCheckBox">
+                 <property name="text">
+                  <string>Restrained</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="2">
+                <widget class="QCheckBox" name="unconsciosCheckBox">
+                 <property name="text">
+                  <string>Unconscious</string>
                  </property>
                 </widget>
                </item>
                <item row="6" column="1">
-                <widget class="QCheckBox" name="checkBox_58">
+                <spacer name="verticalSpacer_2">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QFrame" name="frame_14">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_13">
+               <item row="5" column="0">
+                <spacer name="verticalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="darkvisionCheckBox">
                  <property name="text">
-                  <string>Plant</string>
+                  <string>Darkvision</string>
                  </property>
                 </widget>
                </item>
-               <item row="7" column="1">
-                <widget class="QCheckBox" name="checkBox_59">
+               <item row="3" column="0">
+                <widget class="QCheckBox" name="tremorsenseCheckBox">
                  <property name="text">
-                  <string>Undead</string>
+                  <string>Tremorsense</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QCheckBox" name="truesightCheckBox">
+                 <property name="text">
+                  <string>Truesight</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_25">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Senses:</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="blindsightCheckBox">
+                 <property name="text">
+                  <string>Blindsight</string>
                  </property>
                 </widget>
                </item>
               </layout>
              </widget>
             </item>
-            <item>
+            <item row="4" column="0" colspan="2">
              <widget class="QFrame" name="frame_10">
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -4378,113 +4879,10 @@ background-color: rgb(153, 184, 152);</string>
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QGridLayout" name="gridLayout_8">
-               <item row="8" column="1">
-                <widget class="QLabel" name="label_57">
+               <item row="17" column="0">
+                <widget class="QCheckBox" name="parryCheckBox">
                  <property name="text">
-                  <string>The creature magically increases in size, along with anything it is wearing or carrying. Input the extra 
-damage inflicted per round whilst enlarged.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="9" column="1">
-                <widget class="QLabel" name="label_56">
-                 <property name="text">
-                  <string>Each creature of the creature's choice within range must make a Wisdom saving throw or be frightened
- for 1 minute</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="9" column="0">
-                <widget class="QCheckBox" name="checkBox_23">
-                 <property name="text">
-                  <string>Frightful Presence</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="13" column="1">
-                <widget class="QLabel" name="label_52">
-                 <property name="text">
-                  <string>The creature has advantage on saving throws against spells and other magical effects.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QLabel" name="label_61">
-                 <property name="text">
-                  <string>If the creature is subjected to an effect that allows it to make a saving throw to only take half damage, it 
-instead takes no 
-damage if it succeeds on the saving throw, and only half damage if it fails.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="20" column="1">
-                <widget class="QLabel" name="label_43">
-                 <property name="text">
-                  <string>If the creature would be reduced to 0 hit points, there is a chance that it can instead only be reduced to 1.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="16" column="0">
-                <widget class="QCheckBox" name="checkBox_19">
-                 <property name="text">
-                  <string>Pack Tactics</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QLabel" name="label_63">
-                 <property name="text">
-                  <string>The creature has advantage on attack rolls against any creature it has surprised.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="0">
-                <widget class="QCheckBox" name="checkBox_13">
-                 <property name="text">
-                  <string>Blood Frenzy</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="19" column="0">
-                <widget class="QCheckBox" name="checkBox_14">
-                 <property name="text">
-                  <string>Regeneration</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="15" column="1">
-                <widget class="QLabel" name="label_50">
-                 <property name="text">
-                  <string>The creature can take the Disengage or Hide action as a bonus action on each of its turns</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QLabel" name="label_62">
-                 <property name="text">
-                  <string>The creature's weapon attacks are magical. When the creature hits with any weapon, the weapon
- deals extra radiant damage. Input this extra damage per round.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="23" column="1">
-                <widget class="QLabel" name="label_40">
-                 <property name="text">
-                  <string>The creature can turn invisible as an action or bonus action</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="22" column="1">
-                <widget class="QLabel" name="label_41">
-                 <property name="text">
-                  <string>Any creature other than the monster within 5 feet of it must make a saving throw or be poisoned.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="21" column="0">
-                <widget class="QCheckBox" name="checkBox_10">
-                 <property name="text">
-                  <string>Shadow Stealth</string>
+                  <string>Parry</string>
                  </property>
                 </widget>
                </item>
@@ -4495,191 +4893,10 @@ damage if it succeeds on the saving throw, and only half damage if it fails.</st
                  </property>
                 </widget>
                </item>
-               <item row="14" column="0">
-                <widget class="QCheckBox" name="checkBox_22">
-                 <property name="text">
-                  <string>Martial Advantage</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="0">
-                <widget class="QCheckBox" name="checkBox_11">
-                 <property name="text">
-                  <string>Avoidance</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="1">
-                <widget class="QLabel" name="label_58">
-                 <property name="text">
-                  <string>While attached or grappling a creature, the creature takes only half damage dealt to it (rounded down),
- and the other creature takes the other half.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="18" column="1">
-                <widget class="QLabel" name="label_47">
-                 <property name="text">
-                  <string>The creature can control another creature, during which time it cannot be targeted by nearly any effect.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="19" column="1">
-                <widget class="QLabel" name="label_44">
-                 <property name="text">
-                  <string>At the beginning of the creature's turn, it regains hit points and cannot be killed until this effect is
-mitigated in some way, usually through acid or fire damage. Input how many hit points it regains at the 
-beginning of its turn.</string>
-                 </property>
-                </widget>
-               </item>
                <item row="2" column="0">
-                <widget class="QCheckBox" name="checkBox_4">
+                <widget class="QCheckBox" name="ambusherCheckBox">
                  <property name="text">
                   <string>Ambusher</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="1">
-                <widget class="QLabel" name="label_60">
-                 <property name="text">
-                  <string>The creature has advantage on melee attack rolls against any creature that doesn't have all its hit points.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="13" column="0">
-                <widget class="QCheckBox" name="checkBox_24">
-                 <property name="text">
-                  <string>Magic Resistance</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="15" column="0">
-                <widget class="QCheckBox" name="checkBox_21">
-                 <property name="text">
-                  <string>Nimble Escape</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="12" column="0">
-                <widget class="QCheckBox" name="checkBox_25">
-                 <property name="text">
-                  <string>Legendary Resistance</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="11" column="0">
-                <widget class="QCheckBox" name="checkBox_26">
-                 <property name="text">
-                  <string>Horrifying Visage</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="24" column="1">
-                <widget class="QLabel" name="label_45">
-                 <property name="text">
-                  <string>If the creature would be reduced to 0 hit points, there is a chance that it can instead only be reduced to 1. 
-This feature is negated if the damage is from radiant nature.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="25" column="0">
-                <widget class="QCheckBox" name="checkBox_6">
-                 <property name="text">
-                  <string>Web</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="17" column="0">
-                <widget class="QCheckBox" name="checkBox_17">
-                 <property name="text">
-                  <string>Parry</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="16" column="1">
-                <widget class="QLabel" name="label_49">
-                 <property name="text">
-                  <string>The creature has advantage on an attack roll against a creature if at least one of the creature's allies is 
-within 5 feet of the creature and the ally isn't incapacitated</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="24" column="0">
-                <widget class="QCheckBox" name="checkBox_5">
-                 <property name="text">
-                  <string>Undead Fortitude</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <widget class="QCheckBox" name="checkBox_8">
-                 <property name="text">
-                  <string>Angelic Weapons</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="18" column="0">
-                <widget class="QCheckBox" name="checkBox_16">
-                 <property name="text">
-                  <string>Possession</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="0">
-                <widget class="QCheckBox" name="checkBox_18">
-                 <property name="text">
-                  <string>Damage Transfer</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="11" column="1">
-                <widget class="QLabel" name="label_54">
-                 <property name="text">
-                  <string>Each non-undead creature of the creature's choice within range must make a Wisdom saving throw or 
-be frightened for 1 minute.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="22" column="0">
-                <widget class="QCheckBox" name="checkBox_9">
-                 <property name="text">
-                  <string>Stench</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="21" column="1">
-                <widget class="QLabel" name="label_42">
-                 <property name="text">
-                  <string>While in dim light or darkness, the creature can take the Hide action as a bonus action.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QLabel" name="label_64">
-                 <property name="text">
-                  <string>As a bonus action, the creature can move up to its speed toward a hostile creature it can see.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="0">
-                <widget class="QCheckBox" name="checkBox_15">
-                 <property name="text">
-                  <string>Constrict</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="23" column="0">
-                <widget class="QCheckBox" name="checkBox_7">
-                 <property name="text">
-                  <string>Superior Invisibility</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="20" column="0">
-                <widget class="QCheckBox" name="checkBox_12">
-                 <property name="text">
-                  <string>Relentless</string>
                  </property>
                 </widget>
                </item>
@@ -4690,53 +4907,10 @@ be frightened for 1 minute.</string>
                  </property>
                 </widget>
                </item>
-               <item row="25" column="1">
-                <widget class="QLabel" name="label_46">
+               <item row="16" column="0">
+                <widget class="QCheckBox" name="packTacticsCheckBox">
                  <property name="text">
-                  <string>Ranged Weapon Attack that restrains the target on a hit.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="14" column="1">
-                <widget class="QLabel" name="label_51">
-                 <property name="text">
-                  <string>The creature can deal extra damage to a creature it hits if that creature is with in 5 ft. of an ally of the 
-creature that isn't incapacitated. Input the extra damage inflicted per round.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="10" column="0">
-                <widget class="QCheckBox" name="checkBox_27">
-                 <property name="text">
-                  <string>Heated Body</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QCheckBox" name="checkBox_3">
-                 <property name="text">
-                  <string>Aggressive</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="1">
-                <widget class="QLabel" name="label_59">
-                 <property name="text">
-                  <string>The creature has the ability to restrain and/or grapple a target as part of an attack.</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="10" column="1">
-                <widget class="QLabel" name="label_55">
-                 <property name="text">
-                  <string>Touching or hitting the creature while within 5 ft. of it causes damage</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="0">
-                <widget class="QCheckBox" name="checkBox_20">
-                 <property name="text">
-                  <string>Enlarge</string>
+                  <string>Pack Tactics</string>
                  </property>
                 </widget>
                </item>
@@ -4752,6 +4926,458 @@ creature that isn't incapacitated. Input the extra damage inflicted per round.</
                   <string>Traits/features:</string>
                  </property>
                 </widget>
+               </item>
+               <item row="9" column="0">
+                <widget class="QCheckBox" name="frightfulPresenceCheckBox">
+                 <property name="text">
+                  <string>Frightful Presence</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="1">
+                <widget class="QLabel" name="label_44">
+                 <property name="text">
+                  <string>At the beginning of the creature's turn, it regains hit points and cannot be killed until this effect is
+mitigated in some way, usually through acid or fire damage. Input how many hit points it regains at the 
+beginning of its turn.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_64">
+                 <property name="text">
+                  <string>As a bonus action, the creature can move up to its speed toward a hostile creature it can see.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QLabel" name="label_58">
+                 <property name="text">
+                  <string>While attached or grappling a creature, the creature takes only half damage dealt to it (rounded down),
+ and the other creature takes the other half.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QCheckBox" name="avoidanceCheckBox">
+                 <property name="text">
+                  <string>Avoidance</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="12" column="0">
+                <widget class="QCheckBox" name="legendaryResistanceCheckBox">
+                 <property name="text">
+                  <string>Legendary Resistance</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="1">
+                <widget class="QLabel" name="label_56">
+                 <property name="text">
+                  <string>Each creature of the creature's choice within range must make a Wisdom saving throw or be frightened
+ for 1 minute</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLabel" name="label_62">
+                 <property name="text">
+                  <string>The creature's weapon attacks are magical. When the creature hits with any weapon, the weapon
+ deals extra radiant damage. Input this extra damage per round.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="0">
+                <widget class="QCheckBox" name="webCheckBox">
+                 <property name="text">
+                  <string>Web</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="0">
+                <widget class="QCheckBox" name="magicResistanceCheckBox">
+                 <property name="text">
+                  <string>Magic Resistance</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="25" column="1">
+                <widget class="QLabel" name="label_46">
+                 <property name="text">
+                  <string>Ranged Weapon Attack that restrains the target on a hit.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="19" column="0">
+                <widget class="QCheckBox" name="regenerationCheckBox">
+                 <property name="text">
+                  <string>Regeneration</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="0">
+                <widget class="QCheckBox" name="horrifyingVisageCheckBox">
+                 <property name="text">
+                  <string>Horrifying Visage</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="16" column="1">
+                <widget class="QLabel" name="label_49">
+                 <property name="text">
+                  <string>The creature has advantage on an attack roll against a creature if at least one of the creature's allies is 
+within 5 feet of the creature and the ally isn't incapacitated</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="1">
+                <widget class="QLabel" name="label_52">
+                 <property name="text">
+                  <string>The creature has advantage on saving throws against spells and other magical effects.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="label_63">
+                 <property name="text">
+                  <string>The creature has advantage on attack rolls against any creature it has surprised.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QCheckBox" name="constructCheckBox">
+                 <property name="text">
+                  <string>Constrict</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="0">
+                <widget class="QCheckBox" name="heatedBodyCheckBox">
+                 <property name="text">
+                  <string>Heated Body</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QCheckBox" name="angelicWeaponsCheckBox">
+                 <property name="text">
+                  <string>Angelic Weapons</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QCheckBox" name="damageTransferCheckBox">
+                 <property name="text">
+                  <string>Damage Transfer</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="1">
+                <widget class="QLabel" name="label_54">
+                 <property name="text">
+                  <string>Each non-undead creature of the creature's choice within range must make a Wisdom saving throw or 
+be frightened for 1 minute.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="aggressiveCheckBox">
+                 <property name="text">
+                  <string>Aggressive</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="15" column="0">
+                <widget class="QCheckBox" name="nimbleEscapeCheckBox">
+                 <property name="text">
+                  <string>Nimble Escape</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QLabel" name="label_59">
+                 <property name="text">
+                  <string>The creature has the ability to restrain and/or grapple a target as part of an attack.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="15" column="1">
+                <widget class="QLabel" name="label_50">
+                 <property name="text">
+                  <string>The creature can take the Disengage or Hide action as a bonus action on each of its turns</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="14" column="1">
+                <widget class="QLabel" name="label_51">
+                 <property name="text">
+                  <string>The creature can deal extra damage to a creature it hits if that creature is with in 5 ft. of an ally of the 
+creature that isn't incapacitated. Input the extra damage inflicted per round.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="21" column="0">
+                <widget class="QCheckBox" name="shadowStealthCheckBox">
+                 <property name="text">
+                  <string>Shadow Stealth</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="20" column="1">
+                <widget class="QLabel" name="label_43">
+                 <property name="text">
+                  <string>If the creature would be reduced to 0 hit points, there is a chance that it can instead only be reduced to 1.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="14" column="0">
+                <widget class="QCheckBox" name="martialAdvantageCheckBox">
+                 <property name="text">
+                  <string>Martial Advantage</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="22" column="1">
+                <widget class="QLabel" name="label_41">
+                 <property name="text">
+                  <string>Any creature other than the monster within 5 feet of it must make a saving throw or be poisoned.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="24" column="0">
+                <widget class="QCheckBox" name="udeadFortitudeCheckBox">
+                 <property name="text">
+                  <string>Undead Fortitude</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLabel" name="label_61">
+                 <property name="text">
+                  <string>If the creature is subjected to an effect that allows it to make a saving throw to only take half damage, it 
+instead takes no 
+damage if it succeeds on the saving throw, and only half damage if it fails.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="24" column="1">
+                <widget class="QLabel" name="label_45">
+                 <property name="text">
+                  <string>If the creature would be reduced to 0 hit points, there is a chance that it can instead only be reduced to 1. 
+This feature is negated if the damage is from radiant nature.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLabel" name="label_60">
+                 <property name="text">
+                  <string>The creature has advantage on melee attack rolls against any creature that doesn't have all its hit points.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="18" column="1">
+                <widget class="QLabel" name="label_47">
+                 <property name="text">
+                  <string>The creature can control another creature, during which time it cannot be targeted by nearly any effect.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="1">
+                <widget class="QLabel" name="label_57">
+                 <property name="text">
+                  <string>The creature magically increases in size, along with anything it is wearing or carrying. Input the extra 
+damage inflicted per round whilst enlarged.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="20" column="0">
+                <widget class="QCheckBox" name="relentlessCheckBox">
+                 <property name="text">
+                  <string>Relentless</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QCheckBox" name="bloodFrenzyCheckBox">
+                 <property name="text">
+                  <string>Blood Frenzy</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="18" column="0">
+                <widget class="QCheckBox" name="possessionCheckBox">
+                 <property name="text">
+                  <string>Possession</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="23" column="1">
+                <widget class="QLabel" name="label_40">
+                 <property name="text">
+                  <string>The creature can turn invisible as an action or bonus action</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="0">
+                <widget class="QCheckBox" name="enlargeCheckBox">
+                 <property name="text">
+                  <string>Enlarge</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="22" column="0">
+                <widget class="QCheckBox" name="stenchCheckBox">
+                 <property name="text">
+                  <string>Stench</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="21" column="1">
+                <widget class="QLabel" name="label_42">
+                 <property name="text">
+                  <string>While in dim light or darkness, the creature can take the Hide action as a bonus action.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="23" column="0">
+                <widget class="QCheckBox" name="superiorInvisibilityCheckBox">
+                 <property name="text">
+                  <string>Superior Invisibility</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="1">
+                <widget class="QLabel" name="label_55">
+                 <property name="text">
+                  <string>Touching or hitting the creature while within 5 ft. of it causes damage</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QFrame" name="frame_16">
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_15">
+               <item row="1" column="9">
+                <widget class="QLabel" name="label_71">
+                 <property name="text">
+                  <string>Swim</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="8">
+                <widget class="QLabel" name="label_69">
+                 <property name="text">
+                  <string>ft.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="QLabel" name="label_32">
+                 <property name="text">
+                  <string>Climb</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="3">
+                <widget class="QSpinBox" name="burrowSpinBox"/>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_74">
+                 <property name="text">
+                  <string>Ground</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_70">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Speed:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QLabel" name="label_24">
+                 <property name="text">
+                  <string>Burrow</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="7">
+                <widget class="QLabel" name="label_37">
+                 <property name="text">
+                  <string>Fly</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="10">
+                <widget class="QLabel" name="label_72">
+                 <property name="text">
+                  <string>ft.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QSpinBox" name="climbSpinBox"/>
+               </item>
+               <item row="2" column="6">
+                <widget class="QLabel" name="label_33">
+                 <property name="text">
+                  <string>ft.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="9">
+                <widget class="QSpinBox" name="swimSpinBox"/>
+               </item>
+               <item row="2" column="4">
+                <widget class="QLabel" name="label_27">
+                 <property name="text">
+                  <string>ft.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QLabel" name="label_73">
+                 <property name="text">
+                  <string>ft.</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="7">
+                <widget class="QSpinBox" name="flySpinBox"/>
+               </item>
+               <item row="2" column="1">
+                <widget class="QSpinBox" name="movementSpinBox"/>
                </item>
               </layout>
              </widget>

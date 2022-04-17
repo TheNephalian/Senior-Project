@@ -1,4 +1,17 @@
 *REMEMBER, DND rounds down all non-integer values to result in an integer
+*for the creature's CR in the formulas, grab the calculated CR the app determines for the creature (the value next to the scroll bar)
+*You'll notice that many of these formulas are effectively the same. You can use that to your advantage when coding it up.
+
+ATTRIBUTE BONUS
+	A creature's attribute bonus (atr_bns) is a variable dictated by the creature's Attribute score (STR, DEX, CON, etc.)
+	
+	For example a creature's Strength bonus would depend on the creature's Strength score (STR)
+
+		atr_bns = (STR - 10) / 2
+
+	The same formula is true for all other attributes and their attribute bonus, substituting STR for DEX, CON, etc to get the DEX bonus, CON bons, etc.
+
+	This value is displayed next to the user's entry for the attribute score (the +5 default display will change to this calculated value as the user changes their entry)
 
 PROFICIENCY BONUS
 	A creature's proficiency bonus (p) is a variable dictated by the creature's Challenge Rating (CR)
@@ -6,16 +19,51 @@ PROFICIENCY BONUS
 		p = 2 if CR <= 1
 		p = (CR + 8) / 4 if CR > 1
 
-SAVING THROWS
-	A creature's saving throw (save) is a variable dictated by the creature's associated Attribute (STR, DEX, CON, etc.) and is added to the creature's proficiency bonus (p, see above for proficiency bonus)
+ATTACK BONUS
+	A creature's attack bonus (atk_bns) is a variable dictated by the attack's associated Attribute score (STR, DEX, CON, etc.) and is added to the creature's proficiency bonus (p, see above)
 
-	For example, a creature's Strength Saving Throw would depend on the creature's CR and Strength score (STR)
+		atk_bns = atr_bns + p
+
+	The attack's associated attribute is chosen by the user with the attack's Associated Attribute drop-down box entry.
+
+	For example, for an attack associated with the creature's Strength, the attack bonus would depend on the creature's Challenge Rating (CR) and Strength score (STR) to determine the creature's attribute bonus (atr_bns) associated with the attack and the creature's proficiency bonus (p). So you would effectively be doing something like this:
+
+		atk_bns = ((STR - 10) / 2) + p
+
+	The same formula is true for an attack associated with any other Attribute, substituting STR for DEX, CON, etc.
+
+SAVING THROWS
+	A creature's saving throw (save) is a variable dictated by the creature's associated attribute bonus (atr_bns) and is added to the creature's proficiency bonus (p, see above)
+
+		save = atr_bns + p
+
+	For example, a creature's Strength Saving Throw would depend on the creature's Challenge Rating (CR) and Strength score (STR) to determine the creature's attribute bonus (atr_bns) and the creature's proficiency bonus (p). So you would effectively be doing something like this:
 
 		save = ((STR - 10) / 2) + p
 
-	The same formula is true for all other and their saving throws, substituting STR for DEX, CON, etc. to get the DEX saving throw, CON saving throw, etc.
+	The same formula is true for all other Attributes and their saving throws, substituting STR for DEX, CON, etc.
 
 SKILLS
 	Each of the 18 skills is associated with an Attribute.
 	
-	A creature's bonus to that skill is a variable dictated by the Creature's score in the skill's associated attribute and the creature's proficiency bonus (p, see top for proficiency bonus)
+	A creature's bonus to that skill (skill_bns) is a variable dictated by the Creature's score in the skill's associated Attribute score (STR, DEX, CON, etc.) and the creature's proficiency bonus (p, see above)
+	
+	For example, a creature's Athletics bonus would depend on the creature's Challenge Rating (CR) and Strength score (STR) to determine the creature's attribute bonus (atr_bns) and the creature's proficiency bonus (p). So you would effectively be doing something like this: 
+
+		skill_bns = ((STR - 10) / 2) + p
+
+	The same formula is true for all other skills and their skill bonuses, substituting STR for the skill's associated Attribute.
+
+	Skills and their associated Attribute are as follows:
+
+		STR						DEX							CON (Constitution has no associated skills)
+			Athletics				Acrobatics				
+									Sleight of Hand
+									Stealth
+
+		INT						WIS							CHA
+			Arcana					Animal Handling				Deception
+			History					Insight						Intimidation
+			Investigation			Medicine					Performance
+			Nature					Perception					Persuasion
+			Religion				Survival

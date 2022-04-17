@@ -1417,7 +1417,7 @@ class Ui_MainWindow(object):
         self.actionDamageType_2.addItem("")
         self.gridLayout_5.addWidget(self.actionDamageType_2, 6, 8, 1, 1)
         self.plusLabel_1 = QtWidgets.QLabel(self.frame_6)
-        self.plusLabel_1.setMaximumSize(QtCore.QSize(20, 16777215))
+        self.plusLabel_1.setMaximumSize(QtCore.QSize(30, 16777215))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(11)

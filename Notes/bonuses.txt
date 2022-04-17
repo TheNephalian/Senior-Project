@@ -1,0 +1,21 @@
+*REMEMBER, DND rounds down all non-integer values to result in an integer
+
+PROFICIENCY BONUS
+	A creature's proficiency bonus (p) is a variable dictated by the creature's Challenge Rating (CR)
+
+		p = 2 if CR <= 1
+		p = (CR + 8) / 4 if CR > 1
+
+SAVING THROWS
+	A creature's saving throw (save) is a variable dictated by the creature's associated Attribute (STR, DEX, CON, etc.) and is added to the creature's proficiency bonus (p, see above for proficiency bonus)
+
+	For example, a creature's Strength Saving Throw would depend on the creature's CR and Strength score (STR)
+
+		save = ((STR - 10) / 2) + p
+
+	The same formula is true for all other and their saving throws, substituting STR for DEX, CON, etc. to get the DEX saving throw, CON saving throw, etc.
+
+SKILLS
+	Each of the 18 skills is associated with an Attribute.
+	
+	A creature's bonus to that skill is a variable dictated by the Creature's score in the skill's associated attribute and the creature's proficiency bonus (p, see top for proficiency bonus)

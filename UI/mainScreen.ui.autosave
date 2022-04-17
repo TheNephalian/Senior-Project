@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1280</width>
-    <height>720</height>
+    <height>1635</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -2955,7 +2955,7 @@ QLineEdit{
                    <widget class="QLabel" name="plusLabel_1">
                     <property name="maximumSize">
                      <size>
-                      <width>30</width>
+                      <width>20</width>
                       <height>16777215</height>
                      </size>
                     </property>
@@ -3901,8 +3901,8 @@ background-color: rgb(153, 184, 152);</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1222</width>
-             <height>1508</height>
+             <width>1236</width>
+             <height>1525</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_12">

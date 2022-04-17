@@ -27,12 +27,36 @@ from testModScreen import Ui_testModWindow
 class Ui_MainWindow(object):    
     def open_window(self):
         #open second window
+        # strSpinBox == STR    
+        # dexSpinBox == DEX
+        # conSpinBox == CON
+        # intSpinBox == INT
+        # wisSpinBox == WIS
+        # chaSpinBox == CHA
         self.name = QtWidgets.QLineEdit()
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_SecondWindow()
         self.ui.setupUi(self.window)
         creature_name = self.nameLineEdit.text()
         self.ui.label.setText(creature_name)
+        armor_value = self.ArmorSpinBox.value()
+        self.ui.label_3.setText(str(armor_value))
+        hp_value = self.hitPointsSpinBox.value()
+        self.ui.label_5.setText(str(hp_value))
+        str_value = self.strSpinBox.value()
+        dex_value = self.dexSpinBox.value()
+        con_value = self.conSpinBox.value()
+        int_value = self.intSpinBox.value()
+        wis_value = self.wisSpinBox.value()
+        cha_value = self.chaSpinBox.value()
+        self.ui.label_12.setText(str(str_value))
+        self.ui.label_13.setText(str(dex_value))
+        self.ui.label_14.setText(str(con_value))
+        self.ui.label_15.setText(str(int_value))
+        self.ui.label_16.setText(str(wis_value))
+        self.ui.label_17.setText(str(cha_value))
+        CR_value = self.sliderValTxt.text()
+        self.ui.label_24.setText(CR_value)
         self.window.show() 
         
     def openWindow(self):
@@ -2682,6 +2706,6 @@ if __name__ == "__main__":
     print("***COMBAT***")
     comSim = combat.combatSimulation()
 
-    comSim.combatSim()
+    #comSim.combatSim()
     
     sys.exit(app.exec_())

@@ -1969,6 +1969,6 @@ if __name__ == "__main__":
     print("***COMBAT***")
     comSim = combat.combatSimulation()
 
-    comSim.combatSim()
+    #comSim.combatSim()
 
     sys.exit(app.exec_())

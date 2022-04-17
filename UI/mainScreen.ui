@@ -29,7 +29,9 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="font">
-    <font/>
+    <font>
+     <family>Merriweather</family>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">
@@ -165,6 +167,7 @@ QLineEdit{
      <widget class="QTabWidget" name="tabWidget">
       <property name="font">
        <font>
+        <family>Segoe UI</family>
         <kerning>true</kerning>
        </font>
       </property>
@@ -172,7 +175,7 @@ QLineEdit{
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -183,6 +186,7 @@ QLineEdit{
          <widget class="QScrollArea" name="scrollArea">
           <property name="font">
            <font>
+            <family>Segoe UI</family>
             <kerning>true</kerning>
            </font>
           </property>
@@ -198,7 +202,7 @@ QLineEdit{
              <x>0</x>
              <y>0</y>
              <width>1222</width>
-             <height>1979</height>
+             <height>1980</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -206,6 +210,7 @@ QLineEdit{
              <widget class="QFrame" name="frame">
               <property name="font">
                <font>
+                <family>Segoe UI</family>
                 <kerning>true</kerning>
                </font>
               </property>
@@ -226,6 +231,7 @@ QLineEdit{
                  </property>
                  <property name="font">
                   <font>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
                  </property>
@@ -240,6 +246,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="chaSpinBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -252,6 +259,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="intSpinBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -261,6 +269,7 @@ QLineEdit{
                    <widget class="QCheckBox" name="strSavingThrowCheckBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -273,6 +282,7 @@ QLineEdit{
                    <widget class="QLabel" name="dexBonus">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -285,6 +295,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="wisSpinBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -294,6 +305,7 @@ QLineEdit{
                    <widget class="QCheckBox" name="dexSavingThrowCheckBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -306,6 +318,7 @@ QLineEdit{
                    <widget class="QCheckBox" name="intSavingThrowCheckBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -318,6 +331,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_18">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -331,8 +345,15 @@ QLineEdit{
                   </item>
                   <item row="1" column="0">
                    <widget class="QSpinBox" name="strSpinBox">
+                    <property name="minimumSize">
+                     <size>
+                      <width>94</width>
+                      <height>22</height>
+                     </size>
+                    </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -342,6 +363,7 @@ QLineEdit{
                    <widget class="QCheckBox" name="chaSavingThrowCheckBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -354,6 +376,7 @@ QLineEdit{
                    <widget class="QLabel" name="intBonus">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -366,6 +389,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_17">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -381,6 +405,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="dexSpinBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -390,6 +415,7 @@ QLineEdit{
                    <widget class="QLabel" name="wisBonus">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -402,6 +428,7 @@ QLineEdit{
                    <widget class="QCheckBox" name="conSavingThrowCheckBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -414,6 +441,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="conSpinBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -423,6 +451,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_19">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -438,6 +467,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_16">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -453,6 +483,7 @@ QLineEdit{
                    <widget class="QLabel" name="strBonus">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -465,6 +496,7 @@ QLineEdit{
                    <widget class="QLabel" name="conBonus">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -477,6 +509,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_20">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -492,6 +525,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_21">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -507,6 +541,7 @@ QLineEdit{
                    <widget class="QCheckBox" name="wisSavingThrowCheckBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -519,6 +554,7 @@ QLineEdit{
                    <widget class="QLabel" name="chaBonus">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -534,6 +570,7 @@ QLineEdit{
                 <widget class="QFrame" name="frame_7">
                  <property name="font">
                   <font>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
                  </property>
@@ -545,9 +582,10 @@ QLineEdit{
                  </property>
                  <layout class="QGridLayout" name="gridLayout_6">
                   <item row="3" column="2">
-                   <widget class="QSpinBox" name="spinBox_5">
+                   <widget class="QSpinBox" name="customNumOfDiespinBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -557,6 +595,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_35">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <italic>true</italic>
                       <bold>true</bold>
                       <kerning>true</kerning>
@@ -571,6 +610,7 @@ QLineEdit{
                    <widget class="QCheckBox" name="doesDamageCheckBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -583,6 +623,7 @@ QLineEdit{
                    <widget class="QLineEdit" name="nameLineEdit_2">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -595,6 +636,7 @@ QLineEdit{
                    <widget class="QCheckBox" name="aoeButton">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -604,9 +646,10 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="3" column="4">
-                   <widget class="QComboBox" name="comboBox_9">
+                   <widget class="QComboBox" name="typeOfDieComboBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -646,6 +689,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_36">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -658,6 +702,7 @@ QLineEdit{
                    <widget class="QPlainTextEdit" name="plainTextEdit">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -667,6 +712,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_38">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -688,6 +734,7 @@ QLineEdit{
                  </property>
                  <property name="font">
                   <font>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
                  </property>
@@ -714,6 +761,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <italic>false</italic>
                       <bold>false</bold>
                       <underline>false</underline>
@@ -2166,6 +2214,7 @@ QLineEdit{
                    <spacer name="horizontalSpacer">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2193,6 +2242,7 @@ QLineEdit{
                  </property>
                  <property name="font">
                   <font>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
                  </property>
@@ -2210,6 +2260,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_3">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2222,6 +2273,7 @@ QLineEdit{
                    <spacer name="horizontalSpacer_4">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2240,6 +2292,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_4">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2258,6 +2311,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2270,6 +2324,7 @@ QLineEdit{
                    <widget class="QCheckBox" name="fliesCheckBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2282,6 +2337,7 @@ QLineEdit{
                    <widget class="QCheckBox" name="savesCheckBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2294,6 +2350,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_6">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2306,6 +2363,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="ArmorSpinBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2315,6 +2373,7 @@ QLineEdit{
                    <widget class="QSlider" name="slider">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2330,6 +2389,7 @@ QLineEdit{
                    <spacer name="horizontalSpacer_6">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2354,6 +2414,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2366,6 +2427,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="hitPointsSpinBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2375,6 +2437,7 @@ QLineEdit{
                    <widget class="QComboBox" name="resComboBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2399,6 +2462,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_10">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2411,6 +2475,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_8">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <pointsize>20</pointsize>
                       <bold>false</bold>
                       <kerning>true</kerning>
@@ -2431,6 +2496,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2440,6 +2506,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="constitSpinBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2455,6 +2522,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <pointsize>20</pointsize>
                       <kerning>true</kerning>
                      </font>
@@ -2468,6 +2536,7 @@ QLineEdit{
                    <spacer name="horizontalSpacer_3">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2489,6 +2558,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_7">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2501,6 +2571,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_11">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2513,6 +2584,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_12">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2525,6 +2597,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_5">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2537,6 +2610,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="dprSpinBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2546,6 +2620,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_9">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2564,6 +2639,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2573,6 +2649,7 @@ QLineEdit{
                    <widget class="QComboBox" name="saveComboBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2597,6 +2674,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="attkBonSpinBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2606,6 +2684,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_2">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <pointsize>12</pointsize>
                       <kerning>true</kerning>
                      </font>
@@ -2619,6 +2698,7 @@ QLineEdit{
                    <widget class="QLabel" name="diceLabel">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <bold>true</bold>
                       <kerning>true</kerning>
                      </font>
@@ -2635,6 +2715,7 @@ QLineEdit{
                    <widget class="QCheckBox" name="vulCheckBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2647,6 +2728,7 @@ QLineEdit{
                    <widget class="QComboBox" name="sizeComboBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2692,6 +2774,7 @@ QLineEdit{
                 <widget class="QFrame" name="frame_6">
                  <property name="font">
                   <font>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
                  </property>
@@ -2706,6 +2789,7 @@ QLineEdit{
                    <widget class="QComboBox" name="attrComboBox_1">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2745,6 +2829,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="reachSpinBox_2">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2754,6 +2839,7 @@ QLineEdit{
                    <widget class="QComboBox" name="actionType_3">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2785,6 +2871,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2800,6 +2887,7 @@ QLineEdit{
                    <widget class="QComboBox" name="attrComboBox_2">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2853,6 +2941,7 @@ QLineEdit{
                    <widget class="QComboBox" name="actionType_4">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2878,6 +2967,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <pointsize>11</pointsize>
                       <kerning>true</kerning>
                      </font>
@@ -2891,6 +2981,7 @@ QLineEdit{
                    <widget class="QComboBox" name="actionDamageType_2">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2953,14 +3044,21 @@ QLineEdit{
                   </item>
                   <item row="2" column="3">
                    <widget class="QLabel" name="plusLabel_1">
-                    <property name="maximumSize">
+                    <property name="minimumSize">
                      <size>
                       <width>20</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>30</width>
                       <height>16777215</height>
                      </size>
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <pointsize>11</pointsize>
                       <kerning>true</kerning>
                      </font>
@@ -2974,6 +3072,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="reachSpinBox_1">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -2990,6 +3089,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="reachSpinBox_3">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3005,6 +3105,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3027,6 +3128,7 @@ QLineEdit{
                    <widget class="QComboBox" name="actionDice_2">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3067,6 +3169,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <pointsize>11</pointsize>
                       <bold>true</bold>
                       <kerning>true</kerning>
@@ -3084,6 +3187,7 @@ QLineEdit{
                    <widget class="QComboBox" name="actionDice_4">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3118,6 +3222,7 @@ QLineEdit{
                    <widget class="QComboBox" name="actionType_2">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3137,6 +3242,7 @@ QLineEdit{
                    <widget class="QComboBox" name="actionDice_1">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3177,6 +3283,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <pointsize>11</pointsize>
                       <bold>true</bold>
                       <kerning>true</kerning>
@@ -3191,9 +3298,10 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="6" column="5">
-                   <widget class="QSpinBox" name="spinBox_11">
+                   <widget class="QSpinBox" name="numDieSpinBox_2">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3203,6 +3311,7 @@ QLineEdit{
                    <widget class="QComboBox" name="actionDamageType_3">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3273,6 +3382,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <pointsize>11</pointsize>
                       <bold>true</bold>
                       <kerning>true</kerning>
@@ -3287,9 +3397,10 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="9" column="5">
-                   <widget class="QSpinBox" name="spinBox_12">
+                   <widget class="QSpinBox" name="numDieSpinBox_3">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3299,6 +3410,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_28">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <pointsize>14</pointsize>
                       <bold>true</bold>
                       <underline>true</underline>
@@ -3311,9 +3423,10 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="2" column="5">
-                   <widget class="QSpinBox" name="spinBox_10">
+                   <widget class="QSpinBox" name="numDieSpinBox">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3329,6 +3442,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3350,6 +3464,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <pointsize>11</pointsize>
                       <kerning>true</kerning>
                      </font>
@@ -3363,6 +3478,7 @@ QLineEdit{
                    <widget class="QComboBox" name="actionDamageType_4">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3433,6 +3549,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <pointsize>11</pointsize>
                       <kerning>true</kerning>
                      </font>
@@ -3446,6 +3563,7 @@ QLineEdit{
                    <widget class="QComboBox" name="actionDamageType_1">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3510,6 +3628,7 @@ QLineEdit{
                    <widget class="QComboBox" name="actionDice_3">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3544,6 +3663,7 @@ QLineEdit{
                    <widget class="QSpinBox" name="reachSpinBox_4">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3553,6 +3673,7 @@ QLineEdit{
                    <widget class="QComboBox" name="attrComboBox_4">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3592,6 +3713,7 @@ QLineEdit{
                    <widget class="QComboBox" name="actionType_1">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3624,6 +3746,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3639,6 +3762,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_30">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3657,6 +3781,7 @@ QLineEdit{
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <pointsize>11</pointsize>
                       <bold>true</bold>
                       <kerning>true</kerning>
@@ -3674,6 +3799,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_29">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3686,6 +3812,7 @@ QLineEdit{
                    <widget class="QComboBox" name="attrComboBox_3">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3722,9 +3849,10 @@ QLineEdit{
                    </widget>
                   </item>
                   <item row="11" column="5">
-                   <widget class="QSpinBox" name="spinBox_13">
+                   <widget class="QSpinBox" name="numDieSpinBox_4">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3734,6 +3862,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_39">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3761,6 +3890,7 @@ QLineEdit{
                  </property>
                  <property name="font">
                   <font>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
                  </property>
@@ -3778,12 +3908,13 @@ QLineEdit{
                    <widget class="QLineEdit" name="nameLineEdit">
                     <property name="minimumSize">
                      <size>
-                      <width>0</width>
-                      <height>0</height>
+                      <width>1123</width>
+                      <height>29</height>
                      </size>
                     </property>
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3799,6 +3930,7 @@ QLineEdit{
                    <widget class="QLabel" name="label_14">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3817,6 +3949,7 @@ QLineEdit{
                 <widget class="QFrame" name="frame_9">
                  <property name="font">
                   <font>
+                   <family>Segoe UI</family>
                    <kerning>true</kerning>
                   </font>
                  </property>
@@ -3831,6 +3964,7 @@ QLineEdit{
                    <widget class="QPushButton" name="resetButton">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3847,6 +3981,7 @@ background-color: rgb(232, 74, 95);</string>
                    <widget class="QPushButton" name="createCreatureButton">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -3862,6 +3997,7 @@ background-color: rgb(232, 74, 95);</string>
                    <widget class="QPushButton" name="testButton">
                     <property name="font">
                      <font>
+                      <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
@@ -4289,6 +4425,12 @@ background-color: rgb(153, 184, 152);</string>
               <layout class="QGridLayout" name="gridLayout_10">
                <item row="1" column="0">
                 <widget class="QComboBox" name="typeComboBox">
+                 <property name="minimumSize">
+                  <size>
+                   <width>579</width>
+                   <height>29</height>
+                  </size>
+                 </property>
                  <item>
                   <property name="text">
                    <string>Aberration</string>
@@ -4393,6 +4535,12 @@ background-color: rgb(153, 184, 152);</string>
               <layout class="QGridLayout" name="gridLayout_7">
                <item row="1" column="0">
                 <widget class="QComboBox" name="allignmentComboBox">
+                 <property name="minimumSize">
+                  <size>
+                   <width>579</width>
+                   <height>29</height>
+                  </size>
+                 </property>
                  <item>
                   <property name="text">
                    <string>Any Alignment</string>
@@ -5170,7 +5318,14 @@ damage inflicted per round whilst enlarged.</string>
                 </widget>
                </item>
                <item row="2" column="3">
-                <widget class="QSpinBox" name="burrowSpinBox"/>
+                <widget class="QSpinBox" name="burrowSpinBox">
+                 <property name="minimumSize">
+                  <size>
+                   <width>102</width>
+                   <height>29</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
                <item row="1" column="1">
                 <widget class="QLabel" name="label_74">
@@ -5253,7 +5408,14 @@ damage inflicted per round whilst enlarged.</string>
                 <widget class="QSpinBox" name="flySpinBox"/>
                </item>
                <item row="2" column="1">
-                <widget class="QSpinBox" name="movementSpinBox"/>
+                <widget class="QSpinBox" name="movementSpinBox">
+                 <property name="minimumSize">
+                  <size>
+                   <width>102</width>
+                   <height>29</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>

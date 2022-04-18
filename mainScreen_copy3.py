@@ -16,7 +16,7 @@ from ctypes.wintypes import HPALETTE
 from json.encoder import INFINITY
 from multiprocessing.sharedctypes import Value
 from re import S
-from secondwindow import Ui_SecondWindow
+from secondwindow_copy import Ui_SecondWindow
 
 from offensiveCR import *
 from defenseInputs import *
@@ -281,6 +281,17 @@ class Ui_MainWindow(object):
         
         self.ui.label_32.setText(langues)
         
+        ####PROFICIENCY BONUS
+        pb = 0
+        if(CR_value != ''):
+                if(int(CR_value) <= 1):
+                        pb = 2
+                        self.ui.label_26.setText(str(pb))
+                else:
+                        cr = int(CR_value)
+                        pb = (cr + 8) / 4
+                        self.ui.label_26.setText(str(int(pb)))
+        
         ### actions
         firstaction = self.actionName_1.text()
         self.ui.label_47.setText(firstaction)
@@ -291,6 +302,49 @@ class Ui_MainWindow(object):
         attdie = str(self.spinBox_10.value())
         attdie += "d"
         attdie += self.actionDice_1.currentText()
+        attboun = 0
+        if(self.attrComboBox_1.currentText() == "STR"):
+                attribute = self.strSpinBox.value()
+                attboun = ((attribute - 10)/2) + int(pb)
+                if(attboun < 0):
+                        attboun = 0
+                attdie += "+"
+                attdie += str(int(attboun))
+        elif(self.attrComboBox_1.currentText() == "DEX"):
+                attribute = self.dexSpinBox.value()
+                attboun = ((attribute - 10)/2) + int(pb)
+                if(attboun < 0):
+                        attboun = 0
+                attdie += "+"
+                attdie += str(int(attboun))
+        elif(self.attrComboBox_1.currentText() == "CON"):
+                attribute = self.conSpinBox.value()
+                attboun = ((attribute - 10)/2) + int(pb)
+                if(attboun < 0):
+                        attboun = 0
+                attdie += "+"
+                attdie += str(int(attboun))
+        elif(self.attrComboBox_1.currentText() == "INT"):
+                attribute = self.intSpinBox.value()
+                attboun = ((attribute - 10)/2) + int(pb)
+                if(attboun < 0):
+                        attboun = 0
+                attdie += "+"
+                attdie += str(int(attboun))
+        elif(self.attrComboBox_1.currentText() == "WIS"):
+                attribute = self.wisSpinBox.value()
+                attboun = ((attribute - 10)/2) + int(pb)
+                if(attboun < 0):
+                        attboun = 0
+                attdie += "+"
+                attdie += str(int(attboun))
+        elif(self.attrComboBox_1.currentText() == "CHA"):
+                attribute = self.chaSpinBox.value()
+                attboun = ((attribute - 10)/2) + int(pb)
+                if(attboun < 0):
+                        attboun = 0
+                attdie += "+"
+                attdie += str(int(attboun))
         self.ui.label_57.setText(attdie)
         damageType = self.actionDamageType_1.currentText()
         self.ui.label_60.setText(damageType)  
@@ -301,11 +355,54 @@ class Ui_MainWindow(object):
         self.ui.label_68.setText(secondaction)
         meleeORrange2 = self.actionType_2.currentText()
         self.ui.label_69.setText(meleeORrange2)
-        reach3 = self.reachSpinBox_2.value()
-        self.ui.label_62.setText(str(reach3))
+        reach2 = self.reachSpinBox_2.value()
+        self.ui.label_62.setText(str(reach2))
         attdie2 = str(self.spinBox_11.value())
         attdie2 += "d"
         attdie2 += str(self.actionDice_2.currentText())
+        attboun2 = 0
+        if(self.attrComboBox_2.currentText() == "STR"):
+                attribute2 = self.strSpinBox.value()
+                attboun2 = ((attribute2 - 10)/2) + int(pb)
+                if(attboun2 < 0):
+                        attboun2 = 0
+                attdie2 += "+"
+                attdie2 += str(int(attboun2))
+        elif(self.attrComboBox_2.currentText() == "DEX"):
+                attribute2 = self.dexSpinBox.value()
+                attboun2 = ((attribute2 - 10)/2) + int(pb)
+                if(attboun2 < 0):
+                        attboun2 = 0
+                attdie2 += "+"
+                attdie2 += str(int(attboun2))
+        elif(self.attrComboBox_2.currentText() == "CON"):
+                attribute2 = self.conSpinBox.value()
+                attboun2 = ((attribute2 - 10)/2) + int(pb)
+                if(attboun2 < 0):
+                        attboun2 = 0
+                attdie2 += "+"
+                attdie2 += str(int(attboun2))
+        elif(self.attrComboBox_2.currentText() == "INT"):
+                attribute2 = self.intSpinBox.value()
+                attboun2 = ((attribute2 - 10)/2) + int(pb)
+                if(attboun2 < 0):
+                        attboun2 = 0
+                attdie2 += "+"
+                attdie2 += str(int(attboun2))
+        elif(self.attrComboBox_2.currentText() == "WIS"):
+                attribute2 = self.wisSpinBox.value()
+                attboun2 = ((attribute2 - 10)/2) + int(pb)
+                if(attboun2 < 0):
+                        attboun2 = 0
+                attdie2 += "+"
+                attdie2 += str(int(attboun2))
+        elif(self.attrComboBox_2.currentText() == "CHA"):
+                attribute2 = self.chaSpinBox.value()
+                attboun2 = ((attribute2 - 10)/2) + int(pb)
+                if(attboun2 < 0):
+                        attboun2 = 0
+                attdie2 += "+"
+                attdie2 += str(int(attboun2))
         self.ui.label_65.setText(attdie2)
         damageType2 = self.actionDamageType_2.currentText()
         self.ui.label_63.setText(damageType2)  
@@ -321,12 +418,55 @@ class Ui_MainWindow(object):
         attdie3 = str(self.spinBox_12.value())
         attdie3 += "d"
         attdie3 += str(self.actionDice_3.currentText())
+        attboun3 = 0
+        if(self.attrComboBox_3.currentText() == "STR"):
+                attribute3 = self.strSpinBox.value()
+                attboun3 = ((attribute3 - 10)/2) + int(pb)
+                if(attboun3 < 0):
+                        attboun3 = 0
+                attdie3 += "+"
+                attdie3 += str(int(attboun3))
+        elif(self.attrComboBox_3.currentText() == "DEX"):
+                attribute3 = self.dexSpinBox.value()
+                attboun3 = ((attribute3 - 10)/2) + int(pb)
+                if(attboun3 < 0):
+                        attboun3 = 0
+                attdie3 += "+"
+                attdie3 += str(int(attboun3))
+        elif(self.attrComboBox_3.currentText() == "CON"):
+                attribute3 = self.conSpinBox.value()
+                attboun3 = ((attribute3 - 10)/2) + int(pb)
+                if(attboun3 < 0):
+                        attboun3 = 0
+                attdie3 += "+"
+                attdie3 += str(int(attboun3))
+        elif(self.attrComboBox_3.currentText() == "INT"):
+                attribute3 = self.intSpinBox.value()
+                attboun3 = ((attribute3 - 10)/2) + int(pb)
+                if(attboun3 < 0):
+                        attboun3 = 0
+                attdie3 += "+"
+                attdie3 += str(int(attboun3))
+        elif(self.attrComboBox_3.currentText() == "WIS"):
+                attribute3 = self.wisSpinBox.value()
+                attboun3 = ((attribute3 - 10)/2) + int(pb)
+                if(attboun3 < 0):
+                        attboun3 = 0
+                attdie3 += "+"
+                attdie3 += str(int(attboun3))
+        elif(self.attrComboBox_3.currentText() == "CHA"):
+                attribute3 = self.chaSpinBox.value()
+                attboun3 = ((attribute3 - 10)/2) + int(pb)
+                if(attboun3 < 0):
+                        attboun3 = 0
+                attdie3 += "+"
+                attdie3 += str(int(attboun3))
         self.ui.label_75.setText(attdie3)
         damageType3 = self.actionDamageType_3.currentText()
         self.ui.label_73.setText(damageType3)  
         numAttks3 = self.spinBox_3.value()
         self.ui.label_59.setText(str(numAttks3))
-        
+
         forthaction = self.actionName_4.text()
         self.ui.label_87.setText(forthaction)
         meleeORrange4 = self.actionType_4.currentText()
@@ -336,6 +476,49 @@ class Ui_MainWindow(object):
         attdie4 = str(self.spinBox_13.value())
         attdie4 += "d"
         attdie4 += str(self.actionDice_4.currentText())
+        attboun4 = 0
+        if(self.attrComboBox_4.currentText() == "STR"):
+                attribute4 = self.strSpinBox.value()
+                attboun4 = ((attribute4 - 10)/2) + int(pb)
+                if(attboun4 < 0):
+                        attboun4 = 0
+                attdie4 += "+"
+                attdie4 += str(int(attboun4))
+        elif(self.attrComboBox_4.currentText() == "DEX"):
+                attribute4 = self.dexSpinBox.value()
+                attboun4 = ((attribute4 - 10)/2) + int(pb)
+                if(attboun4 < 0):
+                        attboun4 = 0
+                attdie4 += "+"
+                attdie4 += str(int(attboun4))
+        elif(self.attrComboBox_4.currentText() == "CON"):
+                attribute4 = self.conSpinBox.value()
+                attboun4 = ((attribute4 - 10)/2) + int(pb)
+                if(attboun4 < 0):
+                        attboun4 = 0
+                attdie4 += "+"
+                attdie4 += str(int(attboun4))
+        elif(self.attrComboBox_4.currentText() == "INT"):
+                attribute4 = self.intSpinBox.value()
+                attboun4 = ((attribute4 - 10)/2) + int(pb)
+                if(attboun4 < 0):
+                        attboun4 = 0
+                attdie4 += "+"
+                attdie4 += str(int(attboun4))
+        elif(self.attrComboBox_4.currentText() == "WIS"):
+                attribute4 = self.wisSpinBox.value()
+                attboun4 = ((attribute - 10)/2) + int(pb)
+                if(attboun4 < 0):
+                        attboun4 = 0
+                attdie4 += "+"
+                attdie4 += str(int(attboun4))
+        elif(self.attrComboBox_4.currentText() == "CHA"):
+                attribute4 = self.chaSpinBox.value()
+                attboun4 = ((attribute4 - 10)/2) + int(pb)
+                if(attboun4 < 0):
+                        attboun4 = 0
+                attdie4 += "+"
+                attdie4 += str(int(attboun4))
         self.ui.label_84.setText(attdie4)
         damageType4 = self.actionDamageType_4.currentText()
         self.ui.label_82.setText(damageType4)  
@@ -386,118 +569,6 @@ class Ui_MainWindow(object):
                 senses += ", "
                 senses += self.truesightCheckBox.text()
         self.ui.label_103.setText(senses)
-        
-        ####skills
-        skills = ""
-        if(self.acrobaticsCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.acrobaticsCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.acrobaticsCheckBox.text()
-        if(self.animalHandlingCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.animalHandlingCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.animalHandlingCheckBox.text()
-        if(self.arcanaCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.arcanaCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.arcanaCheckBox.text()
-        if(self.athleticsCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.athleticsCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.athleticsCheckBox.text()
-        if(self.deceptionCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.deceptionCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.deceptionCheckBox.text()
-        if(self.historyCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.historyCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.historyCheckBox.text()
-        if(self.insightCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.insightCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.insightCheckBox.text()
-        if(self.intimidationCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.intimidationCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.intimidationCheckBox.text()
-        if(self.investigationCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.investigationCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.investigationCheckBox.text()
-        if(self.medicineCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.medicineCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.medicineCheckBox.text()   
-        if(self.natureCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.natureCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.natureCheckBox.text()
-        if(self.perceptionCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.perceptionCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.perceptionCheckBox.text()
-        if(self.performanceCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.performanceCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.performanceCheckBox.text()
-        if(self.persuasionCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.persuasionCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.persuasionCheckBox.text()
-        if(self.religionCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.religionCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.religionCheckBox.text()
-        if(self.slightOfHandCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.slightOfHandCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.slightOfHandCheckBox.text()
-        if(self.stealthCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.stealthCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.stealthCheckBox.text()
-        if(self.survivalCheckBox.isChecked()):
-            if(skills == ""):
-                skills += self.survivalCheckBox.text()
-            else:
-                skills += ", "
-                skills += self.survivalCheckBox.text()     
-        self.ui.label_34.setText(skills)
         
         ####condition immunities
         condImmu = ""
@@ -594,6 +665,474 @@ class Ui_MainWindow(object):
             
         self.ui.label_107.setText(condImmu)
         
+        ####saving Throws
+        if(self.strSavingThrowCheckBox.isChecked()):
+                attribute = self.strSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = "+"
+                strSTs += str(int(strST))
+                self.ui.label_41.setText(strSTs)
+        else:
+                strSTs = "+0"
+                self.ui.label_41.setText(strSTs)
+        if(self.dexSavingThrowCheckBox.isChecked()):
+                attribute2 = self.dexSpinBox.value()
+                strST2 = ((attribute2 - 10)/2) + int(pb)
+                if(strST2 < 0):
+                        strST2 = 0
+                strSTs2 = "+"
+                strSTs2 += str(int(strST2))
+                self.ui.label_42.setText(strSTs2)
+        else:
+                strSTs2 = "+0"
+                self.ui.label_42.setText(strSTs2)
+        if(self.conSavingThrowCheckBox.isChecked()):
+                attribute3 = self.conSpinBox.value()
+                strST3 = ((attribute3 - 10)/2) + int(pb)
+                if(strST3 < 0):
+                        strST3 = 0
+                strSTs3 = "+"
+                strSTs3 += str(int(strST3))
+                self.ui.label_43.setText(strSTs3)
+        else:
+                strSTs3 = "+0"
+                self.ui.label_43.setText(strSTs3)
+        if(self.intSavingThrowCheckBox.isChecked()):
+                attribute4 = self.intSpinBox.value()
+                strST4 = ((attribute4 - 10)/2) + int(pb)
+                if(strST4 < 0):
+                        strST4 = 0
+                strSTs4 = "+"
+                strSTs4 += str(int(strST4))
+                self.ui.label_44.setText(strSTs4)
+        else:
+                strSTs4 = "+0"
+                self.ui.label_44.setText(strSTs4)
+        if(self.wisSavingThrowCheckBox.isChecked()):
+                attribute5 = self.wisSpinBox.value()
+                strST5 = ((attribute5 - 10)/2) + int(pb)
+                if(strST5 < 0):
+                        strST5 = 0
+                strSTs5 = "+"
+                strSTs5 += str(int(strST5))
+                self.ui.label_45.setText(strSTs5)
+        else:
+                strSTs5 = "+0"
+                self.ui.label_45.setText(strSTs5)
+        if(self.chaSavingThrowCheckBox.isChecked()):
+                attribute6 = self.chaSpinBox.value()
+                strST6 = ((attribute6 - 10)/2) + int(pb)
+                if(strST6 < 0):
+                        strST6 = 0
+                strSTs6 = "+"
+                strSTs6 += str(int(strST6))
+                self.ui.label_46.setText(strSTs6)
+        else:
+                strSTs6 = "+0"
+                self.ui.label_46.setText(strSTs6)
+                
+        ####skills
+        skills = ""
+        if(self.acrobaticsCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.acrobaticsCheckBox.text()
+                ###skill bonus
+                attribute = self.dexSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.acrobaticsCheckBox.text()
+                ###skill bonus
+                attribute = self.dexSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.animalHandlingCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.animalHandlingCheckBox.text()
+                ###skill bonus
+                attribute = self.wisSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.animalHandlingCheckBox.text()
+                ###skill bonus
+                attribute = self.dexSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.arcanaCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.arcanaCheckBox.text()
+                ###skill bonus
+                attribute = self.intSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.arcanaCheckBox.text()
+                ###skill bonus
+                attribute = self.intSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.athleticsCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.athleticsCheckBox.text()
+                ###skill bonus
+                attribute = self.strSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.athleticsCheckBox.text()
+                ###skill bonus
+                attribute = self.strSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.deceptionCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.deceptionCheckBox.text()
+                ###skill bonus
+                attribute = self.chaSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.deceptionCheckBox.text()
+                ###skill bonus
+                attribute = self.chaSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.historyCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.historyCheckBox.text()
+                ###skill bonus
+                attribute = self.intSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.historyCheckBox.text()
+                ###skill bonus
+                attribute = self.intSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.insightCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.insightCheckBox.text()
+                ###skill bonus
+                attribute = self.wisSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.insightCheckBox.text()
+                ###skill bonus
+                attribute = self.wisSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.intimidationCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.intimidationCheckBox.text()
+                ###skill bonus
+                attribute = self.chaSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.intimidationCheckBox.text()
+                ###skill bonus
+                attribute = self.chaSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.investigationCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.investigationCheckBox.text()
+                ###skill bonus
+                attribute = self.intSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.investigationCheckBox.text()
+                ###skill bonus
+                attribute = self.intSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.medicineCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.medicineCheckBox.text()
+                ###skill bonus
+                attribute = self.wisSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.medicineCheckBox.text()
+                ###skill bonus
+                attribute = self.wisSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs  
+        if(self.natureCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.natureCheckBox.text()
+                ###skill bonus
+                attribute = self.intSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.natureCheckBox.text()
+                ###skill bonus
+                attribute = self.intSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.perceptionCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.perceptionCheckBox.text()
+                ###skill bonus
+                attribute = self.wisSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.perceptionCheckBox.text()
+                ###skill bonus
+                attribute = self.wisSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.performanceCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.performanceCheckBox.text()
+                ###skill bonus
+                attribute = self.chaSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.performanceCheckBox.text()
+                ###skill bonus
+                attribute = self.chaSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.persuasionCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.persuasionCheckBox.text()
+                ###skill bonus
+                attribute = self.chaSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.persuasionCheckBox.text()
+                ###skill bonus
+                attribute = self.chaSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.religionCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.religionCheckBox.text()
+                ###skill bonus
+                attribute = self.intSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.religionCheckBox.text()
+                ###skill bonus
+                attribute = self.intSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.slightOfHandCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.slightOfHandCheckBox.text()
+                ###skill bonus
+                attribute = self.dexSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.slightOfHandCheckBox.text()
+                ###skill bonus
+                attribute = self.dexSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.stealthCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.stealthCheckBox.text()
+                ###skill bonus
+                attribute = self.dexSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.stealthCheckBox.text()
+                ###skill bonus
+                attribute = self.dexSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        if(self.survivalCheckBox.isChecked()):
+            if(skills == ""):
+                skills += self.survivalCheckBox.text()
+                ###skill bonus
+                attribute = self.wisSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+            else:
+                skills += ", "
+                skills += self.survivalCheckBox.text()
+                ###skill bonus
+                attribute = self.wisSpinBox.value()
+                strST = ((attribute - 10)/2) + int(pb)
+                if(strST < 0):
+                        strST = 0
+                strSTs = " +"
+                strSTs += str(int(strST))
+                skills += strSTs
+        self.ui.label_34.setText(skills)
+                
         
         
         self.window.show() 

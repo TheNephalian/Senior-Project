@@ -13,13 +13,13 @@ ATTRIBUTE BONUS
 
 	This value is displayed next to the user's entry for the attribute score (the +5 default display will change to this calculated value as the user changes their entry)
 
-PROFICIENCY BONUS
+PROFICIENCY BONUS***
 	A creature's proficiency bonus (p) is a variable dictated by the creature's Challenge Rating (CR)
 
 		p = 2 if CR <= 1
 		p = (CR + 8) / 4 if CR > 1
 
-ATTACK BONUS
+ATTACK BONUS***
 	A creature's attack bonus (atk_bns) is a variable dictated by the attack's associated Attribute score (STR, DEX, CON, etc.) and is added to the creature's proficiency bonus (p, see above)
 
 		atk_bns = atr_bns + p
@@ -32,7 +32,7 @@ ATTACK BONUS
 
 	The same formula is true for an attack associated with any other Attribute, substituting STR for DEX, CON, etc.
 
-SAVING THROWS
+SAVING THROWS*****
 	A creature's saving throw (save) is a variable dictated by the creature's associated attribute bonus (atr_bns) and is added to the creature's proficiency bonus (p, see above)
 
 		save = atr_bns + p
@@ -43,7 +43,7 @@ SAVING THROWS
 
 	The same formula is true for all other Attributes and their saving throws, substituting STR for DEX, CON, etc.
 
-SKILLS
+SKILLS****
 	Each of the 18 skills is associated with an Attribute.
 	
 	A creature's bonus to that skill (skill_bns) is a variable dictated by the Creature's score in the skill's associated Attribute score (STR, DEX, CON, etc.) and the creature's proficiency bonus (p, see above)
@@ -56,7 +56,7 @@ SKILLS
 
 	Skills and their associated Attribute are as follows:
 
-		STR						DEX							CON (Constitution has no associated skills)
+		STR	**					DEX							CON (Constitution has no associated skills)
 			Athletics				Acrobatics				
 									Sleight of Hand
 									Stealth

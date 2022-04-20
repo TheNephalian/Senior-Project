@@ -9,6 +9,12 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import numpy as np
+import matplotlib.pyplot as plt
+
+##GLOBAL VARIABLES##
+x = np.array(range(1, 21))
+####################
 
 
 class Ui_testModWindow(object):
@@ -118,6 +124,11 @@ class Ui_testModWindow(object):
 
         self.retranslateUi(testModWindow)
         QtCore.QMetaObject.connectSlotsByName(testModWindow)
+        
+        ####
+        self.enemyComboBox.currentIndexChanged.connect(self.enemyValChange)
+
+        self.spinBox.valueChanged.connect(self.enemyLevelChange)
 
     def retranslateUi(self, testModWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -126,27 +137,84 @@ class Ui_testModWindow(object):
         self.label_2.setText(_translate("testModWindow", "Enemy"))
         self.label_4.setText(_translate("testModWindow", "Level"))
         self.label_3.setText(_translate("testModWindow", "# of Rounds"))
-        self.enemyComboBox.setItemText(0, _translate("testModWindow", "Barbabrian"))
+        self.enemyComboBox.setItemText(0, _translate("testModWindow", "Barbarian"))
         self.enemyComboBox.setItemText(1, _translate("testModWindow", "Fighter"))
         self.enemyComboBox.setItemText(2, _translate("testModWindow", "Ranger"))
         self.enemyComboBox.setItemText(3, _translate("testModWindow", "Rogue"))
         self.enemyComboBox.setItemText(4, _translate("testModWindow", "Wizard"))
         self.runTestButton.setText(_translate("testModWindow", "Run Test!"))
-        self.enemyComboBox_2.setItemText(0, _translate("testModWindow", "Barbabrian"))
+        self.enemyComboBox_2.setItemText(0, _translate("testModWindow", "Barbarian"))
         self.enemyComboBox_2.setItemText(1, _translate("testModWindow", "Fighter"))
         self.enemyComboBox_2.setItemText(2, _translate("testModWindow", "Ranger"))
         self.enemyComboBox_2.setItemText(3, _translate("testModWindow", "Rogue"))
         self.enemyComboBox_2.setItemText(4, _translate("testModWindow", "Wizard"))
-        self.enemyComboBox_3.setItemText(0, _translate("testModWindow", "Barbabrian"))
+        self.enemyComboBox_3.setItemText(0, _translate("testModWindow", "Barbarian"))
         self.enemyComboBox_3.setItemText(1, _translate("testModWindow", "Fighter"))
         self.enemyComboBox_3.setItemText(2, _translate("testModWindow", "Ranger"))
         self.enemyComboBox_3.setItemText(3, _translate("testModWindow", "Rogue"))
         self.enemyComboBox_3.setItemText(4, _translate("testModWindow", "Wizard"))
-        self.enemyComboBox_4.setItemText(0, _translate("testModWindow", "Barbabrian"))
+        self.enemyComboBox_4.setItemText(0, _translate("testModWindow", "Barbarian"))
         self.enemyComboBox_4.setItemText(1, _translate("testModWindow", "Fighter"))
         self.enemyComboBox_4.setItemText(2, _translate("testModWindow", "Ranger"))
         self.enemyComboBox_4.setItemText(3, _translate("testModWindow", "Rogue"))
         self.enemyComboBox_4.setItemText(4, _translate("testModWindow", "Wizard"))
+
+    def enemyValChange(self,value):
+        print("Enemy value changed!")
+        print("New Enemy: " , str(self.enemyComboBox.currentText()))
+            
+    #Notice:
+    #I am using made up numbers for the enemy DPR
+    #Barbarian level 1: 7, Level 20: 50
+    #Fighter Level 1: 7, Level 20: 53
+    #Ranger Level 1: 5, Level 20: 44
+    #Rogue Level 1: 5, level 20: 40
+    
+    def enemyLevelChange(self,value):
+        if(self.enemyComboBox.currentText() == "Barbarian"):
+            print("Enemy: ", self.enemyComboBox.currentText())
+            y = 14.3538 * np.log(1.6285*x)
+            curve, = plt.plot(x,y)
+            xdata = curve.get_xdata()
+            ydata = curve.get_ydata()
+            print("Enemy level: ", str(xdata[int(self.spinBox.value())-1]))
+            print("Enemy Damage/Round: ", str(np.rint(ydata[self.spinBox.value()-1])))
+
+        if(self.enemyComboBox.currentText() == "Fighter"):
+            print("Enemy: ", self.enemyComboBox.currentText())
+            y = 15.3552 * np.log(1.5775*x)
+            curve, = plt.plot(x,y)
+            xdata = curve.get_xdata()
+            ydata = curve.get_ydata()
+            print("Enemy level: ", str(xdata[int(self.spinBox.value())-1]))
+            print("Enemy Damage/Round: ", str(np.rint(ydata[self.spinBox.value()-1])))
+
+        if(self.enemyComboBox.currentText() == "Ranger"):
+            print("Enemy: ", self.enemyComboBox.currentText())
+            y = 13.0185 * np.log(1.4682*x)
+            curve, = plt.plot(x,y)
+            xdata = curve.get_xdata()
+            ydata = curve.get_ydata()
+            print("Enemy level: ", str(xdata[int(self.spinBox.value())-1]))
+            print("Enemy Damage/Round: ", str(np.rint(ydata[self.spinBox.value()-1])))
+
+        if(self.enemyComboBox.currentText() == "Rogue"):
+            print("Enemy: ", self.enemyComboBox.currentText())
+            y = 11.6833 * np.log(1.5341*x)
+            curve, = plt.plot(x,y)
+            xdata = curve.get_xdata()
+            ydata = curve.get_ydata()
+            print("Enemy level: ", str(xdata[int(self.spinBox.value())-1]))
+            print("Enemy Damage/Round: ", str(np.rint(ydata[self.spinBox.value()-1])))
+
+        if(self.enemyComboBox.currentText() == "Wizard"):
+            print("Enemy: ", self.enemyComboBox.currentText())
+            y = 14.6876 * np.log(1.2266*x)
+            curve, = plt.plot(x,y)
+            xdata = curve.get_xdata()
+            ydata = curve.get_ydata()
+            print("Enemy level: ", str(xdata[int(self.spinBox.value())-1]))
+            print("Enemy Damage/Round: ", str(np.rint(ydata[self.spinBox.value()-1])))
 
 
 if __name__ == "__main__":

@@ -37,7 +37,7 @@ class combatSimulation():
 
 		self.players.append(p1)
 		self.players.append(p2)
-		#self.players.append(p3)
+		self.players.append(p3)
 		#self.players.append(p4)
 
 		'''
@@ -154,6 +154,8 @@ class combatSimulation():
 
 		#Creature initiative
 		print(self.creature.name, "rolling initiative...")
+		print()
+
 		creature_init = self.creature.roll_init()
 		#print("The", self.creature.name, "got a", creature_init)
 		self.creature.initiative = creature_init
@@ -174,18 +176,11 @@ class combatSimulation():
 		if (self.creature.is_defeated == True):
 			self.repeat_combat = False
 
-			return False
+			return
 
 		for m in range (0, len(self.players)):
-			if (len(self.players) == 0):
-				print("All players have been defeated!")
-
-				self.repeat_combat = False
-
-				return False
-
 			if (m == len(self.players)):
-				return False
+				m = m - 1
 
 			if (self.players[m].is_defeated == True):
 				player_to_be_removed = self.players[m]
@@ -204,9 +199,18 @@ class combatSimulation():
 
 				print()
 
-				return True
+			if (len(self.players) == 0):
+				print("All players have been defeated!")
+				print()
+
+				self.repeat_combat = False
+
+				return
 
 	def combatSim(self):
+		print("******")
+		print("Running combat simulation...")
+
 		print("Rolling initiative for all combatanants!")
 
 		self.rollInit()
@@ -219,6 +223,9 @@ class combatSimulation():
 			print("Round:", self.round)
 
 			for l in range (0, len(self.initiativeOrder)):
+				if (l >= len(self.initiativeOrder)):
+					l = l - 1
+
 				if (self.repeat_combat == False):
 					break
 
@@ -230,3 +237,7 @@ class combatSimulation():
 
 				if (self.repeat_combat == False):
 					break
+
+			if (self.repeat_combat == False):
+				print("End of combat simulation.")
+				print("******")

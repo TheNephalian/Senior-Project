@@ -2406,6 +2406,7 @@ class Ui_MainWindow(object):
         font.setKerning(True)
         self.sliderValTxt.setFont(font)
         self.sliderValTxt.setObjectName("sliderValTxt")
+        self.sliderValTxt.setText("0")
         self.gridLayout_2.addWidget(self.sliderValTxt, 11, 0, 1, 1)
         self.saveComboBox = QtWidgets.QComboBox(self.frame_2)
         font = QtGui.QFont()
@@ -2493,6 +2494,8 @@ class Ui_MainWindow(object):
         font.setKerning(True)
         self.reachSpinBox_2.setFont(font)
         self.reachSpinBox_2.setObjectName("reachSpinBox_2")
+        self.reachSpinBox_2.setSingleStep(5)
+        self.reachSpinBox_2.setMaximum(300)
         self.gridLayout_5.addWidget(self.reachSpinBox_2, 6, 4, 1, 1)
         self.actionType_3 = QtWidgets.QComboBox(self.frame_6)
         font = QtGui.QFont()
@@ -2584,6 +2587,8 @@ class Ui_MainWindow(object):
         font.setKerning(True)
         self.reachSpinBox_1.setFont(font)
         self.reachSpinBox_1.setObjectName("reachSpinBox_1")
+        self.reachSpinBox_1.setSingleStep(5)
+        self.reachSpinBox_1.setMaximum(300)
         self.gridLayout_5.addWidget(self.reachSpinBox_1, 2, 4, 1, 1)
         self.spinBox_4 = QtWidgets.QSpinBox(self.frame_6)
         self.spinBox_4.setMaximum(4)
@@ -2595,6 +2600,8 @@ class Ui_MainWindow(object):
         font.setKerning(True)
         self.reachSpinBox_3.setFont(font)
         self.reachSpinBox_3.setObjectName("reachSpinBox_3")
+        self.reachSpinBox_3.setSingleStep(5)
+        self.reachSpinBox_3.setMaximum(300)
         self.gridLayout_5.addWidget(self.reachSpinBox_3, 9, 4, 1, 1)
         self.actionName_2 = QtWidgets.QLineEdit(self.frame_6)
         self.actionName_2.setMaximumSize(QtCore.QSize(400, 16777215))
@@ -2817,6 +2824,8 @@ class Ui_MainWindow(object):
         font.setKerning(True)
         self.reachSpinBox_4.setFont(font)
         self.reachSpinBox_4.setObjectName("reachSpinBox_4")
+        self.reachSpinBox_4.setSingleStep(5)
+        self.reachSpinBox_4.setMaximum(300)
         self.gridLayout_5.addWidget(self.reachSpinBox_4, 11, 4, 1, 1)
         self.attrComboBox_4 = QtWidgets.QComboBox(self.frame_6)
         font = QtGui.QFont()
@@ -3628,6 +3637,10 @@ class Ui_MainWindow(object):
         self.savesCheckBox.stateChanged.connect(self.savesChecker)
         self.vulCheckBox.stateChanged.connect(self.vulChecker)
         self.fliesCheckBox.stateChanged.connect(self.fliesChecker)
+        self.attrComboBox_1.currentIndexChanged.connect(self.attackAttributeChecker)
+        self.attrComboBox_2.currentIndexChanged.connect(self.attackAttributeChecker)
+        self.attrComboBox_3.currentIndexChanged.connect(self.attackAttributeChecker)
+        self.attrComboBox_4.currentIndexChanged.connect(self.attackAttributeChecker)
         #######################
 
         self.retranslateUi(MainWindow)
@@ -3665,7 +3678,7 @@ class Ui_MainWindow(object):
         self.comboBox_9.setItemText(3, _translate("MainWindow", "10"))
         self.comboBox_9.setItemText(4, _translate("MainWindow", "12"))
         self.comboBox_9.setItemText(5, _translate("MainWindow", "20"))
-        self.label_36.setText(_translate("MainWindow", "Please follow the format:"))
+        self.label_36.setText(_translate("MainWindow", "Enter into the textbox exactly how you wish the attack to appear on the stat block."))
         self.label_38.setText(_translate("MainWindow", "d"))
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "0"))
@@ -4290,16 +4303,16 @@ class Ui_MainWindow(object):
         self.actionType_4.setItemText(0, _translate("MainWindow", "Melee"))
         self.actionType_4.setItemText(1, _translate("MainWindow", "Ranged"))
         self.plusLabel_2.setText(_translate("MainWindow", "+0"))
-        self.actionDamageType_2.setItemText(0, _translate("MainWindow", "Acid"))
-        self.actionDamageType_2.setItemText(1, _translate("MainWindow", "Bludgeoning"))
-        self.actionDamageType_2.setItemText(2, _translate("MainWindow", "Cold"))
-        self.actionDamageType_2.setItemText(3, _translate("MainWindow", "Fire"))
-        self.actionDamageType_2.setItemText(4, _translate("MainWindow", "Force"))
-        self.actionDamageType_2.setItemText(5, _translate("MainWindow", "Lighting"))
-        self.actionDamageType_2.setItemText(6, _translate("MainWindow", "Necrotic"))
-        self.actionDamageType_2.setItemText(7, _translate("MainWindow", "Piercing"))
-        self.actionDamageType_2.setItemText(8, _translate("MainWindow", "Poison"))
-        self.actionDamageType_2.setItemText(9, _translate("MainWindow", "Piercing"))
+        self.actionDamageType_2.setItemText(0, _translate("MainWindow", "-"))
+        self.actionDamageType_2.setItemText(1, _translate("MainWindow", "Acid"))
+        self.actionDamageType_2.setItemText(2, _translate("MainWindow", "Bludgeoning"))
+        self.actionDamageType_2.setItemText(3, _translate("MainWindow", "Cold"))
+        self.actionDamageType_2.setItemText(4, _translate("MainWindow", "Fire"))
+        self.actionDamageType_2.setItemText(5, _translate("MainWindow", "Force"))
+        self.actionDamageType_2.setItemText(6, _translate("MainWindow", "Lighting"))
+        self.actionDamageType_2.setItemText(7, _translate("MainWindow", "Necrotic"))
+        self.actionDamageType_2.setItemText(8, _translate("MainWindow", "Piercing"))
+        self.actionDamageType_2.setItemText(9, _translate("MainWindow", "Poison"))
         self.actionDamageType_2.setItemText(10, _translate("MainWindow", "Slashing"))
         self.plusLabel_1.setText(_translate("MainWindow", "+0"))
         self.actionName_2.setPlaceholderText(_translate("MainWindow", "Name"))
@@ -4322,43 +4335,43 @@ class Ui_MainWindow(object):
         self.actionDice_1.setItemText(3, _translate("MainWindow", "10"))
         self.actionDice_1.setItemText(4, _translate("MainWindow", "12"))
         self.label_65.setText(_translate("MainWindow", "d"))
-        self.actionDamageType_3.setItemText(0, _translate("MainWindow", "Acid"))
-        self.actionDamageType_3.setItemText(1, _translate("MainWindow", "Bludgeoning"))
-        self.actionDamageType_3.setItemText(2, _translate("MainWindow", "Cold"))
-        self.actionDamageType_3.setItemText(3, _translate("MainWindow", "Fire"))
-        self.actionDamageType_3.setItemText(4, _translate("MainWindow", "Force"))
-        self.actionDamageType_3.setItemText(5, _translate("MainWindow", "Lighting"))
-        self.actionDamageType_3.setItemText(6, _translate("MainWindow", "Necrotic"))
-        self.actionDamageType_3.setItemText(7, _translate("MainWindow", "Piercing"))
-        self.actionDamageType_3.setItemText(8, _translate("MainWindow", "Poison"))
-        self.actionDamageType_3.setItemText(9, _translate("MainWindow", "Piercing"))
+        self.actionDamageType_3.setItemText(0, _translate("MainWindow", "-"))
+        self.actionDamageType_3.setItemText(1, _translate("MainWindow", "Acid"))
+        self.actionDamageType_3.setItemText(2, _translate("MainWindow", "Bludgeoning"))
+        self.actionDamageType_3.setItemText(3, _translate("MainWindow", "Cold"))
+        self.actionDamageType_3.setItemText(4, _translate("MainWindow", "Fire"))
+        self.actionDamageType_3.setItemText(5, _translate("MainWindow", "Force"))
+        self.actionDamageType_3.setItemText(6, _translate("MainWindow", "Lighting"))
+        self.actionDamageType_3.setItemText(7, _translate("MainWindow", "Necrotic"))
+        self.actionDamageType_3.setItemText(8, _translate("MainWindow", "Piercing"))
+        self.actionDamageType_3.setItemText(9, _translate("MainWindow", "Poison"))
         self.actionDamageType_3.setItemText(10, _translate("MainWindow", "Slashing"))
         self.label_67.setText(_translate("MainWindow", "d"))
         self.label_28.setText(_translate("MainWindow", "Actions"))
         self.actionName_4.setPlaceholderText(_translate("MainWindow", "Name"))
         self.plusLabel_4.setText(_translate("MainWindow", "+0"))
-        self.actionDamageType_4.setItemText(0, _translate("MainWindow", "Acid"))
-        self.actionDamageType_4.setItemText(1, _translate("MainWindow", "Bludgeoning"))
-        self.actionDamageType_4.setItemText(2, _translate("MainWindow", "Cold"))
-        self.actionDamageType_4.setItemText(3, _translate("MainWindow", "Fire"))
-        self.actionDamageType_4.setItemText(4, _translate("MainWindow", "Force"))
-        self.actionDamageType_4.setItemText(5, _translate("MainWindow", "Lighting"))
-        self.actionDamageType_4.setItemText(6, _translate("MainWindow", "Necrotic"))
-        self.actionDamageType_4.setItemText(7, _translate("MainWindow", "Piercing"))
-        self.actionDamageType_4.setItemText(8, _translate("MainWindow", "Poison"))
-        self.actionDamageType_4.setItemText(9, _translate("MainWindow", "Piercing"))
+        self.actionDamageType_4.setItemText(0, _translate("MainWindow", "-"))
+        self.actionDamageType_4.setItemText(1, _translate("MainWindow", "Acid"))
+        self.actionDamageType_4.setItemText(2, _translate("MainWindow", "Bludgeoning"))
+        self.actionDamageType_4.setItemText(3, _translate("MainWindow", "Cold"))
+        self.actionDamageType_4.setItemText(4, _translate("MainWindow", "Fire"))
+        self.actionDamageType_4.setItemText(5, _translate("MainWindow", "Force"))
+        self.actionDamageType_4.setItemText(6, _translate("MainWindow", "Lighting"))
+        self.actionDamageType_4.setItemText(7, _translate("MainWindow", "Necrotic"))
+        self.actionDamageType_4.setItemText(8, _translate("MainWindow", "Piercing"))
+        self.actionDamageType_4.setItemText(9, _translate("MainWindow", "Poison"))
         self.actionDamageType_4.setItemText(10, _translate("MainWindow", "Slashing"))
         self.plusLabel_3.setText(_translate("MainWindow", "+0"))
-        self.actionDamageType_1.setItemText(0, _translate("MainWindow", "Acid"))
-        self.actionDamageType_1.setItemText(1, _translate("MainWindow", "Bludgeoning"))
-        self.actionDamageType_1.setItemText(2, _translate("MainWindow", "Cold"))
-        self.actionDamageType_1.setItemText(3, _translate("MainWindow", "Fire"))
-        self.actionDamageType_1.setItemText(4, _translate("MainWindow", "Force"))
-        self.actionDamageType_1.setItemText(5, _translate("MainWindow", "Lighting"))
-        self.actionDamageType_1.setItemText(6, _translate("MainWindow", "Necrotic"))
-        self.actionDamageType_1.setItemText(7, _translate("MainWindow", "Piercing"))
-        self.actionDamageType_1.setItemText(8, _translate("MainWindow", "Poison"))
-        self.actionDamageType_1.setItemText(9, _translate("MainWindow", "Piercing"))
+        self.actionDamageType_1.setItemText(0, _translate("MainWindow", "-"))
+        self.actionDamageType_1.setItemText(1, _translate("MainWindow", "Acid"))
+        self.actionDamageType_1.setItemText(2, _translate("MainWindow", "Bludgeoning"))
+        self.actionDamageType_1.setItemText(3, _translate("MainWindow", "Cold"))
+        self.actionDamageType_1.setItemText(4, _translate("MainWindow", "Fire"))
+        self.actionDamageType_1.setItemText(5, _translate("MainWindow", "Force"))
+        self.actionDamageType_1.setItemText(6, _translate("MainWindow", "Lighting"))
+        self.actionDamageType_1.setItemText(7, _translate("MainWindow", "Necrotic"))
+        self.actionDamageType_1.setItemText(8, _translate("MainWindow", "Piercing"))
+        self.actionDamageType_1.setItemText(9, _translate("MainWindow", "Poison"))
         self.actionDamageType_1.setItemText(10, _translate("MainWindow", "Slashing"))
         self.actionDice_3.setItemText(0, _translate("MainWindow", "4"))
         self.actionDice_3.setItemText(1, _translate("MainWindow", "6"))
@@ -4877,7 +4890,35 @@ class Ui_MainWindow(object):
         else:
             self.strBonus.setText("(+" + str(str_bns) + ")")
             self.athleticsLevelLabel.setText("+" + str(str_bns))
-            
+
+        if (self.attrComboBox_1.currentIndex() == 0):
+            if (str_bns < 0):
+                self.plusLabel_1.setText(str(str_bns))
+                
+            else:
+                self.plusLabel_1.setText("+" + str(str_bns))
+        
+        if (self.attrComboBox_2.currentIndex() == 0):
+            if (str_bns < 0):
+                self.plusLabel_2.setText(str(str_bns))
+                
+            else:
+                self.plusLabel_2.setText("+" + str(str_bns))
+
+        if (self.attrComboBox_3.currentIndex() == 0):
+            if (str_bns < 0):
+                self.plusLabel_3.setText(str(str_bns))
+                
+            else:
+                self.plusLabel_3.setText("+" + str(str_bns))
+
+        if (self.attrComboBox_4.currentIndex() == 0):
+            if (str_bns < 0):
+                self.plusLabel_4.setText(str(str_bns))
+                
+            else:
+                self.plusLabel_4.setText("+" + str(str_bns))
+
         #print("STR bonus is ", str_bns)
 
     def dexValChange(self,value):
@@ -4895,6 +4936,34 @@ class Ui_MainWindow(object):
             self.slightOfHandLevelLabel.setText("+" + str(dex_bns))
             self.stealthLevelLabel.setText("+" + str(dex_bns))
 
+        if (self.attrComboBox_1.currentIndex() == 1):
+            if (dex_bns < 0):
+                self.plusLabel_1.setText(str(dex_bns))
+                
+            else:
+                self.plusLabel_1.setText("+" + str(dex_bns))
+        
+        if (self.attrComboBox_2.currentIndex() == 1):
+            if (dex_bns < 0):
+                self.plusLabel_2.setText(str(dex_bns))
+                
+            else:
+                self.plusLabel_2.setText("+" + str(dex_bns))
+
+        if (self.attrComboBox_3.currentIndex() == 1):
+            if (dex_bns < 0):
+                self.plusLabel_3.setText(str(dex_bns))
+                
+            else:
+                self.plusLabel_3.setText("+" + str(dex_bns))
+
+        if (self.attrComboBox_4.currentIndex() == 1):
+            if (dex_bns < 0):
+                self.plusLabel_4.setText(str(dex_bns))
+                
+            else:
+                self.plusLabel_4.setText("+" + str(dex_bns))
+
         #print("DEX bonus is ", dex_bns)
 
     def conValChange(self,value):
@@ -4907,6 +4976,34 @@ class Ui_MainWindow(object):
             self.conBonus.setText("(+" + str(con_bns) + ")")
 
         self.constitSpinBox.setValue(value)
+
+        if (self.attrComboBox_1.currentIndex() == 2):
+            if (con_bns < 0):
+                self.plusLabel_1.setText(str(con_bns))
+                
+            else:
+                self.plusLabel_1.setText("+" + str(con_bns))
+        
+        if (self.attrComboBox_2.currentIndex() == 2):
+            if (con_bns < 0):
+                self.plusLabel_2.setText(str(con_bns))
+                
+            else:
+                self.plusLabel_2.setText("+" + str(con_bns))
+
+        if (self.attrComboBox_3.currentIndex() == 2):
+            if (con_bns < 0):
+                self.plusLabel_3.setText(str(con_bns))
+                
+            else:
+                self.plusLabel_3.setText("+" + str(con_bns))
+
+        if (self.attrComboBox_4.currentIndex() == 2):
+            if (con_bns < 0):
+                self.plusLabel_4.setText(str(con_bns))
+                
+            else:
+                self.plusLabel_4.setText("+" + str(con_bns))
         
         #print("CON bonus is ", con_bns)
 
@@ -4929,6 +5026,34 @@ class Ui_MainWindow(object):
             self.natureLevelLabel.setText("+" + str(int_bns))
             self.religionLevelLabel.setText("+" + str(int_bns))
        
+        if (self.attrComboBox_1.currentIndex() == 3):
+            if (int_bns < 0):
+                self.plusLabel_1.setText(str(int_bns))
+                
+            else:
+                self.plusLabel_1.setText("+" + str(int_bns))
+        
+        if (self.attrComboBox_2.currentIndex() == 3):
+            if (int_bns < 0):
+                self.plusLabel_2.setText(str(int_bns))
+                
+            else:
+                self.plusLabel_2.setText("+" + str(int_bns))
+
+        if (self.attrComboBox_3.currentIndex() == 3):
+            if (int_bns < 0):
+                self.plusLabel_3.setText(str(int_bns))
+                
+            else:
+                self.plusLabel_3.setText("+" + str(int_bns))
+
+        if (self.attrComboBox_4.currentIndex() == 3):
+            if (int_bns < 0):
+                self.plusLabel_4.setText(str(int_bns))
+                
+            else:
+                self.plusLabel_4.setText("+" + str(int_bns))
+
         #print("INT bonus is ", int_bns)
 
     def wisValChange(self,value):
@@ -4950,6 +5075,34 @@ class Ui_MainWindow(object):
             self.perceptionLevelLabel.setText("+" + str(wis_bns))
             self.survivalLevelLabel.setText("+" + str(wis_bns))
        
+        if (self.attrComboBox_1.currentIndex() == 4):
+            if (wis_bns < 0):
+                self.plusLabel_1.setText(str(wis_bns))
+                
+            else:
+                self.plusLabel_1.setText("+" + str(wis_bns))
+        
+        if (self.attrComboBox_2.currentIndex() == 4):
+            if (wis_bns < 0):
+                self.plusLabel_2.setText(str(wis_bns))
+                
+            else:
+                self.plusLabel_2.setText("+" + str(wis_bns))
+
+        if (self.attrComboBox_3.currentIndex() == 4):
+            if (wis_bns < 0):
+                self.plusLabel_3.setText(str(wis_bns))
+                
+            else:
+                self.plusLabel_3.setText("+" + str(wis_bns))
+
+        if (self.attrComboBox_4.currentIndex() == 4):
+            if (wis_bns < 0):
+                self.plusLabel_4.setText(str(wis_bns))
+                
+            else:
+                self.plusLabel_4.setText("+" + str(wis_bns))
+
         #print("WIS bonus is ", wis_bns)
 
     def chaValChange(self,value):
@@ -4969,7 +5122,228 @@ class Ui_MainWindow(object):
             self.performanceLevelLabel.setText("+" + str(cha_bns))
             self.persuasionLevelLabel.setText("+" + str(cha_bns))
         
+        if (self.attrComboBox_1.currentIndex() == 5):
+            if (cha_bns < 0):
+                self.plusLabel_1.setText(str(cha_bns))
+                
+            else:
+                self.plusLabel_1.setText("+" + str(cha_bns))
+        
+        if (self.attrComboBox_2.currentIndex() == 5):
+            if (cha_bns < 0):
+                self.plusLabel_2.setText(str(cha_bns))
+                
+            else:
+                self.plusLabel_2.setText("+" + str(cha_bns))
+
+        if (self.attrComboBox_3.currentIndex() == 5):
+            if (cha_bns < 0):
+                self.plusLabel_3.setText(str(cha_bns))
+                
+            else:
+                self.plusLabel_3.setText("+" + str(cha_bns))
+
+        if (self.attrComboBox_4.currentIndex() == 5):
+            if (cha_bns < 0):
+                self.plusLabel_4.setText(str(cha_bns))
+                
+            else:
+                self.plusLabel_4.setText("+" + str(cha_bns))
+        
         #print("CHA bonus is ", cha_bns)
+
+    def attackAttributeChecker(self):
+        if (self.attrComboBox_1.currentIndex() == 0):
+            str_bns = cal_attr_bns(self.strSpinBox.value())
+            
+            if (str_bns < 0):
+                self.plusLabel_1.setText(str(str_bns))
+            else:
+                self.plusLabel_1.setText("+" + str(str_bns))
+        
+        elif (self.attrComboBox_1.currentIndex() == 1):
+            dex_bns = cal_attr_bns(self.dexSpinBox.value())
+
+            if (dex_bns < 0):
+                self.plusLabel_1.setText(str(dex_bns))
+            else:
+                self.plusLabel_1.setText("+" + str(dex_bns))
+
+        elif (self.attrComboBox_1.currentIndex() == 2):
+            con_bns = cal_attr_bns(self.conSpinBox.value())
+
+            if (con_bns < 0):
+                self.plusLabel_1.setText(str(con_bns))
+            else:
+                self.plusLabel_1.setText("+" + str(con_bns))
+
+        elif (self.attrComboBox_1.currentIndex() == 3):
+            int_bns = cal_attr_bns(self.intSpinBox.value())
+
+            if (int_bns < 0):
+                self.plusLabel_1.setText(str(int_bns))
+            else:
+                self.plusLabel_1.setText("+" + str(int_bns))
+
+        elif (self.attrComboBox_1.currentIndex() == 4):
+            wis_bns = cal_attr_bns(self.wisSpinBox.value())
+
+            if (wis_bns < 0):
+                self.plusLabel_1.setText(str(wis_bns))
+            else:
+                self.plusLabel_1.setText("+" + str(wis_bns))
+
+        elif (self.attrComboBox_1.currentIndex() == 5):
+            cha_bns = cal_attr_bns(self.chaSpinBox.value())
+
+            if (cha_bns < 0):
+                self.plusLabel_1.setText(str(cha_bns))
+            else:
+                self.plusLabel_1.setText("+" + str(cha_bns))
+
+        if (self.attrComboBox_2.currentIndex() == 0):
+            str_bns = cal_attr_bns(self.strSpinBox.value())
+            
+            if (str_bns < 0):
+                self.plusLabel_2.setText(str(str_bns))
+            else:
+                self.plusLabel_2.setText("+" + str(str_bns))
+        
+        elif (self.attrComboBox_2.currentIndex() == 1):
+            dex_bns = cal_attr_bns(self.dexSpinBox.value())
+
+            if (dex_bns < 0):
+                self.plusLabel_2.setText(str(dex_bns))
+            else:
+                self.plusLabel_2.setText("+" + str(dex_bns))
+
+        elif (self.attrComboBox_2.currentIndex() == 2):
+            con_bns = cal_attr_bns(self.conSpinBox.value())
+
+            if (con_bns < 0):
+                self.plusLabel_2.setText(str(con_bns))
+            else:
+                self.plusLabel_2.setText("+" + str(con_bns))
+
+        elif (self.attrComboBox_2.currentIndex() == 3):
+            int_bns = cal_attr_bns(self.intSpinBox.value())
+
+            if (int_bns < 0):
+                self.plusLabel_2.setText(str(int_bns))
+            else:
+                self.plusLabel_2.setText("+" + str(int_bns))
+
+        elif (self.attrComboBox_2.currentIndex() == 4):
+            wis_bns = cal_attr_bns(self.wisSpinBox.value())
+
+            if (wis_bns < 0):
+                self.plusLabel_2.setText(str(wis_bns))
+            else:
+                self.plusLabel_2.setText("+" + str(wis_bns))
+
+        elif (self.attrComboBox_2.currentIndex() == 5):
+            cha_bns = cal_attr_bns(self.chaSpinBox.value())
+
+            if (cha_bns < 0):
+                self.plusLabel_2.setText(str(cha_bns))
+            else:
+                self.plusLabel_2.setText("+" + str(cha_bns))
+
+        if (self.attrComboBox_3.currentIndex() == 0):
+            str_bns = cal_attr_bns(self.strSpinBox.value())
+            
+            if (str_bns < 0):
+                self.plusLabel_3.setText(str(str_bns))
+            else:
+                self.plusLabel_3.setText("+" + str(str_bns))
+        
+        elif (self.attrComboBox_3.currentIndex() == 1):
+            dex_bns = cal_attr_bns(self.dexSpinBox.value())
+
+            if (dex_bns < 0):
+                self.plusLabel_3.setText(str(dex_bns))
+            else:
+                self.plusLabel_3.setText("+" + str(dex_bns))
+
+        elif (self.attrComboBox_3.currentIndex() == 2):
+            con_bns = cal_attr_bns(self.conSpinBox.value())
+
+            if (con_bns < 0):
+                self.plusLabel_3.setText(str(con_bns))
+            else:
+                self.plusLabel_3.setText("+" + str(con_bns))
+
+        elif (self.attrComboBox_3.currentIndex() == 3):
+            int_bns = cal_attr_bns(self.intSpinBox.value())
+
+            if (int_bns < 0):
+                self.plusLabel_3.setText(str(int_bns))
+            else:
+                self.plusLabel_3.setText("+" + str(int_bns))
+
+        elif (self.attrComboBox_3.currentIndex() == 4):
+            wis_bns = cal_attr_bns(self.wisSpinBox.value())
+
+            if (wis_bns < 0):
+                self.plusLabel_3.setText(str(wis_bns))
+            else:
+                self.plusLabel_3.setText("+" + str(wis_bns))
+
+        elif (self.attrComboBox_3.currentIndex() == 5):
+            cha_bns = cal_attr_bns(self.chaSpinBox.value())
+
+            if (cha_bns < 0):
+                self.plusLabel_3.setText(str(cha_bns))
+            else:
+                self.plusLabel_3.setText("+" + str(cha_bns))
+
+        if (self.attrComboBox_4.currentIndex() == 0):
+            str_bns = cal_attr_bns(self.strSpinBox.value())
+            
+            if (str_bns < 0):
+                self.plusLabel_4.setText(str(str_bns))
+            else:
+                self.plusLabel_4.setText("+" + str(str_bns))
+        
+        elif (self.attrComboBox_4.currentIndex() == 1):
+            dex_bns = cal_attr_bns(self.dexSpinBox.value())
+
+            if (dex_bns < 0):
+                self.plusLabel_4.setText(str(dex_bns))
+            else:
+                self.plusLabel_4.setText("+" + str(dex_bns))
+
+        elif (self.attrComboBox_4.currentIndex() == 2):
+            con_bns = cal_attr_bns(self.conSpinBox.value())
+
+            if (con_bns < 0):
+                self.plusLabel_4.setText(str(con_bns))
+            else:
+                self.plusLabel_4.setText("+" + str(con_bns))
+
+        elif (self.attrComboBox_4.currentIndex() == 3):
+            int_bns = cal_attr_bns(self.intSpinBox.value())
+
+            if (int_bns < 0):
+                self.plusLabel_4.setText(str(int_bns))
+            else:
+                self.plusLabel_4.setText("+" + str(int_bns))
+
+        elif (self.attrComboBox_4.currentIndex() == 4):
+            wis_bns = cal_attr_bns(self.wisSpinBox.value())
+
+            if (wis_bns < 0):
+                self.plusLabel_4.setText(str(wis_bns))
+            else:
+                self.plusLabel_4.setText("+" + str(wis_bns))
+
+        elif (self.attrComboBox_4.currentIndex() == 5):
+            cha_bns = cal_attr_bns(self.chaSpinBox.value())
+
+            if (cha_bns < 0):
+                self.plusLabel_4.setText(str(cha_bns))
+            else:
+                self.plusLabel_4.setText("+" + str(cha_bns))
 
     def savesChecker(self,state):
         if state == QtCore.Qt.Checked:
@@ -5018,4 +5392,8 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
+
+    comSim = combat.combatSimulation()
+    comSim.combatSim()
+
     sys.exit(app.exec_())

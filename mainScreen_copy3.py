@@ -1339,12 +1339,15 @@ class Ui_MainWindow(object):
         self.chaSpinBox.setMaximum(30)
         self.chaSpinBox.setObjectName("chaSpinBox")
         self.gridLayout_4.addWidget(self.chaSpinBox, 1, 10, 1, 1)
+        self.chaSpinBox.setValue(10)
         self.intSpinBox = QtWidgets.QSpinBox(self.frame_5)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setKerning(True)
         self.intSpinBox.setFont(font)
+        self.intSpinBox.setMaximum(30)
         self.intSpinBox.setObjectName("intSpinBox")
+        self.intSpinBox.setValue(10)
         self.gridLayout_4.addWidget(self.intSpinBox, 1, 6, 1, 1)
         self.strSavingThrowCheckBox = QtWidgets.QCheckBox(self.frame_5)
         font = QtGui.QFont()
@@ -1365,7 +1368,9 @@ class Ui_MainWindow(object):
         font.setFamily("Segoe UI")
         font.setKerning(True)
         self.wisSpinBox.setFont(font)
+        self.wisSpinBox.setMaximum(30)
         self.wisSpinBox.setObjectName("wisSpinBox")
+        self.wisSpinBox.setValue(10)
         self.gridLayout_4.addWidget(self.wisSpinBox, 1, 8, 1, 1)
         self.dexSavingThrowCheckBox = QtWidgets.QCheckBox(self.frame_5)
         font = QtGui.QFont()
@@ -1394,7 +1399,9 @@ class Ui_MainWindow(object):
         font.setFamily("Segoe UI")
         font.setKerning(True)
         self.strSpinBox.setFont(font)
+        self.strSpinBox.setMaximum(30)
         self.strSpinBox.setObjectName("strSpinBox")
+        self.strSpinBox.setValue(10)
         self.gridLayout_4.addWidget(self.strSpinBox, 1, 0, 1, 1)
         self.chaSavingThrowCheckBox = QtWidgets.QCheckBox(self.frame_5)
         font = QtGui.QFont()
@@ -1423,6 +1430,8 @@ class Ui_MainWindow(object):
         font.setFamily("Segoe UI")
         font.setKerning(True)
         self.dexSpinBox.setFont(font)
+        self.dexSpinBox.setMaximum(30)
+        self.dexSpinBox.setValue(10)
         self.dexSpinBox.setObjectName("dexSpinBox")
         self.gridLayout_4.addWidget(self.dexSpinBox, 1, 2, 1, 1)
         self.wisBonus = QtWidgets.QLabel(self.frame_5)
@@ -1444,6 +1453,8 @@ class Ui_MainWindow(object):
         font.setFamily("Segoe UI")
         font.setKerning(True)
         self.conSpinBox.setFont(font)
+        self.conSpinBox.setMaximum(30)
+        self.conSpinBox.setValue(10)
         self.conSpinBox.setObjectName("conSpinBox")
         self.gridLayout_4.addWidget(self.conSpinBox, 1, 4, 1, 1)
         self.label_19 = QtWidgets.QLabel(self.frame_5)
@@ -3494,6 +3505,8 @@ class Ui_MainWindow(object):
         self.burrowSpinBox = QtWidgets.QSpinBox(self.frame_16)
         self.burrowSpinBox.setObjectName("burrowSpinBox")
         self.gridLayout_15.addWidget(self.burrowSpinBox, 2, 3, 1, 1)
+        self.burrowSpinBox.setSingleStep(5)
+        self.burrowSpinBox.setMaximum(300)
         self.label_74 = QtWidgets.QLabel(self.frame_16)
         self.label_74.setAlignment(QtCore.Qt.AlignCenter)
         self.label_74.setObjectName("label_74")
@@ -3519,12 +3532,16 @@ class Ui_MainWindow(object):
         self.climbSpinBox = QtWidgets.QSpinBox(self.frame_16)
         self.climbSpinBox.setObjectName("climbSpinBox")
         self.gridLayout_15.addWidget(self.climbSpinBox, 2, 5, 1, 1)
+        self.climbSpinBox.setSingleStep(5)
+        self.climbSpinBox.setMaximum(300)
         self.label_33 = QtWidgets.QLabel(self.frame_16)
         self.label_33.setObjectName("label_33")
         self.gridLayout_15.addWidget(self.label_33, 2, 6, 1, 1)
         self.swimSpinBox = QtWidgets.QSpinBox(self.frame_16)
         self.swimSpinBox.setObjectName("swimSpinBox")
         self.gridLayout_15.addWidget(self.swimSpinBox, 2, 9, 1, 1)
+        self.swimSpinBox.setSingleStep(5)
+        self.swimSpinBox.setMaximum(300)
         self.label_27 = QtWidgets.QLabel(self.frame_16)
         self.label_27.setObjectName("label_27")
         self.gridLayout_15.addWidget(self.label_27, 2, 4, 1, 1)
@@ -3534,9 +3551,13 @@ class Ui_MainWindow(object):
         self.flySpinBox = QtWidgets.QSpinBox(self.frame_16)
         self.flySpinBox.setObjectName("flySpinBox")
         self.gridLayout_15.addWidget(self.flySpinBox, 2, 7, 1, 1)
+        self.flySpinBox.setSingleStep(5)
+        self.flySpinBox.setMaximum(300)
         self.movementSpinBox = QtWidgets.QSpinBox(self.frame_16)
         self.movementSpinBox.setObjectName("movementSpinBox")
         self.gridLayout_15.addWidget(self.movementSpinBox, 2, 1, 1, 1)
+        self.movementSpinBox.setSingleStep(5)
+        self.movementSpinBox.setMaximum(300)
         self.gridLayout_12.addWidget(self.frame_16, 1, 0, 1, 2)
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         self.verticalLayout_4.addWidget(self.scrollArea_2)
@@ -3617,23 +3638,23 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Salsimjo\'s Homebrew Creature Creator"))
         self.strSavingThrowCheckBox.setText(_translate("MainWindow", "Saving Throw"))
-        self.dexBonus.setText(_translate("MainWindow", "-5"))
+        self.dexBonus.setText(_translate("MainWindow", "(+0)"))
         self.dexSavingThrowCheckBox.setText(_translate("MainWindow", "Saving Throw"))
         self.intSavingThrowCheckBox.setText(_translate("MainWindow", "Saving Throw"))
         self.label_18.setText(_translate("MainWindow", "CON"))
         self.chaSavingThrowCheckBox.setText(_translate("MainWindow", "Saving Throw"))
-        self.intBonus.setText(_translate("MainWindow", "-5"))
+        self.intBonus.setText(_translate("MainWindow", "(+0)"))
         self.label_17.setText(_translate("MainWindow", "DEX"))
-        self.wisBonus.setText(_translate("MainWindow", "-5"))
+        self.wisBonus.setText(_translate("MainWindow", "(+0)"))
         self.conSavingThrowCheckBox.setText(_translate("MainWindow", "Saving Throw"))
         self.label_19.setText(_translate("MainWindow", "INT"))
         self.label_16.setText(_translate("MainWindow", "STR"))
-        self.strBonus.setText(_translate("MainWindow", "-5"))
-        self.conBonus.setText(_translate("MainWindow", "-5"))
+        self.strBonus.setText(_translate("MainWindow", "(+0)"))
+        self.conBonus.setText(_translate("MainWindow", "(+0)"))
         self.label_20.setText(_translate("MainWindow", "WIS"))
         self.label_21.setText(_translate("MainWindow", "CHA"))
         self.wisSavingThrowCheckBox.setText(_translate("MainWindow", "Saving Throw"))
-        self.chaBonus.setText(_translate("MainWindow", "-5"))
+        self.chaBonus.setText(_translate("MainWindow", "(+0)"))
         self.label_35.setText(_translate("MainWindow", "Warning:"))
         self.doesDamageCheckBox.setText(_translate("MainWindow", "Does damage?"))
         self.nameLineEdit_2.setText(_translate("MainWindow", "Name"))
@@ -4231,7 +4252,7 @@ class Ui_MainWindow(object):
         self.resComboBox.setItemText(1, _translate("MainWindow", "Resistances"))
         self.resComboBox.setItemText(2, _translate("MainWindow", "Immunities"))
         self.label_10.setText(_translate("MainWindow", "Save Proficiencies"))
-        self.label_8.setText(_translate("MainWindow", "Offenisive"))
+        self.label_8.setText(_translate("MainWindow", "Offensive"))
         self.label.setText(_translate("MainWindow", "Defensive"))
         self.label_7.setText(_translate("MainWindow", "Damage Per Round:"))
         self.label_11.setText(_translate("MainWindow", "Flies and can deal damage at range (CR 0-9 only):"))
@@ -4630,11 +4651,6 @@ class Ui_MainWindow(object):
         if(AvgCR >= 1):
             self.slider.setValue(AvgCR)
                 
-        
-        
-        
-        
-        
     def diceChange(self, value):
         # self.sizeComboBox.currentText() is size of CR
         saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
@@ -4795,6 +4811,8 @@ class Ui_MainWindow(object):
         self.hitPointsSpinBox.setValue(valueHP)
 
     def constitValChange(self,value):
+        self.conSpinBox.setValue(value)
+
         #self.constitSpinBox.value() val of constitution 
         saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
         print("CR val diceValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(),self.constitSpinBox.value(), self.sizeComboBox.currentText(), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(),self.ArmorSpinBox.value()),saveProfVal))
@@ -4849,29 +4867,69 @@ class Ui_MainWindow(object):
         if(AvgCR >= 1):
             self.slider.setValue(AvgCR)
 
+    
     def strValChange(self,value):
         str_bns = cal_attr_bns(value)
-        print("STR bonus is ", str_bns)
+
+        if (str_bns < 0):
+            self.strBonus.setText("(" + str(str_bns) + ")")
+        
+        else:
+            self.strBonus.setText("(+" + str(str_bns) + ")")
+        #print("STR bonus is ", str_bns)
+
 
     def dexValChange(self,value):
         dex_bns = cal_attr_bns(value)
-        print("DEX bonus is ", dex_bns)
+
+        if (dex_bns < 0):
+            self.dexBonus.setText("(" + str(dex_bns) + ")")
+        
+        else:
+            self.dexBonus.setText("(+" + str(dex_bns) + ")")
+        #print("DEX bonus is ", dex_bns)
 
     def conValChange(self,value):
         con_bns = cal_attr_bns(value)
-        print("CON bonus is ", con_bns)
+
+        if (con_bns < 0):
+            self.conBonus.setText("(" + str(con_bns) + ")")
+        
+        else:
+            self.conBonus.setText("(+" + str(con_bns) + ")")
+
+        self.constitSpinBox.setValue(value)
+        #print("CON bonus is ", con_bns)
 
     def intValChange(self,value):
         int_bns = cal_attr_bns(value)
-        print("INT bonus is ", int_bns)
+
+        if (int_bns < 0):
+            self.intBonus.setText("(" + str(int_bns) + ")")
+        
+        else:
+            self.intBonus.setText("(+" + str(int_bns) + ")")
+        #print("INT bonus is ", int_bns)
 
     def wisValChange(self,value):
         wis_bns = cal_attr_bns(value)
-        print("WIS bonus is ", wis_bns)
+
+        if (wis_bns < 0):
+            self.wisBonus.setText("(" + str(wis_bns) + ")")
+        
+        else:
+            self.wisBonus.setText("(+" + str(wis_bns) + ")")
+        #print("WIS bonus is ", wis_bns)
 
     def chaValChange(self,value):
         cha_bns = cal_attr_bns(value)
-        print("CHA bonus is ", cha_bns)
+
+        if (cha_bns < 0):
+            self.chaBonus.setText("(" + str(cha_bns) + ")")
+        
+        else:
+            self.chaBonus.setText("(+" + str(cha_bns) + ")")
+        #print("CHA bonus is ", cha_bns)
 
     def savesChecker(self,state):
         if state == QtCore.Qt.Checked:

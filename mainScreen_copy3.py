@@ -4293,7 +4293,7 @@ class Ui_MainWindow(object):
         self.actionDamageType_2.setItemText(0, _translate("MainWindow", "Acid"))
         self.actionDamageType_2.setItemText(1, _translate("MainWindow", "Bludgeoning"))
         self.actionDamageType_2.setItemText(2, _translate("MainWindow", "Cold"))
-        self.actionDamageType_2.setItemText(3, _translate("MainWindow", "fire"))
+        self.actionDamageType_2.setItemText(3, _translate("MainWindow", "Fire"))
         self.actionDamageType_2.setItemText(4, _translate("MainWindow", "Force"))
         self.actionDamageType_2.setItemText(5, _translate("MainWindow", "Lighting"))
         self.actionDamageType_2.setItemText(6, _translate("MainWindow", "Necrotic"))
@@ -4325,7 +4325,7 @@ class Ui_MainWindow(object):
         self.actionDamageType_3.setItemText(0, _translate("MainWindow", "Acid"))
         self.actionDamageType_3.setItemText(1, _translate("MainWindow", "Bludgeoning"))
         self.actionDamageType_3.setItemText(2, _translate("MainWindow", "Cold"))
-        self.actionDamageType_3.setItemText(3, _translate("MainWindow", "fire"))
+        self.actionDamageType_3.setItemText(3, _translate("MainWindow", "Fire"))
         self.actionDamageType_3.setItemText(4, _translate("MainWindow", "Force"))
         self.actionDamageType_3.setItemText(5, _translate("MainWindow", "Lighting"))
         self.actionDamageType_3.setItemText(6, _translate("MainWindow", "Necrotic"))
@@ -4340,7 +4340,7 @@ class Ui_MainWindow(object):
         self.actionDamageType_4.setItemText(0, _translate("MainWindow", "Acid"))
         self.actionDamageType_4.setItemText(1, _translate("MainWindow", "Bludgeoning"))
         self.actionDamageType_4.setItemText(2, _translate("MainWindow", "Cold"))
-        self.actionDamageType_4.setItemText(3, _translate("MainWindow", "fire"))
+        self.actionDamageType_4.setItemText(3, _translate("MainWindow", "Fire"))
         self.actionDamageType_4.setItemText(4, _translate("MainWindow", "Force"))
         self.actionDamageType_4.setItemText(5, _translate("MainWindow", "Lighting"))
         self.actionDamageType_4.setItemText(6, _translate("MainWindow", "Necrotic"))
@@ -4352,7 +4352,7 @@ class Ui_MainWindow(object):
         self.actionDamageType_1.setItemText(0, _translate("MainWindow", "Acid"))
         self.actionDamageType_1.setItemText(1, _translate("MainWindow", "Bludgeoning"))
         self.actionDamageType_1.setItemText(2, _translate("MainWindow", "Cold"))
-        self.actionDamageType_1.setItemText(3, _translate("MainWindow", "fire"))
+        self.actionDamageType_1.setItemText(3, _translate("MainWindow", "Fire"))
         self.actionDamageType_1.setItemText(4, _translate("MainWindow", "Force"))
         self.actionDamageType_1.setItemText(5, _translate("MainWindow", "Lighting"))
         self.actionDamageType_1.setItemText(6, _translate("MainWindow", "Necrotic"))
@@ -4867,26 +4867,34 @@ class Ui_MainWindow(object):
         if(AvgCR >= 1):
             self.slider.setValue(AvgCR)
 
-    
     def strValChange(self,value):
         str_bns = cal_attr_bns(value)
 
         if (str_bns < 0):
             self.strBonus.setText("(" + str(str_bns) + ")")
+            self.athleticsLevelLabel.setText(str(str_bns))
         
         else:
             self.strBonus.setText("(+" + str(str_bns) + ")")
+            self.athleticsLevelLabel.setText("+" + str(str_bns))
+            
         #print("STR bonus is ", str_bns)
-
 
     def dexValChange(self,value):
         dex_bns = cal_attr_bns(value)
 
         if (dex_bns < 0):
             self.dexBonus.setText("(" + str(dex_bns) + ")")
+            self.acrobaticsLevelLabel.setText(str(dex_bns))
+            self.slightOfHandLevelLabel.setText(str(dex_bns))
+            self.stealthLevelLabel.setText(str(dex_bns))
         
         else:
             self.dexBonus.setText("(+" + str(dex_bns) + ")")
+            self.acrobaticsLevelLabel.setText("+" + str(dex_bns))
+            self.slightOfHandLevelLabel.setText("+" + str(dex_bns))
+            self.stealthLevelLabel.setText("+" + str(dex_bns))
+
         #print("DEX bonus is ", dex_bns)
 
     def conValChange(self,value):
@@ -4899,6 +4907,7 @@ class Ui_MainWindow(object):
             self.conBonus.setText("(+" + str(con_bns) + ")")
 
         self.constitSpinBox.setValue(value)
+        
         #print("CON bonus is ", con_bns)
 
     def intValChange(self,value):
@@ -4906,9 +4915,20 @@ class Ui_MainWindow(object):
 
         if (int_bns < 0):
             self.intBonus.setText("(" + str(int_bns) + ")")
+            self.arcanaLevelLabel.setText(str(int_bns))
+            self.historyLevelLabel.setText(str(int_bns))
+            self.investigationLevelLabel.setText(str(int_bns))
+            self.natureLevelLabel.setText(str(int_bns))
+            self.religionLevelLabel.setText(str(int_bns))
         
         else:
             self.intBonus.setText("(+" + str(int_bns) + ")")
+            self.arcanaLevelLabel.setText("+" + str(int_bns))
+            self.historyLevelLabel.setText("+" + str(int_bns))
+            self.investigationLevelLabel.setText("+" + str(int_bns))
+            self.natureLevelLabel.setText("+" + str(int_bns))
+            self.religionLevelLabel.setText("+" + str(int_bns))
+       
         #print("INT bonus is ", int_bns)
 
     def wisValChange(self,value):
@@ -4916,9 +4936,20 @@ class Ui_MainWindow(object):
 
         if (wis_bns < 0):
             self.wisBonus.setText("(" + str(wis_bns) + ")")
+            self.animalHandlingLevelLabel.setText(str(wis_bns))
+            self.insightLevelLabel.setText(str(wis_bns))
+            self.medicineLevelLabel.setText(str(wis_bns))
+            self.perceptionLevelLabel.setText(str(wis_bns))
+            self.survivalLevelLabel.setText(str(wis_bns))
         
         else:
             self.wisBonus.setText("(+" + str(wis_bns) + ")")
+            self.animalHandlingLevelLabel.setText("+" + str(wis_bns))
+            self.insightLevelLabel.setText("+" + str(wis_bns))
+            self.medicineLevelLabel.setText("+" + str(wis_bns))
+            self.perceptionLevelLabel.setText("+" + str(wis_bns))
+            self.survivalLevelLabel.setText("+" + str(wis_bns))
+       
         #print("WIS bonus is ", wis_bns)
 
     def chaValChange(self,value):
@@ -4926,9 +4957,18 @@ class Ui_MainWindow(object):
 
         if (cha_bns < 0):
             self.chaBonus.setText("(" + str(cha_bns) + ")")
+            self.deceptionLevelLabel.setText(str(cha_bns))
+            self.intimidationLevelLabel.setText(str(cha_bns))
+            self.performanceLevelLabel.setText(str(cha_bns))
+            self.persuasionLevelLabel.setText(str(cha_bns))
         
         else:
             self.chaBonus.setText("(+" + str(cha_bns) + ")")
+            self.deceptionLevelLabel.setText("+" + str(cha_bns))
+            self.intimidationLevelLabel.setText("+" + str(cha_bns))
+            self.performanceLevelLabel.setText("+" + str(cha_bns))
+            self.persuasionLevelLabel.setText("+" + str(cha_bns))
+        
         #print("CHA bonus is ", cha_bns)
 
     def savesChecker(self,state):

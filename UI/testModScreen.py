@@ -169,6 +169,7 @@ class Ui_testModWindow(object):
     #Fighter Level 1: 7, Level 20: 53
     #Ranger Level 1: 5, Level 20: 44
     #Rogue Level 1: 5, level 20: 40
+    #Wizard Level 1: 3, level 20: 44
     
     def enemyLevelChange(self,value):
         if(self.enemyComboBox.currentText() == "Barbarian"):

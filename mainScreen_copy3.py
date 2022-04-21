@@ -21,6 +21,7 @@ from secondwindow_copy import Ui_SecondWindow
 from offensiveCR import *
 from defenseInputs import *
 from defensiveCR import *
+from monster_stats import *
 import combat
 
 from testModScreen import Ui_testModWindow
@@ -1133,11 +1134,12 @@ class Ui_MainWindow(object):
                 skills += strSTs
         self.ui.label_34.setText(skills)
                 
-        
+        creature = monster(creature_name, str_value,dex_value,con_value,int_value,wis_value,cha_value, hp_value, armor_value, size, sizeofDie, self.dprSpinBox.value(), self.attkBonSpinBox.value(), numAttks, numAttks2, numAttks3, numAttks4, attdie, attdie2,attdie3,attdie4)
         
         self.window.show() 
         
     def openWindow(self):
+        #creature1 = monster(self.nameLineEdit.text(), self.strSpinBox.value(),self.dexSpinBox.value(),self.conSpinBox.value(),self.intSpinBox.value(),self.wisSpinBox.value(),self.chaSpinBox.value(), self.hitPointsSpinBox.value(), armor_value, size, sizeofDie, self.dprSpinBox.value(), self.attkBonSpinBox.value(), numAttks, numAttks2, numAttks3, numAttks4, attdie, attdie2,attdie3,attdie4)
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_testModWindow()
         self.ui.setupUi(self.window)

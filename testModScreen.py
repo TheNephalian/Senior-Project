@@ -11,9 +11,10 @@
 from re import S
 from PyQt5 import QtCore, QtGui, QtWidgets
 from testRunScreen import Ui_Dialog
+from monster_stats import *
 
 
-class Ui_testModWindow(object):
+class Ui_testModWindow(monster):
 
     def runTest(self):
         self.window = QtWidgets.QDialog()

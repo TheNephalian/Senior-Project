@@ -1,0 +1,60 @@
+All data members of the custom creature class that we'll send to combat
+
+Name
+
+CR (to determine proficiency bonus)
+Proficiency Bonus (calculated from the above CR)
+
+These attributes are grabbed to calculate their respective bonus
+STR -> STRbons
+DEX -> DEXbons
+CON -> etc.
+INT
+WIS
+CHA
+Save all bons's as class data members
+
+Hit Points (Calculated value after user changes stuff)
+
+Multiattack clicked or not (bool) 
+Multiattack numbers (numbers before action names)
+
+ACTIONS
+number of damage dice
+type of damage dice
+attribute the action uses
+
+SPECIAL ACTION (the different one lol)
+does damage is checked? (bool)
+number of damage dice
+type of damage dice
+
+Array can hold the above numbers?
+
+norm_attacks[] holds how many normal attacks the creature has
+Multiattack[] holds the number of multiattack per attack (number before action name)
+number_of_dmg_dice[] holds the number of damage dice for each attack
+type_of_dmg_dice[]
+attack_attr[]
+
+damage = number of damage dice * average of the type of dice (rounded down)
+									d4 = 2.5
+									d6 = 3.5
+									d8 = 4.5
+									d10 = 5.5
+									d12 = 6.5
+
+attack()
+	if (multi_dmg > sp_attack_dmg)
+		multiattack()
+	else
+		special_attack()
+
+norm_attack[0]
+	multiattack[0] = 2 -> this attack is used twice
+	number_of_dmg_dice[0] = 4 -> we know this attack uses 4 dice
+	type_of_dmg_dice[0] = 6 -> we know this attack uses a d6
+	attack_attr[0] = STR -> we know this attack uses STRbons
+
+norm_attack[1]
+norm_attacl[2]

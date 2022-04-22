@@ -1134,7 +1134,7 @@ class Ui_MainWindow(object):
                 skills += strSTs
         self.ui.label_34.setText(skills)
                 
-        creature = monster(creature_name, str_value,dex_value,con_value,int_value,wis_value,cha_value, hp_value, armor_value, size, sizeofDie, self.dprSpinBox.value(), self.attkBonSpinBox.value(), numAttks, numAttks2, numAttks3, numAttks4, attdie, attdie2,attdie3,attdie4)
+        #creature = monster(creature_name, str_value,dex_value,con_value,int_value,wis_value,cha_value, hp_value, armor_value, size, sizeofDie, self.dprSpinBox.value(), self.attkBonSpinBox.value(), numAttks, numAttks2, numAttks3, numAttks4, attdie, attdie2,attdie3,attdie4)
         
         self.window.show() 
         

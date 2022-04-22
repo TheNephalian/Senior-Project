@@ -9,6 +9,7 @@ class BugBear (creature):
 		self.challnge_rtg = 1
 		self.prof_bns = 2
 		self.is_defeated = False
+		self.hasattacked = False
 
 		self.strength = 15
 		self.dexterity = 14
@@ -34,6 +35,12 @@ class BugBear (creature):
 		totalDmg = self.morningstar()
 
 		super().attack(enemy, totalDmg)
+  
+	def has_attacked(self):
+		return super().has_attacked()
+
+	def has_not_attacked(self):
+		return super().has_not_attacked()
 
 	def morningstar(self):
 		dmgRoll = 0

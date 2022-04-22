@@ -1,5 +1,6 @@
 import random
 from tkinter import E
+from dummyCreature import creature
 from dummyCreatures import dummyBugBear, dummyOrc, dummyZombie
 from player import *
 from dummyPlayers import dummyFighter, dummyRanger, dummyRogue, dummyWizard
@@ -176,7 +177,7 @@ class combatSimulation():
 		if (self.creature.is_defeated == True):
 			self.repeat_combat = False
 
-			return
+			return 
 
 		for m in range (0, len(self.players)):
 			if (m == len(self.players)):
@@ -198,7 +199,6 @@ class combatSimulation():
 					print(self.initiativeOrder[k].name, self.initiativeOrder[k].initiative)
 
 				print()
-
 			if (len(self.players) == 0):
 				print("All players have been defeated!")
 				print()
@@ -218,24 +218,48 @@ class combatSimulation():
 		print("Combat Log:")
 
 		while (self.repeat_combat == True):
+			
 			self.round = self.round + 1
 
 			print("Round:", self.round)
+			for i in range (0, len(self.initiativeOrder)):
+				self.initiativeOrder[i].has_not_attacked()
 
 			for l in range (0, len(self.initiativeOrder)):
 				if (l >= len(self.initiativeOrder)):
+					print("in initiativeOrder arry: ", l)
+     
+					l = l - 1
+     
+				if(self.initiativeOrder[l-1].has_attacked() == False and l == len(self.initiativeOrder)-1):
+					print("cant skip any")
 					l = l - 1
 
 				if (self.repeat_combat == False):
 					break
 
+				if(self.initiativeOrder[l].has_attacked() == False):
+					print("\n****this means they have not attacked and before combat")
+				elif(self.initiativeOrder[l].has_attacked() == True):
+					print("\n****this means player/creature has attacked and before combat")
+					break
+
+				
 				self.initiativeOrder[l].attack(self)
+		
 
+				if(self.initiativeOrder[l].has_attacked() == True):
+					print("this means player/creature has attacked and after combat****")
+				elif(self.initiativeOrder[l].has_attacked() == False):
+					print("this means they have not attacked and after combat****")
+    
 				if (self.remove_from_combat() == True):
-					if (l == len(self.initiativeOrder)):
+					if (l == len(self.initiativeOrder)-1):
 						break
-
+				
+  
 				if (self.repeat_combat == False):
+					print("\nbreak here cause combat is over\n")
 					break
 
 			if (self.repeat_combat == False):

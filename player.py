@@ -1,4 +1,5 @@
 import random
+
 class Player():
     def __init__(self):
         self.name = "Dummy"
@@ -9,6 +10,7 @@ class Player():
         self.prof_bns = 0
         self.is_defeated = False
         self.initiative = 0
+        self.hasattacked = False
         
         self.strength = 10
         self.dexterity = 10
@@ -45,9 +47,11 @@ class Player():
             print(self.name, "hits!")
 
             enemy.creature.takes_dmg(self.dmg_per_rnd)
+            self.hasattacked = True
 
         else:
             print(self.name, "misses!")
+            self.hasattacked = True
         
         print()
     
@@ -67,3 +71,13 @@ class Player():
 
     def lvl_change(self, lvls):
         self.lvl = lvls
+        
+        
+    def has_attacked(self):
+        thisattack = self.hasattacked
+        return thisattack
+	    
+    def has_not_attacked(self):
+	    self.hasattacked = False
+        
+        

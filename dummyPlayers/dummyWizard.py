@@ -12,6 +12,7 @@ class Wizard (Player):
 		self.prof_bns = 2
 		self.is_defeated = False
 		self.initiative = 0
+	
         
 		self.strength = 16
 		self.dexterity = 14
@@ -35,3 +36,7 @@ class Wizard (Player):
 
 	def attack(self, enemy):
 		super().attack(enemy)
+  
+	def has_not_attacked(self):
+		return super().has_not_attacked()
+	

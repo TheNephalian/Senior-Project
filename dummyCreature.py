@@ -13,6 +13,7 @@ class creature():
 		self.prof_bns = 0
 		self.is_defeated = False
 		self.initative = 0
+		self.hasattacked = False
 		
 		#The following attribute scores are all default values
    		#   These will vary based on the creature/player class
@@ -47,11 +48,18 @@ class creature():
 
 		if (atk_roll >= target.ac):
 			print(self.name, "hits!")
-
+   
+			
 			target.takes_dmg(dmg)
+			self.hasattacked = True
+
+			
 
 		else:
+			
 			print(self.name, "misses!")
+			self.hasattacked = True
+			
 		
 		print()
 
@@ -69,3 +77,11 @@ class creature():
 		self.is_defeated = True
 
 		print(self.name, "is defeated!")
+  
+	def has_attacked(self):
+		thisattack = self.hasattacked
+		return thisattack
+
+	def has_not_attacked(self):
+		self.hasattacked = False
+		

@@ -14,7 +14,7 @@ from testRunScreen import Ui_Dialog
 from monster_stats import *
 
 
-class Ui_testModWindow(monster):
+class Ui_testModWindow():
 
     def runTest(self):
         self.window = QtWidgets.QDialog()

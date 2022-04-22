@@ -217,6 +217,53 @@ class Ui_testModWindow(object):
             print("Enemy level: ", str(xdata[int(self.spinBox.value())-1]))
             print("Enemy Damage/Round: ", str(np.rint(ydata[self.spinBox.value()-1])))
 
+    # def enemyLevelChange2(self,value):
+    #     if(self.enemyComboBox_2.currentText() == "Barbarian"):
+    #         print("Enemy: ", self.enemyComboBox_2.currentText())
+    #         y = 14.3538 * np.log(1.6285*x)
+    #         curve, = plt.plot(x,y)
+    #         xdata = curve.get_xdata()
+    #         ydata = curve.get_ydata()
+    #         print("Enemy level: ", str(xdata[int(self.spinBox_2.value())-1]))
+    #         print("Enemy Damage/Round: ", str(np.rint(ydata[self.spinBox_2.value()-1])))
+
+    #     if(self.enemyComboBox_2.currentText() == "Fighter"):
+    #         print("Enemy: ", self.enemyComboBox_2.currentText())
+    #         y = 15.3552 * np.log(1.5775*x)
+    #         curve, = plt.plot(x,y)
+    #         xdata = curve.get_xdata()
+    #         ydata = curve.get_ydata()
+    #         print("Enemy level: ", str(xdata[int(self.spinBox_2.value())-1]))
+    #         print("Enemy Damage/Round: ", str(np.rint(ydata[self.spinBox_2.value()-1])))
+
+    #     if(self.enemyComboBox.currentText() == "Ranger"):
+    #         print("Enemy: ", self.enemyComboBox.currentText())
+    #         y = 13.0185 * np.log(1.4682*x)
+    #         curve, = plt.plot(x,y)
+    #         xdata = curve.get_xdata()
+    #         ydata = curve.get_ydata()
+    #         print("Enemy level: ", str(xdata[int(self.spinBox.value())-1]))
+    #         print("Enemy Damage/Round: ", str(np.rint(ydata[self.spinBox.value()-1])))
+
+    #     if(self.enemyComboBox.currentText() == "Rogue"):
+    #         print("Enemy: ", self.enemyComboBox.currentText())
+    #         y = 11.6833 * np.log(1.5341*x)
+    #         curve, = plt.plot(x,y)
+    #         xdata = curve.get_xdata()
+    #         ydata = curve.get_ydata()
+    #         print("Enemy level: ", str(xdata[int(self.spinBox.value())-1]))
+    #         print("Enemy Damage/Round: ", str(np.rint(ydata[self.spinBox.value()-1])))
+
+    #     if(self.enemyComboBox.currentText() == "Wizard"):
+    #         print("Enemy: ", self.enemyComboBox.currentText())
+    #         y = 14.6876 * np.log(1.2266*x)
+    #         curve, = plt.plot(x,y)
+    #         xdata = curve.get_xdata()
+    #         ydata = curve.get_ydata()
+    #         print("Enemy #2 level: ", str(xdata[int(self.spinBox_2.value())-1]))
+    #         print("Enemy #2 Damage/Round: ", str(np.rint(ydata[self.spinBox_2.value()-1])))
+            
+
 
 if __name__ == "__main__":
     import sys

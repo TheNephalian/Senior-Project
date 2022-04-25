@@ -100,17 +100,14 @@ QPushButton{
  	padding: .25em;
  	border: 1px solid black;
  	border-radius: 0.4em;
- 	box-shadow: 0.1em 0.1em;
 }
 
 QPushButton::hover{
 	transform: translate(-0.05em, -0.05em);
- 	box-shadow: 0.15em 0.15em;
 }
 
 QPushButton::active{
 	transform: translate(0.05em, 0.05em);
- 	box-shadow: 0.05em 0.05em;
 }
 QSpinBox{
 	padding: .25em;
@@ -200,9 +197,9 @@ QLineEdit{
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-596</y>
+             <y>0</y>
              <width>1222</width>
-             <height>1980</height>
+             <height>2014</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -2242,8 +2239,7 @@ QLineEdit{
                  </property>
                  <property name="font">
                   <font>
-                   <family>Segoe UI</family>
-                   <kerning>true</kerning>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="frameShape">
@@ -2256,19 +2252,6 @@ QLineEdit{
                   <property name="sizeConstraint">
                    <enum>QLayout::SetDefaultConstraint</enum>
                   </property>
-                  <item row="4" column="5">
-                   <widget class="QLabel" name="label_7">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Damage Per Round:</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="8" column="2">
                    <widget class="QComboBox" name="sizeComboBox">
                     <property name="font">
@@ -2312,8 +2295,55 @@ QLineEdit{
                     </item>
                    </widget>
                   </item>
-                  <item row="5" column="0">
-                   <widget class="QLabel" name="label_3">
+                  <item row="12" column="0">
+                   <widget class="QLineEdit" name="sliderValTxt">
+                    <property name="maximumSize">
+                     <size>
+                      <width>115</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="inputMask">
+                     <string/>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="maxLength">
+                     <number>32767</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2" colspan="2">
+                   <widget class="QLineEdit" name="exCRLineEdit">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="inputMask">
+                     <string/>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="10" column="5">
+                   <widget class="QLabel" name="label_11">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
@@ -2321,7 +2351,7 @@ QLineEdit{
                      </font>
                     </property>
                     <property name="text">
-                     <string>Armor Class:</string>
+                     <string>Flies and can deal damage at range (CR 0-9 only):</string>
                     </property>
                    </widget>
                   </item>
@@ -2348,13 +2378,71 @@ QLineEdit{
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="6">
-                   <widget class="QSpinBox" name="dprSpinBox">
+                  <item row="9" column="0">
+                   <widget class="QLabel" name="label_5">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
+                    </property>
+                    <property name="text">
+                     <string>Hit Dice:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_13">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Expected CR:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="0">
+                   <widget class="QLabel" name="label_3">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Armor Class:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="2">
+                   <widget class="QSpinBox" name="hitPointsSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="5">
+                   <widget class="QLabel" name="label_9">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Attack Bonus/Save DC:</string>
                     </property>
                    </widget>
                   </item>
@@ -2372,47 +2460,30 @@ QLineEdit{
                     </property>
                    </widget>
                   </item>
-                  <item row="7" column="6">
-                   <widget class="QCheckBox" name="savesCheckBox">
+                  <item row="9" column="3" colspan="2">
+                   <widget class="QLabel" name="diceLabel">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
+                      <bold>true</bold>
                       <kerning>true</kerning>
                      </font>
                     </property>
                     <property name="text">
-                     <string>Use Saves?</string>
+                     <string>d</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                     </property>
                    </widget>
                   </item>
-                  <item row="11" column="0">
-                   <widget class="QLineEdit" name="sliderValTxt">
-                    <property name="maximumSize">
-                     <size>
-                      <width>115</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
+                  <item row="4" column="6">
+                   <widget class="QSpinBox" name="dprSpinBox">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="5">
-                   <widget class="QLabel" name="label_8">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <pointsize>20</pointsize>
-                      <bold>false</bold>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Offenisive</string>
                     </property>
                    </widget>
                   </item>
@@ -2436,48 +2507,6 @@ QLineEdit{
                     </property>
                    </widget>
                   </item>
-                  <item row="10" column="2">
-                   <widget class="QSpinBox" name="constitSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="5" column="5">
-                   <widget class="QLabel" name="label_9">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Attack Bonus/Save DC:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="6">
-                   <spacer name="horizontalSpacer_6">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
                   <item row="1" column="2" colspan="3">
                    <spacer name="horizontalSpacer_4">
                     <property name="font">
@@ -2497,174 +2526,6 @@ QLineEdit{
                     </property>
                    </spacer>
                   </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_13">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Expected CR:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2" colspan="2">
-                   <widget class="QLineEdit" name="exCRLineEdit">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>0</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="9" column="0">
-                   <widget class="QLabel" name="label_5">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Hit Dice:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="11" column="6">
-                   <widget class="QComboBox" name="saveComboBox">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>0-2</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>3-4</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>5-6</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="9" column="3" colspan="2">
-                   <widget class="QLabel" name="diceLabel">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <bold>true</bold>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>d</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="8" column="6">
-                   <widget class="QCheckBox" name="vulCheckBox">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Vulnerabilities:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="10" column="6">
-                   <widget class="QCheckBox" name="fliesCheckBox">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="5" column="6">
-                   <widget class="QSpinBox" name="attkBonSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="11" column="5">
-                   <widget class="QLabel" name="label_10">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Save Proficiencies</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="10" column="5">
-                   <widget class="QLabel" name="label_11">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Flies and can deal damage at range (CR 0-9 only):</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="8" column="0">
-                   <widget class="QLabel" name="label_4">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Size:</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="9" column="2">
                    <widget class="QSpinBox" name="diceSpinBox">
                     <property name="minimumSize">
@@ -2681,18 +2542,27 @@ QLineEdit{
                     </property>
                    </widget>
                   </item>
-                  <item row="10" column="0">
-                   <widget class="QLabel" name="label_6">
+                  <item row="1" column="1">
+                   <spacer name="horizontalSpacer_3">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
                       <kerning>true</kerning>
                      </font>
                     </property>
-                    <property name="text">
-                     <string>Constitution:</string>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
                     </property>
-                   </widget>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Expanding</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>0</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
                   </item>
                   <item row="9" column="6">
                    <widget class="QComboBox" name="resComboBox">
@@ -2719,8 +2589,8 @@ QLineEdit{
                     </item>
                    </widget>
                   </item>
-                  <item row="1" column="1">
-                   <spacer name="horizontalSpacer_3">
+                  <item row="1" column="6">
+                   <spacer name="horizontalSpacer_6">
                     <property name="font">
                      <font>
                       <family>Segoe UI</family>
@@ -2730,28 +2600,15 @@ QLineEdit{
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
-                    <property name="sizeType">
-                     <enum>QSizePolicy::Expanding</enum>
-                    </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>0</width>
+                      <width>40</width>
                       <height>20</height>
                      </size>
                     </property>
                    </spacer>
                   </item>
-                  <item row="4" column="2">
-                   <widget class="QSpinBox" name="hitPointsSpinBox">
-                    <property name="font">
-                     <font>
-                      <family>Segoe UI</family>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="11" column="1" colspan="4">
+                  <item row="12" column="1" colspan="4">
                    <widget class="QSlider" name="slider">
                     <property name="font">
                      <font>
@@ -2765,6 +2622,175 @@ QLineEdit{
                     <property name="tickPosition">
                      <enum>QSlider::TicksAbove</enum>
                     </property>
+                   </widget>
+                  </item>
+                  <item row="10" column="0">
+                   <widget class="QLabel" name="label_6">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Constitution:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="8" column="0">
+                   <widget class="QLabel" name="label_4">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Size:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="5">
+                   <widget class="QLabel" name="label_7">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Damage Per Round:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="5">
+                   <widget class="QLabel" name="label_8">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>20</pointsize>
+                      <bold>false</bold>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Offenisive</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="7" column="6">
+                   <widget class="QCheckBox" name="savesCheckBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Use Saves?</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="10" column="2">
+                   <widget class="QSpinBox" name="constitSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="6">
+                   <widget class="QSpinBox" name="attkBonSpinBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="10" column="6">
+                   <widget class="QCheckBox" name="fliesCheckBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="8" column="6">
+                   <widget class="QCheckBox" name="vulCheckBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Vulnerabilities:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="11" column="0">
+                   <widget class="QLabel" name="label_187">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>14</pointsize>
+                      <bold>true</bold>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>CR:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="11" column="5">
+                   <widget class="QLabel" name="label_10">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Save Proficiencies</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="11" column="6">
+                   <widget class="QComboBox" name="saveComboBox">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <kerning>true</kerning>
+                     </font>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>0-2</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>3-4</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>5-6</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
                  </layout>
@@ -2988,6 +3014,11 @@ QLineEdit{
                     <property name="placeholderText">
                      <string/>
                     </property>
+                    <item>
+                     <property name="text">
+                      <string>-</string>
+                     </property>
+                    </item>
                     <item>
                      <property name="text">
                       <string>Acid</string>
@@ -3320,6 +3351,11 @@ QLineEdit{
                     </property>
                     <item>
                      <property name="text">
+                      <string>-</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
                       <string>Acid</string>
                      </property>
                     </item>
@@ -3487,6 +3523,11 @@ QLineEdit{
                     </property>
                     <item>
                      <property name="text">
+                      <string>-</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
                       <string>Acid</string>
                      </property>
                     </item>
@@ -3570,6 +3611,20 @@ QLineEdit{
                       <kerning>true</kerning>
                      </font>
                     </property>
+                    <property name="editable">
+                     <bool>false</bool>
+                    </property>
+                    <property name="currentText">
+                     <string>-</string>
+                    </property>
+                    <property name="placeholderText">
+                     <string/>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>-</string>
+                     </property>
+                    </item>
                     <item>
                      <property name="text">
                       <string>Acid</string>
@@ -4039,9 +4094,9 @@ background-color: rgb(153, 184, 152);</string>
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-482</y>
+             <y>0</y>
              <width>1222</width>
-             <height>1710</height>
+             <height>1815</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_12">
@@ -5499,31 +5554,8 @@ be frightened for 1 minute.</string>
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QGridLayout" name="gridLayout_17">
-               <item row="3" column="1">
-                <widget class="QComboBox" name="comboBox_2"/>
-               </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="label_184">
-                 <property name="text">
-                  <string>TextLabel</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="1">
-                <widget class="QComboBox" name="comboBox_4"/>
-               </item>
-               <item row="4" column="1">
-                <widget class="QComboBox" name="comboBox_3"/>
-               </item>
-               <item row="4" column="0">
-                <widget class="QLabel" name="label_185">
-                 <property name="text">
-                  <string>TextLabel</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QComboBox" name="comboBox">
+               <item row="3" column="3">
+                <widget class="QComboBox" name="psychicComboBox">
                  <item>
                   <property name="text">
                    <string>No Modifier</string>
@@ -5546,21 +5578,269 @@ be frightened for 1 minute.</string>
                  </item>
                 </widget>
                </item>
-               <item row="5" column="0">
-                <widget class="QLabel" name="label_186">
+               <item row="4" column="3">
+                <widget class="QComboBox" name="radiantComboBox">
+                 <item>
+                  <property name="text">
+                   <string>No Modifier</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Resistance</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Immunity</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Vulnerablity</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="2" column="2">
+                <widget class="QLabel" name="label_192">
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>Poison</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="0">
+               <item row="1" column="0">
                 <widget class="QLabel" name="label_179">
                  <property name="text">
                   <string>Acid</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
+               <item row="2" column="3">
+                <widget class="QComboBox" name="poisonComboBox">
+                 <item>
+                  <property name="text">
+                   <string>No Modifier</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Resistance</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Immunity</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Vulnerablity</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QComboBox" name="piercingComboBox">
+                 <item>
+                  <property name="text">
+                   <string>No Modifier</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Resistance</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Immunity</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Vulnerablity</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_185">
+                 <property name="text">
+                  <string>Cold</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="coldComboBox">
+                 <item>
+                  <property name="text">
+                   <string>No Modifier</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Resistance</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Immunity</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Vulnerablity</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QLabel" name="label_194">
+                 <property name="text">
+                  <string>Radiant</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QLabel" name="label_193">
+                 <property name="text">
+                  <string>Psychic</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="3">
+                <widget class="QComboBox" name="slashingComboBox">
+                 <item>
+                  <property name="text">
+                   <string>No Modifier</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Resistance</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Immunity</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Vulnerablity</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_186">
+                 <property name="text">
+                  <string>Fire</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QComboBox" name="forceComboBox">
+                 <item>
+                  <property name="text">
+                   <string>No Modifier</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Resistance</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Immunity</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Vulnerablity</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLabel" name="label_191">
+                 <property name="text">
+                  <string>Piercing</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_188">
+                 <property name="text">
+                  <string>Force</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QComboBox" name="acidComboBox">
+                 <item>
+                  <property name="text">
+                   <string>No Modifier</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Resistance</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Immunity</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Vulnerablity</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QComboBox" name="fireComboBox">
+                 <item>
+                  <property name="text">
+                   <string>No Modifier</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Resistance</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Immunity</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Vulnerablity</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="label_190">
+                 <property name="text">
+                  <string>Necrotic</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="2">
+                <widget class="QLabel" name="label_195">
+                 <property name="text">
+                  <string>Slashing</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
                 <widget class="QLabel" name="label_178">
                  <property name="font">
                   <font>
@@ -5571,6 +5851,123 @@ be frightened for 1 minute.</string>
                  <property name="text">
                   <string>Damage Modifiers:</string>
                  </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_184">
+                 <property name="text">
+                  <string>Bludgeoning</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="bludgeoningComboBox">
+                 <item>
+                  <property name="text">
+                   <string>No Modifier</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Resistance</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Immunity</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Vulnerablity</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QComboBox" name="necroticComboBox">
+                 <item>
+                  <property name="text">
+                   <string>No Modifier</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Resistance</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Immunity</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Vulnerablity</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="label_189">
+                 <property name="text">
+                  <string>Lightning</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QComboBox" name="lightningComboBox">
+                 <item>
+                  <property name="text">
+                   <string>No Modifier</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Resistance</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Immunity</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Vulnerablity</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="6" column="2">
+                <widget class="QLabel" name="label_196">
+                 <property name="text">
+                  <string>Thunder</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="3">
+                <widget class="QComboBox" name="thunderComboBox">
+                 <item>
+                  <property name="text">
+                   <string>No Modifier</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Resistance</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Immunity</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Vulnerablity</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
               </layout>

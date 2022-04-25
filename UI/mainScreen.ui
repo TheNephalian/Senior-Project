@@ -102,13 +102,6 @@ QPushButton{
  	border-radius: 0.4em;
 }
 
-QPushButton::hover{
-	transform: translate(-0.05em, -0.05em);
-}
-
-QPushButton::active{
-	transform: translate(0.05em, 0.05em);
-}
 QSpinBox{
 	padding: .25em;
 	border: 1px solid rgb(42, 54, 59);

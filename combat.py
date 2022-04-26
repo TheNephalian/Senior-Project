@@ -39,7 +39,7 @@ class combatSimulation():
 		self.players.append(p1)
 		self.players.append(p2)
 		self.players.append(p3)
-		#self.players.append(p4)
+		self.players.append(p4)
 
 		'''
 		This section will grab the chosen monster or load a custom moster
@@ -225,6 +225,8 @@ class combatSimulation():
 			for i in range (0, len(self.initiativeOrder)):
 				self.initiativeOrder[i].has_not_attacked()
 
+			print("about to start new round")
+			beforecombatLength = len(self.initiativeOrder)
 			for l in range (0, len(self.initiativeOrder)):
 				if (l >= len(self.initiativeOrder)):
 					print("in initiativeOrder arry: ", l)
@@ -234,8 +236,12 @@ class combatSimulation():
 				if(self.initiativeOrder[l-1].has_attacked() == False and l == len(self.initiativeOrder)-1):
 					print("cant skip any")
 					l = l - 1
+				elif(self.initiativeOrder[l-1].has_attacked() == False and beforecombatLength != len(self.initiativeOrder)):
+					print("can't skip any condition 2")
+					l = l - 1
 
 				if (self.repeat_combat == False):
+					print("can't repeat combat")
 					break
 
 				if(self.initiativeOrder[l].has_attacked() == False):
@@ -255,6 +261,7 @@ class combatSimulation():
     
 				if (self.remove_from_combat() == True):
 					if (l == len(self.initiativeOrder)-1):
+						print("removed from combat and l == len")
 						break
 				
   
@@ -263,5 +270,11 @@ class combatSimulation():
 					break
 
 			if (self.repeat_combat == False):
+				print("in array: ", len(self.initiativeOrder))
 				print("End of combat simulation.")
 				print("******")
+
+		if(self.creature.is_defeated == True):
+			print("creature is defeated")
+		else:
+			print("creature won")

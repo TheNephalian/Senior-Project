@@ -1,10 +1,14 @@
 import random
+from types import NoneType
 
 from player import *
 
 class Barbarian(Player):
     def __init__(self):
+
+    #Might Erase
         self.name = "Barbarian"
+        self.logEQ = None
         self.lvl = 1
         self.hp = 10
         self.curr_hp = self.hp

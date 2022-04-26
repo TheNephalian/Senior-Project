@@ -1,6 +1,8 @@
 import random
 
 from player import *
+from testModScreen import *
+
 
 class Fighter (Player):
 	def __init__(self):

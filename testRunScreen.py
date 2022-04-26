@@ -74,6 +74,7 @@ class Ui_Dialog(object):
             # battle the characters
 
             print(i)
+            
         print("test completed!")
         self.pushButton.setEnabled(True)
         self.testCompleteLabel.show()

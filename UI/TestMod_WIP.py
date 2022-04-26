@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\TestMod.ui'
+# Form implementation generated from reading ui file 'TestMod.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -9,6 +9,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from dummyPlayers.dummyFighter import Fighter
+from player import *
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -39,6 +41,8 @@ wizardY = 14.6876 * np.log(1.2266*x)
 wizardCurve, = plt.plot(x,wizardY)
 wizardXData = wizardCurve.get_xdata()
 wizardYData = wizardCurve.get_ydata()
+
+fighterObject = Fighter()
 ####################
 
 
@@ -51,6 +55,35 @@ class Ui_testModWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
+        self.scrollArea.setStyleSheet("QPushButton{\n"
+"     padding: .25em;\n"
+"     border: 1px solid black;\n"
+"     border-radius: 0.4em;\n"
+"}\n"
+"\n"
+"QSpinBox{\n"
+"    padding: .25em;\n"
+"    border: 1px solid rgb(42, 54, 59);\n"
+"    border-bottom: 2px solid rgb(232, 74, 95);\n"
+"    border-radius: 5px;\n"
+"}QComboBox{\n"
+"    \n"
+"    padding: .25em;\n"
+"    border:1px solid rgb(42, 54, 59);\n"
+"    border-bottom: 2px Solid rgb(232, 74, 95);\n"
+"    border-radius: 5px;\n"
+"}\n"
+"QComboBox::drop-down {\n"
+"    subcontrol-origin: padding;\n"
+"    subcontrol-position: top right;\n"
+"    width: 15px;\n"
+"\n"
+"    border-left-width: 1px;\n"
+"    border-left-color: rgb(42, 54, 59);\n"
+"    border-left-style: solid; /* just a single line */\n"
+"    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+"    border-bottom-right-radius: 3px;\n"
+"}")
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
@@ -95,6 +128,8 @@ class Ui_testModWindow(object):
         self.roundSpinBox.setObjectName("roundSpinBox")
         self.gridLayout.addWidget(self.roundSpinBox, 1, 3, 1, 1)
         self.runTestButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.runTestButton.setStyleSheet("color: rgb(42, 54, 59);\n"
+"background-color: rgb(153, 184, 152);")
         self.runTestButton.setObjectName("runTestButton")
         self.gridLayout.addWidget(self.runTestButton, 1, 4, 1, 1)
         self.enemyComboBox_2 = QtWidgets.QComboBox(self.scrollAreaWidgetContents)
@@ -149,7 +184,7 @@ class Ui_testModWindow(object):
 
         self.retranslateUi(testModWindow)
         QtCore.QMetaObject.connectSlotsByName(testModWindow)
-        
+
         ####
         self.enemyComboBox.currentIndexChanged.connect(self.enemyValChange)
 
@@ -201,11 +236,16 @@ class Ui_testModWindow(object):
             print("Enemy: ", self.enemyComboBox.currentText())
             print("Enemy level: ", str(barbarianXData[int(self.spinBox.value())-1]))
             print("Enemy Damage/Round: ", str(np.rint(barbarianYData[self.spinBox.value()-1])))
+            
 
         elif(self.enemyComboBox.currentText() == "Fighter"):
             print("Enemy: ", self.enemyComboBox.currentText())
             print("Enemy level: ", str(fighterXData[int(self.spinBox.value())-1]))
             print("Enemy Damage/Round: ", str(np.rint(fighterYData[self.spinBox.value()-1])))
+            fighterObject.lvl = barbarianXData[int(self.spinBox.value())-1]
+            fighterObject.dmg_per_rnd = np.rint(barbarianYData[self.spinBox.value()-1])
+
+            print("Fighter lvl:",fighterObject.lvl)
 
         elif(self.enemyComboBox.currentText() == "Ranger"):
             print("Enemy: ", self.enemyComboBox.currentText())
@@ -221,8 +261,6 @@ class Ui_testModWindow(object):
             print("Enemy: ", self.enemyComboBox.currentText())
             print("Enemy level: ", str(wizardXData[int(self.spinBox.value())-1]))
             print("Enemy Damage/Round: ", str(np.rint(wizardYData[self.spinBox.value()-1])))
-
-   
 
 if __name__ == "__main__":
     import sys

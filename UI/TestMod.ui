@@ -17,6 +17,37 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QScrollArea" name="scrollArea">
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+ 	padding: .25em;
+ 	border: 1px solid black;
+ 	border-radius: 0.4em;
+}
+
+QSpinBox{
+	padding: .25em;
+	border: 1px solid rgb(42, 54, 59);
+	border-bottom: 2px solid rgb(232, 74, 95);
+	border-radius: 5px;
+}QComboBox{
+	
+	padding: .25em;
+	border:1px solid rgb(42, 54, 59);
+	border-bottom: 2px Solid rgb(232, 74, 95);
+	border-radius: 5px;
+}
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+
+    border-left-width: 1px;
+    border-left-color: rgb(42, 54, 59);
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+}</string>
+      </property>
       <property name="widgetResizable">
        <bool>true</bool>
       </property>
@@ -121,6 +152,10 @@
         </item>
         <item row="1" column="4">
          <widget class="QPushButton" name="runTestButton">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(153, 184, 152);</string>
+          </property>
           <property name="text">
            <string>Run Test!</string>
           </property>

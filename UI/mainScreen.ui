@@ -190,7 +190,7 @@ QLineEdit{
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-714</y>
              <width>1222</width>
              <height>2014</height>
             </rect>

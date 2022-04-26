@@ -10,7 +10,7 @@
 
 from re import S
 from PyQt5 import QtCore, QtGui, QtWidgets
-from testRunScreen import Ui_Dialog
+from testRunScreen import *
 from monster_stats import *
 
 

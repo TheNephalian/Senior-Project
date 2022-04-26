@@ -23,6 +23,7 @@ from defenseInputs import *
 from defensiveCR import *
 from monster_stats import *
 import combat
+import dpr_calculation
 
 from testModScreen import Ui_testModWindow
 
@@ -2292,6 +2293,7 @@ class Ui_MainWindow(object):
         font.setKerning(True)
         self.hitPointsSpinBox.setFont(font)
         self.hitPointsSpinBox.setObjectName("hitPointsSpinBox")
+        self.hitPointsSpinBox.setMaximum(999)
         self.gridLayout_2.addWidget(self.hitPointsSpinBox, 4, 2, 1, 1)
         self.label_9 = QtWidgets.QLabel(self.frame_2)
         font = QtGui.QFont()
@@ -3063,6 +3065,7 @@ class Ui_MainWindow(object):
         self.burrowSpinBox = QtWidgets.QSpinBox(self.frame_16)
         self.burrowSpinBox.setMinimumSize(QtCore.QSize(102, 29))
         self.burrowSpinBox.setObjectName("burrowSpinBox")
+        self.burrowSpinBox.setSingleStep(5)
         self.gridLayout_15.addWidget(self.burrowSpinBox, 2, 3, 1, 1)
         self.label_74 = QtWidgets.QLabel(self.frame_16)
         self.label_74.setAlignment(QtCore.Qt.AlignCenter)
@@ -3088,6 +3091,7 @@ class Ui_MainWindow(object):
         self.gridLayout_15.addWidget(self.label_72, 2, 10, 1, 1)
         self.climbSpinBox = QtWidgets.QSpinBox(self.frame_16)
         self.climbSpinBox.setObjectName("climbSpinBox")
+        self.climbSpinBox.setSingleStep(5)
         self.gridLayout_15.addWidget(self.climbSpinBox, 2, 5, 1, 1)
         self.label_33 = QtWidgets.QLabel(self.frame_16)
         self.label_33.setObjectName("label_33")
@@ -3107,6 +3111,8 @@ class Ui_MainWindow(object):
         self.movementSpinBox = QtWidgets.QSpinBox(self.frame_16)
         self.movementSpinBox.setMinimumSize(QtCore.QSize(102, 29))
         self.movementSpinBox.setObjectName("movementSpinBox")
+        self.movementSpinBox.setSingleStep(5)
+        self.movementSpinBox.setMaximum(300)
         self.gridLayout_15.addWidget(self.movementSpinBox, 2, 1, 1, 1)
         self.gridLayout_12.addWidget(self.frame_16, 1, 0, 1, 2)
         self.frame_14 = QtWidgets.QFrame(self.scrollAreaWidgetContents_2)
@@ -4164,6 +4170,7 @@ class Ui_MainWindow(object):
         self.attrComboBox_2.currentIndexChanged.connect(self.attackAttributeChecker)
         self.attrComboBox_3.currentIndexChanged.connect(self.attackAttributeChecker)
         self.attrComboBox_4.currentIndexChanged.connect(self.attackAttributeChecker)
+        self.spinBox.valueChanged.connect(self.num_attacksSpinBoxChange)
         #######################
 
         self.retranslateUi(MainWindow)
@@ -6085,6 +6092,9 @@ class Ui_MainWindow(object):
         else:
             print('Unchecked')
 
+    def num_attacksSpinBoxChange(self, value):
+        dpr.firstAttack_SpinBoxChange(value)
+
 
 if __name__ == "__main__":
     import sys
@@ -6094,7 +6104,9 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
 
+    dpr = dpr_calculation.dpr_calculation(ui)
+
     comSim = combat.combatSimulation()
-    comSim.combatSim()
+    #comSim.combatSim()
 
     sys.exit(app.exec_())

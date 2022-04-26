@@ -130,6 +130,14 @@ Some examples,
  Passive Perception 9
  Blindsight 120 ft., Darkvision 60 ft., Passive Perception 12
 
+ - Passive Perception
+ Always shows up as follows:
+  Passive Perception [value]
+
+Passive Perception = 8 + Wisdom modifier + proficiency bonus (if the creature is proficient in Perception)
+
+  Wisdom modifier = WIS bns = (Wisdom attribute score - 10) / 2
+
 ***Second Tab*** Languages are the various languages a creature can speak. They are as follows:
 - Abyssal, Celestial, Common, Deep Speech, Draconic, Dwarvish, Elvish, Giant, Gnomish, Goblic, Halfic, Infernal, Orc, Primordial, Sylvan, Undercommon
 They are always displayed in that order of precendence, and a creature can know one or more of these languages.
@@ -202,3 +210,27 @@ When the user clicks Run, the simulations start until all are performed.
   It keeps track of how many times the creature is defeated, and how many times the players are defeated (individually and as a group. Group defeat detection is priority)
 
 Displays in percentage the likelyhood of the creature defeating the players as a group
+
+//SAMPLE RUNTESTBUTTON CODE
+RunTestButton.connect(RunTestButtonClick)
+
+def RunTestButtonClick():
+	players_to_test[player_object]
+
+	//Checks for how many players and their levels
+		//checks for 1st player
+			//1st_player class object creation
+			if (classDropDownBox1.value == Fighter)
+				fighter_to_test = Fighter()
+				fighter_to_test.level_change(lvlSpinBox1.value)
+				players_to_test.add(fighter_to_test)
+
+			elif (classDropDownBox1.value == Rogue)
+				rogue_to_test = Rogue()
+				rogue_to_test.level_change(lvlSpinBox1.value)
+				players_to_test.add(rogue_to_test)
+
+			...
+		//checks for nth player
+			...
+	

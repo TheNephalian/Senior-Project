@@ -1,0 +1,92 @@
+Schweller wants to compare the percentage results from the combat simulations to the creature's CR
+
+Cr is int 0 - 30
+Percentage float 0 - 100
+	0% - creature never won
+	100% - creature always won
+
+A creature wins by defeating all players
+Creature loses when is defeated
+
+Combat difficulty is called Encounter Difficulty (EC)
+
+ENCOUNTER DIFFICULTY
+EC is a variable (integer-based) on the levels of all players in combat to determine the players' overall experience budget, and the CR's of all creature's in combat
+	For our app's purposes, only up to 4 players and only 1 creature
+
+EC is categorized as follows, based on the players' experience budget (exp_budget) given by the encounter to each player (num_players):
+
+	1 - Easy - equal to or less than 300 per player
+	2 - Medium - equal to or less than 600 per player
+	3 - Hard - equal to or less than 900 per player
+	4 - Deadly - equal to or less than 1600 per player
+
+	INDIVIDUAL PLAYER'S EXP BUDGET BY LEVEL
+	https://www.dndbeyond.com/sources/basic-rules/building-combat-encounters
+
+	Each player has (4) four individual XP thresholds (xp_easy, xp_medium, xp_hard, xp_deadly) [use link above until I transfer it here]
+	Using each player's xp_threshold, calculated the party's (4) four XP thresholds (party_xp_easy, ..., party_xp_deadly)
+
+		For example
+		One lvl 1 player, a lvl 2 player, and lvl 3 player have the following exp_budget
+
+				Easy	Medium		Hard		Deadly
+		p1		25		50			75			100
+		p2		50		100			150			200
+		p3		75		150			225			400
+
+		party	150		300			450			700
+
+	CREATURE'S CR AND ITS GIVEN EXPERIENCE
+	Because we only use one creature, we only need to know how much experience (exp) it gives based on its CR
+
+		Creature CR and exp
+		0 	- 10
+		1/8 - 25
+		1/4 - 50
+		...
+		...
+		20	- 25,000
+
+	EC is then finally determined by comparing the party's (4) four experience thresholds to the creauture's given experience (exp)
+
+		For example, a party with a lvl 1 fighter, a lvl 2 ranger, a lvl 3 rogue have the following experience thresholds
+
+					Easy	Medium		Hard		Deadly
+		fighter		25		50			75			100
+		ranger		50		100			150			200
+		rogue		75		150			225			400
+
+		party		150		300			450			700
+
+		They are fighting a CR 2 creature. A CR 2 creature gives 450 exp
+
+		Therefore, this encounter's EC = 3 (Hard) because exp <= party_xp_hard
+
+RELATING THE NUMBERS
+	Creature's CR		Encounter difficulty (EC)		Percentile Winrate
+	0					1	(Easy)						0
+
+	...					...								...
+
+	30					4	(Deadly)					100
+
+	For example:
+		We produce a creature with CR = 2
+
+		For our combat simulation, we input the following players:
+			1 lvl 1 fighter
+			1 lvl 2 ranger
+			1 lvl 3 rogue
+
+		Our determined EC is 3 (Hard)
+
+		In the actual simulation, we get a:
+			percent_win		Interpretation
+			<=25%			Creature is too weak (Easy), EC is actually 1
+			<=50%			Creature is just right (Medium), EC is actually 2 <- This would represent the "standard" dnd fighter
+																					A group of players evenly matched to a creature
+			<=75%			Creature is a bit strong (Hard), EC is actually 3
+			<=100% 			Creature is very powerful (Deadly), EC is actually 4 <- This would represent a BBEG (big-bad-endgame-boss)
+
+		Therefore, Percentile Winrate (percent_win) = another standard to measure the strength of the creature, based on simulated combat

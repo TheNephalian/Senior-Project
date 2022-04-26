@@ -26,8 +26,6 @@ import combat
 import dpr_calculation
 
 from testModScreen import Ui_testModWindow
-
-
 class Ui_MainWindow(object):
     def open_window(self):
         #open second window
@@ -301,7 +299,7 @@ class Ui_MainWindow(object):
         self.ui.label_48.setText(meleeORrange)
         reach = self.reachSpinBox_1.value()
         self.ui.label_52.setText(str(reach))
-        attdie = str(self.spinBox_10.value())
+        attdie = str(self.numDieSpinBox.value())
         attdie += "d"
         attdie += self.actionDice_1.currentText()
         attboun = 0
@@ -359,7 +357,7 @@ class Ui_MainWindow(object):
         self.ui.label_69.setText(meleeORrange2)
         reach2 = self.reachSpinBox_2.value()
         self.ui.label_62.setText(str(reach2))
-        attdie2 = str(self.spinBox_11.value())
+        attdie2 = str(self.numDieSpinBox_2.value())
         attdie2 += "d"
         attdie2 += str(self.actionDice_2.currentText())
         attboun2 = 0
@@ -417,7 +415,7 @@ class Ui_MainWindow(object):
         self.ui.label_50.setText(meleeORrange3)
         reach3 = self.reachSpinBox_3.value()
         self.ui.label_72.setText(str(reach3))
-        attdie3 = str(self.spinBox_12.value())
+        attdie3 = str(self.numDieSpinBox_3.value())
         attdie3 += "d"
         attdie3 += str(self.actionDice_3.currentText())
         attboun3 = 0
@@ -475,7 +473,7 @@ class Ui_MainWindow(object):
         self.ui.label_88.setText(meleeORrange4)
         reach4 = self.reachSpinBox_4.value()
         self.ui.label_81.setText(str(reach4))
-        attdie4 = str(self.spinBox_13.value())
+        attdie4 = str(self.numDieSpinBox_4.value())
         attdie4 += "d"
         attdie4 += str(self.actionDice_4.currentText())
         attboun4 = 0
@@ -6107,6 +6105,6 @@ if __name__ == "__main__":
     dpr = dpr_calculation.dpr_calculation(ui)
 
     comSim = combat.combatSimulation()
-    #comSim.combatSim()
+    comSim.combatSim()
 
     sys.exit(app.exec_())

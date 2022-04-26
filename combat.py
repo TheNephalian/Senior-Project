@@ -8,7 +8,7 @@ from dummyPlayers import dummyFighter, dummyRanger, dummyRogue, dummyWizard
 class combatSimulation():
 	def __init__(self):
 		#the creature that's in combat
-		#self.creature = dummyZombie.Zombie()
+		#self.creature = dummyZombie.Zombie() <- DON'T USE
 		#self.creature = dummyOrc.Orc()
 		self.creature = dummyBugBear.BugBear()
 

@@ -6,7 +6,6 @@ class dpr_calculation():
 	def __init__(self, ui):
 		self.dpr_calculator(ui)
 
-
 	def dpr_calculator(self, ui):
 		dpr = 0
 

@@ -68,6 +68,7 @@ class Ui_testModWindow(object):
         self.window.show()
         thing = self.roundSpinBox.value()
         self.ui.label_4.setText(str(thing))
+        self.ui.numRounds = int(thing)
         #numRounds = self.roundSpinBox.value()
 
     # def data(self):

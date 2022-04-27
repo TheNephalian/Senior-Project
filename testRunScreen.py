@@ -67,8 +67,9 @@ class Ui_Dialog(object):
         self.gridLayout.addWidget(self.pushButton, 4, 0, 1, 3)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout.addWidget(self.scrollArea)
+        self.numRounds = 1
 
-        for i in  range():
+        for i in  range(self.numRounds):
             self.horizontalSlider.setValue(i)
             # battle the characters
 

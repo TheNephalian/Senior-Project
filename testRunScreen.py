@@ -12,7 +12,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from testModScreen import *
 from StatBlockScreen import Ui_MainWindow
 
-#numRounds
 
 class Ui_Dialog(object):
 
@@ -69,7 +68,7 @@ class Ui_Dialog(object):
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout.addWidget(self.scrollArea)
 
-        for i in  range(10000):
+        for i in  range():
             self.horizontalSlider.setValue(i)
             # battle the characters
 

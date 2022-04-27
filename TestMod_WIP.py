@@ -61,6 +61,18 @@ def runTest(self):
 
 
 class Ui_testModWindow(object):
+    def runTest(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = Ui_Dialog()
+        self.ui.setupUi(self.window)
+        self.window.show()
+        thing = self.roundSpinBox.value()
+        self.ui.label_4.setText(str(thing))
+        #numRounds = self.roundSpinBox.value()
+
+    # def data(self):
+    #     thing = self.roundSpinBox.value()
+    #     self.ui.label_2.setText(thing)
     def setupUi(self, testModWindow):
         testModWindow.setObjectName("testModWindow")
         testModWindow.resize(854, 244)

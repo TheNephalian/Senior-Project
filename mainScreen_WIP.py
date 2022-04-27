@@ -2253,6 +2253,7 @@ class Ui_MainWindow(object):
         font.setKerning(True)
         self.ArmorSpinBox.setFont(font)
         self.ArmorSpinBox.setObjectName("ArmorSpinBox")
+        self.ArmorSpinBox.setValue(10)
         self.gridLayout_2.addWidget(self.ArmorSpinBox, 5, 2, 1, 1)
         self.label_12 = QtWidgets.QLabel(self.frame_2)
         font = QtGui.QFont()
@@ -2316,6 +2317,7 @@ class Ui_MainWindow(object):
         self.diceLabel.setObjectName("diceLabel")
         self.gridLayout_2.addWidget(self.diceLabel, 9, 3, 1, 2)
         self.dprSpinBox = QtWidgets.QSpinBox(self.frame_2)
+        self.dprSpinBox.setMaximum(999)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setKerning(True)
@@ -2402,6 +2404,7 @@ class Ui_MainWindow(object):
         self.savesCheckBox.setObjectName("savesCheckBox")
         self.gridLayout_2.addWidget(self.savesCheckBox, 7, 6, 1, 1)
         self.constitSpinBox = QtWidgets.QSpinBox(self.frame_2)
+        self.constitSpinBox.setValue(self.conSpinBox.value())
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setKerning(True)
@@ -4162,11 +4165,23 @@ class Ui_MainWindow(object):
         self.savesCheckBox.stateChanged.connect(self.savesChecker)
         self.vulCheckBox.stateChanged.connect(self.vulChecker)
         self.fliesCheckBox.stateChanged.connect(self.fliesChecker)
+        self.multiAttackCheckBox.clicked.connect(self.recal_dpr)
         self.attrComboBox_1.currentIndexChanged.connect(self.attackAttributeChecker)
         self.attrComboBox_2.currentIndexChanged.connect(self.attackAttributeChecker)
         self.attrComboBox_3.currentIndexChanged.connect(self.attackAttributeChecker)
         self.attrComboBox_4.currentIndexChanged.connect(self.attackAttributeChecker)
-        self.spinBox.valueChanged.connect(self.num_attacksSpinBoxChange)
+        self.spinBox.valueChanged.connect(self.recal_dpr)
+        self.spinBox_2.valueChanged.connect(self.recal_dpr)
+        self.spinBox_3.valueChanged.connect(self.recal_dpr)
+        self.spinBox_4.valueChanged.connect(self.recal_dpr)
+        self.numDieSpinBox.valueChanged.connect(self.recal_dpr)
+        self.numDieSpinBox_2.valueChanged.connect(self.recal_dpr)
+        self.numDieSpinBox_3.valueChanged.connect(self.recal_dpr)
+        self.numDieSpinBox_4.valueChanged.connect(self.recal_dpr)
+        self.actionDice_1.currentIndexChanged.connect(self.recal_dpr)
+        self.actionDice_2.currentIndexChanged.connect(self.recal_dpr)
+        self.actionDice_3.currentIndexChanged.connect(self.recal_dpr)
+        self.actionDice_4.currentIndexChanged.connect(self.recal_dpr)
         #######################
 
         self.retranslateUi(MainWindow)
@@ -4794,7 +4809,7 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "Armor Class:"))
         self.label_9.setText(_translate("MainWindow", "Attack Bonus/Save DC:"))
         self.label_2.setText(_translate("MainWindow", "Hit Points:"))
-        self.diceLabel.setText(_translate("MainWindow", "d"))
+        self.diceLabel.setText(_translate("MainWindow", "d4"))
         self.label.setText(_translate("MainWindow", "Defensive"))
         self.resComboBox.setItemText(0, _translate("MainWindow", "None"))
         self.resComboBox.setItemText(1, _translate("MainWindow", "Resistances"))
@@ -4802,7 +4817,7 @@ class Ui_MainWindow(object):
         self.label_6.setText(_translate("MainWindow", "Constitution:"))
         self.label_4.setText(_translate("MainWindow", "Size:"))
         self.label_7.setText(_translate("MainWindow", "Damage Per Round:"))
-        self.label_8.setText(_translate("MainWindow", "Offenisive"))
+        self.label_8.setText(_translate("MainWindow", "Offensive"))
         self.savesCheckBox.setText(_translate("MainWindow", "Use Saves?"))
         self.vulCheckBox.setText(_translate("MainWindow", "Vulnerabilities:"))
         self.label_187.setText(_translate("MainWindow", "CR:"))
@@ -5585,6 +5600,8 @@ class Ui_MainWindow(object):
             self.slider.setValue(AvgCR)
 
     def strValChange(self,value):
+        dpr.cal_dpr(self)
+
         str_bns = cal_attr_bns(value)
 
         if (str_bns < 0):
@@ -5626,6 +5643,8 @@ class Ui_MainWindow(object):
         #print("STR bonus is ", str_bns)
 
     def dexValChange(self,value):
+        dpr.cal_dpr(self)
+
         dex_bns = cal_attr_bns(value)
 
         if (dex_bns < 0):
@@ -5671,6 +5690,8 @@ class Ui_MainWindow(object):
         #print("DEX bonus is ", dex_bns)
 
     def conValChange(self,value):
+        dpr.cal_dpr(self)
+
         con_bns = cal_attr_bns(value)
 
         if (con_bns < 0):
@@ -5712,6 +5733,8 @@ class Ui_MainWindow(object):
         #print("CON bonus is ", con_bns)
 
     def intValChange(self,value):
+        dpr.cal_dpr(self)
+
         int_bns = cal_attr_bns(value)
 
         if (int_bns < 0):
@@ -5761,6 +5784,8 @@ class Ui_MainWindow(object):
         #print("INT bonus is ", int_bns)
 
     def wisValChange(self,value):
+        dpr.cal_dpr(self)
+
         wis_bns = cal_attr_bns(value)
 
         if (wis_bns < 0):
@@ -5810,6 +5835,8 @@ class Ui_MainWindow(object):
         #print("WIS bonus is ", wis_bns)
 
     def chaValChange(self,value):
+        dpr.cal_dpr(self)
+
         cha_bns = cal_attr_bns(value)
 
         if (cha_bns < 0):
@@ -5857,6 +5884,8 @@ class Ui_MainWindow(object):
         #print("CHA bonus is ", cha_bns)
 
     def attackAttributeChecker(self):
+        dpr.cal_dpr(self)
+
         if (self.attrComboBox_1.currentIndex() == 0):
             str_bns = cal_attr_bns(self.strSpinBox.value())
             
@@ -6082,17 +6111,19 @@ class Ui_MainWindow(object):
             print('Checked')
         else:
             print('Unchecked')
+    
     def fliesChecker(self,state):
         if state == QtCore.Qt.Checked:
             print('Checked')
         else:
             print('Unchecked')
-
-    def num_attacksSpinBoxChange(self, value):
-        dpr.firstAttack_SpinBoxChange(value)
-
+    
     def __init__(self):
         self.dpr = None
+        self.ui = None
+
+    def recal_dpr(self):
+        dpr.cal_dpr(self)
 
 if __name__ == "__main__":
     import sys
@@ -6104,7 +6135,7 @@ if __name__ == "__main__":
 
     dpr = dpr_calculation.dpr_calculation(ui)
 
-    comSim = combat.combatSimulation()
+    #comSim = combat.combatSimulation()
     #comSim.combatSim()
 
     sys.exit(app.exec_())

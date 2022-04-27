@@ -24,17 +24,11 @@ from defensiveCR import *
 from monster_stats import *
 import combat
 import dpr_calculation
+import monster_stats
 
 from testModScreen import Ui_testModWindow
 class Ui_MainWindow(object):
     def open_window(self):
-        #open second window
-        # strSpinBox == STR    
-        # dexSpinBox == DEX
-        # conSpinBox == CON
-        # intSpinBox == INT
-        # wisSpinBox == WIS
-        # chaSpinBox == CHA
         self.name = QtWidgets.QLineEdit()
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_SecondWindow()
@@ -1138,7 +1132,11 @@ class Ui_MainWindow(object):
         self.window.show() 
         
     def openWindow(self):
-        #creature1 = monster(self.nameLineEdit.text(), self.strSpinBox.value(),self.dexSpinBox.value(),self.conSpinBox.value(),self.intSpinBox.value(),self.wisSpinBox.value(),self.chaSpinBox.value(), self.hitPointsSpinBox.value(), armor_value, size, sizeofDie, self.dprSpinBox.value(), self.attkBonSpinBox.value(), numAttks, numAttks2, numAttks3, numAttks4, attdie, attdie2,attdie3,attdie4)
+        creature = monster_stats.monster(ui)
+
+        print("**From Test Button**")
+        ui.dpr = dpr_calculation.dpr_calculation(ui)
+
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_testModWindow()
         self.ui.setupUi(self.window)
@@ -6093,6 +6091,8 @@ class Ui_MainWindow(object):
     def num_attacksSpinBoxChange(self, value):
         dpr.firstAttack_SpinBoxChange(value)
 
+    def __init__(self):
+        self.dpr = None
 
 if __name__ == "__main__":
     import sys
@@ -6105,6 +6105,6 @@ if __name__ == "__main__":
     dpr = dpr_calculation.dpr_calculation(ui)
 
     comSim = combat.combatSimulation()
-    comSim.combatSim()
+    #comSim.combatSim()
 
     sys.exit(app.exec_())

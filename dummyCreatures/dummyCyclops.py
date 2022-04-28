@@ -20,26 +20,34 @@ class Cyclops (creature):
 		self.dex_bns = 0
 		self.atk_bns = 9
 
-		def attack():
-			totalDamage = multiattack()
+	def roll_init(self):
+		return super().roll_init()
 
-			return totalDamage
+	def takes_dmg(self, dmg):
+		super().takes_dmg(dmg)
 
-		def multiattack():
-			dmg = greatclub() + greatclub()
+	def attack(self, enemy):
+		totalDmg = 0
 
-			return dmg
+		totalDmg = self.multiattack()
 
-		def greatclub():
-			#checks if attack hits
-			self.attack_roll()
+		super().attack(enemy, totalDmg)
 
-			dmgRoll = 0
+	def multiattack(self):
+		dmg = self.greatclub() + self.greatclub()
 
-			#if hits, rolls 3d8 + 6
-			for i in range(3):
-				dmgRoll = dmgRoll + random.randint(1,8)
+		return dmg
 
-			dmgRoll = dmgRoll + 6
+	def greatclub(self):
+		#checks if attack hits
+		self.attack_roll()
 
-			return dmgRoll
+		dmgRoll = 0
+
+		#if hits, rolls 3d8 + 6
+		for i in range(3):
+			dmgRoll = dmgRoll + random.randint(1,8)
+
+		dmgRoll = dmgRoll + 6
+
+		return dmgRoll

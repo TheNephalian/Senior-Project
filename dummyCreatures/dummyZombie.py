@@ -29,4 +29,17 @@ class Zombie (creature):
 		super().takes_dmg(dmg)
 
 	def attack(self, enemy):
-		super().attack(enemy)
+		totalDmg = 0
+
+		totalDmg = self.slam()
+
+		super().attack(enemy, totalDmg)
+
+	def slam(self):
+		dmgRoll = 0
+
+		dmgRoll = dmgRoll + random.randint(1,6)
+
+		dmgRoll = dmgRoll + 1
+
+		return dmgRoll

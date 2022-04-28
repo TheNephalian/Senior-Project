@@ -6141,7 +6141,7 @@ if __name__ == "__main__":
 
     dpr = dpr_calculation.dpr_calculation(ui)
 
-    #comSim = combat.combatSimulation()
-    #comSim.combatSim()
+    comSim = combat.combatSimulation()
+    comSim.combatSim()
 
     sys.exit(app.exec_())

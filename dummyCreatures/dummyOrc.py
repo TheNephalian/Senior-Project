@@ -27,7 +27,7 @@ class Orc (creature):
 		super().takes_dmg(dmg)
 
 	def attack(self, enemy):
-		totalDmg = 0;
+		totalDmg = 0
 
 		totalDmg = self.greataxe()
 

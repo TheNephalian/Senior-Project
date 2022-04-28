@@ -1,16 +1,19 @@
 import random
 from tkinter import E
 from dummyCreature import creature
-from dummyCreatures import dummyBugBear, dummyOrc, dummyZombie
+from dummyCreatures import dummyCyclops, dummyMinotaur, dummyBugBear, dummyOrc, dummyZombie, dummyGiantRat
 from player import *
 from dummyPlayers import dummyFighter, dummyRanger, dummyRogue, dummyWizard
 
 class combatSimulation():
 	def __init__(self):
 		#the creature that's in combat
-		#self.creature = dummyZombie.Zombie() <- DON'T USE
+		self.creature = dummyGiantRat.GiantRat()
+		#self.creature = dummyZombie.Zombie()
 		#self.creature = dummyOrc.Orc()
-		self.creature = dummyBugBear.BugBear()
+		#self.creature = dummyBugBear.BugBear()
+		#self.creature = dummyMinotaur.Minotaur()
+		#self.creature = dummyCyclops.Cyclops()
 
 		self.players = [] #array that holds the players (up to 4) that are in combat
 		

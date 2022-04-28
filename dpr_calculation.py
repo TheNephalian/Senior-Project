@@ -113,7 +113,12 @@ class dpr_calculation():
 		self.clearData()
 		self.fillData(ui)
 
+		print("Calculating total multiattack dpr...")
+
 		for i in range(0, 4):
+			if (self.num_multi_atk[i] == 0):
+				continue
+
 			print("Performing:", self.num_multi_atk[i], "* (", self.num_dmg_dice[i], "*", self.avg_dmg_dice[i], "+", self.atk_dmgBns[i], ")")
 
 			dmg = math.floor(self.num_multi_atk[i] * (self.num_dmg_dice[i] * self.avg_dmg_dice[i] + self.atk_dmgBns[i]))
@@ -125,10 +130,26 @@ class dpr_calculation():
 
 		#self.print_stats()
 
-		for i in range(0, 4):
+		for i in range(0, len(self.atk_dmg)):
 			self.total_dpr += self.atk_dmg[i]
+		
+		special_atk_dmg = self.cal_special_atk_dmg(ui)
+
+		print("Custom attack damage:", special_atk_dmg)
+		print("Total Multiattack damage:", self.total_dpr)
+
+		if (special_atk_dmg > self.total_dpr):
+			print("Custom attack deals more damage.")
+			print()
+			
+			self.total_dpr = special_atk_dmg
+
+		else:
+			print("Multiattacks deal more damage than the custom attack.")
+			print()
 
 		print("Total dpr =", self.total_dpr)
+		print()
 
 		ui.dprSpinBox.setValue(self.total_dpr)
 
@@ -144,12 +165,16 @@ class dpr_calculation():
 
 		#if (len(self.atk_dmg) != 0):
 		#for i in range(0, 4):
-		print("Action 1 Name:", ui.actionName_1.text())
+
+		print("Calculating greatest single action dpr...")
 
 		if (ui.actionName_1.text() != ""):
 			print("Performing:", self.num_dmg_dice[0], "*", self.avg_dmg_dice[0], "+", self.atk_dmgBns[0])
 
 			dmg = math.floor(self.num_dmg_dice[0] * self.avg_dmg_dice[0] + self.atk_dmgBns[0])
+
+			print("Result:", dmg)
+			print()
 
 			if (dmg > self.total_dpr):
 				self.total_dpr = dmg
@@ -159,6 +184,9 @@ class dpr_calculation():
 
 			dmg = math.floor(self.num_dmg_dice[1] * self.avg_dmg_dice[1] + self.atk_dmgBns[1])
 
+			print("Result:", dmg)
+			print()
+
 			if (dmg > self.total_dpr):
 				self.total_dpr = dmg
 
@@ -166,6 +194,9 @@ class dpr_calculation():
 			print("Performing:", self.num_dmg_dice[2], "*", self.avg_dmg_dice[2], "+", self.atk_dmgBns[2])
 
 			dmg = math.floor(self.num_dmg_dice[2] * self.avg_dmg_dice[2] + self.atk_dmgBns[2])
+
+			print("Result:", dmg)
+			print()
 
 			if (dmg > self.total_dpr):
 				self.total_dpr = dmg
@@ -175,14 +206,79 @@ class dpr_calculation():
 
 			dmg = math.floor(self.num_dmg_dice[3] * self.avg_dmg_dice[3] + self.atk_dmgBns[3])
 
+			print("Result:", dmg)
+			print()
+
 			if (dmg > self.total_dpr):
 				self.total_dpr = dmg
 
+		special_atk_dmg = self.cal_special_atk_dmg(ui)
+
+		print("Custom attack damage:", special_atk_dmg)
+		print("Single action damage:", self.total_dpr)
+
+		if (special_atk_dmg > self.total_dpr):
+			print("Custom attack deals more damage.")
+			print()
+
+			self.total_dpr = special_atk_dmg
+
+		else:
+			print("At least one normal action deals more damage than the custom attack.")
+			print()
+
 		print("Total dpr =", self.total_dpr)
+		print()
 
 		ui.dprSpinBox.setValue(self.total_dpr)
 
 		#self.print_stats()
+
+	def cal_special_atk_dmg(self, ui):
+		numDie = ui.customNumOfDiespinBox.value()
+		dieType = ui.typeOfDieComboBox.currentIndex()
+		dieAve = 2.5
+		isAOE = ui.aoeButton.isChecked()
+
+		does_dmg = ui.doesDamageCheckBox.isChecked()
+
+		if (dieType == 0):
+			dieAve = 2.5
+			
+		elif (dieType == 1):
+			dieAve = 3.5
+
+		elif (dieType == 2):
+			dieAve = 4.5
+
+		elif (dieType  == 3):
+			dieAve = 5.5
+
+		elif (dieType == 4):
+			dieAve = 6.5
+
+		print("Calculating custom attack dpr...")
+
+		if (isAOE == True):
+
+			dmg = math.floor(numDie * dieAve * 2)
+
+			print("Performing:", numDie, "*", dieAve, "* 2")
+			print("Result:", dmg)
+			print()
+
+		else:
+			dmg = math.floor(numDie * dieAve)
+
+			print("Performing:", numDie, "*", dieAve)
+			print("Result:", dmg)
+			print()
+
+		if (does_dmg == True):
+			return dmg
+
+		else:
+			return 0
 
 	def print_stats(self):
 		print("Printing creature dpr-concerned stats")

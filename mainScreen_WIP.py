@@ -2229,6 +2229,7 @@ class Ui_MainWindow(object):
         self.sliderValTxt.setText("")
         self.sliderValTxt.setMaxLength(32767)
         self.sliderValTxt.setObjectName("sliderValTxt")
+        self.sliderValTxt.setText("0")
         self.gridLayout_2.addWidget(self.sliderValTxt, 12, 0, 1, 1)
         self.exCRLineEdit = QtWidgets.QLineEdit(self.frame_2)
         self.exCRLineEdit.setMinimumSize(QtCore.QSize(0, 0))
@@ -2365,6 +2366,7 @@ class Ui_MainWindow(object):
         self.slider.setOrientation(QtCore.Qt.Horizontal)
         self.slider.setTickPosition(QtWidgets.QSlider.TicksAbove)
         self.slider.setObjectName("slider")
+        self.slider.setMaximum(30)
         self.gridLayout_2.addWidget(self.slider, 12, 1, 1, 4)
         self.label_6 = QtWidgets.QLabel(self.frame_2)
         font = QtGui.QFont()
@@ -4182,6 +4184,10 @@ class Ui_MainWindow(object):
         self.actionDice_2.currentIndexChanged.connect(self.recal_dpr)
         self.actionDice_3.currentIndexChanged.connect(self.recal_dpr)
         self.actionDice_4.currentIndexChanged.connect(self.recal_dpr)
+        self.doesDamageCheckBox.clicked.connect(self.recal_dpr)
+        self.customNumOfDiespinBox.valueChanged.connect(self.recal_dpr)
+        self.typeOfDieComboBox.currentIndexChanged.connect(self.recal_dpr)
+        self.aoeButton.clicked.connect(self.recal_dpr)
         #######################
 
         self.retranslateUi(MainWindow)

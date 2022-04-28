@@ -18,6 +18,7 @@ from multiprocessing.sharedctypes import Value
 from re import S
 from secondwindow_copy import Ui_SecondWindow
 
+from TestMod_WIP import *
 from offensiveCR import *
 from defenseInputs import *
 from defensiveCR import *
@@ -26,8 +27,9 @@ import combat
 import dpr_calculation
 import monster_stats
 
-from testModScreen import Ui_testModWindow
-class Ui_MainWindow(object):
+
+
+class Ui_MainWindow():
     def open_window(self):
         self.name = QtWidgets.QLineEdit()
         self.window = QtWidgets.QMainWindow()
@@ -1140,6 +1142,7 @@ class Ui_MainWindow(object):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_testModWindow()
         self.ui.setupUi(self.window)
+        self.ui.creatureComboBox.addItem(self.nameLineEdit.text())
         self.window.show()
 
     def setupUi(self, MainWindow):

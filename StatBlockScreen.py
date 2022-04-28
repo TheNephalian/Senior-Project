@@ -30,6 +30,10 @@ num = numRoundsWon
 den = numRoundsLost
 (n,d) = reduce(num, den)
 class Ui_MainWindow(object):
+    def exitWin(self):
+        print("hello")
+        # self.window.close()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(854, 549)
@@ -77,7 +81,7 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
         self.verticalLayout.addWidget(self.frame)
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.exitWin())
         self.pushButton.setObjectName("pushButton")
         self.verticalLayout.addWidget(self.pushButton)
         MainWindow.setCentralWidget(self.centralwidget)

@@ -9,7 +9,6 @@
 
 from re import S
 from PyQt5 import QtCore, QtGui, QtWidgets
-from dummyPlayers.dummyFighter import Fighter
 from player import *
 from testRunScreen import *
 from monster_stats import *
@@ -44,31 +43,44 @@ wizardCurve, = plt.plot(x,wizardY)
 wizardXData = wizardCurve.get_xdata()
 wizardYData = wizardCurve.get_ydata()
 
-fighterObject = Fighter()
+# playerObj = new player()
+
+
 ####################
-def runTest(self):
-    self.window = QtWidgets.QDialog()
-    self.ui = Ui_Dialog()
-    self.ui.setupUi(self.window)
-    self.window.show()
-    thing = self.roundSpinBox.value()
-    self.ui.label_4.setText(str(thing))
-        #numRounds = self.roundSpinBox.value()
+# def runTest(self):
+#     self.window = QtWidgets.QDialog()
+#     self.ui = Ui_Dialog()
+#     self.ui.setupUi(self.window)
+#     self.window.show()
+#     thing = self.roundSpinBox.value()
+#     self.ui.label_4.setText(str(thing))
+#         #numRounds = self.roundSpinBox.value()
 
-    # def data(self):
-    #     thing = self.roundSpinBox.value()
-    #     self.ui.label_2.setText(thing)
+#     # def data(self):
+#     #     thing = self.roundSpinBox.value()
+#     #     self.ui.label_2.setText(thing)
 
 
-class Ui_testModWindow(object):
+class Ui_testModWindow():
+
     def runTest(self):
         self.window = QtWidgets.QDialog()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self.window)
         self.window.show()
-        thing = self.roundSpinBox.value()
-        self.ui.label_4.setText(str(thing))
-        self.ui.numRounds = int(thing)
+        numOfRounds = self.roundSpinBox.value()
+        self.ui.horizontalSlider.setMaximum(numOfRounds)
+        self.ui.label_4.setText(str(numOfRounds))
+        self.ui.numRounds = numOfRounds
+       
+        # for i in  range(numOfRounds):
+        #     self.ui.horizontalSlider.setValue(i)
+        #     self.ui.label_2.setText(str(numOfRounds))
+        #     # battle the characters
+
+        #     print(i)
+            
+        # print("test completed!")
         #numRounds = self.roundSpinBox.value()
 
     # def data(self):
@@ -152,6 +164,7 @@ class Ui_testModWindow(object):
         self.gridLayout.addWidget(self.spinBox, 1, 2, 1, 1)
         self.roundSpinBox = QtWidgets.QSpinBox(self.scrollAreaWidgetContents)
         self.roundSpinBox.setMinimum(1)
+        self.roundSpinBox.setMaximum(1000)
         self.roundSpinBox.setObjectName("roundSpinBox")
         self.gridLayout.addWidget(self.roundSpinBox, 1, 3, 1, 1)
         self.runTestButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents, clicked = lambda: self.runTest())
@@ -270,11 +283,11 @@ class Ui_testModWindow(object):
             print("Enemy level: ", str(fighterXData[int(self.spinBox.value())-1]))
             print("Enemy Damage/Round: ", str(np.rint(fighterYData[self.spinBox.value()-1])))
 
-            fighterObject.lvl = fighterXData[int(self.spinBox.value())-1]
-            fighterObject.dmg_per_rnd = np.rint(fighterYData[self.spinBox.value()-1])
+            # fighterObject.lvl = fighterXData[int(self.spinBox.value())-1]
+            # fighterObject.dmg_per_rnd = np.rint(fighterYData[self.spinBox.value()-1])
 
-            print("Fighter lvl: ",fighterObject.lvl)
-            print("Fighter DPR: ",fighterObject.dmg_per_rnd)
+            # print("Fighter lvl: ",fighterObject.lvl)
+            # print("Fighter DPR: ",fighterObject.dmg_per_rnd)
 
         elif(self.enemyComboBox.currentText() == "Ranger"):
             print("Enemy: ", self.enemyComboBox.currentText())

@@ -9,11 +9,10 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from testModScreen import *
+from TestMod_WIP import *
 from StatBlockScreen import Ui_MainWindow
 
-
-class Ui_Dialog(object):
+class Ui_Dialog():
 
     def showDetails(self):
         self.window = QtWidgets.QMainWindow()
@@ -22,6 +21,8 @@ class Ui_Dialog(object):
         self.window.show()
 
     def setupUi(self, Dialog):
+        self.numRounds = 12
+        
         Dialog.setObjectName("Dialog")
         Dialog.resize(400, 300)
         self.verticalLayout = QtWidgets.QVBoxLayout(Dialog)
@@ -53,7 +54,7 @@ class Ui_Dialog(object):
         self.label_4.setObjectName("label_4")
         self.gridLayout.addWidget(self.label_4, 2, 2, 1, 1)
         self.horizontalSlider = QtWidgets.QSlider(self.scrollAreaWidgetContents)
-        self.horizontalSlider.setMaximum(1000)
+        self.horizontalSlider.setMaximum(self.numRounds)
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider.setTickPosition(QtWidgets.QSlider.TicksAbove)
         self.horizontalSlider.setObjectName("horizontalSlider")
@@ -67,15 +68,9 @@ class Ui_Dialog(object):
         self.gridLayout.addWidget(self.pushButton, 4, 0, 1, 3)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout.addWidget(self.scrollArea)
-        self.numRounds = 1
+        
 
-        for i in  range(self.numRounds):
-            self.horizontalSlider.setValue(i)
-            # battle the characters
-
-            print(i)
-            
-        print("test completed!")
+        
         self.pushButton.setEnabled(True)
         self.testCompleteLabel.show()
 
@@ -100,4 +95,13 @@ if __name__ == "__main__":
     ui = Ui_Dialog()
     ui.setupUi(Dialog)
     Dialog.show()
+
+    # for i in  range(ui.numRounds):
+    #     ui.horizontalSlider.setValue(i)
+    #     # battle the characters
+
+    #     print(i)
+            
+    # print("test completed!")
+
     sys.exit(app.exec_())

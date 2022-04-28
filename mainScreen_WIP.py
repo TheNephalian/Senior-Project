@@ -18,6 +18,7 @@ from multiprocessing.sharedctypes import Value
 from re import S
 from secondwindow_copy import Ui_SecondWindow
 
+from TestMod_WIP import *
 from offensiveCR import *
 from defenseInputs import *
 from defensiveCR import *
@@ -26,8 +27,9 @@ import combat
 import dpr_calculation
 import monster_stats
 
-from testModScreen import Ui_testModWindow
-class Ui_MainWindow(object):
+
+
+class Ui_MainWindow():
     def open_window(self):
         self.name = QtWidgets.QLineEdit()
         self.window = QtWidgets.QMainWindow()
@@ -1140,14 +1142,23 @@ class Ui_MainWindow(object):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_testModWindow()
         self.ui.setupUi(self.window)
+        self.ui.creatureComboBox.addItem(self.nameLineEdit.text())
         self.window.show()
+
+    def resetStuff(self):
+        print("hello")
+        self.nameLineEdit.setText(" ")
+        self.strSpinBox.setValue(10)
+        self.dexSpinBox.setValue(10)
+        self.conSpinBox.setValue(10)
+        self.intSpinBox.setValue(10)
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1280, 720)
         MainWindow.setMinimumSize(QtCore.QSize(1280, 720))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../Assets/Images/icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("/Assets/Images/icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("\n"
 "##background-color: rgba(254, 206, 168, 30);")
@@ -2960,7 +2971,7 @@ class Ui_MainWindow(object):
         self.frame_9.setObjectName("frame_9")
         self.formLayout = QtWidgets.QFormLayout(self.frame_9)
         self.formLayout.setObjectName("formLayout")
-        self.resetButton = QtWidgets.QPushButton(self.frame_9)
+        self.resetButton = QtWidgets.QPushButton(self.frame_9, clicked = lambda: self.resetStuff())
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setKerning(True)

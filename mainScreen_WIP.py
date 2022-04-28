@@ -1137,10 +1137,9 @@ class Ui_MainWindow():
         creature = monster_stats.monster(ui)
 
         print("**From Test Button**")
-        ui.dpr = dpr_calculation.dpr_calculation(ui)
 
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_testModWindow()
+        self.ui = Ui_testModWindow(creature)
         self.ui.setupUi(self.window)
         self.ui.creatureComboBox.addItem(self.nameLineEdit.text())
         self.window.show()
@@ -6152,7 +6151,7 @@ if __name__ == "__main__":
 
     dpr = dpr_calculation.dpr_calculation(ui)
 
-    comSim = combat.combatSimulation()
-    comSim.combatSim()
+    #comSim = combat.combatSimulation()
+    #comSim.combatSim()
 
     sys.exit(app.exec_())

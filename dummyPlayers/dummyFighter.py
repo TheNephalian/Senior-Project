@@ -30,6 +30,9 @@ class Fighter (Player):
 	def lvl_change(self, lvls):
 		return super().lvl_change(lvls)
 
+	def dpr_change(self, dmg_per_rnd):
+		return super().dpr_change(dmg_per_rnd)
+
 	def roll_init(self):
 		return super().roll_init()
 

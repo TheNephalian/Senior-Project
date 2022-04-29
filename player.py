@@ -72,6 +72,8 @@ class Player():
     def lvl_change(self, lvls):
         self.lvl = lvls
         
+    def dpr_change(self,dmg_per_rnd):
+        self.dmg_per_rnd = dmg_per_rnd
         
     def has_attacked(self):
         thisattack = self.hasattacked

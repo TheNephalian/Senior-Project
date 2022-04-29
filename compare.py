@@ -46,7 +46,7 @@ class compareCRandEC():
         list_players_exp = self.playerEXP()
         creature_exp = self.creatureEXP()
         Easy = 0
-        Meduim = 0
+        Medium = 0
         Hard  = 0 
         Deadly = 0
         
@@ -56,7 +56,7 @@ class compareCRandEC():
                 if (j == 0):
                     Easy += exp_num
                 elif (j == 1):
-                    Meduim += exp_num
+                    Medium += exp_num
                 elif (j == 2):
                     Hard += exp_num
                 else:
@@ -64,18 +64,46 @@ class compareCRandEC():
         
         if (Easy >= creature_exp):
             print("easy exp", Easy)
-            return Easy
-        elif (Meduim >= creature_exp):
-            print("meduim exp", Meduim)
-            return Meduim
+            ec_var = "Easy"
+            return ec_var
+        elif (Medium >= creature_exp):
+            print("medium exp", Medium)
+            ec_var = "Medium"
+            return ec_var
         elif (Hard >= creature_exp):
             print("hard exp", Hard)
-            return Hard
+            ec_var = "Hard"
+            return ec_var
         elif (Deadly >= creature_exp):
             print("deadly exp", Deadly)
-            return Deadly
+            ec_var = "Deadly"
+            return ec_var
           
                 
         
+    def percentWinRate(self, numRounds, roundsWon):
+        winPercentage = roundsWon / numRounds
+        return winPercentage
+    
+    def compare_Winpercent_and_CE(self):
+        percent = self.percentWinRate(4,3)
+        percent_var = ""
+        if(percent <= .25):
+            percent_var = "Easy"
+            print("easy ", percent)
+        elif(percent <= .50):
+            percent_var = "Medium"
+            print("medium ", percent)
+        elif(percent <= .75):
+            percent_var = "Hard"
+            print("hard ", percent)
+        elif(percent <= 1.00):
+            percent_var = "Deadly"
+            print("deadly ", percent)
         
+        ec = self.enconter_diff()
         
+        if(ec == percent_var):
+            print("Percentile win rate is equal to the correct creature encounter difficulty")
+        else:
+            print("Percentile win rate is not equal to the correct creature encounter difficulty")

@@ -66,8 +66,6 @@ class Ui_testModWindow():
     def __init__(self, creature):
         self.test_creature = creature
 
-        print("Test creature name:", self.test_creature.name)
-
         #self.test_creature.print_stats()
 
     def runTest(self):

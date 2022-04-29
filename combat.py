@@ -230,56 +230,61 @@ class combatSimulation():
 			for i in range (0, len(self.initiativeOrder)):
 				self.initiativeOrder[i].has_not_attacked()
 
-			print("about to start new round")
+			#print("about to start new round")
 			beforecombatLength = len(self.initiativeOrder)
 			for l in range (0, len(self.initiativeOrder)):
 				if (l >= len(self.initiativeOrder)):
-					print("in initiativeOrder arry: ", l)
+					#print("in initiativeOrder arry: ", l)
      
 					l = l - 1
      
 				if(self.initiativeOrder[l-1].has_attacked() == False and l == len(self.initiativeOrder)-1):
-					print("cant skip any")
+					#print("cant skip any")
 					l = l - 1
 				elif(self.initiativeOrder[l-1].has_attacked() == False and beforecombatLength != len(self.initiativeOrder)):
-					print("can't skip any condition 2")
+					#print("can't skip any condition 2")
 					l = l - 1
 
 				if (self.repeat_combat == False):
-					print("can't repeat combat")
+					#print("can't repeat combat")
 					break
 
 				if(self.initiativeOrder[l].has_attacked() == False):
-					print("\n****this means they have not attacked and before combat")
+					...
+					#print("\n****this means they have not attacked and before combat")
 				elif(self.initiativeOrder[l].has_attacked() == True):
-					print("\n****this means player/creature has attacked and before combat")
+					#print("\n****this means player/creature has attacked and before combat")
 					break
 
 				
 				self.initiativeOrder[l].attack(self)
 		
-
+				
 				if(self.initiativeOrder[l].has_attacked() == True):
-					print("this means player/creature has attacked and after combat****")
+					#print("this means player/creature has attacked and after combat****")
+					...
 				elif(self.initiativeOrder[l].has_attacked() == False):
-					print("this means they have not attacked and after combat****")
+					#print("this means they have not attacked and after combat****")
+					...
     
 				if (self.remove_from_combat() == True):
 					if (l == len(self.initiativeOrder)-1):
-						print("removed from combat and l == len")
+						#print("removed from combat and l == len")
 						break
 				
   
 				if (self.repeat_combat == False):
-					print("\nbreak here cause combat is over\n")
+					#print("\nbreak here cause combat is over\n")
 					break
 
 			if (self.repeat_combat == False):
-				print("in array: ", len(self.initiativeOrder))
+				#print("in array: ", len(self.initiativeOrder))
 				print("End of combat simulation.")
-				print("******")
+				print()
 
 		if(self.creature.is_defeated == True):
-			print("creature is defeated")
+			#print(self.creature.name, "was defeated!")
+			...
 		else:
-			print("creature won")
+			#print(self.creature.name, "defeated all players!")
+			...

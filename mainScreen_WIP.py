@@ -1136,8 +1136,6 @@ class Ui_MainWindow():
     def openWindow(self):
         creature = monster_stats.monster(ui)
 
-        print("**From Test Button**")
-
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_testModWindow(creature)
         self.ui.setupUi(self.window)

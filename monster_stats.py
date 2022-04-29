@@ -42,13 +42,17 @@ class monster(creature):
         self.single_action_attacks = []
         self.multiattack_attacks = []
 
-        self.test_dmg = 15  #This is used for testing (and for the meantime), hardcoding the creature's atk damage.
-        #Feel free to change this value as you see fit
+        self.test_dmg = random.randint(1, 10) + random.randint(1, 10) + 5  #This is used for testing (and for the meantime), hardcoding the creature's atk damage.
+        #Feel free to change this value as you see fit to hard values or rolls
+        #Currently, test_damage is
+            #2d10 + 5 = 16, on average (5.5 + 5.5 + 5)
 
         self.atk_dmg = []
 
-        self.test_atk_roll = 10 + random.randint(0, 10) #This is used for testing (and for the meantime), hardcoding the creature's atk roll.
-        #Feel free to change this value as you see fit
+        self.test_atk_roll = random.randint(0, 20) + 5 #This is used for testing (and for the meantime), hardcoding the creature's atk roll.
+        #Feel free to change this value as you see fit to hard values or rolls
+        #Currently, test_atk_roll is
+            #1d20 + 5 = 15, on average (10.5 + 5)
         
         class custom_attack():
             def __init__(self, window):

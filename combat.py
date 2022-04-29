@@ -6,9 +6,11 @@ from player import *
 from dummyPlayers import dummyFighter, dummyRanger, dummyRogue, dummyWizard
 
 class combatSimulation():
-	def __init__(self):
+	def __init__(self, creature):
 		#the creature that's in combat
-		self.creature = dummyGiantRat.GiantRat()
+		self.creature = creature
+
+		#self.creature = dummyGiantRat.GiantRat()
 		#self.creature = dummyZombie.Zombie()
 		#self.creature = dummyOrc.Orc()
 		#self.creature = dummyBugBear.BugBear()

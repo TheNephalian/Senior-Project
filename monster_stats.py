@@ -1,4 +1,5 @@
 import math
+import random
 
 from dummyCreature import *
 class monster(creature):
@@ -6,8 +7,13 @@ class monster(creature):
         self.ui = window
 
         self.name = self.ui.nameLineEdit.text()
-        self.armor_cls = self.ui.ArmorSpinBox.value()
-        self.hit_pts = self.ui.hitPointsSpinBox.value()
+
+        self.armor_cls = 15 #This is used for testing, hardcoding the creature's AC
+        #self.armor_cls = self.ui.ArmorSpinBox.value()  #This is used to grab the creature's real AC from the UI
+
+        self.hit_pts = 50   #This is used for testing, hard coding the creature's hit points
+        #self.hit_pts = self.ui.hitPointsSpinBox.value()    #This is used to grab creature's real hit points from the UI
+
         self.curr_hp = self.hit_pts
         self.challnge_rtg = int(self.ui.sliderValTxt.text())
         self.prof_bns = None
@@ -36,7 +42,13 @@ class monster(creature):
         self.single_action_attacks = []
         self.multiattack_attacks = []
 
+        self.test_dmg = 15  #This is used for testing (and for the meantime), hardcoding the creature's atk damage.
+        #Feel free to change this value as you see fit
+
         self.atk_dmg = []
+
+        self.test_atk_roll = 10 + random.randint(0, 10) #This is used for testing (and for the meantime), hardcoding the creature's atk roll.
+        #Feel free to change this value as you see fit
         
         class custom_attack():
             def __init__(self, window):
@@ -216,12 +228,11 @@ class monster(creature):
     
     '''This function is hardcoded for initial custom creature combat simulations'''
     def attack(self, enemy):
-        totalDmg = 20
+        totalDmg = self.test_dmg    #This sets the damage the creature deals to the test damage value
     
-        self.attack(self, enemy, totalDmg)
+        self.deal_damage(enemy, totalDmg)
 
-    '''This function is hardcoded for initial custom creature combat simulations'''
-    def attack(self, enemy, dmg):
+    def deal_damage(self, enemy, dmg):
         targetIndex = random.randint(0, len(enemy.players) - 1)
         
         target = enemy.players[targetIndex]
@@ -245,6 +256,6 @@ class monster(creature):
 
     '''This function is hardcoded for initial custom creature combat simulations'''
     def attack_roll(self):
-        atk_roll = 20
+        atk_roll = self.test_atk_roll   #this sets the creature's attack roll to the test attack roll value
 
         return atk_roll

@@ -6,6 +6,29 @@ from player import *
 from dummyPlayers import dummyFighter, dummyRanger, dummyRogue, dummyWizard
 
 class combatSimulation():
+	def __init__(self, creature, player_array):
+		#the creature that's in combat
+		self.creature = creature
+
+		#self.creature = dummyGiantRat.GiantRat()
+		#self.creature = dummyZombie.Zombie()
+		#self.creature = dummyOrc.Orc()
+		#self.creature = dummyBugBear.BugBear()
+		#self.creature = dummyMinotaur.Minotaur()
+		#self.creature = dummyCyclops.Cyclops()
+
+		self.players = [] #array that holds the players (up to 4) that are in combat
+		
+		self.initiativeOrder = [] #keeps track of initiative (turn order)
+
+		self.round = 0 #int that keeps track of the number of rounds that have passed in combat
+
+		self.repeat_combat = True #boolean that will dicate whether combat continues or not.
+
+		for i in range(0, len(player_array)):
+			self.players.append(player_array[i])
+
+	'''
 	def __init__(self, creature):
 		#the creature that's in combat
 		self.creature = creature
@@ -25,10 +48,9 @@ class combatSimulation():
 
 		self.repeat_combat = True #boolean that will dicate whether combat continues or not.
 		
-		'''
-		This section will grab the chosen players from the user's input
-		For now, we'll hard code some players
-		'''
+		#This section will grab the chosen players from the user's input
+		#For now, we'll hard code some players
+
 		p1 = dummyFighter.Fighter()
 		p1.lvl_change(1)
 
@@ -45,11 +67,10 @@ class combatSimulation():
 		self.players.append(p2)
 		self.players.append(p3)
 		self.players.append(p4)
-
-		'''
-		This section will grab the chosen monster or load a custom moster
-		For now, we'll hard code a monster
-		'''
+		
+		#This section will grab the chosen monster or load a custom moster
+		#For now, we'll hard code a monster
+	'''
 
 	'''
 	Helper function for initiative order.

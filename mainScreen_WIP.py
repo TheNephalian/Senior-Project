@@ -26,6 +26,7 @@ from monster_stats import *
 import combat
 import dpr_calculation
 import monster_stats
+import compare
 
 
 
@@ -2263,6 +2264,7 @@ class Ui_MainWindow():
         self.ArmorSpinBox.setFont(font)
         self.ArmorSpinBox.setObjectName("ArmorSpinBox")
         self.ArmorSpinBox.setValue(10)
+        self.ArmorSpinBox.setMaximum(19)
         self.gridLayout_2.addWidget(self.ArmorSpinBox, 5, 2, 1, 1)
         self.label_12 = QtWidgets.QLabel(self.frame_2)
         font = QtGui.QFont()
@@ -2299,7 +2301,7 @@ class Ui_MainWindow():
         font.setKerning(True)
         self.hitPointsSpinBox.setFont(font)
         self.hitPointsSpinBox.setObjectName("hitPointsSpinBox")
-        self.hitPointsSpinBox.setMaximum(999)
+        self.hitPointsSpinBox.setMaximum(850)
         self.gridLayout_2.addWidget(self.hitPointsSpinBox, 4, 2, 1, 1)
         self.label_9 = QtWidgets.QLabel(self.frame_2)
         font = QtGui.QFont()
@@ -2420,6 +2422,7 @@ class Ui_MainWindow():
         font.setKerning(True)
         self.constitSpinBox.setFont(font)
         self.constitSpinBox.setObjectName("constitSpinBox")
+        self.constitSpinBox.setMaximum(30)
         self.gridLayout_2.addWidget(self.constitSpinBox, 10, 2, 1, 1)
         self.attkBonSpinBox = QtWidgets.QSpinBox(self.frame_2)
         font = QtGui.QFont()
@@ -6152,5 +6155,7 @@ if __name__ == "__main__":
 
     #comSim = combat.combatSimulation()
     #comSim.combatSim()
+    compSim = compare.compareCRandEC()
+    compSim.enconter_diff()
 
     sys.exit(app.exec_())

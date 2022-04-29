@@ -5971,16 +5971,16 @@ class Ui_MainWindow():
         atk_bns3 = int(self.plusLabel_3.text())   
         atk_bns4 = int(self.plusLabel_4.text())   
 
-        if (atk_bns1 > best_atk_bns):
+        if(atk_bns1 > best_atk_bns):
             best_atk_bns = atk_bns1
 
-        if (atk_bns2 > best_atk_bns):
+        if(atk_bns2 > best_atk_bns):
             best_atk_bns = atk_bns2
 
-        if (atk_bns3 > best_atk_bns):
+        if(atk_bns3 > best_atk_bns):
 	        best_atk_bns = atk_bns3
 
-        if (atk_bns4 > best_atk_bns):
+        if(atk_bns4 > best_atk_bns):
             best_atk_bns = atk_bns4
 
         self.attkBonSpinBox.setValue(best_atk_bns)

@@ -183,7 +183,7 @@ def calculate_stuff(HP):
 
 def get_CR_rating(AC, HP_def_CR, in_AC,saveProfVal):
     in_AC = in_AC - saveProfVal
-    if(in_AC == 19):
+    if(in_AC >= 19):
         if(AC == 13):
             if(HP_def_CR == 0):
                 if(saveProfVal == 0):

@@ -20,21 +20,29 @@ class Minotaur (creature):
 		self.dex_bns = 0
 		self.atk_bns = 6
 
-		def attack():
-			totalDmg = gore()
+	def roll_init(self):
+		return super().roll_init()
 
-			return totalDmg
+	def takes_dmg(self, dmg):
+		super().takes_dmg(dmg)
 
-		def gore():
-			#checks if attack hits
-			self.attack_roll()
+	def attack(self, enemy):
+		totalDmg = 0
 
-			dmgRoll = 0
+		totalDmg = self.gore()
 
-			#if hits, rolls 4d8 + 4
-			for i in range(4):
-				dmgRoll = dmgRoll + random.randint(1,8)
+		super().attack(enemy, totalDmg)
 
-			dmgRoll = dmgRoll + 4
+	def gore(self):
+		#checks if attack hits
+		self.attack_roll()
 
-			return dmgRoll
+		dmgRoll = 0
+
+		#if hits, rolls 4d8 + 4
+		for i in range(4):
+			dmgRoll = dmgRoll + random.randint(1,8)
+
+		dmgRoll = dmgRoll + 4
+
+		return dmgRoll

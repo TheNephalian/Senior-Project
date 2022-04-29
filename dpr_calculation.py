@@ -139,13 +139,13 @@ class dpr_calculation():
 		print("Total Multiattack damage:", self.total_dpr)
 
 		if (special_atk_dmg > self.total_dpr):
-			print("Custom attack deals more damage.")
+			print("Custom attack deals more damage. Total dpr changed to custom attack damage")
 			print()
 			
 			self.total_dpr = special_atk_dmg
 
 		else:
-			print("Multiattacks deal more damage than the custom attack.")
+			print("Multiattacks deal more damage than the custom attack. Total dpr changed to multiattack damage")
 			print()
 
 		print("Total dpr =", self.total_dpr)
@@ -218,13 +218,16 @@ class dpr_calculation():
 		print("Single action damage:", self.total_dpr)
 
 		if (special_atk_dmg > self.total_dpr):
-			print("Custom attack deals more damage.")
+			print("Custom attack deals more damage. Total dpr changed to custom attack damage")
 			print()
 
 			self.total_dpr = special_atk_dmg
 
+		elif (special_atk_dmg == self.total_dpr):
+			print("At least one normal action deals the same damage as the custom attack. No change to total dpr")
+
 		else:
-			print("At least one normal action deals more damage than the custom attack.")
+			print("At least one normal action deals more damage than the custom attack. No change to total dpr")
 			print()
 
 		print("Total dpr =", self.total_dpr)

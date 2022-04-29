@@ -14,6 +14,7 @@ from testRunScreen import *
 from monster_stats import *
 import numpy as np
 import matplotlib.pyplot as plt
+import combat
 
 ##GLOBAL VARIABLES##
 x = np.array(range(1, 21))
@@ -62,6 +63,10 @@ wizardYData = wizardCurve.get_ydata()
 
 
 class Ui_testModWindow():
+    def __init__(self, creature):
+        self.test_creature = creature
+
+        #self.test_creature.print_stats()
 
     def runTest(self):
         self.window = QtWidgets.QDialog()
@@ -72,6 +77,10 @@ class Ui_testModWindow():
         self.ui.horizontalSlider.setMaximum(numOfRounds)
         self.ui.label_4.setText(str(numOfRounds))
         self.ui.numRounds = numOfRounds
+
+        
+        comSim = combat.combatSimulation(self.test_creature)
+        comSim.combatSim()
        
         # for i in  range(numOfRounds):
         #     self.ui.horizontalSlider.setValue(i)

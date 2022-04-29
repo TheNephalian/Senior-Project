@@ -1136,11 +1136,8 @@ class Ui_MainWindow():
     def openWindow(self):
         creature = monster_stats.monster(ui)
 
-        print("**From Test Button**")
-        ui.dpr = dpr_calculation.dpr_calculation(ui)
-
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_testModWindow()
+        self.ui = Ui_testModWindow(creature)
         self.ui.setupUi(self.window)
         self.ui.creatureComboBox.addItem(self.nameLineEdit.text())
         self.window.show()
@@ -4228,7 +4225,8 @@ class Ui_MainWindow():
         self.chaBonus.setText(_translate("MainWindow", "(+0)"))
         self.label_35.setText(_translate("MainWindow", "Warning:"))
         self.doesDamageCheckBox.setText(_translate("MainWindow", "Does damage?"))
-        self.nameLineEdit_2.setText(_translate("MainWindow", "Name"))
+        self.nameLineEdit.setText(_translate("MainWindow", "Salsimjo's Creature"))
+        self.nameLineEdit_2.setText(_translate("MainWindow", "Action Name"))
         self.aoeButton.setText(_translate("MainWindow", "AOE?"))
         self.typeOfDieComboBox.setItemText(0, _translate("MainWindow", "4"))
         self.typeOfDieComboBox.setItemText(1, _translate("MainWindow", "6"))

@@ -199,7 +199,14 @@ class monster(creature):
                 print("Could not determine element", i, "of dpr_calculation.atk_attr[3]")
 
     def setProfBns(self):
-        self.prof_bns = math.floor((self.challnge_rtg - 9) / 2)
+        if (self.challnge_rtg > 1):
+            self.prof_bns = math.floor((self.challnge_rtg + 7) / 4)
+
+        elif(self.challnge_rtg <= 1):
+            self.prof_bns = 2
+
+        else:
+            print("Could not determine monster.prof_bns with monster_stats.setProfBns. monster.challnge_rtg =", self.challnge_rtg)
 
     def setAttrBns(self, attr):
         attr_bns = math.floor((attr - 10) / 2)

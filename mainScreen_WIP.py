@@ -4162,6 +4162,7 @@ class Ui_MainWindow():
         self.hitPointsSpinBox.valueChanged.connect(self.hitPointsValueChange)
         self.sizeComboBox.currentIndexChanged.connect(self.diceChange)
         self.slider.valueChanged.connect(self.sliderValChange)
+        self.sliderValTxt.textChanged.connect(self.sliderValTxtChange)
         self.ArmorSpinBox.valueChanged.connect(self.armorValChange)
         self.attkBonSpinBox.valueChanged.connect(self.attkBonValChange)
         self.dprSpinBox.valueChanged.connect(self.dprValChange)
@@ -5364,6 +5365,20 @@ class Ui_MainWindow():
         pros_prof_bns = cal_pros_prof_bns(value)
         print("Prospective proficiency bonus is ", pros_prof_bns)
 
+    def cal_pros_prof_bns(self, value):
+        if (value > 1):
+            prof_bns = math.floor((value + 7) / 4)
+
+        elif (value <= 1):
+            prof_bns = 2
+
+        else:
+            print("Error. Given CR is", value, "Could not determine prof_bns in mainScreen_WIP.cal_prof_prof_bns")
+
+        print("With CR:", value, "prof_bns =", prof_bns)
+
+        return prof_bns
+
     def hitPointsValueChange(self, value):
         print("in here is:", self.nameLineEdit.text())
         #self.hitPointsSpinBox.value() hit points val 
@@ -5400,6 +5415,10 @@ class Ui_MainWindow():
         AvgCR = get_Average_of_Deff_and_Off(deff_CR, off_CR)
         if(AvgCR >= 1):
             self.slider.setValue(AvgCR)
+        else:
+            self.slider.setValue(0)
+        
+        self.setAttkBons()
                 
     def diceChange(self, value):
         # self.sizeComboBox.currentText() is size of CR
@@ -5438,7 +5457,16 @@ class Ui_MainWindow():
             self.diceLabel.setText("d20")
 
     def sliderValChange(self,value):
+        print()
+
         self.sliderValTxt.setText(str(value))
+        #self.setAttkBons()
+
+    def sliderValTxtChange(self):
+        #print("CR value changed!")
+        #self.setAttkBons()
+
+        return
 
     def armorValChange(self,value):
         ###Offensive CR
@@ -5549,7 +5577,12 @@ class Ui_MainWindow():
         if(AvgCR >= 1):
             self.slider.setValue(AvgCR)
 
+        else:
+            self.slider.setValue(0)
+
         print("Offensive CR is ", off_CR)
+
+        self.setAttkBons()
 
     def diceValChange(self,value):
         #self.diceSpinBox.value() val of dice input 
@@ -5617,10 +5650,14 @@ class Ui_MainWindow():
         if(AvgCR >= 1):
             self.slider.setValue(AvgCR)
 
-    def strValChange(self,value):
+    def strValChange(self, value):
         dpr.cal_dpr(self)
 
+        self.setAttkBons()
+
         str_bns = cal_attr_bns(value)
+
+        prof_bns = self.cal_pros_prof_bns(int(self.sliderValTxt.text()))
 
         if (str_bns < 0):
             self.strBonus.setText("(" + str(str_bns) + ")")
@@ -5631,39 +5668,43 @@ class Ui_MainWindow():
             self.athleticsLevelLabel.setText("+" + str(str_bns))
 
         if (self.attrComboBox_1.currentIndex() == 0):
-            if (str_bns < 0):
-                self.plusLabel_1.setText(str(str_bns))
+            if (str_bns + prof_bns < 0):
+                self.plusLabel_1.setText(str(str_bns + prof_bns))
                 
             else:
-                self.plusLabel_1.setText("+" + str(str_bns))
+                self.plusLabel_1.setText("+" + str(str_bns + prof_bns))
         
         if (self.attrComboBox_2.currentIndex() == 0):
-            if (str_bns < 0):
-                self.plusLabel_2.setText(str(str_bns))
+            if (str_bns + prof_bns < 0):
+                self.plusLabel_2.setText(str(str_bns + prof_bns))
                 
             else:
-                self.plusLabel_2.setText("+" + str(str_bns))
+                self.plusLabel_2.setText("+" + str(str_bns + prof_bns))
 
         if (self.attrComboBox_3.currentIndex() == 0):
-            if (str_bns < 0):
-                self.plusLabel_3.setText(str(str_bns))
+            if (str_bns + prof_bns < 0):
+                self.plusLabel_3.setText(str(str_bns + prof_bns))
                 
             else:
-                self.plusLabel_3.setText("+" + str(str_bns))
+                self.plusLabel_3.setText("+" + str(str_bns + prof_bns))
 
         if (self.attrComboBox_4.currentIndex() == 0):
-            if (str_bns < 0):
-                self.plusLabel_4.setText(str(str_bns))
+            if (str_bns + prof_bns < 0):
+                self.plusLabel_4.setText(str(str_bns + prof_bns))
                 
             else:
-                self.plusLabel_4.setText("+" + str(str_bns))
+                self.plusLabel_4.setText("+" + str(str_bns + prof_bns))
 
         #print("STR bonus is ", str_bns)
 
     def dexValChange(self,value):
         dpr.cal_dpr(self)
 
+        self.setAttkBons()
+
         dex_bns = cal_attr_bns(value)
+
+        prof_bns = self.cal_pros_prof_bns(int(self.sliderValTxt.text()))
 
         if (dex_bns < 0):
             self.dexBonus.setText("(" + str(dex_bns) + ")")
@@ -5678,39 +5719,43 @@ class Ui_MainWindow():
             self.stealthLevelLabel.setText("+" + str(dex_bns))
 
         if (self.attrComboBox_1.currentIndex() == 1):
-            if (dex_bns < 0):
-                self.plusLabel_1.setText(str(dex_bns))
+            if (dex_bns + prof_bns < 0):
+                self.plusLabel_1.setText(str(dex_bns + prof_bns))
                 
             else:
-                self.plusLabel_1.setText("+" + str(dex_bns))
+                self.plusLabel_1.setText("+" + str(dex_bns + prof_bns))
         
         if (self.attrComboBox_2.currentIndex() == 1):
-            if (dex_bns < 0):
-                self.plusLabel_2.setText(str(dex_bns))
+            if (dex_bns + prof_bns < 0):
+                self.plusLabel_2.setText(str(dex_bns + prof_bns))
                 
             else:
-                self.plusLabel_2.setText("+" + str(dex_bns))
+                self.plusLabel_2.setText("+" + str(dex_bns + prof_bns))
 
         if (self.attrComboBox_3.currentIndex() == 1):
-            if (dex_bns < 0):
-                self.plusLabel_3.setText(str(dex_bns))
+            if (dex_bns + prof_bns < 0):
+                self.plusLabel_3.setText(str(dex_bns + prof_bns))
                 
             else:
-                self.plusLabel_3.setText("+" + str(dex_bns))
+                self.plusLabel_3.setText("+" + str(dex_bns + prof_bns))
 
         if (self.attrComboBox_4.currentIndex() == 1):
-            if (dex_bns < 0):
-                self.plusLabel_4.setText(str(dex_bns))
+            if (dex_bns + prof_bns < 0):
+                self.plusLabel_4.setText(str(dex_bns + prof_bns))
                 
             else:
-                self.plusLabel_4.setText("+" + str(dex_bns))
+                self.plusLabel_4.setText("+" + str(dex_bns + prof_bns))
 
         #print("DEX bonus is ", dex_bns)
 
     def conValChange(self,value):
         dpr.cal_dpr(self)
 
+        self.setAttkBons()
+
         con_bns = cal_attr_bns(value)
+
+        prof_bns = self.cal_pros_prof_bns(int(self.sliderValTxt.text()))
 
         if (con_bns < 0):
             self.conBonus.setText("(" + str(con_bns) + ")")
@@ -5721,39 +5766,44 @@ class Ui_MainWindow():
         self.constitSpinBox.setValue(value)
 
         if (self.attrComboBox_1.currentIndex() == 2):
-            if (con_bns < 0):
-                self.plusLabel_1.setText(str(con_bns))
+            if (con_bns + prof_bns < 0):
+                self.plusLabel_1.setText(str(con_bns + prof_bns))
                 
             else:
-                self.plusLabel_1.setText("+" + str(con_bns))
+                self.plusLabel_1.setText("+" + str(con_bns + prof_bns))
         
         if (self.attrComboBox_2.currentIndex() == 2):
-            if (con_bns < 0):
-                self.plusLabel_2.setText(str(con_bns))
+            if (con_bns + prof_bns < 0):
+                self.plusLabel_2.setText(str(con_bns + prof_bns))
                 
             else:
-                self.plusLabel_2.setText("+" + str(con_bns))
+                self.plusLabel_2.setText("+" + str(con_bns + prof_bns))
 
         if (self.attrComboBox_3.currentIndex() == 2):
-            if (con_bns < 0):
-                self.plusLabel_3.setText(str(con_bns))
+            if (con_bns + prof_bns < 0):
+                self.plusLabel_3.setText(str(con_bns + prof_bns))
                 
             else:
-                self.plusLabel_3.setText("+" + str(con_bns))
+                self.plusLabel_3.setText("+" + str(con_bns + prof_bns))
 
         if (self.attrComboBox_4.currentIndex() == 2):
-            if (con_bns < 0):
-                self.plusLabel_4.setText(str(con_bns))
+            if (con_bns + prof_bns < 0):
+                self.plusLabel_4.setText(str(con_bns + prof_bns))
                 
             else:
-                self.plusLabel_4.setText("+" + str(con_bns))
+                self.plusLabel_4.setText("+" + str(con_bns + prof_bns))
         
         #print("CON bonus is ", con_bns)
 
     def intValChange(self,value):
         dpr.cal_dpr(self)
 
+        self.setAttkBons()
+
         int_bns = cal_attr_bns(value)
+
+        prof_bns = self.cal_pros_prof_bns(int(self.sliderValTxt.text()))
+
 
         if (int_bns < 0):
             self.intBonus.setText("(" + str(int_bns) + ")")
@@ -5772,39 +5822,43 @@ class Ui_MainWindow():
             self.religionLevelLabel.setText("+" + str(int_bns))
        
         if (self.attrComboBox_1.currentIndex() == 3):
-            if (int_bns < 0):
-                self.plusLabel_1.setText(str(int_bns))
+            if (int_bns + prof_bns < 0):
+                self.plusLabel_1.setText(str(int_bns + prof_bns))
                 
             else:
-                self.plusLabel_1.setText("+" + str(int_bns))
+                self.plusLabel_1.setText("+" + str(int_bns + prof_bns))
         
         if (self.attrComboBox_2.currentIndex() == 3):
-            if (int_bns < 0):
-                self.plusLabel_2.setText(str(int_bns))
+            if (int_bns + prof_bns < 0):
+                self.plusLabel_2.setText(str(int_bns + prof_bns))
                 
             else:
-                self.plusLabel_2.setText("+" + str(int_bns))
+                self.plusLabel_2.setText("+" + str(int_bns + prof_bns))
 
         if (self.attrComboBox_3.currentIndex() == 3):
-            if (int_bns < 0):
-                self.plusLabel_3.setText(str(int_bns))
+            if (int_bns + prof_bns < 0):
+                self.plusLabel_3.setText(str(int_bns + prof_bns))
                 
             else:
-                self.plusLabel_3.setText("+" + str(int_bns))
+                self.plusLabel_3.setText("+" + str(int_bns + prof_bns))
 
         if (self.attrComboBox_4.currentIndex() == 3):
-            if (int_bns < 0):
-                self.plusLabel_4.setText(str(int_bns))
+            if (int_bns + prof_bns < 0):
+                self.plusLabel_4.setText(str(int_bns + prof_bns))
                 
             else:
-                self.plusLabel_4.setText("+" + str(int_bns))
+                self.plusLabel_4.setText("+" + str(int_bns + prof_bns))
 
         #print("INT bonus is ", int_bns)
 
     def wisValChange(self,value):
         dpr.cal_dpr(self)
 
+        self.setAttkBons()
+
         wis_bns = cal_attr_bns(value)
+        
+        prof_bns = self.cal_pros_prof_bns(int(self.sliderValTxt.text()))
 
         if (wis_bns < 0):
             self.wisBonus.setText("(" + str(wis_bns) + ")")
@@ -5823,39 +5877,43 @@ class Ui_MainWindow():
             self.survivalLevelLabel.setText("+" + str(wis_bns))
        
         if (self.attrComboBox_1.currentIndex() == 4):
-            if (wis_bns < 0):
-                self.plusLabel_1.setText(str(wis_bns))
+            if (wis_bns + prof_bns < 0):
+                self.plusLabel_1.setText(str(wis_bns + prof_bns))
                 
             else:
-                self.plusLabel_1.setText("+" + str(wis_bns))
+                self.plusLabel_1.setText("+" + str(wis_bns + prof_bns))
         
         if (self.attrComboBox_2.currentIndex() == 4):
-            if (wis_bns < 0):
-                self.plusLabel_2.setText(str(wis_bns))
+            if (wis_bns + prof_bns < 0):
+                self.plusLabel_2.setText(str(wis_bns + prof_bns))
                 
             else:
-                self.plusLabel_2.setText("+" + str(wis_bns))
+                self.plusLabel_2.setText("+" + str(wis_bns + prof_bns))
 
         if (self.attrComboBox_3.currentIndex() == 4):
-            if (wis_bns < 0):
-                self.plusLabel_3.setText(str(wis_bns))
+            if (wis_bns + prof_bns < 0):
+                self.plusLabel_3.setText(str(wis_bns + prof_bns))
                 
             else:
-                self.plusLabel_3.setText("+" + str(wis_bns))
+                self.plusLabel_3.setText("+" + str(wis_bns + prof_bns))
 
         if (self.attrComboBox_4.currentIndex() == 4):
-            if (wis_bns < 0):
-                self.plusLabel_4.setText(str(wis_bns))
+            if (wis_bns + prof_bns < 0):
+                self.plusLabel_4.setText(str(wis_bns + prof_bns))
                 
             else:
-                self.plusLabel_4.setText("+" + str(wis_bns))
+                self.plusLabel_4.setText("+" + str(wis_bns + prof_bns))
 
         #print("WIS bonus is ", wis_bns)
 
     def chaValChange(self,value):
         dpr.cal_dpr(self)
 
+        self.setAttkBons()
+
         cha_bns = cal_attr_bns(value)
+
+        prof_bns = self.cal_pros_prof_bns(int(self.sliderValTxt.text()))
 
         if (cha_bns < 0):
             self.chaBonus.setText("(" + str(cha_bns) + ")")
@@ -5872,229 +5930,257 @@ class Ui_MainWindow():
             self.persuasionLevelLabel.setText("+" + str(cha_bns))
         
         if (self.attrComboBox_1.currentIndex() == 5):
-            if (cha_bns < 0):
-                self.plusLabel_1.setText(str(cha_bns))
+            if (cha_bns + prof_bns < 0):
+                self.plusLabel_1.setText(str(cha_bns + prof_bns))
                 
             else:
-                self.plusLabel_1.setText("+" + str(cha_bns))
+                self.plusLabel_1.setText("+" + str(cha_bns + prof_bns))
         
         if (self.attrComboBox_2.currentIndex() == 5):
-            if (cha_bns < 0):
-                self.plusLabel_2.setText(str(cha_bns))
+            if (cha_bns + prof_bns < 0):
+                self.plusLabel_2.setText(str(cha_bns + prof_bns))
                 
             else:
-                self.plusLabel_2.setText("+" + str(cha_bns))
+                self.plusLabel_2.setText("+" + str(cha_bns + prof_bns))
 
         if (self.attrComboBox_3.currentIndex() == 5):
-            if (cha_bns < 0):
-                self.plusLabel_3.setText(str(cha_bns))
+            if (cha_bns + prof_bns < 0):
+                self.plusLabel_3.setText(str(cha_bns + prof_bns))
                 
             else:
-                self.plusLabel_3.setText("+" + str(cha_bns))
+                self.plusLabel_3.setText("+" + str(cha_bns + prof_bns))
 
         if (self.attrComboBox_4.currentIndex() == 5):
-            if (cha_bns < 0):
-                self.plusLabel_4.setText(str(cha_bns))
+            if (cha_bns + prof_bns < 0):
+                self.plusLabel_4.setText(str(cha_bns + prof_bns))
                 
             else:
-                self.plusLabel_4.setText("+" + str(cha_bns))
+                self.plusLabel_4.setText("+" + str(cha_bns + prof_bns))
         
         #print("CHA bonus is ", cha_bns)
+
+    def setAttkBons(self):
+        self.attkBonSpinBox.setValue(self.cal_pros_prof_bns(int(self.sliderValTxt.text())))
+
+        best_atk_bns = self.attkBonSpinBox.value()
+
+        atk_bns1 = int(self.plusLabel_1.text())
+        atk_bns2 = int(self.plusLabel_2.text())   
+        atk_bns3 = int(self.plusLabel_3.text())   
+        atk_bns4 = int(self.plusLabel_4.text())   
+
+        if (atk_bns1 > best_atk_bns):
+            best_atk_bns = atk_bns1
+
+        if (atk_bns2 > best_atk_bns):
+            best_atk_bns = atk_bns2
+
+        if (atk_bns3 > best_atk_bns):
+	        best_atk_bns = atk_bns3
+
+        if (atk_bns4 > best_atk_bns):
+            best_atk_bns = atk_bns4
+
+        self.attkBonSpinBox.setValue(best_atk_bns)
 
     def attackAttributeChecker(self):
         dpr.cal_dpr(self)
 
+        prof_bns = self.cal_pros_prof_bns(int(self.sliderValTxt.text()))
+
         if (self.attrComboBox_1.currentIndex() == 0):
             str_bns = cal_attr_bns(self.strSpinBox.value())
             
-            if (str_bns < 0):
-                self.plusLabel_1.setText(str(str_bns))
+            if (str_bns + prof_bns < 0):
+                self.plusLabel_1.setText(str(str_bns + prof_bns))
             else:
-                self.plusLabel_1.setText("+" + str(str_bns))
+                self.plusLabel_1.setText("+" + str(str_bns + prof_bns))
         
         elif (self.attrComboBox_1.currentIndex() == 1):
             dex_bns = cal_attr_bns(self.dexSpinBox.value())
 
-            if (dex_bns < 0):
-                self.plusLabel_1.setText(str(dex_bns))
+            if (dex_bns + prof_bns < 0):
+                self.plusLabel_1.setText(str(dex_bns + prof_bns))
             else:
-                self.plusLabel_1.setText("+" + str(dex_bns))
+                self.plusLabel_1.setText("+" + str(dex_bns + prof_bns))
 
         elif (self.attrComboBox_1.currentIndex() == 2):
             con_bns = cal_attr_bns(self.conSpinBox.value())
 
-            if (con_bns < 0):
-                self.plusLabel_1.setText(str(con_bns))
+            if (con_bns + prof_bns < 0):
+                self.plusLabel_1.setText(str(con_bns + prof_bns))
             else:
-                self.plusLabel_1.setText("+" + str(con_bns))
+                self.plusLabel_1.setText("+" + str(con_bns + prof_bns))
 
         elif (self.attrComboBox_1.currentIndex() == 3):
             int_bns = cal_attr_bns(self.intSpinBox.value())
 
-            if (int_bns < 0):
-                self.plusLabel_1.setText(str(int_bns))
+            if (int_bns + prof_bns < 0):
+                self.plusLabel_1.setText(str(int_bns + prof_bns))
             else:
-                self.plusLabel_1.setText("+" + str(int_bns))
+                self.plusLabel_1.setText("+" + str(int_bns + prof_bns))
 
         elif (self.attrComboBox_1.currentIndex() == 4):
             wis_bns = cal_attr_bns(self.wisSpinBox.value())
 
-            if (wis_bns < 0):
-                self.plusLabel_1.setText(str(wis_bns))
+            if (wis_bns + prof_bns < 0):
+                self.plusLabel_1.setText(str(wis_bns + prof_bns))
             else:
-                self.plusLabel_1.setText("+" + str(wis_bns))
+                self.plusLabel_1.setText("+" + str(wis_bns + prof_bns))
 
         elif (self.attrComboBox_1.currentIndex() == 5):
             cha_bns = cal_attr_bns(self.chaSpinBox.value())
 
-            if (cha_bns < 0):
-                self.plusLabel_1.setText(str(cha_bns))
+            if (cha_bns + prof_bns < 0):
+                self.plusLabel_1.setText(str(cha_bns + prof_bns))
             else:
-                self.plusLabel_1.setText("+" + str(cha_bns))
+                self.plusLabel_1.setText("+" + str(cha_bns + prof_bns))
 
         if (self.attrComboBox_2.currentIndex() == 0):
             str_bns = cal_attr_bns(self.strSpinBox.value())
             
-            if (str_bns < 0):
-                self.plusLabel_2.setText(str(str_bns))
+            if (str_bns + prof_bns < 0):
+                self.plusLabel_2.setText(str(str_bns + prof_bns))
             else:
-                self.plusLabel_2.setText("+" + str(str_bns))
+                self.plusLabel_2.setText("+" + str(str_bns + prof_bns))
         
         elif (self.attrComboBox_2.currentIndex() == 1):
             dex_bns = cal_attr_bns(self.dexSpinBox.value())
 
-            if (dex_bns < 0):
-                self.plusLabel_2.setText(str(dex_bns))
+            if (dex_bns + prof_bns < 0):
+                self.plusLabel_2.setText(str(dex_bns + prof_bns))
             else:
-                self.plusLabel_2.setText("+" + str(dex_bns))
+                self.plusLabel_2.setText("+" + str(dex_bns + prof_bns))
 
         elif (self.attrComboBox_2.currentIndex() == 2):
             con_bns = cal_attr_bns(self.conSpinBox.value())
 
-            if (con_bns < 0):
-                self.plusLabel_2.setText(str(con_bns))
+            if (con_bns + prof_bns < 0):
+                self.plusLabel_2.setText(str(con_bns + prof_bns))
             else:
-                self.plusLabel_2.setText("+" + str(con_bns))
+                self.plusLabel_2.setText("+" + str(con_bns + prof_bns))
 
         elif (self.attrComboBox_2.currentIndex() == 3):
             int_bns = cal_attr_bns(self.intSpinBox.value())
 
-            if (int_bns < 0):
-                self.plusLabel_2.setText(str(int_bns))
+            if (int_bns + prof_bns < 0):
+                self.plusLabel_2.setText(str(int_bns + prof_bns))
             else:
-                self.plusLabel_2.setText("+" + str(int_bns))
+                self.plusLabel_2.setText("+" + str(int_bns + prof_bns))
 
         elif (self.attrComboBox_2.currentIndex() == 4):
             wis_bns = cal_attr_bns(self.wisSpinBox.value())
 
-            if (wis_bns < 0):
-                self.plusLabel_2.setText(str(wis_bns))
+            if (wis_bns + prof_bns < 0):
+                self.plusLabel_2.setText(str(wis_bns + prof_bns))
             else:
-                self.plusLabel_2.setText("+" + str(wis_bns))
+                self.plusLabel_2.setText("+" + str(wis_bns + prof_bns))
 
         elif (self.attrComboBox_2.currentIndex() == 5):
             cha_bns = cal_attr_bns(self.chaSpinBox.value())
 
-            if (cha_bns < 0):
-                self.plusLabel_2.setText(str(cha_bns))
+            if (cha_bns + prof_bns < 0):
+                self.plusLabel_2.setText(str(cha_bns + prof_bns))
             else:
-                self.plusLabel_2.setText("+" + str(cha_bns))
+                self.plusLabel_2.setText("+" + str(cha_bns + prof_bns))
 
         if (self.attrComboBox_3.currentIndex() == 0):
             str_bns = cal_attr_bns(self.strSpinBox.value())
             
-            if (str_bns < 0):
-                self.plusLabel_3.setText(str(str_bns))
+            if (str_bns + prof_bns < 0):
+                self.plusLabel_3.setText(str(str_bns + prof_bns))
             else:
-                self.plusLabel_3.setText("+" + str(str_bns))
+                self.plusLabel_3.setText("+" + str(str_bns + prof_bns))
         
         elif (self.attrComboBox_3.currentIndex() == 1):
             dex_bns = cal_attr_bns(self.dexSpinBox.value())
 
-            if (dex_bns < 0):
-                self.plusLabel_3.setText(str(dex_bns))
+            if (dex_bns + prof_bns < 0):
+                self.plusLabel_3.setText(str(dex_bns + prof_bns))
             else:
-                self.plusLabel_3.setText("+" + str(dex_bns))
+                self.plusLabel_3.setText("+" + str(dex_bns + prof_bns))
 
         elif (self.attrComboBox_3.currentIndex() == 2):
             con_bns = cal_attr_bns(self.conSpinBox.value())
 
-            if (con_bns < 0):
-                self.plusLabel_3.setText(str(con_bns))
+            if (con_bns + prof_bns < 0):
+                self.plusLabel_3.setText(str(con_bns + prof_bns))
             else:
-                self.plusLabel_3.setText("+" + str(con_bns))
+                self.plusLabel_3.setText("+" + str(con_bns + prof_bns))
 
         elif (self.attrComboBox_3.currentIndex() == 3):
             int_bns = cal_attr_bns(self.intSpinBox.value())
 
-            if (int_bns < 0):
-                self.plusLabel_3.setText(str(int_bns))
+            if (int_bns + prof_bns < 0):
+                self.plusLabel_3.setText(str(int_bns + prof_bns))
             else:
-                self.plusLabel_3.setText("+" + str(int_bns))
+                self.plusLabel_3.setText("+" + str(int_bns + prof_bns))
 
         elif (self.attrComboBox_3.currentIndex() == 4):
             wis_bns = cal_attr_bns(self.wisSpinBox.value())
 
-            if (wis_bns < 0):
-                self.plusLabel_3.setText(str(wis_bns))
+            if (wis_bns + prof_bns < 0):
+                self.plusLabel_3.setText(str(wis_bns + prof_bns))
             else:
-                self.plusLabel_3.setText("+" + str(wis_bns))
+                self.plusLabel_3.setText("+" + str(wis_bns + prof_bns))
 
         elif (self.attrComboBox_3.currentIndex() == 5):
             cha_bns = cal_attr_bns(self.chaSpinBox.value())
 
-            if (cha_bns < 0):
-                self.plusLabel_3.setText(str(cha_bns))
+            if (cha_bns + prof_bns < 0):
+                self.plusLabel_3.setText(str(cha_bns + prof_bns))
             else:
-                self.plusLabel_3.setText("+" + str(cha_bns))
+                self.plusLabel_3.setText("+" + str(cha_bns + prof_bns))
 
         if (self.attrComboBox_4.currentIndex() == 0):
             str_bns = cal_attr_bns(self.strSpinBox.value())
             
-            if (str_bns < 0):
-                self.plusLabel_4.setText(str(str_bns))
+            if (str_bns + prof_bns < 0):
+                self.plusLabel_4.setText(str(str_bns + prof_bns))
             else:
-                self.plusLabel_4.setText("+" + str(str_bns))
+                self.plusLabel_4.setText("+" + str(str_bns + prof_bns))
         
         elif (self.attrComboBox_4.currentIndex() == 1):
             dex_bns = cal_attr_bns(self.dexSpinBox.value())
 
-            if (dex_bns < 0):
-                self.plusLabel_4.setText(str(dex_bns))
+            if (dex_bns + prof_bns < 0):
+                self.plusLabel_4.setText(str(dex_bns + prof_bns))
             else:
-                self.plusLabel_4.setText("+" + str(dex_bns))
+                self.plusLabel_4.setText("+" + str(dex_bns + prof_bns))
 
         elif (self.attrComboBox_4.currentIndex() == 2):
             con_bns = cal_attr_bns(self.conSpinBox.value())
 
-            if (con_bns < 0):
-                self.plusLabel_4.setText(str(con_bns))
+            if (con_bns + prof_bns < 0):
+                self.plusLabel_4.setText(str(con_bns + prof_bns))
             else:
-                self.plusLabel_4.setText("+" + str(con_bns))
+                self.plusLabel_4.setText("+" + str(con_bns + prof_bns))
 
         elif (self.attrComboBox_4.currentIndex() == 3):
             int_bns = cal_attr_bns(self.intSpinBox.value())
 
-            if (int_bns < 0):
-                self.plusLabel_4.setText(str(int_bns))
+            if (int_bns + prof_bns < 0):
+                self.plusLabel_4.setText(str(int_bns + prof_bns))
             else:
-                self.plusLabel_4.setText("+" + str(int_bns))
+                self.plusLabel_4.setText("+" + str(int_bns + prof_bns))
 
         elif (self.attrComboBox_4.currentIndex() == 4):
             wis_bns = cal_attr_bns(self.wisSpinBox.value())
 
-            if (wis_bns < 0):
-                self.plusLabel_4.setText(str(wis_bns))
+            if (wis_bns + prof_bns < 0):
+                self.plusLabel_4.setText(str(wis_bns + prof_bns))
             else:
-                self.plusLabel_4.setText("+" + str(wis_bns))
+                self.plusLabel_4.setText("+" + str(wis_bns + prof_bns))
 
         elif (self.attrComboBox_4.currentIndex() == 5):
             cha_bns = cal_attr_bns(self.chaSpinBox.value())
 
-            if (cha_bns < 0):
-                self.plusLabel_4.setText(str(cha_bns))
+            if (cha_bns + prof_bns < 0):
+                self.plusLabel_4.setText(str(cha_bns + prof_bns))
             else:
-                self.plusLabel_4.setText("+" + str(cha_bns))
+                self.plusLabel_4.setText("+" + str(cha_bns + prof_bns))
+
+        self.setAttkBons()
 
     def savesChecker(self,state):
         if state == QtCore.Qt.Checked:
@@ -6143,6 +6229,14 @@ class Ui_MainWindow():
     def recal_dpr(self):
         dpr.cal_dpr(self)
 
+    def atk_bns_setup(self):
+        self.plusLabel_1.setText("+2")
+        self.plusLabel_2.setText("+2")
+        self.plusLabel_3.setText("+2")
+        self.plusLabel_4.setText("+2")
+
+        self.attkBonSpinBox.setValue(2)
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -6150,6 +6244,8 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
+
+    ui.atk_bns_setup()
 
     dpr = dpr_calculation.dpr_calculation(ui)
 

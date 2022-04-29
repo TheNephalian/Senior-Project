@@ -5590,12 +5590,12 @@ class Ui_MainWindow():
             print("Error. Given CR is", value,
                   "Could not determine prof_bns in mainScreen_WIP.cal_prof_prof_bns")
 
-        print("With CR:", value, "prof_bns =", prof_bns)
+        #print("CR:", value, "prof_bns:", prof_bns)
 
         return prof_bns
 
     def hitPointsValueChange(self, value):
-        print("in here is:", self.nameLineEdit.text())
+        #print("in here is:", self.nameLineEdit.text())
         # self.hitPointsSpinBox.value() hit points val
         HP = self.hitPointsSpinBox.value()
         saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
@@ -5614,7 +5614,7 @@ class Ui_MainWindow():
         if(self.vulCheckBox.checkState() == 0):
             HP = doesIthaveVulnerabilities(False, HP)
             HP = resistancesORimmunity(self.resComboBox.currentText(), HP)
-            print("Defensive CR hitPointsValueChange: ", cal_init_def_CR(HP, this_fun_adds_AC(
+            print("Defensive CR: ", cal_init_def_CR(HP, this_fun_adds_AC(
                 self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
             deff_CR = cal_init_def_CR(HP, this_fun_adds_AC(
                 self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal)
@@ -5623,7 +5623,7 @@ class Ui_MainWindow():
         else:
             HP = doesIthaveVulnerabilities(True, HP)
             HP = resistancesORimmunity(self.resComboBox.currentText(), HP)
-            print("Defensive CR hitPointsValueChange: ", cal_init_def_CR(HP, this_fun_adds_AC(
+            print("Defensive CR: ", cal_init_def_CR(HP, this_fun_adds_AC(
                 self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
             deff_CR = cal_init_def_CR(HP, this_fun_adds_AC(
                 self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal)
@@ -5652,8 +5652,8 @@ class Ui_MainWindow():
             ), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal)
             if(deff_CR >= 1 or deff_CR == 0):
                 self.slider.setValue(deff_CR)
-            print("CR val diceChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(), self.sizeComboBox.currentText(
-            ), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
+            #print("CR: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(), self.sizeComboBox.currentText(
+            #), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
         else:
             valueHP = this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(
             ), self.sizeComboBox.currentText(), False, self.resComboBox.currentText())
@@ -5664,8 +5664,8 @@ class Ui_MainWindow():
             ), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal)
             if(deff_CR >= 1 or deff_CR == 0):
                 self.slider.setValue(deff_CR)
-            print("CR val diceChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(), self.sizeComboBox.currentText(
-            ), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
+            #print("CR: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(), self.sizeComboBox.currentText(
+            #), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
 
         print("comboBox changed", value)
         if self.sizeComboBox.currentText() == "Tiny":
@@ -5727,7 +5727,7 @@ class Ui_MainWindow():
         # Average CR combined
         AvgCR = get_Average_of_Deff_and_Off(deff_CR, off_CR)
         if(AvgCR >= 1):
-            print("creature CR: ", AvgCR)
+            #print("creature CR: ", AvgCR)
             self.slider.setValue(AvgCR)
 
     def attkBonValChange(self, value):
@@ -5753,22 +5753,22 @@ class Ui_MainWindow():
 
         atk_bns_CR = cal_atk_bns_CR(value, uses_saves)
 
-        print("Calculating corrective Offensive CR based on attack bonus.")
-        print("Corrective Offensive CR is ", atk_bns_CR)
+        #print("Calculating corrective Offensive CR based on attack bonus.")
+        #print("Corrective Offensive CR is ", atk_bns_CR)
 
         dpr_CR = cal_pros_offensive_CR(self.dprSpinBox.value())
 
         off_CR = cal_off_CR(dpr_CR, atk_bns_CR)
 
-        print("Calculating prospective Offensive CR based on damage per round.")
-        print("Prospective Offensive CR is ", dpr_CR)
+        #print("Calculating prospective Offensive CR based on damage per round.")
+        #print("Prospective Offensive CR is ", dpr_CR)
 
         # self.slider.setValue(off_CR)
         AvgCR = get_Average_of_Deff_and_Off(deff_CR, off_CR)
         if(AvgCR >= 1):
             self.slider.setValue(AvgCR)
 
-        print("Offensive CR is ", off_CR)
+        print("Offensive CR:", off_CR)
 
     def dprValChange(self, value):
         # deff CR
@@ -5789,8 +5789,8 @@ class Ui_MainWindow():
         # off CR
         pros_off_CR = cal_pros_offensive_CR(value)
 
-        print("Calculating prospective Offensive CR based on damage per round.")
-        print("Prospective Offensive CR is ", pros_off_CR)
+        #print("Calculating prospective Offensive CR based on damage per round.")
+        #print("Prospective Offensive CR is ", pros_off_CR)
 
         uses_saves = False
         if (self.savesCheckBox.isChecked()):
@@ -5800,8 +5800,8 @@ class Ui_MainWindow():
 
         off_CR = cal_off_CR(pros_off_CR, atk_bns_CR)
 
-        print("Calculating corrective Offensive CR based on attack bonus.")
-        print("Corrective Offensive CR is ", atk_bns_CR)
+        #print("Calculating corrective Offensive CR based on attack bonus.")
+        #print("Corrective Offensive CR is ", atk_bns_CR)
 
         # self.slider.setValue(off_CR)
         AvgCR = get_Average_of_Deff_and_Off(deff_CR, off_CR)
@@ -5811,15 +5811,15 @@ class Ui_MainWindow():
         else:
             self.slider.setValue(0)
 
-        print("Offensive CR is ", off_CR)
+        print("Offensive CR:", off_CR)
 
         self.setAttkBons()
 
     def diceValChange(self, value):
         # self.diceSpinBox.value() val of dice input
         saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
-        print("CR val diceValChange: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(), self.sizeComboBox.currentText(
-        ), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
+        #print("CR: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(), self.sizeComboBox.currentText(
+        #), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
         valueHP = this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(
         ), self.sizeComboBox.currentText(), False, self.resComboBox.currentText())
         if(valueHP < 1):

@@ -364,7 +364,7 @@ def cal_init_off_CR(dmg_per_rnd, attr, uses_saves):
 
 def cal_atk_bns_CR(atk_bns, uses_saves):
 	if (uses_saves == False):
-		print("Uses saves is False.")
+		#print("Uses saves is False.")
 
 		if (atk_bns <=3):
 			corr_off_CR = 1/2

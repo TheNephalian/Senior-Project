@@ -18,6 +18,8 @@ class dpr_calculation():
 		self.cal_dpr(ui)
 
 	def cal_dpr(self, ui):
+		print()
+		print("Calculating creature dpr...")
 		self.check_attacks(ui)
 
 	def check_attacks(self, ui):

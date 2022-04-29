@@ -57,7 +57,7 @@ class Ui_testModWindow(creature):
 
     def runTest(self):
         self.window = QtWidgets.QDialog()
-        self.ui = Ui_Dialog()
+        self.ui = self.Ui_Dialog()
         self.ui.setupUi(self.window)
         self.window.show()
         numOfRounds = self.roundSpinBox.value()

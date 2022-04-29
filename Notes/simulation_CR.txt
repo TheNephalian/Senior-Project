@@ -1,0 +1,33 @@
+Golden Rule:
+	A CR X monster should be a Medium Encounter Difficulty (50% winrate) to a party of four (4) players of level X
+
+	For example:
+		A CR 3 monster should win 50% of time against a 4-person party of level 3 players
+
+	So, we need combats to run recursively, until this "sweet spot" is found.
+	
+	For example:
+		User inputs generated a creature with CR 5
+		User tests creature for simulated CR
+			Combat simulations
+				1: 1000x Against a party of level 1
+					If creature's winrate <<45%
+						Creature's simulated CR = 0
+
+					If creature's winrate ~45-55% -> 49.5% - 55.5%
+						Creature's simulated CR = party level = 1
+
+					If creature's winrate >>55%
+						raise party level
+				2: 1000x Against a party of level 2
+					If creature's winrate <<45%
+						lower party level
+
+					If creature's winrate ~45-55% -> 49.5% - 55.5%
+						Creature's simulated CR = party level = 2
+
+					If creature's winrate >>55%
+						raise party level
+
+				...
+					

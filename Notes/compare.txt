@@ -108,3 +108,4 @@ RELATING THE NUMBERS
 			<=100% 			Creature is very powerful (Deadly), EC is actually 4 <- This would represent a BBEG (big-bad-endgame-boss)
 
 		Therefore, Percentile Winrate (percent_win) = another standard to measure the strength of the creature, based on simulated combat
+

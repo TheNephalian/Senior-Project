@@ -63,9 +63,6 @@ The player class will need the following member functions (not sure what kind of
 
 			Average Damage/HP per Level by Class
 				Class/Level -	Damage -	Hit Points
-				Barbarian 1 -	7			12
-				Barbarian 20 -	50			184
-
 				Fighter 1	-	5			10
 				Fighter 20	- 	60			161
 

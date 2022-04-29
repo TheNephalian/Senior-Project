@@ -149,7 +149,8 @@ def cal_pros_offensive_CR(dmg_per_rnd):
 		return pros_off_CR
 
 	else:
-		print("Error. Damage must be within 0-320.")
+		pros_off_CR = 30
+		return pros_off_CR
 
 '''Function that calculates the prospected proficiency bonus (pros_prof_bns) of the creature
 	Expected CR is input by the user and used to calculate initial proficiency bonuses to the creature

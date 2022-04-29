@@ -16,6 +16,24 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QScrollArea" name="scrollArea">
+     <property name="styleSheet">
+      <string notr="true">
+  QProgressBar {
+      border: 2px solid grey;
+      border-radius: 5px;
+  }
+
+  QProgressBar::chunk {
+      background-color: rgb(232, 74, 95);
+      width: 20px;
+  }
+QProgressBar {
+      border: 2px solid grey;
+      border-radius: 5px;
+      text-align: center;
+  }
+</string>
+     </property>
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
@@ -29,13 +47,23 @@
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="2" column="1">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>out of</string>
+       <item row="2" column="2">
+        <widget class="QLabel" name="label_4">
+         <property name="enabled">
+          <bool>true</bool>
          </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
+         <property name="text">
+          <string>XYZ</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="3">
+        <widget class="QPushButton" name="pushButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Continue</string>
          </property>
         </widget>
        </item>
@@ -55,36 +83,10 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>ABC</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QLabel" name="label_4">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="text">
-          <string>XYZ</string>
-         </property>
-        </widget>
-       </item>
        <item row="1" column="0" colspan="3">
-        <widget class="QSlider" name="horizontalSlider">
-         <property name="maximum">
-          <number>1000</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="tickPosition">
-          <enum>QSlider::TicksAbove</enum>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="value">
+          <number>24</number>
          </property>
         </widget>
        </item>
@@ -95,13 +97,23 @@
          </property>
         </widget>
        </item>
-       <item row="4" column="0" colspan="3">
-        <widget class="QPushButton" name="pushButton">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>Continue</string>
+          <string>ABC</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>out of</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>

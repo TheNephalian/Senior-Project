@@ -125,7 +125,7 @@ class Ui_testModWindow():
 "    subcontrol-origin: padding;\n"
 "    subcontrol-position: top right;\n"
 "    width: 15px;\n"
-"\n"
+"    background\n"
 "    border-left-width: 1px;\n"
 "    border-left-color: rgb(42, 54, 59);\n"
 "    border-left-style: solid; /* just a single line */\n"

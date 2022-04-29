@@ -2264,7 +2264,7 @@ class Ui_MainWindow():
         self.ArmorSpinBox.setFont(font)
         self.ArmorSpinBox.setObjectName("ArmorSpinBox")
         self.ArmorSpinBox.setValue(10)
-        self.ArmorSpinBox.setMaximum(19)
+        self.ArmorSpinBox.setMaximum(30)
         self.gridLayout_2.addWidget(self.ArmorSpinBox, 5, 2, 1, 1)
         self.label_12 = QtWidgets.QLabel(self.frame_2)
         font = QtGui.QFont()
@@ -5703,6 +5703,8 @@ class Ui_MainWindow():
         self.setAttkBons()
 
         dex_bns = cal_attr_bns(value)
+
+        self.ArmorSpinBox.setValue(dex_bns + 10)
 
         prof_bns = self.cal_pros_prof_bns(int(self.sliderValTxt.text()))
 

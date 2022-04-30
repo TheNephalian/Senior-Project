@@ -74,6 +74,9 @@ class Player():
         
     def dpr_change(self,dmg_per_rnd):
         self.dmg_per_rnd = dmg_per_rnd
+    
+    def hp_change(self, hp):
+        self.hp = hp
         
     def has_attacked(self):
         thisattack = self.hasattacked

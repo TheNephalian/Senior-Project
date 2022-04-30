@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from TestMod_WIP import *
 from StatBlockScreen import Ui_MainWindow
 
-class Ui_Dialog():
+class testRunDialog(object):
 
     def showDetails(self):
         self.window = QtWidgets.QMainWindow()
@@ -92,16 +92,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
+    ui = testRunDialog()
     ui.setupUi(Dialog)
     Dialog.show()
-
-    # for i in  range(ui.numRounds):
-    #     ui.horizontalSlider.setValue(i)
-    #     # battle the characters
-
-    #     print(i)
-            
-    # print("test completed!")
-
     sys.exit(app.exec_())

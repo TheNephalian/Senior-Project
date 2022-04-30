@@ -33,6 +33,9 @@ class Fighter (Player):
 	def dpr_change(self, dmg_per_rnd):
 		return super().dpr_change(dmg_per_rnd)
 
+	def hp_change(self, hp):
+		return super().hp_change(hp)
+
 	def roll_init(self):
 		return super().roll_init()
 

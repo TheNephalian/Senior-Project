@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>854</width>
-    <height>244</height>
+    <height>247</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,189 +57,11 @@ QComboBox::drop-down {
          <x>0</x>
          <y>0</y>
          <width>834</width>
-         <height>181</height>
+         <height>184</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Creature</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>Enemy</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>Level</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <widget class="QLabel" name="label_3">
-          <property name="text">
-           <string># of Rounds</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QComboBox" name="creatureComboBox"/>
-        </item>
-        <item row="1" column="1">
-         <widget class="QComboBox" name="enemyComboBox">
-          <item>
-           <property name="text">
-            <string>Barbarian</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Fighter</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Ranger</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Rogue</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Wizard</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QSpinBox" name="spinBox">
-          <property name="minimum">
-           <number>1</number>
-          </property>
-          <property name="maximum">
-           <number>20</number>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="3">
-         <widget class="QSpinBox" name="roundSpinBox">
-          <property name="minimum">
-           <number>1</number>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="4">
-         <widget class="QPushButton" name="runTestButton">
-          <property name="styleSheet">
-           <string notr="true">color: rgb(42, 54, 59);
-background-color: rgb(153, 184, 152);</string>
-          </property>
-          <property name="text">
-           <string>Run Test!</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QComboBox" name="enemyComboBox_2">
-          <item>
-           <property name="text">
-            <string>Barbarian</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Fighter</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Ranger</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Rogue</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Wizard</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QSpinBox" name="spinBox_2">
-          <property name="minimum">
-           <number>1</number>
-          </property>
-          <property name="maximum">
-           <number>20</number>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QComboBox" name="enemyComboBox_3">
-          <item>
-           <property name="text">
-            <string>Barbarian</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Fighter</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Ranger</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Rogue</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Wizard</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="3" column="2">
-         <widget class="QSpinBox" name="spinBox_3">
-          <property name="minimum">
-           <number>1</number>
-          </property>
-          <property name="maximum">
-           <number>20</number>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
+        <item row="5" column="1">
          <widget class="QComboBox" name="enemyComboBox_4">
           <item>
            <property name="text">
@@ -268,13 +90,226 @@ background-color: rgb(153, 184, 152);</string>
           </item>
          </widget>
         </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Level</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Creature</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="3" colspan="2">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Genorate Simulated CR</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
         <item row="4" column="2">
+         <widget class="QSpinBox" name="spinBox_3">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QSpinBox" name="spinBox">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QSpinBox" name="roundSpinBox">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="4">
+         <widget class="QPushButton" name="runTestButton">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(153, 184, 152);</string>
+          </property>
+          <property name="text">
+           <string>Run Test!</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QComboBox" name="creatureComboBox"/>
+        </item>
+        <item row="5" column="3" colspan="2">
+         <widget class="QPushButton" name="pushButton">
+          <property name="styleSheet">
+           <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(232, 74, 95);</string>
+          </property>
+          <property name="text">
+           <string>Genorate</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="3" colspan="2">
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string># of Rounds</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QComboBox" name="enemyComboBox">
+          <item>
+           <property name="text">
+            <string>Barbarian</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Fighter</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Ranger</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Rogue</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Wizard</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="5" column="2">
          <widget class="QSpinBox" name="spinBox_4">
           <property name="minimum">
            <number>1</number>
           </property>
           <property name="maximum">
            <number>20</number>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Enemy</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QComboBox" name="enemyComboBox_2">
+          <item>
+           <property name="text">
+            <string>Barbarian</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Fighter</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Ranger</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Rogue</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Wizard</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QSpinBox" name="spinBox_2">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QComboBox" name="enemyComboBox_3">
+          <item>
+           <property name="text">
+            <string>Barbarian</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Fighter</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Ranger</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Rogue</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Wizard</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="5">
+         <widget class="Line" name="line_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>

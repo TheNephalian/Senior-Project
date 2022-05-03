@@ -1655,16 +1655,15 @@ class Ui_MainWindow(object):
         self.resetButton.setObjectName("resetButton")
         self.formLayout.setWidget(
             1, QtWidgets.QFormLayout.LabelRole, self.resetButton)
-        self.createCreatureButton = QtWidgets.QPushButton(self.frame_9)
+        self.createCreatureButton = QtWidgets.QPushButton(self.frame_9, clicked = lambda: self.open_window())
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.createCreatureButton.setFont(font)
         self.createCreatureButton.setStyleSheet(
             "background-color: rgb(85, 170, 255);")
         self.createCreatureButton.setObjectName("createCreatureButton")
-        self.formLayout.setWidget(
-            0, QtWidgets.QFormLayout.SpanningRole, self.createCreatureButton)
-        self.testButton = QtWidgets.QPushButton(self.frame_9)
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.SpanningRole, self.createCreatureButton)
+        self.testButton = QtWidgets.QPushButton(self.frame_9, clicked = lambda: self.openWindow())
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.testButton.setFont(font)

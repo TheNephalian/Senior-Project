@@ -27,6 +27,7 @@ import combat
 import dpr_calculation
 import monster_stats
 import compare
+import json
 
 class Ui_MainWindow(object):
     def open_window(self):
@@ -1149,6 +1150,24 @@ class Ui_MainWindow(object):
         self.conSpinBox.setValue(10)
         self.intSpinBox.setValue(10)
 
+    def exportCreature(self):
+        fileName = self.nameLineEdit.text()
+
+        creatureData = {
+            "name" : f"{self.nameLineEdit.text()}",
+            "Strength" : self.strSpinBox.value(),
+            "useSaves" : self.savesCheckBox.isChecked(),
+            "allignment" : self.allignmentComboBox.currentText()
+        }
+
+        json_obj = json.dumps(creatureData, indent=4)
+
+        with open(f'{fileName}.json', 'w') as f:
+            f.write(json_obj)
+            print("The json file is created")
+            
+
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1280, 720)
@@ -1160,6 +1179,7 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet("\n"
                                  "##background-color: rgba(254, 206, 168, 30);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+        #font = QtGui.QFontDatabase.addApplicationFont("Merriweather-Regular.tff")
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.centralwidget.setFont(font)
@@ -1322,8 +1342,8 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidget.setMinimumSize(QtCore.QSize(1267, 0))
-        font = QtGui.QFont()
-        font.setFamily("Merriweather")
+        #font = QtGui.QFont()
+        #font.setFamily("Merriweather")
         self.tabWidget.setFont(font)
         self.tabWidget.setStyleSheet("background-color: rgb(216, 208, 160);")
         self.tabWidget.setObjectName("tabWidget")
@@ -1333,8 +1353,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.scrollArea = QtWidgets.QScrollArea(self.tab)
         self.scrollArea.setMinimumSize(QtCore.QSize(1238, 612))
-        font = QtGui.QFont()
-        font.setFamily("Merriweather")
+        # font = QtGui.QFont()
+        # font.setFamily("Merriweather")
         self.scrollArea.setFont(font)
         self.scrollArea.setStyleSheet("")
         self.scrollArea.setWidgetResizable(True)
@@ -1347,8 +1367,8 @@ class Ui_MainWindow(object):
             self.scrollAreaWidgetContents)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.frame = QtWidgets.QFrame(self.scrollAreaWidgetContents)
-        font = QtGui.QFont()
-        font.setFamily("Merriweather")
+        # font = QtGui.QFont()
+        # font.setFamily("Merriweather")
         self.frame.setFont(font)
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -1357,8 +1377,8 @@ class Ui_MainWindow(object):
         self.gridLayout.setObjectName("gridLayout")
         self.frame_2 = QtWidgets.QFrame(self.frame)
         self.frame_2.setMinimumSize(QtCore.QSize(0, 0))
-        font = QtGui.QFont()
-        font.setFamily("Merriweather")
+        # font = QtGui.QFont()
+        # font.setFamily("Merriweather")
         font.setBold(True)
         self.frame_2.setFont(font)
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -1700,6 +1720,7 @@ class Ui_MainWindow(object):
         self.chaSpinBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.chaSpinBox.setMaximum(30)
         self.chaSpinBox.setObjectName("chaSpinBox")
+        self.chaSpinBox.setValue(10)
         self.gridLayout_4.addWidget(self.chaSpinBox, 1, 10, 1, 1)
         self.intSpinBox = QtWidgets.QSpinBox(self.frame_5)
         self.intSpinBox.setMinimumSize(QtCore.QSize(0, 28))
@@ -1708,6 +1729,7 @@ class Ui_MainWindow(object):
         self.intSpinBox.setFont(font)
         self.intSpinBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.intSpinBox.setObjectName("intSpinBox")
+        self.intSpinBox.setValue(10)
         self.gridLayout_4.addWidget(self.intSpinBox, 1, 6, 1, 1)
         self.strSavingThrowCheckBox = QtWidgets.QCheckBox(self.frame_5)
         font = QtGui.QFont()
@@ -1728,6 +1750,7 @@ class Ui_MainWindow(object):
         self.wisSpinBox.setFont(font)
         self.wisSpinBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.wisSpinBox.setObjectName("wisSpinBox")
+        self.wisSpinBox.setValue(10)
         self.gridLayout_4.addWidget(self.wisSpinBox, 1, 8, 1, 1)
         self.dexSavingThrowCheckBox = QtWidgets.QCheckBox(self.frame_5)
         font = QtGui.QFont()
@@ -1755,6 +1778,7 @@ class Ui_MainWindow(object):
         self.strSpinBox.setFont(font)
         self.strSpinBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.strSpinBox.setObjectName("strSpinBox")
+        self.strSpinBox.setValue(10)
         self.gridLayout_4.addWidget(self.strSpinBox, 1, 0, 1, 1)
         self.chaSavingThrowCheckBox = QtWidgets.QCheckBox(self.frame_5)
         font = QtGui.QFont()
@@ -1782,6 +1806,7 @@ class Ui_MainWindow(object):
         self.dexSpinBox.setFont(font)
         self.dexSpinBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.dexSpinBox.setObjectName("dexSpinBox")
+        self.dexSpinBox.setValue(10)
         self.gridLayout_4.addWidget(self.dexSpinBox, 1, 2, 1, 1)
         self.wisBonus = QtWidgets.QLabel(self.frame_5)
         font = QtGui.QFont()
@@ -1802,6 +1827,7 @@ class Ui_MainWindow(object):
         self.conSpinBox.setFont(font)
         self.conSpinBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.conSpinBox.setObjectName("conSpinBox")
+        self.conSpinBox.setValue(10)
         self.gridLayout_4.addWidget(self.conSpinBox, 1, 4, 1, 1)
         self.label_19 = QtWidgets.QLabel(self.frame_5)
         font = QtGui.QFont()
@@ -3107,7 +3133,7 @@ class Ui_MainWindow(object):
         self.pushButton.setStyleSheet("background-color: rgb(196, 205, 217);")
         self.pushButton.setObjectName("pushButton")
         self.gridLayout_18.addWidget(self.pushButton, 0, 0, 1, 1)
-        self.pushButton_2 = QtWidgets.QPushButton(self.frame_17)
+        self.pushButton_2 = QtWidgets.QPushButton(self.frame_17, clicked = lambda: self.exportCreature())
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.pushButton_2.setFont(font)

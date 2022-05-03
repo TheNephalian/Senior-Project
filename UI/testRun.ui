@@ -16,6 +16,11 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QScrollArea" name="scrollArea">
+     <property name="font">
+      <font>
+       <family>Merriweather</family>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">
   QProgressBar {
@@ -47,33 +52,30 @@ QProgressBar {
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="2" column="2">
-        <widget class="QLabel" name="label_4">
-         <property name="enabled">
-          <bool>true</bool>
+       <item row="1" column="1">
+        <widget class="QLabel" name="label_5">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
          </property>
          <property name="text">
-          <string>XYZ</string>
+          <string>TextLabel</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="0" colspan="3">
-        <widget class="QPushButton" name="pushButton">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string>Continue</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0" colspan="3">
+       <item row="3" column="0" colspan="2">
         <widget class="QLabel" name="testCompleteLabel">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
            <height>20</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
          </property>
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Test Complete !&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -83,37 +85,75 @@ QProgressBar {
          </property>
         </widget>
        </item>
-       <item row="1" column="0" colspan="3">
+       <item row="2" column="0" colspan="2">
         <widget class="QProgressBar" name="progressBar">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
+         <property name="maximum">
+          <number>30</number>
+         </property>
          <property name="value">
-          <number>24</number>
+          <number>25</number>
          </property>
         </widget>
        </item>
-       <item row="0" column="0" colspan="3">
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Test Running ! // put all combat dialouge here</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>ABC</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
+       <item row="0" column="1">
         <widget class="QLabel" name="label_3">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
          <property name="text">
-          <string>out of</string>
+          <string>Simulated CR</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
+         <property name="text">
+          <string>Calculated CR</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="2">
+        <widget class="QPushButton" name="pushButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
+         <property name="text">
+          <string>Continue</string>
          </property>
         </widget>
        </item>

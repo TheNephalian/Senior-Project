@@ -34,7 +34,12 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QSlider::handle{
+    <string notr="true">QToolTip{
+	background-color: rgb(170, 255, 127);
+	border-left : 3px solid green;
+	border-right: 3px solid green;
+}
+QSlider::handle{
 	border: 1px solid;
 	border-radius: 4px;
 }

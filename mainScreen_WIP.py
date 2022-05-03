@@ -1196,6 +1196,13 @@ class Ui_MainWindow(object):
                                          "height: 10px;\n"
                                          "border-radius: 4px;\n"
                                          "}\n"
+                                         "QToolTip{\n"
+                                         "color: #146739;"
+                                         "border-radius: 4px;"
+                                         "border: 3px solid green;"
+                                         "border-top: 3px solid rgba(255,255,255,255);"
+                                         "border-bottom: 3px solid rgba(255,255,255,255);"
+                                         "}\n"
                                          "QSlider::handle:horizontal {\n"
                                          "background: qlineargradient(x1:0, y1:0, x2:1, y2:1,\n"
                                          "    stop:0 #eee, stop:1 #ccc);\n"
@@ -1979,8 +1986,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.nameLineEdit.setFont(font)
-        self.nameLineEdit.setStyleSheet(
-            "background-color: rgb(255, 255, 255);")
+        self.nameLineEdit.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.nameLineEdit.setText("")
         self.nameLineEdit.setObjectName("nameLineEdit")
         self.gridLayout_3.addWidget(self.nameLineEdit, 0, 1, 1, 1)

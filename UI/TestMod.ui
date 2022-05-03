@@ -17,6 +17,11 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QScrollArea" name="scrollArea">
+      <property name="font">
+       <font>
+        <family>Merriweather</family>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
  	padding: .25em;
@@ -63,9 +68,14 @@ QComboBox::drop-down {
        <layout class="QGridLayout" name="gridLayout">
         <item row="5" column="1">
          <widget class="QComboBox" name="enemyComboBox_4">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <item>
            <property name="text">
-            <string>Barbarian</string>
+            <string>-</string>
            </property>
           </item>
           <item>
@@ -92,6 +102,11 @@ QComboBox::drop-down {
         </item>
         <item row="0" column="2">
          <widget class="QLabel" name="label_4">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="text">
            <string>Level</string>
           </property>
@@ -102,6 +117,11 @@ QComboBox::drop-down {
         </item>
         <item row="0" column="0">
          <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="text">
            <string>Creature</string>
           </property>
@@ -112,6 +132,11 @@ QComboBox::drop-down {
         </item>
         <item row="4" column="3" colspan="2">
          <widget class="QLabel" name="label_5">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="text">
            <string>Genorate Simulated CR</string>
           </property>
@@ -122,6 +147,11 @@ QComboBox::drop-down {
         </item>
         <item row="4" column="2">
          <widget class="QSpinBox" name="spinBox_3">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="minimum">
            <number>1</number>
           </property>
@@ -132,6 +162,11 @@ QComboBox::drop-down {
         </item>
         <item row="2" column="2">
          <widget class="QSpinBox" name="spinBox">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="minimum">
            <number>1</number>
           </property>
@@ -142,6 +177,11 @@ QComboBox::drop-down {
         </item>
         <item row="2" column="3">
          <widget class="QSpinBox" name="roundSpinBox">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="minimum">
            <number>1</number>
           </property>
@@ -149,6 +189,11 @@ QComboBox::drop-down {
         </item>
         <item row="2" column="4">
          <widget class="QPushButton" name="runTestButton">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">color: rgb(42, 54, 59);
 background-color: rgb(153, 184, 152);</string>
@@ -159,10 +204,21 @@ background-color: rgb(153, 184, 152);</string>
          </widget>
         </item>
         <item row="2" column="0">
-         <widget class="QComboBox" name="creatureComboBox"/>
+         <widget class="QComboBox" name="creatureComboBox">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
+         </widget>
         </item>
         <item row="5" column="3" colspan="2">
          <widget class="QPushButton" name="pushButton">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">color: rgb(42, 54, 59);
 background-color: rgb(232, 74, 95);</string>
@@ -174,6 +230,11 @@ background-color: rgb(232, 74, 95);</string>
         </item>
         <item row="3" column="3" colspan="2">
          <widget class="Line" name="line">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -181,6 +242,11 @@ background-color: rgb(232, 74, 95);</string>
         </item>
         <item row="0" column="3">
          <widget class="QLabel" name="label_3">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="text">
            <string># of Rounds</string>
           </property>
@@ -191,11 +257,11 @@ background-color: rgb(232, 74, 95);</string>
         </item>
         <item row="2" column="1">
          <widget class="QComboBox" name="enemyComboBox">
-          <item>
-           <property name="text">
-            <string>Barbarian</string>
-           </property>
-          </item>
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <item>
            <property name="text">
             <string>Fighter</string>
@@ -220,6 +286,11 @@ background-color: rgb(232, 74, 95);</string>
         </item>
         <item row="5" column="2">
          <widget class="QSpinBox" name="spinBox_4">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="minimum">
            <number>1</number>
           </property>
@@ -230,6 +301,11 @@ background-color: rgb(232, 74, 95);</string>
         </item>
         <item row="0" column="1">
          <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="text">
            <string>Enemy</string>
           </property>
@@ -240,9 +316,14 @@ background-color: rgb(232, 74, 95);</string>
         </item>
         <item row="3" column="1">
          <widget class="QComboBox" name="enemyComboBox_2">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <item>
            <property name="text">
-            <string>Barbarian</string>
+            <string>-</string>
            </property>
           </item>
           <item>
@@ -269,6 +350,11 @@ background-color: rgb(232, 74, 95);</string>
         </item>
         <item row="3" column="2">
          <widget class="QSpinBox" name="spinBox_2">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="minimum">
            <number>1</number>
           </property>
@@ -279,9 +365,14 @@ background-color: rgb(232, 74, 95);</string>
         </item>
         <item row="4" column="1">
          <widget class="QComboBox" name="enemyComboBox_3">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <item>
            <property name="text">
-            <string>Barbarian</string>
+            <string>-</string>
            </property>
           </item>
           <item>
@@ -308,6 +399,11 @@ background-color: rgb(232, 74, 95);</string>
         </item>
         <item row="1" column="0" colspan="5">
          <widget class="Line" name="line_2">
+          <property name="font">
+           <font>
+            <family>Merriweather</family>
+           </font>
+          </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>

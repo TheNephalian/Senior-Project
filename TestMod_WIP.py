@@ -18,6 +18,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import combat
 from testRunScreen import testRunDialog
+import compare
 
 ##GLOBAL VARIABLES##
 x = np.array(range(1, 21))
@@ -104,7 +105,7 @@ class Ui_testModWindow(creature):
         elif(self.enemyComboBox.currentText() == "Wizard"):
             player1 = dummyWizard.Wizard()
             player1.lvl_change(self.spinBox.value())
-            player1.dpr_change(np.rint(rogueYData[self.spinBox.value()-1]))
+            player1.dpr_change(np.rint(wizardYData[self.spinBox.value()-1]))
             player1.hp_change(np.rint(wizardHpYData[self.spinBox.value()-1]))
             self.players.append(player1)
 
@@ -114,7 +115,7 @@ class Ui_testModWindow(creature):
             if(self.enemyComboBox_2.currentText() == "Fighter"):
                 player2 = dummyFighter.Fighter()
                 player2.lvl_change(self.spinBox_2.value())
-                player2.dpr_change(np.rint(rogueYData[self.spinBox_2.value()-1]))
+                player2.dpr_change(np.rint(fighterYData[self.spinBox_2.value()-1]))
                 player2.hp_change(np.rint(fighterHpYdata[self.spinBox_2.value()-1]))
                 self.players.append(player2)
 
@@ -213,8 +214,11 @@ class Ui_testModWindow(creature):
             print("Player 4 is Blank")
 
         print(*self.players)
-        comSim = combat.combatSimulation(self.test_creature, self.players)
-        comSim.combatSim()
+        #comSim = combat.combatSimulation(self.test_creature, self.players)
+        compSim = compare.compareCRandEC(self.test_creature, self.players)
+        compSim.final_solution()
+        #comSim.combatSim()
+        
 
     def setupUi(self, testModWindow):
         testModWindow.setObjectName("testModWindow")

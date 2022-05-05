@@ -6779,7 +6779,7 @@ if __name__ == "__main__":
 
     #comSim = combat.combatSimulation()
     # comSim.combatSim()
-    compSim = compare.compareCRandEC()
-    compSim.compare_Winpercent_and_CE()
+    #compSim = compare.compareCRandEC()
+    #compSim.compare_Winpercent_and_CE()
 
     sys.exit(app.exec_())

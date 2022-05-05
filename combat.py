@@ -304,8 +304,8 @@ class combatSimulation():
 				print()
 
 		if(self.creature.is_defeated == True):
-			#print(self.creature.name, "was defeated!")
-			...
+			print(self.creature.name, "was defeated!")
+			return 1
 		else:
-			#print(self.creature.name, "defeated all players!")
-			...
+			print(self.creature.name, "defeated all players!")
+			return 0

@@ -76,8 +76,8 @@ class Ui_testModWindow(creature):
         self.ui.setupUi(self.window)
         self.window.show()
         numOfRounds = self.roundSpinBox.value()
-        self.ui.horizontalSlider.setMaximum(numOfRounds)
-        self.ui.label_4.setText(str(numOfRounds))
+        self.ui.progressBar.setMaximum(numOfRounds)
+        # self.ui.label_4.setText(str(numOfRounds))
         self.ui.numRounds = numOfRounds
 
         if(self.enemyComboBox.currentText() == "Fighter"):
@@ -370,8 +370,7 @@ class Ui_testModWindow(creature):
 
     def retranslateUi(self, testModWindow):
         _translate = QtCore.QCoreApplication.translate
-        testModWindow.setWindowTitle(_translate(
-            "testModWindow", "Battle Modification Screen"))
+        testModWindow.setWindowTitle(_translate("testModWindow", "Battle Modification Screen"))
         self.label.setText(_translate("testModWindow", "Creature"))
         self.label_2.setText(_translate("testModWindow", "Enemy"))
         self.label_4.setText(_translate("testModWindow", "Level"))

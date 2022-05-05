@@ -18,7 +18,7 @@ from multiprocessing.sharedctypes import Value
 from re import S
 from secondwindow_copy import Ui_SecondWindow
 
-from TestMod_WIP import *
+from testModScreen import *
 from offensiveCR import *
 from defenseInputs import *
 from defensiveCR import *

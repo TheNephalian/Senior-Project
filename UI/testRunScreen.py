@@ -9,74 +9,112 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from testModScreen import *
-from StatBlockScreen import Ui_MainWindow
 
-#numRounds
 
 class Ui_Dialog(object):
-
-    def showDetails(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_MainWindow()
-        self.ui.setupUi(self.window)
-        self.window.show()
-
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(400, 300)
         self.verticalLayout = QtWidgets.QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName("verticalLayout")
         self.scrollArea = QtWidgets.QScrollArea(Dialog)
+        font = QtGui.QFont()
+        font.setFamily("Merriweather")
+        self.scrollArea.setFont(font)
+        self.scrollArea.setStyleSheet("\n"
+"QProgressBar {\n"
+"      border: 2px solid grey;\n"
+"      border-radius: 5px;\n"
+"  }\n"
+"\n"
+"  QProgressBar::chunk {\n"
+"      background-color: rgb(232, 74, 95);\n"
+"      width: 20px;\n"
+"  }\n"
+"QProgressBar {\n"
+"      border: 2px solid grey;\n"
+"      border-radius: 5px;\n"
+"      text-align: center;\n"
+"  }\n"
+"QPushButton{\n"
+"    color: black;\n"
+"    background-color: #ccccc;\n"
+"     padding: .25em;\n"
+"     border: 1px solid black;\n"
+"     border-radius: 0.4em;\n"
+"}\n"
+"\n"
+"")
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 380, 280))
+        self.scrollAreaWidgetContents.setStyleSheet("background-color: rgb(216, 208, 160);")
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.gridLayout = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName("gridLayout")
+        self.label_5 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("Merriweather")
+        self.label_5.setFont(font)
+        self.label_5.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_5.setObjectName("label_5")
+        self.gridLayout.addWidget(self.label_5, 1, 1, 1, 1)
+        self.pushButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.pushButton.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Merriweather")
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("QPushButton:disabled {\n"
+"                        background-color: gray;\n"
+"            }\n"
+"QPushButton:enabled{\n"
+"    background-color: rgb(204, 204, 204);\n"
+"}")
+        self.pushButton.setObjectName("pushButton")
+        self.gridLayout.addWidget(self.pushButton, 4, 0, 1, 2)
+        self.label_2 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("Merriweather")
+        self.label_2.setFont(font)
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout.addWidget(self.label_2, 0, 0, 1, 1)
+        self.progressBar = QtWidgets.QProgressBar(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("Merriweather")
+        self.progressBar.setFont(font)
+        self.progressBar.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.progressBar.setMaximum(30)
+        self.progressBar.setProperty("value", 25)
+        self.progressBar.setObjectName("progressBar")
+        self.gridLayout.addWidget(self.progressBar, 2, 0, 1, 2)
         self.label_3 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("Merriweather")
+        self.label_3.setFont(font)
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_3.setObjectName("label_3")
-        self.gridLayout.addWidget(self.label_3, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.label_3, 0, 1, 1, 1)
+        self.calculatedCRLabel = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        font = QtGui.QFont()
+        font.setFamily("Merriweather")
+        self.calculatedCRLabel.setFont(font)
+        self.calculatedCRLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.calculatedCRLabel.setObjectName("calculatedCRLabel")
+        self.gridLayout.addWidget(self.calculatedCRLabel, 1, 0, 1, 1)
         self.testCompleteLabel = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        self.testCompleteLabel.setEnabled(True)
         self.testCompleteLabel.setMaximumSize(QtCore.QSize(16777215, 20))
+        font = QtGui.QFont()
+        font.setFamily("Merriweather")
+        self.testCompleteLabel.setFont(font)
+        self.testCompleteLabel.setStyleSheet("")
         self.testCompleteLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.testCompleteLabel.setObjectName("testCompleteLabel")
-        self.testCompleteLabel.hide()
-        self.gridLayout.addWidget(self.testCompleteLabel, 3, 0, 1, 3)
-        self.label_2 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.label_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_2.setObjectName("label_2")
-        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
-        self.label_4 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.label_4.setEnabled(True)
-        self.label_4.setObjectName("label_4")
-        self.gridLayout.addWidget(self.label_4, 2, 2, 1, 1)
-        self.horizontalSlider = QtWidgets.QSlider(self.scrollAreaWidgetContents)
-        self.horizontalSlider.setMaximum(1000)
-        self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
-        self.horizontalSlider.setTickPosition(QtWidgets.QSlider.TicksAbove)
-        self.horizontalSlider.setObjectName("horizontalSlider")
-        self.gridLayout.addWidget(self.horizontalSlider, 1, 0, 1, 3)
-        self.label = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName("label")
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 3)
-        self.pushButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents, clicked = lambda: self.showDetails())
-        self.pushButton.setEnabled(False)
-        self.pushButton.setObjectName("pushButton")
-        self.gridLayout.addWidget(self.pushButton, 4, 0, 1, 3)
+        self.gridLayout.addWidget(self.testCompleteLabel, 3, 0, 1, 2)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout.addWidget(self.scrollArea)
-
-        for i in  range(10000):
-            self.horizontalSlider.setValue(i)
-            # battle the characters
-
-            print(i)
-        print("test completed!")
-        self.pushButton.setEnabled(True)
-        self.testCompleteLabel.show()
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -84,12 +122,12 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label_3.setText(_translate("Dialog", "out of"))
-        self.testCompleteLabel.setText(_translate("Dialog", "<html><head/><body><p><span style=\" color:#ff0000;\">Test Complete !</span></p></body></html>"))
-        self.label_2.setText(_translate("Dialog", "ABC"))
-        self.label_4.setText(_translate("Dialog", "XYZ"))
-        self.label.setText(_translate("Dialog", "Test Running ! // put all combat dialouge here"))
+        self.label_5.setText(_translate("Dialog", "another number"))
         self.pushButton.setText(_translate("Dialog", "Continue"))
+        self.label_2.setText(_translate("Dialog", "Calculated CR:"))
+        self.label_3.setText(_translate("Dialog", "Simulated CR:"))
+        self.calculatedCRLabel.setText(_translate("Dialog", "A  number"))
+        self.testCompleteLabel.setText(_translate("Dialog", "<html><head/><body><p><span style=\" color:#ff0000;\">Test Complete !</span></p></body></html>"))
 
 
 if __name__ == "__main__":

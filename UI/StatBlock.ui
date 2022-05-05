@@ -14,9 +14,25 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+ 	padding: .25em;
+ 	border: 1px solid black;
+ 	border-radius: 0.4em;
+}
+</string>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QFrame" name="frame">
+      <property name="font">
+       <font>
+        <family>Merriweather</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(216, 208, 160);</string>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -26,27 +42,26 @@
       <layout class="QGridLayout" name="gridLayout">
        <item row="2" column="0">
         <widget class="QLabel" name="label_3">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
          <property name="text">
-          <string># of Rounds Won</string>
+          <string># of Rounds Won:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
-        <widget class="QLabel" name="ratioLabel">
-         <property name="text">
-          <string>TextLabel</string>
+       <item row="4" column="1">
+        <widget class="QLabel" name="winPercentageLabel">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
          </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="label_10">
-         <property name="text">
-          <string>W/L Ratio</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLabel" name="numRoundsWonLabel">
          <property name="text">
           <string>TextLabel</string>
          </property>
@@ -54,41 +69,80 @@
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="label_8">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
          <property name="text">
-          <string>Win Percentage</string>
+          <string>Win Percentage:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="label_4">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
          <property name="text">
-          <string># of Rounds Lost</string>
+          <string># of Rounds Lost:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QLabel" name="numRoundsLabel">
-         <property name="text">
-          <string>TextLabel</string>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_10">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
          </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QLabel" name="winPercentageLabel">
          <property name="text">
-          <string>TextLabel</string>
+          <string>W/L Ratio:</string>
          </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Results</string>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
        <item row="3" column="1">
         <widget class="QLabel" name="numRoundsLostLabel">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLabel" name="ratioLabel">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="numRoundsWonLabel">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
          <property name="text">
           <string>TextLabel</string>
          </property>
@@ -96,19 +150,65 @@
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
          <property name="text">
-          <string># of Rounds</string>
+          <string># of Rounds:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="numRoundsLabel">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="2">
+        <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+           <pointsize>14</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Results</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0" colspan="2">
+        <widget class="QPushButton" name="pushButton">
+         <property name="font">
+          <font>
+           <family>Merriweather</family>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(42, 54, 59);
+background-color: rgb(153, 184, 152);</string>
+         </property>
+         <property name="text">
+          <string>Continue</string>
          </property>
         </widget>
        </item>
       </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Continue</string>
-      </property>
      </widget>
     </item>
    </layout>

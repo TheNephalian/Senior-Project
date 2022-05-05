@@ -1198,7 +1198,6 @@ class Ui_MainWindow(object):
                                          "}\n"
                                          "QToolTip{\n"
                                          "color: #146739;"
-                                         "border-radius: 4px;"
                                          "border: 3px solid green;"
                                          "border-top: 3px solid rgba(255,255,255,255);"
                                          "border-bottom: 3px solid rgba(255,255,255,255);"

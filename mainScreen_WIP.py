@@ -1183,6 +1183,7 @@ class Ui_MainWindow(object):
         #parse file
         someObj = json.loads(importedCreature)
         print(str(someObj['name']))
+        self.nameLineEdit.setText(str(someObj['name']))
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")

@@ -1159,7 +1159,7 @@ class Ui_MainWindow(object):
             "name" : f"{self.nameLineEdit.text()}",
             "Strength" : self.strSpinBox.value(),
             "useSaves" : self.savesCheckBox.isChecked(),
-            "allignment" : self.allignmentComboBox.currentText()
+            "allignment" : self.allignmentComboBox.currentIndex()
         }
 
         json_obj = json.dumps(creatureData, indent=4)
@@ -1184,6 +1184,9 @@ class Ui_MainWindow(object):
         someObj = json.loads(importedCreature)
         print(str(someObj['name']))
         self.nameLineEdit.setText(str(someObj['name']))
+        self.strSpinBox.setValue(someObj['Strength'])
+        self.savesCheckBox.setChecked(someObj['useSaves'])
+        self.allignmentComboBox.setCurrentIndex(someObj['allignment'])
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")

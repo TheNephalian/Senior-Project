@@ -429,6 +429,8 @@ class Ui_testModWindow(creature):
                 fighterXData[int(self.spinBox.value())-1]))
             print("Enemy Damage/Round: ",
                   str(np.rint(fighterYData[self.spinBox.value()-1])))
+            print("Enemy Hit Points: ",
+                  str(np.rint(fighterHpYdata[self.spinBox.value()-1])))
 
         elif(self.enemyComboBox.currentText() == "Ranger"):
             print("Enemy: ", self.enemyComboBox.currentText())
@@ -436,6 +438,8 @@ class Ui_testModWindow(creature):
                 rangerXData[int(self.spinBox.value())-1]))
             print("Enemy Damage/Round: ",
                   str(np.rint(rangerYData[self.spinBox.value()-1])))
+            print("Enemy Hit Points: ",
+                  str(np.rint(rangerHpYData[self.spinBox.value()-1])))
 
         elif(self.enemyComboBox.currentText() == "Rogue"):
             print("Enemy: ", self.enemyComboBox.currentText())
@@ -443,6 +447,8 @@ class Ui_testModWindow(creature):
                 rogueXData[int(self.spinBox.value())-1]))
             print("Enemy Damage/Round: ",
                   str(np.rint(rogueYData[self.spinBox.value()-1])))
+            print("Enemy Hit Points: ",
+                  str(np.rint(rogueHpYData[self.spinBox.value()-1])))
 
         elif(self.enemyComboBox.currentText() == "Wizard"):
             print("Enemy: ", self.enemyComboBox.currentText())
@@ -450,6 +456,8 @@ class Ui_testModWindow(creature):
                 wizardXData[int(self.spinBox.value())-1]))
             print("Enemy Damage/Round: ",
                   str(np.rint(wizardYData[self.spinBox.value()-1])))
+            print("Enemy Hit Points: ",
+                  str(np.rint(wizardHpYData[self.spinBox.value()-1])))
 
 
 if __name__ == "__main__":

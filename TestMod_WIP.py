@@ -214,10 +214,10 @@ class Ui_testModWindow(creature):
             print("Player 4 is Blank")
 
         print(*self.players)
-        #comSim = combat.combatSimulation(self.test_creature, self.players)
-        compSim = compare.compareCRandEC(self.test_creature, self.players)
-        compSim.final_solution()
-        #comSim.combatSim()
+        comSim = combat.combatSimulation(self.test_creature, self.players)
+        #compSim = compare.compareCRandEC(self.test_creature, self.players)
+        #compSim.final_solution()
+        comSim.combatSim()
         
 
     def setupUi(self, testModWindow):

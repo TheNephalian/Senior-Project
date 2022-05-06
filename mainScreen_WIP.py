@@ -5856,7 +5856,7 @@ class Ui_MainWindow(object):
     # vulChecker is the function for Vulnerabilities
     # fliesChecker is the function for Flies and can deal damage at range (CR 0-9 only):
 
-#################################
+#################################   
     def exCRValChange(self, value):
         ###pros_prof_bns = cal_pros_prof_bns(self.exCRLineEdit.text())
         ###print("You typed "+ self.exCRLineEdit.text())

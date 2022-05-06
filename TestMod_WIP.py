@@ -23,12 +23,6 @@ import compare
 ##GLOBAL VARIABLES##
 x = np.array(range(1, 21))
 
-barbarianY = 14.3538 * np.log(1.6285*x)
-barbarianCurve, = plt.plot(x, barbarianY)
-barbarianXData = barbarianCurve.get_xdata()
-barbarianYData = barbarianCurve.get_ydata()
-
-
 fighterY = 15.3552 * np.log(1.5775*x)
 fighterHpY = 50.405 * np.log(1.2194*x)
 fighterCurve, = plt.plot(x, fighterY)
@@ -213,7 +207,7 @@ class Ui_testModWindow(creature):
         else:
             print("Player 4 is Blank")
 
-        print(*self.players)
+        #print(*self.players)
         comSim = combat.combatSimulation(self.test_creature, self.players)
         #compSim = compare.compareCRandEC(self.test_creature, self.players)
         #compSim.final_solution()
@@ -369,6 +363,9 @@ class Ui_testModWindow(creature):
 
         ####
         self.enemyComboBox.currentIndexChanged.connect(self.enemyValChange)
+        self.enemyComboBox_2.currentIndexChanged.connect(self.enemyValChange)
+        self.enemyComboBox_3.currentIndexChanged.connect(self.enemyValChange)
+        self.enemyComboBox_4.currentIndexChanged.connect(self.enemyValChange)
 
         self.spinBox.valueChanged.connect(self.enemyLevelChange)
 
@@ -379,7 +376,6 @@ class Ui_testModWindow(creature):
         self.label_2.setText(_translate("testModWindow", "Enemy"))
         self.label_4.setText(_translate("testModWindow", "Level"))
         self.label_3.setText(_translate("testModWindow", "# of Rounds"))
-        #self.enemyComboBox.setItemText(0, _translate("testModWindow", "Barbarian"))
         self.enemyComboBox.setItemText(
             0, _translate("testModWindow", "Fighter"))
         self.enemyComboBox.setItemText(
@@ -389,7 +385,6 @@ class Ui_testModWindow(creature):
             3, _translate("testModWindow", "Wizard"))
         self.runTestButton.setText(_translate("testModWindow", "Run Test!"))
         self.enemyComboBox_2.setItemText(0, _translate("testModWindow", "-"))
-        #self.enemyComboBox_2.setItemText(1, _translate("testModWindow", "Barbarian"))
         self.enemyComboBox_2.setItemText(
             1, _translate("testModWindow", "Fighter"))
         self.enemyComboBox_2.setItemText(
@@ -399,7 +394,6 @@ class Ui_testModWindow(creature):
         self.enemyComboBox_2.setItemText(
             4, _translate("testModWindow", "Wizard"))
         self.enemyComboBox_3.setItemText(0, _translate("testModWindow", "-"))
-        #self.enemyComboBox_3.setItemText(1, _translate("testModWindow", "Barbarian"))
         self.enemyComboBox_3.setItemText(
             1, _translate("testModWindow", "Fighter"))
         self.enemyComboBox_3.setItemText(
@@ -409,7 +403,6 @@ class Ui_testModWindow(creature):
         self.enemyComboBox_3.setItemText(
             4, _translate("testModWindow", "Wizard"))
         self.enemyComboBox_4.setItemText(0, _translate("testModWindow", "-"))
-        #self.enemyComboBox_4.setItemText(1, _translate("testModWindow", "Barbarian"))
         self.enemyComboBox_4.setItemText(
             1, _translate("testModWindow", "Fighter"))
         self.enemyComboBox_4.setItemText(
@@ -419,27 +412,18 @@ class Ui_testModWindow(creature):
         self.enemyComboBox_4.setItemText(
             4, _translate("testModWindow", "Wizard"))
 
-    def enemyValChange(self, value):
-        print("Enemy value changed!")
+    def enemyValChange(self):
         print("New Enemy: ", str(self.enemyComboBox.currentText()))
 
     # Notice:
     # I am using made up numbers for the enemy DPR
-    # Barbarian level 1: 7, Level 20: 50
     # Fighter Level 1: 7, Level 20: 53
     # Ranger Level 1: 5, Level 20: 44
     # Rogue Level 1: 5, level 20: 40
     # Wizard Level 1: 3, level 20: 44
 
     def enemyLevelChange(self, value):
-        if(self.enemyComboBox.currentText() == "Barbarian"):
-            print("Enemy: ", self.enemyComboBox.currentText())
-            print("Enemy level: ", str(
-                barbarianXData[int(self.spinBox.value())-1]))
-            print("Enemy Damage/Round: ",
-                  str(np.rint(barbarianYData[self.spinBox.value()-1])))
-
-        elif(self.enemyComboBox.currentText() == "Fighter"):
+        if(self.enemyComboBox.currentText() == "Fighter"):
             print("Enemy: ", self.enemyComboBox.currentText())
             print("Enemy level: ", str(
                 fighterXData[int(self.spinBox.value())-1]))

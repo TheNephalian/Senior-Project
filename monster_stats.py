@@ -1,7 +1,9 @@
+from audioop import avg
 import math
 import random
 from single_action_attack import *
 from multiattack_attack import *
+from preferred_attack import *
 
 from dummyCreature import *
 class monster(creature):
@@ -48,6 +50,8 @@ class monster(creature):
         self.multiattack_action = multiattack_attack()
         self.atk_dmg = []
 
+        self.pref_attack = None
+
         class custom_attack():
             def __init__(self, window):
                 self.ui = window
@@ -93,7 +97,7 @@ class monster(creature):
 
     def setMultiAttackAttacks(self):
         for i in range(0, 4):
-            print("self.num_multi_atk[i]: i =", i, "value =", self.num_multi_atk[i])
+            #print("self.num_multi_atk[i]: i =", i, "value =", self.num_multi_atk[i])
 
             if (self.num_multi_atk[i] != 0):
                 for i in range(0, self.num_multi_atk[i]):
@@ -106,10 +110,10 @@ class monster(creature):
 
                     self.multiattack_attacks.append(self.multiattack_action)
 
-                    print("Attack added to multiattack array.")
+                    #print("Attack added to multiattack array.")
 
-            else:
-                print("num_multi_atk[i] = 0. No attack added to multiattack array.")
+            #else:
+                #print("num_multi_atk[i] = 0. No attack added to multiattack array.")
 
         return
 
@@ -390,11 +394,74 @@ class monster(creature):
     def takes_dmg(self, dmg):
         super().takes_dmg(dmg)
     
-    '''This function is hardcoded for initial custom creature combat simulations'''
+    def determineWhichAttack(self):
+        print("Determining creature's pref_attack...")
+
+        avg_singleActionAttack_dmg = 0
+        avg_multiAttack_dmg = 0
+        avg_customActionAttack_dmg = 0
+
+        if (self.multiattack_checked == False):
+            avg_singleActionAttack_dmg = self.single_action_attack.num_dmg_dice * self.single_action_attack.avg_dmg_dice + self.single_action_attack.atk_dmgBns
+
+            #print("avg_singleActionAttack_dmg:", avg_singleActionAttack_dmg)
+
+        elif (self.multiattack_checked == True):
+            for i in range(0, len(self.multiattack_attacks)):
+                avg_multiAttack_dmg = avg_multiAttack_dmg + (self.multiattack_attacks[i].num_dmg_dice * self.multiattack_attacks[i].avg_dmg_dice + self.multiattack_attacks[i].atk_dmgBns)
+
+                #print(self.multiattack_attacks[i].num_dmg_dice, self.multiattack_attacks[i].avg_dmg_dice, self.multiattack_attacks[i].atk_dmgBns)
+
+            #print("avg_multiAttack_dmg:", avg_multiAttack_dmg)
+        
+        if (self.custom_attack.deals_dmg == True):
+            avg_customActionAttack_dmg = self.custom_attack.num_dmg_dice * self.custom_attack.dieAve
+
+            if (self.custom_attack.isAOE == True):
+                avg_customActionAttack_dmg = avg_customActionAttack_dmg * 2
+
+            #print("avg_customActionAttack_dmg:", avg_customActionAttack_dmg)
+
+        if (self.multiattack_checked == False):
+            if (avg_singleActionAttack_dmg > avg_customActionAttack_dmg):
+                self.pref_attack = preferred_attack.single_action_attack
+
+                #print("Set creature's pref_attack to single_action_attack")
+
+            else:
+                self.pref_attack = preferred_attack.custom_attack
+
+                #print("Set creature's pref_attack to custom_attack")
+
+        elif (self.multiattack_checked == True):
+            if (avg_multiAttack_dmg > avg_customActionAttack_dmg):
+                self.pref_attack = preferred_attack.multiattack
+
+                #print("Set creature's pref_attack to multiattack")
+
+            else:
+                self.pref_attack = preferred_attack.custom_attack
+
+                #print("Set creature's pref_attack to custom_attack")
+
+        else:
+            print("Could not determined creature's pref_attack in monster_stats.determineWhichAttack")
+
+            return
+
+        print(self.name + "'s preferred attack is", self.pref_attack._name_)
+
+    def has_attacked(self):
+        return self.hasattacked
+
     def attack(self, enemy):
+        #self.hasattacked = True
+
+        self.determineWhichAttack()
+
         totalDmg = 0
 
-        if (self.multiattack_checked == True):
+        if (self.pref_attack == preferred_attack.multiattack):
             for i in range(len(self.multiattack_attacks)):
                 atk_die_type = None
                 
@@ -423,9 +490,9 @@ class monster(creature):
 
                 self.deal_multi_damage(enemy, totalDmg, i)
     
-        elif (self.multiattack_checked == False):
+        elif (self.pref_attack == preferred_attack.single_action_attack):
             die_type = 4
-            
+
             if (self.single_action_attack.avg_dmg_dice == 2.5):
                 die_type = 4
             elif (self.single_action_attack.avg_dmg_dice == 3.5):
@@ -446,8 +513,71 @@ class monster(creature):
 
             self.deal_damage(enemy, totalDmg)
 
+        elif (self.pref_attack == preferred_attack.custom_attack):
+            num_die = self.custom_attack.num_dmg_dice
+            die_type = 4
+
+            if (self.custom_attack.dieAve == 2.5):
+                die_type = 4
+            elif (self.custom_attack.dieAve == 3.5):
+                die_type = 6
+            elif (self.custom_attack.dieAve == 4.5):
+                die_type = 8
+            elif (self.custom_attack.dieAve == 5.5):
+                die_type = 10
+            elif (self.custom_attack.dieAve == 6.5):
+                die_type = 12
+            else:
+                print("Could not determine die_type in custom_attack monster_stats.attack")
+
+            #print(num_die, die_type)
+
+            totalDmg = self.cal_attack_dmg(num_die, die_type, 0)
+
+            self.deal_customAttack_damage(enemy, totalDmg)
+
+            #self.hasattacked = True
+
         else:
             print("Could not determine single or multiattack in monster_stats.attack")
+
+        self.hasattacked = True
+
+    def deal_customAttack_damage(self, enemy, dmg):
+        targetIndex1 = random.randint(0, len(enemy.players) - 1)
+
+        target = enemy.players[targetIndex1]
+        
+        target2 = 0
+
+        if (self.custom_attack.isAOE == True):
+            targetIndex2 = random.randint(0, len(enemy.players) - 1)
+
+            if (len(enemy.players) > 1):
+                while (targetIndex1 == targetIndex2):
+                    targetIndex2 = random.randint(0, len(enemy.players) - 1)
+
+                target2 = enemy.players[targetIndex2]
+
+        saveBns = 0
+
+        for i in range (0, len(self.atk_bns)):
+            if (self.atk_bns[i] > saveBns):
+                saveBns = self.atk_bns[i]
+
+        saveDC = 8 + self.prof_bns + saveBns
+
+        target.saving_throw(dmg, saveDC)
+
+        if (target2 != 0):
+            target2.saving_throw(dmg, saveDC)
+            self.hasattacked == True
+
+        self.hasattacked == True
+
+        print()
+
+        return
 
     def deal_multi_damage(self, enemy, dmg, i):
         targetIndex = random.randint(0, len(enemy.players) - 1)
@@ -482,6 +612,8 @@ class monster(creature):
         return atk_roll
 
     def cal_attack_dmg(self, num_die, atk_die_type, dmg_bns):
+        #print(num_die, atk_die_type, dmg_bns)
+
         atk_dmg = 0
 
         for i in range(0, num_die):

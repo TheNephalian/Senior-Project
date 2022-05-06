@@ -258,7 +258,7 @@ class combatSimulation():
 					#print("in initiativeOrder arry: ", l)
      
 					l = l - 1
-     
+    
 				if(self.initiativeOrder[l-1].has_attacked() == False and l == len(self.initiativeOrder)-1):
 					#print("cant skip any")
 					l = l - 1
@@ -277,16 +277,14 @@ class combatSimulation():
 					#print("\n****this means player/creature has attacked and before combat")
 					break
 
-				
 				self.initiativeOrder[l].attack(self)
 		
-				
-				if(self.initiativeOrder[l].has_attacked() == True):
+				#if(self.initiativeOrder[l].has_attacked() == True):
 					#print("this means player/creature has attacked and after combat****")
-					...
-				elif(self.initiativeOrder[l].has_attacked() == False):
+					#...
+				#elif(self.initiativeOrder[l].has_attacked() == False):
 					#print("this means they have not attacked and after combat****")
-					...
+					#...
     
 				if (self.remove_from_combat() == True):
 					if (l == len(self.initiativeOrder)-1):

@@ -1,0 +1,6 @@
+{
+    "name": "Sample Creature",
+    "Strength": 20,
+    "useSaves": true,
+    "allignment": 3
+}

@@ -11,6 +11,7 @@
 from json import detect_encoding
 from operator import methodcaller
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog
 from cgi import test
 from ctypes.wintypes import HPALETTE
 from json.encoder import INFINITY
@@ -23,6 +24,7 @@ from offensiveCR import *
 from defenseInputs import *
 from defensiveCR import *
 from monster_stats import *
+import sys
 import combat
 import dpr_calculation
 import monster_stats
@@ -1157,7 +1159,7 @@ class Ui_MainWindow(object):
             "name" : f"{self.nameLineEdit.text()}",
             "Strength" : self.strSpinBox.value(),
             "useSaves" : self.savesCheckBox.isChecked(),
-            "allignment" : self.allignmentComboBox.currentText()
+            "allignment" : self.allignmentComboBox.currentIndex()
         }
 
         json_obj = json.dumps(creatureData, indent=4)
@@ -1166,7 +1168,25 @@ class Ui_MainWindow(object):
             f.write(json_obj)
             print("The json file is created")
             
+    def importCreature(self):
+        print("importing a creature")
 
+        #get file
+        fname = QFileDialog.getOpenFileName(None,'Open File','C:\\','Json files(*.json)')
+        pathToFile = fname[0]
+        print(pathToFile)
+
+        #read File
+        myJsonFile = open (pathToFile)
+        importedCreature = myJsonFile.read()
+
+        #parse file
+        someObj = json.loads(importedCreature)
+        print(str(someObj['name']))
+        self.nameLineEdit.setText(str(someObj['name']))
+        self.strSpinBox.setValue(someObj['Strength'])
+        self.savesCheckBox.setChecked(someObj['useSaves'])
+        self.allignmentComboBox.setCurrentIndex(someObj['allignment'])
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -3131,7 +3151,7 @@ class Ui_MainWindow(object):
         self.frame_17.setObjectName("frame_17")
         self.gridLayout_18 = QtWidgets.QGridLayout(self.frame_17)
         self.gridLayout_18.setObjectName("gridLayout_18")
-        self.pushButton = QtWidgets.QPushButton(self.frame_17)
+        self.pushButton = QtWidgets.QPushButton(self.frame_17,clicked = lambda: self.importCreature())
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.pushButton.setFont(font)

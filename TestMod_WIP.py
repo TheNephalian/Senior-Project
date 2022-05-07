@@ -23,7 +23,7 @@ import compare
 ##GLOBAL VARIABLES##
 x = np.array(range(1, 21))
 
-fighterY = 15.3552 * np.log(1.5775*x)
+fighterY = 15.3552 * np.log(1.5775*x)#Changing
 fighterHpY = 50.405 * np.log(1.2194*x)
 fighterCurve, = plt.plot(x, fighterY)
 fighterHpCurve, = plt.plot(x, fighterHpY)

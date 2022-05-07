@@ -24,38 +24,32 @@ import compare
 ##GLOBAL VARIABLES##
 x = np.array(range(1, 21))
 
-barbarianY = 14.3538 * np.log(1.6285*x)
-barbarianCurve, = plt.plot(x, barbarianY)
-barbarianXData = barbarianCurve.get_xdata()
-barbarianYData = barbarianCurve.get_ydata()
-
-
-fighterY = 15.3552 * np.log(1.5775*x)
-fighterHpY = 50.405 * np.log(1.2194*x)
+fighterY = ((2.8947368421052633*x)+2.1052631578947327)
+fighterHpY = ((7.947368421052632*x)+2.05263157894737)
 fighterCurve, = plt.plot(x, fighterY)
 fighterHpCurve, = plt.plot(x, fighterHpY)
 fighterXData = fighterCurve.get_xdata()
 fighterYData = fighterCurve.get_ydata()
 fighterHpYdata = fighterHpCurve.get_ydata()
 
-rangerY = 13.0185 * np.log(1.4682*x)
-rangerHpY = 50.405 * np.log(1.2194*x)
+rangerY = ((1.4736842105263157*x)+5.526315789473685)
+rangerHpY = ((7.947368421052632*x)+2.05263157894737)
 rangerCurve, = plt.plot(x, rangerY)
 rangerHpCurve, = plt.plot(x,rangerHpY)
 rangerXData = rangerCurve.get_xdata()
 rangerYData = rangerCurve.get_ydata()
 rangerHpYData = rangerHpCurve.get_ydata()
 
-rogueY = 11.6833 * np.log(1.5341*x)
-rogueHpY = 38.3879 * np.log(1.2317*x)
+rogueY = ((1.4210526315789473*x)+6.578947368421055)
+rogueHpY = ((6.052631578947368*x)+1.94736842105263)
 rogueCurve, = plt.plot(x, rogueY)
 rogueHpCurve, = plt.plot(x,rogueHpY)
 rogueXData = rogueCurve.get_xdata()
 rogueYData = rogueCurve.get_ydata()
 rogueHpYData = rogueHpCurve.get_ydata()
 
-wizardY = 14.6876 * np.log(1.2266*x)
-wizardHpY = 38.3879 * np.log(1.2317*x)
+wizardY = ((2.3684210526315788*x)+2.631578947368425)
+wizardHpY = ((6.052631578947368*x)+1.94736842105263)
 wizardCurve, = plt.plot(x, wizardY)
 wizardHpCurve, = plt.plot(x, wizardHpY)
 wizardXData = wizardCurve.get_xdata()
@@ -522,14 +516,7 @@ class Ui_testModWindow(creature):
     # Wizard Level 1: 3, level 20: 44
 
     def enemyLevelChange(self, value):
-        if(self.enemyComboBox.currentText() == "Barbarian"):
-            print("Enemy: ", self.enemyComboBox.currentText())
-            print("Enemy level: ", str(
-                barbarianXData[int(self.spinBox.value())-1]))
-            print("Enemy Damage/Round: ",
-                  str(np.rint(barbarianYData[self.spinBox.value()-1])))
-
-        elif(self.enemyComboBox.currentText() == "Fighter"):
+        if(self.enemyComboBox.currentText() == "Fighter"):
             print("Enemy: ", self.enemyComboBox.currentText())
             print("Enemy level: ", str(
                 fighterXData[int(self.spinBox.value())-1]))

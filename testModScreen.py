@@ -18,6 +18,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import combat
 from testRunScreen import testRunDialog
+import compare
+
 
 ##GLOBAL VARIABLES##
 x = np.array(range(1, 21))
@@ -213,8 +215,10 @@ class Ui_testModWindow(creature):
             print("Player 4 is Blank")
 
         print(*self.players)
-        comSim = combat.combatSimulation(self.test_creature, self.players)
-        comSim.combatSim()
+        #comSim = combat.combatSimulation(self.test_creature, self.players)
+        #comSim.combatSim()
+        compSim = compare.compareCRandEC(self.test_creature, self.players)
+        compSim.final_solution()
 
 
 

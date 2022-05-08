@@ -213,8 +213,8 @@ class Ui_testModWindow(creature):
         #comSim.combatSim()
         compSim = compare.compareCRandEC(self.test_creature, self.players)
         rp = 1
-        sim_num = 1
-        compSim.final_solution(rp, sim_num)
+        #sim_num = 1
+        compSim.final_solution(rp)
 
 
 

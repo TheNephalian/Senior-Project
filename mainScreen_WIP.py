@@ -11,7 +11,7 @@
 from json import detect_encoding
 from operator import methodcaller
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog
+from PyQt5.QtWidgets import QDialog, QApplication, QFileDialog, QMessageBox
 from cgi import test
 from ctypes.wintypes import HPALETTE
 from json.encoder import INFINITY
@@ -25,6 +25,7 @@ from defenseInputs import *
 from defensiveCR import *
 from monster_stats import *
 import sys
+import os
 import combat
 import dpr_calculation
 import monster_stats
@@ -1153,26 +1154,175 @@ class Ui_MainWindow(object):
         self.intSpinBox.setValue(10)
 
     def exportCreature(self):
+        savePath = os.getcwd()
+        print(savePath)
         fileName = self.nameLineEdit.text()
 
         creatureData = {
-            "name" : f"{self.nameLineEdit.text()}",
-            "Strength" : self.strSpinBox.value(),
+            "name" : self.nameLineEdit.text(),
+            "STR" : self.strSpinBox.value(),
+            "DEX" : self.dexSpinBox.value(),
+            "CON" : self.conSpinBox.value(),
+            "INT" : self.intSpinBox.value(),
+            "WIS" : self.wisSpinBox.value(),
+            "CHA" : self.chaSpinBox.value(),
+            "STR_ST" : self.strSavingThrowCheckBox.isChecked(),
+            "DEX_ST" : self.dexSavingThrowCheckBox.isChecked(),
+            "CON_ST" : self.conSavingThrowCheckBox.isChecked(),
+            "INT_ST" : self.intSavingThrowCheckBox.isChecked(),
+            "WIS_ST" : self.wisSavingThrowCheckBox.isChecked(),
+            "CHA_ST" : self.chaSavingThrowCheckBox.isChecked(),
+            "HitPoints" : self.hitPointsSpinBox.value(),
+            "ArmorClass" : self.ArmorSpinBox.value(),
+            "Size" : self.sizeComboBox.currentIndex(),
+            "Constit" : self.constitSpinBox.value(),
+            "DPR" : self.dprSpinBox.value(),
+            "AB/SDC" :self.attkBonSpinBox.value(),
             "useSaves" : self.savesCheckBox.isChecked(),
-            "allignment" : self.allignmentComboBox.currentIndex()
+            "Vuln" : self.vulCheckBox.isChecked(),
+            "Resit/Immun" : self.resComboBox.currentIndex(),
+            "flies" : self.fliesCheckBox.isChecked(),
+            "savePof" : self.saveComboBox.currentIndex(),
+            "MultiAttk" : self.multiAttackCheckBox.isChecked(),
+            "numAttk_1" : self.spinBox.value(),
+            "numAttk_2" : self.spinBox_2.value(),
+            "numAttk_3" : self.spinBox_3.value(),
+            "numAttk_4" : self.spinBox_4.value(),
+            "action_1" : self.actionName_1.text(),
+            "action_2" : self.actionName_2.text(),
+            "action_3" : self.actionName_3.text(),
+            "action_4" : self.actionName_4.text(),
+            "actionType_1" : self.actionType_1.currentIndex(),
+            "actionType_2" : self.actionType_2.currentIndex(),
+            "actionType_3" : self.actionType_3.currentIndex(),
+            "actionType_4" : self.actionType_4.currentIndex(),
+            "reach_1" : self.reachSpinBox_1.value(),
+            "reach_2" : self.reachSpinBox_2.value(),
+            "reach_3" : self.reachSpinBox_3.value(),
+            "reach_4" : self.reachSpinBox_4.value(),
+            "numDie_1" : self.numDieSpinBox.value(),
+            "numDie_2" : self.numDieSpinBox_2.value(),
+            "numDie_3" : self.numDieSpinBox_3.value(),
+            "numDie_4" : self.numDieSpinBox_4.value(),
+            "damType_1" : self.actionDamageType_1.currentIndex(),
+            "damType_2" : self.actionDamageType_2.currentIndex(),
+            "damType_3" : self.actionDamageType_3.currentIndex(),
+            "damType_4" : self.actionDamageType_4.currentIndex(),
+            "Attr_1" : self.attrComboBox_1.currentIndex(),
+            "Attr_2" : self.attrComboBox_2.currentIndex(),
+            "Attr_3" : self.attrComboBox_3.currentIndex(),
+            "Attr_4" : self.attrComboBox_4.currentIndex(),
+            "Type" : self.typeComboBox.currentIndex(),
+            "allignment" : self.allignmentComboBox.currentIndex(),
+            "GroundSpeed" : self.movementSpinBox.value(),
+            "BurrowSpeed" : self.burrowSpinBox.value(),
+            "ClimbSpeed" : self.climbSpinBox.value(),
+            "FlySpeed" : self.flySpinBox.value(),
+            "SwimSpeed" : self.swimSpinBox.value(),
+            "Elvish" : self.elvishCheckBox.isChecked(),
+            "Giant" : self.giantCheckBox.isChecked(),
+            "Gnomish" : self.gnomishCheckBox.isChecked(),
+            "Goblin" : self.goblinCheckBox.isChecked(),
+            "Halfling" : self.halflingCheckBox.isChecked(),
+            "Orc" : self.orcCheckBox.isChecked(),
+            "Primordial" : self.primordialCheckBox.isChecked(),
+            "Sylvan" : self.sylvanCheckBox.isChecked(),
+            "ThievesCant" : self.thievesCantCheckBox.isChecked(),
+            "Undercommon" : self.undercommonCheckBox.isChecked(),
+            "Blindsight" : self.blindsightCheckBox.isChecked(),
+            "Blindsight_dist" : self.blindSightSpinBox.value(),
+            "Darkvision" : self.darkVisionSpinBox.value(),
+            "Tremorsense" : self.tremorsenseCheckBox.isChecked(),
+            "Tremorsense_dist" : self.tremorSenseSpinBox.value(),
+            "Truesight" : self.truesightCheckBox.isChecked(),
+            "Truesight_dist" : self.trueSightSpinBox.value(),
+            "Acrobatics" : self.acrobaticsCheckBox.isChecked(),
+            "AnimalHandling" : self.animalHandlingCheckBox.isChecked(),
+            "Arcana" : self.arcanaCheckBox.isChecked(),
+            "Athletics" : self.athleticsCheckBox.isChecked(),
+            "Deception" : self.deceptionCheckBox.isChecked(),
+            "History" : self.historyCheckBox.isChecked(),
+            "Insight" : self.historyCheckBox.isChecked(),
+            "Intimidation" : self.intimidationCheckBox.isChecked(),
+            "Investigation" : self.investigationCheckBox.isChecked(),
+            "Medicine" : self.medicineCheckBox.isChecked(),
+            "Nature" : self.natureCheckBox.isChecked(),
+            "Perception" : self.perceptionCheckBox.isChecked(),
+            "Performance" : self.performanceCheckBox.isChecked(),
+            "Persuasion" : self.persuasionCheckBox.isChecked(),
+            "Religion" : self.religionCheckBox.isChecked(),
+            "SlightOfHand" : self.slightOfHandCheckBox.isChecked(),
+            "Stealth" : self.stealthCheckBox.isChecked(),
+            "Survival" : self.survivalCheckBox.isChecked(),
+            "Blinded" :self.blindedCheckBox.isChecked(),
+            "Charmed" : self.charmedCheckBox.isChecked(),
+            "Deafened" : self.deafendedCheckBox.isChecked(),
+            "Exhaustion" : self.exhaustionCheckBox.isChecked(),
+            "Frightened" : self.frightenedCheckBox.isChecked(),
+            "Grappled" : self.grappledCheckBox.isChecked(),
+            "Incapacitated" : self.incapacitatedCheckBox.isChecked(),
+            "Invisible" : self.invisibleCheckBox.isChecked(),
+            "Paralyzed" : self.paralyzedCheckBox.isChecked(),
+            "Petrified" : self.petrifiedCheckBox.isChecked(),
+            "Poisoned" : self.petrifiedCheckBox.isChecked(),
+            "Prone" : self.proneCheckBox.isChecked(),
+            "Restrained" : self.restrainedCheckBox.isChecked(),
+            "Stunned" : self.stunnedCheckBox.isChecked(),
+            "Unconscious" : self.unconsciosCheckBox.isChecked(),
+            "Acid" : self.acidComboBox.currentIndex(),
+            "Bludgeoning" : self.bludgeoningComboBox.currentIndex(),
+            "Cold" : self.coldComboBox.currentIndex(),
+            "Fire" : self.fireComboBox.currentIndex(),
+            "Force" : self.forceComboBox.currentIndex(),
+            "Lightning" : self.lightningComboBox.currentIndex(),
+            "Necrotic" : self.necroticComboBox.currentIndex(),
+            "Piercing" : self.piercingComboBox.currentIndex(),
+            "Poison" : self.poisonComboBox.currentIndex(),
+            "Psychic" : self.psychicComboBox.currentIndex(),
+            "Radiant" : self.radiantComboBox.currentIndex(),
+            "Slashing" : self.slashingComboBox.currentIndex(),
+            "Thunder" : self.thunderComboBox.currentIndex(),
+            "Agressive" : self.aggressiveCheckBox.isChecked(),
+            "Ambusher" : self.ambusherCheckBox.isChecked(),
+            "AngelicWeapons" : self.angelicWeaponsCheckBox.isChecked(),
+            "Avoidance" : self.avoidanceCheckBox.isChecked(),
+            "BloodFrenzy" : self.bloodFrenzyCheckBox.isChecked(),
+            "Constrict" : self.constructCheckBox.isChecked(),
+            "DamageTransfer" : self.damageTransferCheckBox.isChecked(),
+            "Enlarge" : self.enlargeCheckBox.isChecked(),
+            "FrightfulPresence" : self.frightfulPresenceCheckBox.isChecked(),
+            "HeatedBody" : self.heatedBodyCheckBox.isChecked(),
+            "HorrifyingVisage" : self.horrifyingVisageCheckBox.isChecked(),
+            "LegendaryResist" : self.legendaryResistanceCheckBox.isChecked(),
+            "MagicResist" : self.magicResistanceCheckBox.isChecked(),
+            "MartialAdvantage" : self.martialAdvantageCheckBox.isChecked(),
+            "NimbleEscape" : self.nimbleEscapeCheckBox.isChecked(),
+            "PackTactics" : self.packTacticsCheckBox.isChecked(),
+            "Parry" : self.parryCheckBox.isChecked(),
+            "Possesion" : self.possessionCheckBox.isChecked(),
+            "Regeneration" : self.regenerationCheckBox.isChecked(),
+            "Relentless" : self.relentlessCheckBox.isChecked(),
+            "ShadowStealth" : self.shadowStealthCheckBox.isChecked(),
+            "Stench" : self.stenchCheckBox.isChecked(),
+            "SuperiorInvis" : self.superiorInvisibilityCheckBox.isChecked(),
+            "UndeadForti" : self.udeadFortitudeCheckBox.isChecked(),
+            "Web" : self.webCheckBox.isChecked(),
         }
 
         json_obj = json.dumps(creatureData, indent=4)
 
-        with open(f'{fileName}.json', 'w') as f:
+        with open(f'{savePath}\savedCreatures\{fileName}.json', 'w') as f:
             f.write(json_obj)
             print("The json file is created")
+
+        self.show_popup()
             
     def importCreature(self):
+        savepath = os.getcwd()
         print("importing a creature")
 
         #get file
-        fname = QFileDialog.getOpenFileName(None,'Open File','C:\\','Json files(*.json)')
+        fname = QFileDialog.getOpenFileName(None,'Open File',f"{savepath}\ImportCreatures",'Json files(*.json)')
         pathToFile = fname[0]
         print(pathToFile)
 
@@ -4438,28 +4588,28 @@ class Ui_MainWindow(object):
         self.frame_14.setObjectName("frame_14")
         self.gridLayout_13 = QtWidgets.QGridLayout(self.frame_14)
         self.gridLayout_13.setObjectName("gridLayout_13")
-        self.blindSightSpinBox_3 = QtWidgets.QSpinBox(self.frame_14)
+        self.tremorSenseSpinBox = QtWidgets.QSpinBox(self.frame_14)
         font = QtGui.QFont()
         font.setFamily("Merriweather")
-        self.blindSightSpinBox_3.setFont(font)
-        self.blindSightSpinBox_3.setStyleSheet(
+        self.tremorSenseSpinBox.setFont(font)
+        self.tremorSenseSpinBox.setStyleSheet(
             "background-color: rgb(255, 255, 255);")
-        self.blindSightSpinBox_3.setSuffix("")
-        self.blindSightSpinBox_3.setMaximum(300)
-        self.blindSightSpinBox_3.setSingleStep(5)
-        self.blindSightSpinBox_3.setObjectName("blindSightSpinBox_3")
-        self.gridLayout_13.addWidget(self.blindSightSpinBox_3, 5, 2, 1, 1)
-        self.darkVisionSpinBox_2 = QtWidgets.QSpinBox(self.frame_14)
+        self.tremorSenseSpinBox.setSuffix("")
+        self.tremorSenseSpinBox.setMaximum(300)
+        self.tremorSenseSpinBox.setSingleStep(5)
+        self.tremorSenseSpinBox.setObjectName("tremorSenseSpinBox")
+        self.gridLayout_13.addWidget(self.tremorSenseSpinBox, 5, 2, 1, 1)
+        self.darkVisionSpinBox = QtWidgets.QSpinBox(self.frame_14)
         font = QtGui.QFont()
         font.setFamily("Merriweather")
-        self.darkVisionSpinBox_2.setFont(font)
-        self.darkVisionSpinBox_2.setStyleSheet(
+        self.darkVisionSpinBox.setFont(font)
+        self.darkVisionSpinBox.setStyleSheet(
             "background-color: rgb(255, 255, 255);")
-        self.darkVisionSpinBox_2.setSuffix("")
-        self.darkVisionSpinBox_2.setMaximum(300)
-        self.darkVisionSpinBox_2.setSingleStep(5)
-        self.darkVisionSpinBox_2.setObjectName("darkVisionSpinBox_2")
-        self.gridLayout_13.addWidget(self.darkVisionSpinBox_2, 4, 2, 1, 1)
+        self.darkVisionSpinBox.setSuffix("")
+        self.darkVisionSpinBox.setMaximum(300)
+        self.darkVisionSpinBox.setSingleStep(5)
+        self.darkVisionSpinBox.setObjectName("darkVisionSpinBox")
+        self.gridLayout_13.addWidget(self.darkVisionSpinBox, 4, 2, 1, 1)
         self.blindSightSpinBox = QtWidgets.QSpinBox(self.frame_14)
         font = QtGui.QFont()
         font.setFamily("Merriweather")
@@ -4489,17 +4639,17 @@ class Ui_MainWindow(object):
         self.tremorsenseCheckBox.setFont(font)
         self.tremorsenseCheckBox.setObjectName("tremorsenseCheckBox")
         self.gridLayout_13.addWidget(self.tremorsenseCheckBox, 5, 1, 1, 1)
-        self.blindSightSpinBox_4 = QtWidgets.QSpinBox(self.frame_14)
+        self.trueSightSpinBox = QtWidgets.QSpinBox(self.frame_14)
         font = QtGui.QFont()
         font.setFamily("Merriweather")
-        self.blindSightSpinBox_4.setFont(font)
-        self.blindSightSpinBox_4.setStyleSheet(
+        self.trueSightSpinBox.setFont(font)
+        self.trueSightSpinBox.setStyleSheet(
             "background-color: rgb(255, 255, 255);")
-        self.blindSightSpinBox_4.setSuffix("")
-        self.blindSightSpinBox_4.setMaximum(300)
-        self.blindSightSpinBox_4.setSingleStep(5)
-        self.blindSightSpinBox_4.setObjectName("blindSightSpinBox_4")
-        self.gridLayout_13.addWidget(self.blindSightSpinBox_4, 6, 2, 1, 1)
+        self.trueSightSpinBox.setSuffix("")
+        self.trueSightSpinBox.setMaximum(300)
+        self.trueSightSpinBox.setSingleStep(5)
+        self.trueSightSpinBox.setObjectName("trueSightSpinBox")
+        self.gridLayout_13.addWidget(self.trueSightSpinBox, 6, 2, 1, 1)
         self.truesightCheckBox = QtWidgets.QCheckBox(self.frame_14)
         font = QtGui.QFont()
         font.setFamily("Merriweather")
@@ -4663,7 +4813,7 @@ class Ui_MainWindow(object):
             1, _translate("MainWindow", "Resistances"))
         self.resComboBox.setItemText(2, _translate("MainWindow", "Immunities"))
         self.savesCheckBox.setText(_translate("MainWindow", "Use Saves?"))
-        self.diceLabel.setText(_translate("MainWindow", "d"))
+        self.diceLabel.setText(_translate("MainWindow", "d4"))
         self.label_11.setText(_translate(
             "MainWindow", "Flies and can deal damage at range (CR 0-9 only):"))
         self.label_4.setText(_translate("MainWindow", "Size:"))
@@ -4684,7 +4834,7 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Defensive"))
         self.resetButton.setText(_translate("MainWindow", "Reset"))
         self.createCreatureButton.setText(
-            _translate("MainWindow", "Create Creature"))
+            _translate("MainWindow", "Preview Creature"))
         self.testButton.setText(_translate("MainWindow", "Test"))
         self.strSavingThrowCheckBox.setText(
             _translate("MainWindow", "Saving Throw"))
@@ -6784,6 +6934,17 @@ class Ui_MainWindow(object):
 
         self.attkBonSpinBox.setValue(2)
 
+    def show_popup(self):
+        savePath = os.getcwd()
+        msg = QMessageBox()
+        msg.setStyleSheet("QLabel{min-width: 150px;}")
+        msg.setWindowTitle("Creature Exported")
+        msg.setText("Creature Exported!")
+        msg.setWindowIcon(QtGui.QIcon("Assets/Images/icon_2.png"))
+        msg.setIcon(QMessageBox.Information)
+        msg.setDetailedText(f"Creature has been created, fill is currently saved in {savePath}\importCreatures\{self.nameLineEdit.text()}.json \nAny Created Creature sharing the same name will be overwritten!")
+
+        popUP = msg.exec_()
 
 if __name__ == "__main__":
     import sys

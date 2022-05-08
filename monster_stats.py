@@ -395,7 +395,7 @@ class monster(creature):
         super().takes_dmg(dmg)
     
     def determineWhichAttack(self):
-        print("Determining creature's pref_attack...")
+        #print("Determining creature's pref_attack...")
 
         avg_singleActionAttack_dmg = 0
         avg_multiAttack_dmg = 0
@@ -449,7 +449,7 @@ class monster(creature):
 
             return
 
-        print(self.name + "'s preferred attack is", self.pref_attack._name_)
+        #print(self.name + "'s preferred attack is", self.pref_attack._name_)
 
     def has_attacked(self):
         return self.hasattacked
@@ -585,26 +585,26 @@ class monster(creature):
         target = enemy.players[targetIndex]
 
         if (target.is_defeated == True):
-            print("Attack target is already down. Omitting attack.")
+            #print("Attack target is already down. Omitting attack.")
             return
         
         atk_roll = self.multi_attack_roll(i)
 
-        print(self.name, "attacks", target.name, "for its", str(i + 1) + "th attack!")
-        print(self.name, "rolled a", atk_roll, "against", target.name + "'s AC of", target.ac)
+        #print(self.name, "attacks", target.name, "for its", str(i + 1) + "th attack!")
+        #print(self.name, "rolled a", atk_roll, "against", target.name + "'s AC of", target.ac)
 
         if (atk_roll >= target.ac):
-            print(self.name, "hits!")
-            print(self.name, "rolls", self.multiattack_attacks[i].num_dmg_dice, "d", self.multiattack_attacks[i].avg_dmg_dice, "+", self.multiattack_attacks[i].atk_dmgBns)
+            #print(self.name, "hits!")
+            #print(self.name, "rolls", self.multiattack_attacks[i].num_dmg_dice, "d", self.multiattack_attacks[i].avg_dmg_dice, "+", self.multiattack_attacks[i].atk_dmgBns)
    
             target.takes_dmg(dmg)
             self.hasattacked = True
         
         else:
-            print(self.name, "misses!")
+            #print(self.name, "misses!")
             self.hasattacked = True
 			
-        print()
+        #print()
 
     def multi_attack_roll(self, i):
         atk_roll = random.randint(1, 20) + self.multiattack_attacks[i].atk_bns
@@ -630,21 +630,21 @@ class monster(creature):
         
         atk_roll = self.attack_roll()
 
-        print(self.name, "attacks", target.name + "!")
-        print(self.name, "rolled a", atk_roll, "against", target.name + "'s AC of", target.ac)
+        #print(self.name, "attacks", target.name + "!")
+        #print(self.name, "rolled a", atk_roll, "against", target.name + "'s AC of", target.ac)
 
         if (atk_roll >= target.ac):
-            print(self.name, "hits!")
-            print(self.name, "rolls", self.single_action_attack.num_dmg_dice, "d", self.single_action_attack.avg_dmg_dice, "!")
+            #print(self.name, "hits!")
+            #print(self.name, "rolls", self.single_action_attack.num_dmg_dice, "d", self.single_action_attack.avg_dmg_dice, "!")
    
             target.takes_dmg(dmg)
             self.hasattacked = True
         
         else:
-            print(self.name, "misses!")
+            #print(self.name, "misses!")
             self.hasattacked = True
 			
-        print()
+        #print()
 
     def attack_roll(self):
         atk_roll = random.randint(1, 20) + self.single_action_attack.atk_bns 

@@ -110,7 +110,7 @@ class combatSimulation():
 
 		#Player initiatives
 		if (numPlayers == 4):
-			print("4 players rolling initiative...")
+			#print("4 players rolling initiative...")
 
 			p1_init = self.players[0].roll_init()
 			self.players[0].initiative = p1_init
@@ -134,7 +134,7 @@ class combatSimulation():
 			self.initiativeOrder.append(self.players[3])
 
 		elif (numPlayers == 3):
-			print("3 players rolling intiative...")
+			#print("3 players rolling intiative...")
 
 			p1_init = self.players[0].roll_init()
 			self.players[0].initiative = p1_init
@@ -153,7 +153,7 @@ class combatSimulation():
 			self.initiativeOrder.append(self.players[2])
 
 		elif (numPlayers == 2):
-			print("2 players rolling intitiative...")
+			#print("2 players rolling intitiative...")
 
 			p1_init = self.players[0].roll_init()
 			self.players[0].initiative = p1_init
@@ -167,7 +167,7 @@ class combatSimulation():
 			self.initiativeOrder.append(self.players[1])
 
 		elif (numPlayers == 1):
-			print("1 player rolling initiative...")
+			#print("1 player rolling initiative...")
 
 			p1_init = self.players[0].roll_init()
 			self.players[0].initiative = p1_init
@@ -180,8 +180,8 @@ class combatSimulation():
 			return
 
 		#Creature initiative
-		print(self.creature.name, "rolling initiative...")
-		print()
+		#print(self.creature.name, "rolling initiative...")
+		#print()
 
 		creature_init = self.creature.roll_init()
 		#print("The", self.creature.name, "got a", creature_init)
@@ -193,11 +193,11 @@ class combatSimulation():
 
 		self.initiativeOrder.reverse()
 		
-		print("**Initiative Order**")
-		for k in range (0, len(self.initiativeOrder)):
-			print(self.initiativeOrder[k].name, self.initiativeOrder[k].initiative)
+		#print("**Initiative Order**")
+		#for k in range (0, len(self.initiativeOrder)):
+			#print(self.initiativeOrder[k].name, self.initiativeOrder[k].initiative)
 
-		print()
+		#print()
 
 	def remove_from_combat(self):
 		if (self.creature.is_defeated == True):
@@ -212,42 +212,42 @@ class combatSimulation():
 			if (self.players[m].is_defeated == True):
 				player_to_be_removed = self.players[m]
 
-				print(player_to_be_removed.name, "is defeated and must be removed from combat.")
+				#print(player_to_be_removed.name, "is defeated and must be removed from combat.")
 
 				self.players.remove(player_to_be_removed)
 				self.initiativeOrder.remove(player_to_be_removed)
 
-				print(player_to_be_removed.name, "has been removed from combat.")
-				print()
+				#print(player_to_be_removed.name, "has been removed from combat.")
+				#print()
 
-				print("**New Initiative Order**")
+				#print("**New Initiative Order**")
 				for k in range (0, len(self.initiativeOrder)):
 					print(self.initiativeOrder[k].name, self.initiativeOrder[k].initiative)
 
-				print()
+				#print()
 			if (len(self.players) == 0):
-				print("All players have been defeated!")
-				print()
+				#print("All players have been defeated!")
+				#print()
 
 				self.repeat_combat = False
 
 				return
 
 	def combatSim(self):
-		print("******")
-		print("Running combat simulation...")
+		#print("******")
+		#print("Running combat simulation...")
 
-		print("Rolling initiative for all combatanants!")
+		#print("Rolling initiative for all combatanants!")
 
 		self.rollInit()
 
-		print("Combat Log:")
+		#print("Combat Log:")
 
 		while (self.repeat_combat == True):
 			
 			self.round = self.round + 1
 
-			print("Round:", self.round)
+			#print("Round:", self.round)
 			for i in range (0, len(self.initiativeOrder)):
 				self.initiativeOrder[i].has_not_attacked()
 
@@ -296,14 +296,14 @@ class combatSimulation():
 					#print("\nbreak here cause combat is over\n")
 					break
 
-			if (self.repeat_combat == False):
+			#if (self.repeat_combat == False):
 				#print("in array: ", len(self.initiativeOrder))
-				print("End of combat simulation.")
-				print()
+				#print("End of combat simulation.")
+				#print()
 
 		if(self.creature.is_defeated == True):
-			print(self.creature.name, "was defeated!")
+			#print(self.creature.name, "was defeated!")
 			return 1
 		else:
-			print(self.creature.name, "defeated all players!")
+			#print(self.creature.name, "defeated all players!")
 			return 0

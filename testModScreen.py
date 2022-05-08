@@ -104,7 +104,7 @@ class Ui_testModWindow(creature):
             player1.hp_change(np.rint(wizardHpYData[self.spinBox.value()-1]))
             self.players.append(player1)
 
-        print("ATTENTION: Player 1 : ", player1.name, "Level:", str(player1.lvl), "DPR:", str(player1.dmg_per_rnd),"HP:", str(player1.hp))
+        #print("ATTENTION: Player 1 : ", player1.name, "Level:", str(player1.lvl), "DPR:", str(player1.dmg_per_rnd),"HP:", str(player1.hp))
 
         if(self.enemyComboBox_2.currentText() != "-"):
             if(self.enemyComboBox_2.currentText() == "Fighter"):
@@ -135,7 +135,7 @@ class Ui_testModWindow(creature):
                 player2.hp_change(np.rint(wizardHpYData[self.spinBox_2.value()-1]))
                 self.players.append(player2)
 
-            print("ATTENTION: Player 2 : ", player2.name, "Level:", str(player2.lvl), "DPR:", str(player2.dmg_per_rnd),"HP:", str(player2.hp))
+            #print("ATTENTION: Player 2 : ", player2.name, "Level:", str(player2.lvl), "DPR:", str(player2.dmg_per_rnd),"HP:", str(player2.hp))
 
         else:
             print("player 2 is blank")
@@ -169,7 +169,7 @@ class Ui_testModWindow(creature):
                 player3.hp_change(np.rint(wizardHpYData[self.spinBox_3.value()-1]))
                 self.players.append(player3)
 
-            print("ATTENTION: Player 3 : ", player3.name, "Level:", str(player3.lvl), "DPR:", str(player3.dmg_per_rnd),"HP:", str(player3.hp))
+            #print("ATTENTION: Player 3 : ", player3.name, "Level:", str(player3.lvl), "DPR:", str(player3.dmg_per_rnd),"HP:", str(player3.hp))
 
         else:
             print("Player 3 is Blank")
@@ -203,12 +203,12 @@ class Ui_testModWindow(creature):
                 player4.hp_change(np.rint(wizardHpYData[self.spinBox_4.value()-1]))
                 self.players.append(player4)
 
-            print("ATTENTION: Player 4 : ", player4.name, "Level:", str(player4.lvl), "DPR:", str(player4.dmg_per_rnd),"HP:", str(player4.hp))
+            #print("ATTENTION: Player 4 : ", player4.name, "Level:", str(player4.lvl), "DPR:", str(player4.dmg_per_rnd),"HP:", str(player4.hp))
 
         else:
             print("Player 4 is Blank")
 
-        print(*self.players)
+        #print(*self.players)
         #comSim = combat.combatSimulation(self.test_creature, self.players)
         #comSim.combatSim()
         compSim = compare.compareCRandEC(self.test_creature, self.players)

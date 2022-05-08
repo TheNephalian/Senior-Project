@@ -1518,6 +1518,8 @@ class Ui_MainWindow(object):
         self.constitSpinBox.setStyleSheet(
             "background-color: rgb(255, 255, 255);")
         self.constitSpinBox.setObjectName("constitSpinBox")
+        self.constitSpinBox.setMinimum(1)
+        self.constitSpinBox.setMaximum(30)
         self.gridLayout_2.addWidget(self.constitSpinBox, 10, 2, 1, 1)
         spacerItem1 = QtWidgets.QSpacerItem(
             0, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -1603,6 +1605,7 @@ class Ui_MainWindow(object):
         self.diceSpinBox.setFont(font)
         self.diceSpinBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.diceSpinBox.setObjectName("diceSpinBox")
+        self.diceSpinBox.setMinimum(1)
         self.gridLayout_2.addWidget(self.diceSpinBox, 9, 2, 1, 1)
         self.hitPointsSpinBox = QtWidgets.QSpinBox(self.frame_2)
         font = QtGui.QFont()
@@ -1612,6 +1615,8 @@ class Ui_MainWindow(object):
             "background-color: rgb(255, 255, 255);")
         self.hitPointsSpinBox.setObjectName("hitPointsSpinBox")
         self.gridLayout_2.addWidget(self.hitPointsSpinBox, 4, 2, 1, 1)
+        self.hitPointsSpinBox.setMinimum(1)
+        self.hitPointsSpinBox.setMaximum(850)
         self.label_187 = QtWidgets.QLabel(self.frame_2)
         font = QtGui.QFont()
         font.setFamily("Merriweather")
@@ -1805,6 +1810,7 @@ class Ui_MainWindow(object):
         self.strSpinBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.strSpinBox.setObjectName("strSpinBox")
         self.strSpinBox.setValue(10)
+        self.strSpinBox.setMaximum(30)
         self.gridLayout_4.addWidget(self.strSpinBox, 1, 0, 1, 1)
         self.chaSavingThrowCheckBox = QtWidgets.QCheckBox(self.frame_5)
         font = QtGui.QFont()

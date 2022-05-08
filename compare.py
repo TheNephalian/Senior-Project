@@ -141,7 +141,7 @@ class compareCRandEC():
                 else:
                     creature_won += 1
                 some_num += 1
-        print("some_num: ", some_num)
+        #print("some_num: ", some_num)
         print("creature w's: ", creature_won)
         print("players w's: ", players_won)
         percentage = creature_won / some_num
@@ -152,7 +152,7 @@ class compareCRandEC():
         else:
             return percentage
      
-    def final_solution(self, num_sim):
+    def final_solution(self, num_sim, lvl_chg):
         avg_players_lvl = 0
         for i in self.players:
             avg_players_lvl += i.lvl
@@ -164,13 +164,23 @@ class compareCRandEC():
         if (golden_num == -1):
             print("simulation over cause hp values did not reset")
         else:
-            if (golden_num > .45 and golden_num < .55):
+            if ((golden_num > .45 and golden_num < .55) or num_sim >= 20):
                 for i in self.players:
                     print ("player_lvl change: ", i.lvl)
                 print ("golden ratio: ", golden_num)
                 print("creature cr: ", self.creature.challnge_rtg)
                 num_sim = num_sim * 1000
                 print("num of simulations: ", num_sim)
+                print("num of lvl changes: ", lvl_chg)
+                return golden_num
+            if (golden_num == 0):
+                for i in self.players:
+                    print ("player_lvl change: ", i.lvl)
+                print ("golden ratio: ", golden_num)
+                print("creature cr: ", self.creature.challnge_rtg)
+                num_sim = num_sim * 1000
+                print("num of simulations: ", num_sim)
+                print("num of lvl changes: ", lvl_chg)
                 return golden_num
             elif (golden_num > .55):
                 for i in self.players:
@@ -179,11 +189,11 @@ class compareCRandEC():
                     if (curr_lvl > 20):
                         over_twenty = True
                     i.lvl_change(curr_lvl)
-                    print ("player_lvl change", i.lvl)     
+                    print ("player_lvl change {i.name} :", i.lvl)     
                 if (over_twenty != True):
                     print("in lvl add one")
                     self.new_hpAndDmpr()
-                    self.final_solution(num_sim+1)
+                    self.final_solution(num_sim+1,lvl_chg+1)
                     # if (avg_players_lvl > self.creature.challnge_rtg):
                     #     print("players avg lvl is greater than creature cr: ", avg_players_lvl)
                     #     print("creature cr: ", self.creature.challnge_rtg)
@@ -203,12 +213,12 @@ class compareCRandEC():
                         if (curr_lvl > 20):
                             over_twenty = True
                         i.lvl_change(curr_lvl)
-                        print ("player_lvl change", i.lvl)      
+                        print ("player_lvl change {i.name} :", i.lvl)      
                 if (over_twenty != True):
                     print("in lvl minus one")
                     self.new_hpAndDmpr()
                     print("creature cr: ", self.creature.challnge_rtg)
-                    self.final_solution(num_sim+1)
+                    self.final_solution(num_sim+1, lvl_chg+1)
                     # if (avg_players_lvl < self.creature.challnge_rtg):
                     #     print("players avg lvl is less than creature cr: ", avg_players_lvl)
                     #     print("creature cr: ", self.creature.challnge_rtg)

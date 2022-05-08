@@ -1175,6 +1175,7 @@ class Ui_MainWindow(object):
             "HitPoints" : self.hitPointsSpinBox.value(),
             "ArmorClass" : self.ArmorSpinBox.value(),
             "Size" : self.sizeComboBox.currentIndex(),
+            "HitDice" :self.diceSpinBox.value(),
             "Constit" : self.constitSpinBox.value(),
             "DPR" : self.dprSpinBox.value(),
             "AB/SDC" :self.attkBonSpinBox.value(),
@@ -1334,8 +1335,42 @@ class Ui_MainWindow(object):
         someObj = json.loads(importedCreature)
         print(str(someObj['name']))
         self.nameLineEdit.setText(str(someObj['name']))
-        self.strSpinBox.setValue(someObj['Strength'])
+        self.strSpinBox.setValue(someObj['STR'])
+        self.dexSpinBox.setValue(someObj['DEX'])
+        self.conSpinBox.setValue(someObj['CON'])
+        self.intSpinBox.setValue(someObj['INT'])
+        self.wisSpinBox.setValue(someObj['WIS'])
+        self.chaSpinBox.setValue(someObj['CHA'])
+        self.strSavingThrowCheckBox.setChecked(someObj['STR_ST'])
+        self.dexSavingThrowCheckBox.setChecked(someObj['DEX_ST'])
+        self.conSavingThrowCheckBox.setChecked(someObj['CON_ST'])
+        self.intSavingThrowCheckBox.setChecked(someObj['INT_ST'])
+        self.wisSavingThrowCheckBox.setChecked(someObj['WIS_ST'])
+        self.chaSavingThrowCheckBox.setChecked(someObj['CHA_ST'])
+        self.hitPointsSpinBox.setValue(someObj['HitPoints'])
+        self.ArmorSpinBox.setValue(someObj['ArmorClass'])
+        self.sizeComboBox.setCurrentIndex(someObj['Size'])
+        self.diceSpinBox.setValue(someObj['HitDice'])
+        self.constitSpinBox.setValue(someObj['Constit'])
+        self.dprSpinBox.setValue(someObj['DPR'])
+        self.attkBonSpinBox.setValue(someObj['AB/SDC'])
         self.savesCheckBox.setChecked(someObj['useSaves'])
+        self.vulCheckBox.setChecked(someObj['Vuln'])
+        self.resComboBox.setCurrentIndex(someObj['Resit/Immun'])
+        self.fliesCheckBox.setChecked(someObj['flies'])
+        self.saveComboBox.setCurrentIndex(someObj['savePof'])
+        # self.multiAttackCheckBox.setChecked(someObj['MultiAttk'])
+        # self.spinBox.setValue(someObj['numAttk_1'])
+        # self.spinBox_2.setValue(someObj['numAttk_2'])
+        # self.spinBox_3.setValue(someObj['numAttk_3'])
+        # self.spinBox_4.setValue(someObj['numAttk_4'])
+        self.actionName_1.setText(someObj['action_1'])
+        self.actionName_2.setText(someObj['action_2'])
+        self.actionName_3.setText(someObj['action_3'])
+        self.actionName_4.setText(someObj['action_4'])
+        self.actionType_1.setCurrentIndex(someObj['actionType_1'])
+        self.actionType_2.setCurrentIndex(someObj['actionType_2'])
+        self.actionType_3.setCurrentIndex(someObj['actionType_3'])
         self.allignmentComboBox.setCurrentIndex(someObj['allignment'])
 
     def setupUi(self, MainWindow):
@@ -1657,6 +1692,7 @@ class Ui_MainWindow(object):
         self.exCRLineEdit.setInputMask("")
         self.exCRLineEdit.setText("")
         self.exCRLineEdit.setObjectName("exCRLineEdit")
+        self.exCRLineEdit.hide()
         self.gridLayout_2.addWidget(self.exCRLineEdit, 0, 2, 1, 2)
         spacerItem = QtWidgets.QSpacerItem(
             40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -1698,6 +1734,7 @@ class Ui_MainWindow(object):
         font.setFamily("Merriweather")
         self.label_13.setFont(font)
         self.label_13.setObjectName("label_13")
+        self.label_13.hide()
         self.gridLayout_2.addWidget(self.label_13, 0, 0, 1, 1)
         self.dprSpinBox = QtWidgets.QSpinBox(self.frame_2)
         self.dprSpinBox.setMaximum(999)
@@ -4888,7 +4925,7 @@ class Ui_MainWindow(object):
         self.doesDamageCheckBox.setText(
             _translate("MainWindow", "Does damage?"))
         self.nameLineEdit.setText(_translate("MainWindow", "Salsimjo's Creature"))
-        self.nameLineEdit_2.setText(_translate("MainWindow", "Action Name"))
+        self.nameLineEdit_2.setPlaceholderText(_translate("MainWindow", "Action Name"))
         self.aoeButton.setText(_translate("MainWindow", "AOE?"))
         self.typeOfDieComboBox.setItemText(0, _translate("MainWindow", "4"))
         self.typeOfDieComboBox.setItemText(1, _translate("MainWindow", "6"))

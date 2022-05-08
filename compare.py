@@ -152,7 +152,7 @@ class compareCRandEC():
         else:
             return percentage
      
-    def final_solution(self, num_sim):
+    def final_solution(self, num_sim, times_in_sim):
         avg_players_lvl = 0
         for i in self.players:
             avg_players_lvl += i.lvl
@@ -169,10 +169,10 @@ class compareCRandEC():
                     print ("player_lvl change: ", i.lvl)
                 print ("golden ratio: ", golden_num)
                 print("creature cr: ", self.creature.challnge_rtg)
-                num_sim = num_sim * 100
+                num_sim = num_sim * 1000
                 print("num of simulations: ", num_sim)
                 return golden_num
-            elif (golden_num > .55):
+            elif (golden_num > .55 and times_in_sim > 0):
                 for i in self.players:
                     curr_lvl = i.lvl
                     curr_lvl += 1
@@ -186,14 +186,15 @@ class compareCRandEC():
                     if (avg_players_lvl > self.creature.challnge_rtg):
                         print("players avg lvl is greater than creature cr: ", avg_players_lvl)
                         print("creature cr: ", self.creature.challnge_rtg)
-                        num_sim = num_sim * 100
+                        num_sim = num_sim * 1000
                         print("num of simulations: ", num_sim)
                     else:
-                        #self.final_solution(num_sim+1)
-                        print("time")
+                        #self.final_solution(num_sim+1, times_in_sim-1)
+                        num_sim = num_sim * 1000
+                        print("time num of simulations: ", num_sim)
                 else:
                     print("player lvl was over twenty")
-            elif (golden_num < .45):
+            elif (golden_num < .45 and times_in_sim > 0):
                 for i in self.players:
                     if (i.lvl > 1):
                         curr_lvl = i.lvl
@@ -209,11 +210,12 @@ class compareCRandEC():
                     if (avg_players_lvl < self.creature.challnge_rtg):
                         print("players avg lvl is less than creature cr: ", avg_players_lvl)
                         print("creature cr: ", self.creature.challnge_rtg)
-                        num_sim = num_sim * 100
+                        num_sim = num_sim * 1000
                         print("num of simulations: ", num_sim)
                     else:
-                        print("time")
-                        #self.final_solution(num_sim+1)
+                        num_sim = num_sim * 1000
+                        print("time num of simulations: ", num_sim)
+                        #self.final_solution(num_sim+1, times_in_sim-1)
                 else:
                     print("player lvl was over twenty")
                 

@@ -128,11 +128,11 @@ class compareCRandEC():
             
         while (x != 0):
             fighting = combat.combatSimulation(self.creature, self.players)
-            print("current hp for p1: ",self.players[0].hp)
+            #print("current hp for p1: ",self.players[0].hp)
             x -= 1
             creature_plyer_hp = self.reset_players_hp(creature_hp, hp_val, hp_val2, hp_val3, hp_val4)
             if(creature_plyer_hp == True):
-                print("negative hp values break")
+                #print("negative hp values break")
                 return -1
             else:
                 fighting.combatSim()
@@ -147,7 +147,7 @@ class compareCRandEC():
         percentage = creature_won / some_num
         creature_plyer_hp = self.reset_players_hp(creature_hp, hp_val, hp_val2, hp_val3, hp_val4)
         if(creature_plyer_hp == True):
-            print("negative hp values break")
+            #print("negative hp values break")
             return -1
         else:
             return percentage
@@ -225,79 +225,79 @@ class compareCRandEC():
         is_val_negative = False
         self.creature.hit_pts = creature_hp
         if(self.creature.hit_pts <= 0):
-            print("creature is value is negative: ", self.creature.hit_pts)
+            #print("creature is value is negative: ", self.creature.hit_pts)
             is_val_negative = True
             return is_val_negative
         else:
             self.creature.is_defeated = False
-            print("creature is_defeated", self.creature.is_defeated)
-            print("creature hp: ", self.creature.hit_pts)    
+            #print("creature is_defeated", self.creature.is_defeated)
+            #print("creature hp: ", self.creature.hit_pts)    
             if (len(self.players) == 4):
                 self.players[0].hp_change(hp_val)
                 self.players[1].hp_change(hp_val2)
                 self.players[2].hp_change(hp_val3)
                 self.players[3].hp_change(hp_val4)
-                print("current hp 0: ",self.players[0].hp)
-                print("current hp 1: ",self.players[1].hp)
-                print("current hp 2: ",self.players[2].hp)
-                print("current hp 3: ",self.players[3].hp)
+                #print("current hp 0: ",self.players[0].hp)
+                #print("current hp 1: ",self.players[1].hp)
+                #print("current hp 2: ",self.players[2].hp)
+                #print("current hp 3: ",self.players[3].hp)
                 for i in self.players:
                     if(i.hp <= 0):    
-                        print("negative players")
+                        #print("negative players")
                         is_val_negative = True
                         break
                     else:
                         i.is_defeated = False
-                        print("current value of is_defeated: ",i.is_defeated)
-                        print("current lvl plyer", i.lvl)
+                        #print("current value of is_defeated: ",i.is_defeated)
+                        #print("current lvl plyer", i.lvl)
             elif (len(self.players) == 3):
                 self.players[0].hp_change(hp_val)
                 self.players[1].hp_change(hp_val2)
                 self.players[2].hp_change(hp_val3)
-                print("current hp 0: ",self.players[0].hp)
-                print("current hp 1: ",self.players[1].hp)
-                print("current hp 2: ",self.players[2].hp)
+                #print("current hp 0: ",self.players[0].hp)
+                #print("current hp 1: ",self.players[1].hp)
+                #print("current hp 2: ",self.players[2].hp)
                 for i in self.players:
                     if(i.hp <= 0):  
-                        print("negative players")  
+                        #print("negative players")  
                         is_val_negative = True
                         break
                     else:
                         i.is_defeated = False
-                        print("current value of is_defeated: ",i.is_defeated)
-                        print("current lvl plyer", i.lvl)
+                        #print("current value of is_defeated: ",i.is_defeated)
+                        #print("current lvl plyer", i.lvl)
             elif (len(self.players) == 2):
                 self.players[0].hp_change(hp_val)
                 self.players[1].hp_change(hp_val2)
-                print("current p1 hp 0: ",self.players[0].hp)
-                print("current p2 hp 1: ",self.players[1].hp)
+                #print("current p1 hp 0: ",self.players[0].hp)
+                #print("current p2 hp 1: ",self.players[1].hp)
                 for i in self.players:
                     if(i.hp <= 0):    
-                        print("negative players")
+                        #print("negative players")
                         is_val_negative = True
                         break
                     else:
                         i.is_defeated = False
-                        print("current value of is_defeated: ",i.is_defeated)
-                        print("current lvl plyer", i.lvl)
+                        #print("current value of is_defeated: ",i.is_defeated)
+                        #print("current lvl plyer", i.lvl)
             else:
                 self.players[0].hp_change(hp_val)
-                print("current hp 0: ",self.players[0].hp)
+                #print("current hp 0: ",self.players[0].hp)
                 for i in self.players:
                     if(i.hp <= 0):
-                        print("negative players")
+                        #print("negative players")
                         is_val_negative = True
                         break
                     else:
                         i.is_defeated = False
-                        print("current is_defeated: ",i.is_defeated)
-                        print("plyer lvl", i.lvl)
-                        print("plyer hp", i.hp)
+                        #print("current is_defeated: ",i.is_defeated)
+                        #print("plyer lvl", i.lvl)
+                        #print("plyer hp", i.hp)
                 
             return is_val_negative
             
     def new_hpAndDmpr(self):
-        print("in newhpAndDmpr")
+        #print("in newhpAndDmpr")
         x = np.array(range(1, 21))
 
         fighterY = ((2.8947368421052633*x)+2.1052631578947327)
@@ -376,11 +376,11 @@ class compareCRandEC():
             
         while (num_sim != 0):
             fighting = combat.combatSimulation(self.creature, self.players)
-            print("current hp for p1: ",self.players[0].hp)
+            #print("current hp for p1: ",self.players[0].hp)
             num_sim -= 1
             creature_plyer_hp = self.reset_players_hp(creature_hp, hp_val, hp_val2, hp_val3, hp_val4)
             if(creature_plyer_hp == True):
-                print("negative hp values break")
+                #print("negative hp values break")
                 return -1
             else:
                 fighting.combatSim()

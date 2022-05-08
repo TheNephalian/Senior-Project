@@ -469,9 +469,15 @@ class Ui_testModWindow(creature):
         self.retranslateUi(testModWindow)
         QtCore.QMetaObject.connectSlotsByName(testModWindow)
 
+        self.enemyComboBox.currentIndexChanged.connect(self.enemyValChange)
         self.enemyComboBox_2.currentIndexChanged.connect(self.enemyValChange)
+        self.enemyComboBox_3.currentIndexChanged.connect(self.enemyValChange)
+        self.enemyComboBox_4.currentIndexChanged.connect(self.enemyValChange)
 
         self.spinBox.valueChanged.connect(self.enemyLevelChange)
+        self.spinBox_2.valueChanged.connect(self.enemyLevelChange)
+        self.spinBox_3.valueChanged.connect(self.enemyLevelChange)
+        self.spinBox_4.valueChanged.connect(self.enemyLevelChange)
 
     def retranslateUi(self, testModWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -502,9 +508,9 @@ class Ui_testModWindow(creature):
         self.enemyComboBox_3.setItemText(2, _translate("testModWindow", "Ranger"))
         self.enemyComboBox_3.setItemText(3, _translate("testModWindow", "Rogue"))
         self.enemyComboBox_3.setItemText(4, _translate("testModWindow", "Wizard"))
-    def enemyValChange(self, value):
-        print("Enemy value changed!")
-        print("New Enemy: ", str(self.enemyComboBox.currentText()))
+
+    def enemyValChange(self):
+        print("Enemy changed!")
         if(self.enemyComboBox_2.currentText != "-" and self.enemyComboBox_3.currentText != "-" and self.enemyComboBox_4.currentText != "-"):
             self.pushButton.setEnabled(True)
 
@@ -545,6 +551,12 @@ class Ui_testModWindow(creature):
             print("Enemy Damage/Round: ",
                   str(np.rint(wizardYData[self.spinBox.value()-1])))
 
+        if(self.enemyComboBox.currentText() == "Fighter"):
+            print("Enemy: ", self.enemyComboBox.currentText())
+            print("Enemy level: ", str(
+                fighterXData[int(self.spinBox.value())-1]))
+            print("Enemy Damage/Round: ",
+                  str(np.rint(fighterYData[self.spinBox.value()-1])))
 
 if __name__ == "__main__":
     import sys

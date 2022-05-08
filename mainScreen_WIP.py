@@ -4789,6 +4789,24 @@ class Ui_MainWindow(object):
         self.customNumOfDiespinBox.valueChanged.connect(self.recal_dpr)
         self.typeOfDieComboBox.currentIndexChanged.connect(self.recal_dpr)
         self.aoeButton.clicked.connect(self.recal_dpr)
+        self.acrobaticsCheckBox.clicked.connect(self.add_profBns)
+        self.animalHandlingCheckBox.clicked.connect(self.add_profBns)
+        self.arcanaCheckBox.clicked.connect(self.add_profBns)
+        self.athleticsCheckBox.clicked.connect(self.add_profBns)
+        self.deceptionCheckBox.clicked.connect(self.add_profBns)
+        self.historyCheckBox.clicked.connect(self.add_profBns)
+        self.insightCheckBox.clicked.connect(self.add_profBns)
+        self.intimidationCheckBox.clicked.connect(self.add_profBns)
+        self.investigationCheckBox.clicked.connect(self.add_profBns)
+        self.medicineCheckBox.clicked.connect(self.add_profBns)
+        self.natureCheckBox.clicked.connect(self.add_profBns)
+        self.perceptionCheckBox.clicked.connect(self.add_profBns)
+        self.performanceCheckBox.clicked.connect(self.add_profBns)
+        self.persuasionCheckBox.clicked.connect(self.add_profBns)
+        self.religionCheckBox.clicked.connect(self.add_profBns)
+        self.slightOfHandCheckBox.clicked.connect(self.add_profBns)
+        self.stealthCheckBox.clicked.connect(self.add_profBns)
+        self.survivalCheckBox.clicked.connect(self.add_profBns)
         #######################
 
         self.retranslateUi(MainWindow)
@@ -6033,6 +6051,267 @@ class Ui_MainWindow(object):
         pros_prof_bns = cal_pros_prof_bns(value)
         print("Prospective proficiency bonus is ", pros_prof_bns)
 
+    def add_profBns(self):
+        str_bns = cal_attr_bns(self.strSpinBox.value())
+        dex_bns = cal_attr_bns(self.dexSpinBox.value())
+        int_bns = cal_attr_bns(self.intSpinBox.value())
+        wis_bns = cal_attr_bns(self.wisSpinBox.value())
+        cha_bns = cal_attr_bns(self.chaSpinBox.value())
+
+        profBns = self.cal_pros_prof_bns(int(self.sliderValTxt.text()))
+
+        if (self.acrobaticsCheckBox.isChecked() == True):
+            if (dex_bns + profBns < 0):
+                self.acrobaticsLevelLabel.setText(str(dex_bns + profBns))
+
+            else:
+                self.acrobaticsLevelLabel.setText("+" + str(dex_bns + profBns))
+
+        elif (self.acrobaticsCheckBox.isChecked() == False):
+            if (dex_bns < 0):
+                self.acrobaticsLevelLabel.setText(str(dex_bns))
+
+            else:
+                self.acrobaticsLevelLabel.setText("+" + str(dex_bns))
+
+        if (self.animalHandlingCheckBox.isChecked() == True):
+            if (wis_bns + profBns < 0):
+                self.animalHandlingLevelLabel.setText(str(wis_bns + profBns))
+
+            else:
+                self.animalHandlingLevelLabel.setText("+" + str(wis_bns + profBns))
+
+        elif (self.animalHandlingCheckBox.isChecked() == False):
+            if (wis_bns < 0):
+                self.animalHandlingLevelLabel.setText(str(wis_bns))
+
+            else:
+                self.animalHandlingLevelLabel.setText("+" + str(wis_bns))
+
+        if (self.arcanaCheckBox.isChecked() == True):
+            if (int_bns + profBns < 0):
+                self.arcanaLevelLabel.setText(str(int_bns + profBns))
+
+            else:
+                self.arcanaLevelLabel.setText("+" + str(int_bns + profBns))
+
+        elif (self.arcanaCheckBox.isChecked() == False):
+            if (int_bns < 0):
+                self.arcanaLevelLabel.setText(str(int_bns))
+
+            else:
+                self.arcanaLevelLabel.setText("+" + str(int_bns))
+
+        if (self.athleticsCheckBox.isChecked() == True):
+            if (str_bns + profBns < 0):
+                self.athleticsLevelLabel.setText(str(str_bns + profBns))
+
+            else:
+                self.athleticsLevelLabel.setText("+" + str(str_bns + profBns))
+
+        elif (self.athleticsCheckBox.isChecked() == False):
+            if (str_bns < 0):
+                self.athleticsLevelLabel.setText(str(str_bns))
+
+            else:
+                self.athleticsLevelLabel.setText("+" + str(str_bns))
+
+        if (self.deceptionCheckBox.isChecked() == True):
+            if (cha_bns + profBns < 0):
+                self.deceptionLevelLabel.setText(str(cha_bns + profBns))
+
+            else:
+                self.deceptionLevelLabel.setText("+" + str(cha_bns + profBns))
+
+        elif (self.deceptionCheckBox.isChecked() == False):
+            if (cha_bns < 0):
+                self.deceptionLevelLabel.setText(str(cha_bns))
+
+            else:
+                self.deceptionLevelLabel.setText("+" + str(cha_bns))
+
+        if (self.historyCheckBox.isChecked() == True):
+            if (int_bns + profBns < 0):
+                self.historyLevelLabel.setText(str(int_bns + profBns))
+
+            else:
+                self.historyLevelLabel.setText("+" + str(int_bns + profBns))
+
+        elif (self.historyCheckBox.isChecked() == False):
+            if (int_bns < 0):
+                self.historyLevelLabel.setText(str(int_bns))
+
+            else:
+                self.historyLevelLabel.setText("+" + str(int_bns))
+
+        if (self.insightCheckBox.isChecked() == True):
+            if (wis_bns + profBns < 0):
+                self.insightLevelLabel.setText(str(wis_bns + profBns))
+
+            else:
+                self.insightLevelLabel.setText("+" + str(wis_bns + profBns))
+
+        elif (self.insightCheckBox.isChecked() == False):
+            if (wis_bns < 0):
+                self.insightLevelLabel.setText(str(wis_bns))
+
+            else:
+                self.insightLevelLabel.setText("+" + str(wis_bns))
+
+        if (self.intimidationCheckBox.isChecked() == True):
+            if (cha_bns + profBns < 0):
+                self.intimidationLevelLabel.setText(str(cha_bns + profBns))
+
+            else:
+                self.intimidationLevelLabel.setText("+" + str(cha_bns + profBns))
+
+        elif (self.intimidationCheckBox.isChecked() == False):
+            if (cha_bns < 0):
+                self.intimidationLevelLabel.setText(str(cha_bns))
+
+            else:
+                self.intimidationLevelLabel.setText("+" + str(cha_bns))
+
+        if (self.investigationCheckBox.isChecked() == True):
+            if (int_bns + profBns < 0):
+                self.investigationLevelLabel.setText(str(int_bns + profBns))
+
+            else:
+                self.investigationLevelLabel.setText("+" + str(int_bns + profBns))
+
+        elif (self.investigationCheckBox.isChecked() == False):
+            if (int_bns < 0):
+                self.investigationLevelLabel.setText(str(int_bns))
+
+            else:
+                self.investigationLevelLabel.setText("+" + str(int_bns))
+
+        if (self.medicineCheckBox.isChecked() == True):
+            if (wis_bns + profBns < 0):
+                self.medicineLevelLabel.setText(str(wis_bns + profBns))
+
+            else:
+                self.medicineLevelLabel.setText("+" + str(wis_bns + profBns))
+
+        elif (self.medicineCheckBox.isChecked() == False):
+            if (wis_bns < 0):
+                self.medicineLevelLabel.setText(str(wis_bns))
+
+            else:
+                self.medicineLevelLabel.setText("+" + str(wis_bns))
+
+        if (self.natureCheckBox.isChecked() == True):
+            if (wis_bns + profBns < 0):
+                self.natureLevelLabel.setText(str(wis_bns + profBns))
+
+            else:
+                self.natureLevelLabel.setText("+" + str(wis_bns + profBns))
+
+        elif (self.natureCheckBox.isChecked() == False):
+            if (wis_bns < 0):
+                self.natureLevelLabel.setText(str(wis_bns))
+
+            else:
+                self.natureLevelLabel.setText("+" + str(wis_bns))
+
+        if (self.perceptionCheckBox.isChecked() == True):
+            if (wis_bns + profBns < 0):
+                self.perceptionLevelLabel.setText(str(wis_bns + profBns))
+
+            else:
+                self.perceptionLevelLabel.setText("+" + str(wis_bns + profBns))
+
+        elif (self.perceptionCheckBox.isChecked() == False):
+            if (wis_bns < 0):
+                self.perceptionLevelLabel.setText(str(wis_bns))
+
+            else:
+                self.perceptionLevelLabel.setText("+" + str(wis_bns))
+
+        if (self.performanceCheckBox.isChecked() == True):
+            if (cha_bns + profBns < 0):
+                self.performanceLevelLabel.setText(str(cha_bns + profBns))
+
+            else:
+                self.performanceLevelLabel.setText("+" + str(cha_bns + profBns))
+
+        elif (self.performanceCheckBox.isChecked() == False):
+            if (cha_bns < 0):
+                self.performanceLevelLabel.setText(str(cha_bns))
+
+            else:
+                self.performanceLevelLabel.setText("+" + str(cha_bns))
+
+        if (self.persuasionCheckBox.isChecked() == True):
+            if (cha_bns + profBns < 0):
+                self.persuasionLevelLabel.setText(str(cha_bns + profBns))
+
+            else:
+                self.persuasionLevelLabel.setText("+" + str(cha_bns + profBns))
+
+        elif (self.persuasionCheckBox.isChecked() == False):
+            if (cha_bns < 0):
+                self.persuasionLevelLabel.setText(str(cha_bns))
+
+            else:
+                self.persuasionLevelLabel.setText("+" + str(cha_bns))
+
+        if (self.religionCheckBox.isChecked() == True):
+            if (wis_bns + profBns < 0):
+                self.religionLevelLabel.setText(str(wis_bns + profBns))
+
+            else:
+                self.religionLevelLabel.setText("+" + str(wis_bns + profBns))
+
+        elif (self.religionCheckBox.isChecked() == False):
+            if (wis_bns < 0):
+                self.religionLevelLabel.setText(str(wis_bns))
+
+            else:
+                self.religionLevelLabel.setText("+" + str(wis_bns))
+
+        if (self.slightOfHandCheckBox.isChecked() == True):
+            if (dex_bns + profBns < 0):
+                self.slightOfHandLevelLabel.setText(str(dex_bns + profBns))
+
+            else:
+                self.slightOfHandLevelLabel.setText("+" + str(dex_bns + profBns))
+
+        elif (self.slightOfHandCheckBox.isChecked() == False):
+            if (dex_bns < 0):
+                self.slightOfHandLevelLabel.setText(str(dex_bns))
+
+            else:
+                self.slightOfHandLevelLabel.setText("+" + str(dex_bns))
+
+        if (self.stealthCheckBox.isChecked() == True):
+            if (dex_bns + profBns < 0):
+                self.stealthLevelLabel.setText(str(dex_bns + profBns))
+
+            else:
+                self.stealthLevelLabel.setText("+" + str(dex_bns + profBns))
+
+        elif (self.stealthCheckBox.isChecked() == False):
+            if (dex_bns < 0):
+                self.stealthLevelLabel.setText(str(dex_bns))
+
+            else:
+                self.stealthLevelLabel.setText("+" + str(dex_bns))
+
+        if (self.survivalCheckBox.isChecked() == True):
+            if (wis_bns + profBns < 0):
+                self.survivalLevelLabel.setText(str(wis_bns + profBns))
+
+            else:
+                self.survivalLevelLabel.setText("+" + str(wis_bns + profBns))
+
+        elif (self.survivalCheckBox.isChecked() == False):
+            if (wis_bns < 0):
+                self.survivalLevelLabel.setText(str(wis_bns))
+
+            else:
+                self.survivalLevelLabel.setText("+" + str(wis_bns))
+
     def cal_pros_prof_bns(self, value):
         if (value > 1):
             prof_bns = math.floor((value + 7) / 4)
@@ -6144,6 +6423,7 @@ class Ui_MainWindow(object):
     def sliderValTxtChange(self):
         #print("CR value changed!")
         # self.setAttkBons()
+        self.add_profBns()
 
         return
 

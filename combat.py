@@ -221,8 +221,8 @@ class combatSimulation():
 				#print()
 
 				#print("**New Initiative Order**")
-				for k in range (0, len(self.initiativeOrder)):
-					print(self.initiativeOrder[k].name, self.initiativeOrder[k].initiative)
+				#for k in range (0, len(self.initiativeOrder)):
+					#print(self.initiativeOrder[k].name, self.initiativeOrder[k].initiative)
 
 				#print()
 			if (len(self.players) == 0):

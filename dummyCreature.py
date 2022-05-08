@@ -43,11 +43,11 @@ class creature():
 
 		atk_roll = self.attack_roll()
 
-		print(self.name, "attacks", target.name + "!")
-		print(self.name, "rolled a", atk_roll, "against", target.name + "'s AC of", target.ac)
+		#print(self.name, "attacks", target.name + "!")
+		#print(self.name, "rolled a", atk_roll, "against", target.name + "'s AC of", target.ac)
 
 		if (atk_roll >= target.ac):
-			print(self.name, "hits!")
+			#print(self.name, "hits!")
    
 			
 			target.takes_dmg(dmg)
@@ -57,18 +57,18 @@ class creature():
 
 		else:
 			
-			print(self.name, "misses!")
+			#print(self.name, "misses!")
 			self.hasattacked = True
 			
 		
-		print()
+		#print()
 
 	def takes_dmg(self, dmg):
 		self.curr_hp = self.hit_pts - dmg
 		self.hit_pts = self.curr_hp
 
-		print(self.name, "takes", dmg, "damage!")
-		print(self.name + "'s hit points =", self.hit_pts )
+		#print(self.name, "takes", dmg, "damage!")
+		#print(self.name + "'s hit points =", self.hit_pts )
 
 		if (self.hit_pts <= 0):
 			self.defeated()
@@ -76,7 +76,7 @@ class creature():
 	def defeated(self):
 		self.is_defeated = True
 
-		print(self.name, "is defeated!")
+		#print(self.name, "is defeated!")
   
 	def has_attacked(self):
 		thisattack = self.hasattacked

@@ -12,11 +12,11 @@ class monster(creature):
 
         self.name = self.ui.nameLineEdit.text()
 
-        self.armor_cls = 15 #This is used for testing, hardcoding the creature's AC
-        #self.armor_cls = self.ui.ArmorSpinBox.value()  #This is used to grab the creature's real AC from the UI
+        #self.armor_cls = 15 #This is used for testing, hardcoding the creature's AC
+        self.armor_cls = self.ui.ArmorSpinBox.value()  #This is used to grab the creature's real AC from the UI
 
-        self.hit_pts = 50   #This is used for testing, hard coding the creature's hit points
-        #self.hit_pts = self.ui.hitPointsSpinBox.value()    #This is used to grab creature's real hit points from the UI
+        #self.hit_pts = 50   #This is used for testing, hard coding the creature's hit points
+        self.hit_pts = self.ui.hitPointsSpinBox.value()    #This is used to grab creature's real hit points from the UI
 
         self.curr_hp = self.hit_pts
         self.challnge_rtg = int(self.ui.sliderValTxt.text())

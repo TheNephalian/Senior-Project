@@ -209,8 +209,8 @@ class Ui_testModWindow(creature):
 
         #print(*self.players)
         comSim = combat.combatSimulation(self.test_creature, self.players)
-        #compSim = compare.compareCRandEC(self.test_creature, self.players)
-        #compSim.final_solution()
+        compSim = compare.compareCRandEC(self.test_creature, self.players)
+        compSim.final_solution()
         comSim.combatSim()
         
 
@@ -368,6 +368,9 @@ class Ui_testModWindow(creature):
         self.enemyComboBox_4.currentIndexChanged.connect(self.enemyValChange)
 
         self.spinBox.valueChanged.connect(self.enemyLevelChange)
+        self.spinBox_2.valueChanged.connect(self.enemyLevelChange)
+        self.spinBox_3.valueChanged.connect(self.enemyLevelChange)
+        self.spinBox_4.valueChanged.connect(self.enemyLevelChange)
 
     def retranslateUi(self, testModWindow):
         _translate = QtCore.QCoreApplication.translate

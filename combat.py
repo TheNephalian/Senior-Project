@@ -206,8 +206,9 @@ class combatSimulation():
 			return 
 
 		for m in range (0, len(self.players)):
-			if (m == len(self.players)):
-				m = m - 1
+			for n in range(0, len(self.players)):
+				if (m >= len(self.players)):
+					m = len(self.players) - 1
 
 			if (self.players[m].is_defeated == True):
 				player_to_be_removed = self.players[m]
@@ -254,6 +255,10 @@ class combatSimulation():
 			#print("about to start new round")
 			beforecombatLength = len(self.initiativeOrder)
 			for l in range (0, len(self.initiativeOrder)):
+				for n in range(0, len(self.initiativeOrder)):
+					if (l >= len(self.initiativeOrder)):
+						l = len(self.initiativeOrder) - 1
+
 				if (l >= len(self.initiativeOrder)):
 					#print("in initiativeOrder arry: ", l)
      
@@ -270,7 +275,7 @@ class combatSimulation():
 					#print("can't repeat combat")
 					break
 
-				if(self.initiativeOrder[l].has_attacked() == False):
+				#if(self.initiativeOrder[l].has_attacked() == False):
 					...
 					#print("\n****this means they have not attacked and before combat")
 				elif(self.initiativeOrder[l].has_attacked() == True):

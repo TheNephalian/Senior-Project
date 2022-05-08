@@ -164,7 +164,7 @@ class compareCRandEC():
         if (golden_num == -1):
             print("simulation over cause hp values did not reset")
         else:
-            if ((golden_num > .45 and golden_num < .55) or num_sim >= 20):
+            if ((golden_num > .45 and golden_num < .55) or num_sim >= 30):
                 for i in self.players:
                     print ("player_lvl change: ", i.lvl)
                 print ("golden ratio: ", golden_num)
@@ -185,7 +185,9 @@ class compareCRandEC():
             elif (golden_num > .55):
                 for i in self.players:
                     curr_lvl = i.lvl
-                    curr_lvl += 1
+                    if (i.lvl <20):
+                        curr_lvl = i.lvl
+                        curr_lvl += 1
                     if (curr_lvl > 20):
                         over_twenty = True
                     i.lvl_change(curr_lvl)
@@ -203,8 +205,8 @@ class compareCRandEC():
                     #     self.final_solution(num_sim+1, times_in_sim-1)
                     #     num_sim = num_sim * 1000
                     #     print("time num of simulations: ", num_sim)
-                else:
-                    print("player lvl was over twenty")
+                #else:
+                    #print("player lvl was over twenty")
             elif (golden_num < .45):
                 for i in self.players:
                     if (i.lvl > 1):
@@ -228,8 +230,8 @@ class compareCRandEC():
                     #     num_sim = num_sim * 1000
                     #     print("time num of simulations: ", num_sim)
                     #     self.final_solution(num_sim+1)
-                else:
-                    print("player lvl was over twenty")
+                #else:
+                #    print("player lvl was over twenty")
                 
     def reset_players_hp(self, creature_hp, hp_val, hp_val2, hp_val3, hp_val4):
         is_val_negative = False

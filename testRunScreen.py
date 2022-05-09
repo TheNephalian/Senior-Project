@@ -38,8 +38,10 @@ class testRunDialog(object):
         self.ui.numRoundsLabel.setText(str(self.cr_simulate))
         self.ui.numRoundsWonLabel.setText(str(self.rounds_won))
         self.ui.numRoundsLostLabel.setText(str(self.rounds_loss))
-        self.ui.winPercentageLabel.setText(str(self.w_l_percetage))
-        self.ui.ratioLabel.setText(str())
+        percentage_w_l = str(self.w_l_percetage)
+        percentage_w_l += "%"
+        self.ui.winPercentageLabel.setText(percentage_w_l)
+        self.ui.ratioLabel.setText(str(self.ratio))
         self.window.show()
 
     def runProgressbar(self):
@@ -50,7 +52,8 @@ class testRunDialog(object):
         elif(self.buttonPushed == True):
             rp = 1
             num_rounds_won = 0
-            compSim.final_solution(rp, num_rounds_won)
+            arry_lvls = []
+            compSim.final_solution(rp, num_rounds_won, arry_lvls)
         for i  in range(100_000):
             self.progressBar.setValue(i+1)
         if(self.progressBar.value()==self.progressBar.maximum()):
@@ -58,9 +61,9 @@ class testRunDialog(object):
             self.rounds_won = compSim.num_rounds - compSim.players_wins
             self.rounds_loss = compSim.players_wins
             self.w_l_percetage = self.rounds_won / self.cr_simulate
-            self.ratio += str(self.rounds_won)
-            self.ratio += " / "
-            self.ratio += str(self.rounds_loss)
+            self.w_l_percetage = self.w_l_percetage * 100
+            self.w_l_percetage = "{:.2f}".format(self.w_l_percetage)
+            self.ratio = compSim.sim_cr 
             self.testCompleteLabel.show()
             self.showDetails()
         

@@ -20,6 +20,7 @@ class compareCRandEC():
         
         self.players_wins = 0
         self.num_rounds = 0
+        self.sim_cr = 0
         
     
     def playerEXP(self):
@@ -155,7 +156,7 @@ class compareCRandEC():
             self.players_wins += players_won
             return percentage
      
-    def final_solution(self, num_sim, rounds_won):
+    def final_solution(self, num_sim, rounds_won, arry_lvls):
         avg_players_lvl = 0
         for i in self.players:
             avg_players_lvl += i.lvl
@@ -175,13 +176,23 @@ class compareCRandEC():
                 print ("golden ratio: ", golden_num)
                 print("creature cr: ", self.creature.challnge_rtg)
                 num_sim = num_sim * 1000
-                #plyers_won = num_sim - rounds_won
                 rounds_won = num_sim - self.players_wins
                 print("num of simulations: ", num_sim)
                 print("num of simulations won (creature): ", rounds_won)
                 print("num of simulations won (players): ", self.players_wins)
                 self.num_rounds = num_sim
-                #self.players_wins = plyers_won
+                lvl_tracker = 0
+                if (num_sim >= 30):
+                    for i in arry_lvls:
+                        if (lvl_tracker < i):
+                            lvl_tracker = i
+                    lvl_tracker -= 1
+                    self.sim_cr = lvl_tracker
+                else:
+                    for i in arry_lvls:
+                        if (lvl_tracker < i):
+                            lvl_tracker = i
+                    self.sim_cr = lvl_tracker
                 return golden_num
             if (golden_num == 0):
                 for i in self.players:
@@ -193,6 +204,7 @@ class compareCRandEC():
                 print("num of simulations: ", num_sim)
                 print("num of simulations won (creature): ", rounds_won)
                 print("num of simulations won (players): ", plyers_won)
+                self.num_rounds = num_sim
                 return golden_num
             elif (golden_num > .55):
                 for i in self.players:
@@ -207,7 +219,8 @@ class compareCRandEC():
                 if (over_twenty != True):
                     print("in lvl add one")
                     self.new_hpAndDmpr()
-                    self.final_solution(num_sim+1,rounds_won)
+                    arry_lvls.append(self.players[0].lvl)
+                    self.final_solution(num_sim+1,rounds_won,arry_lvls)
             elif (golden_num < .45):
                 for i in self.players:
                     if (i.lvl > 1):
@@ -221,7 +234,8 @@ class compareCRandEC():
                     print("in lvl minus one")
                     self.new_hpAndDmpr()
                     print("creature cr: ", self.creature.challnge_rtg)
-                    self.final_solution(num_sim+1, rounds_won)
+                    arry_lvls.append(self.players[0].lvl)
+                    self.final_solution(num_sim+1, rounds_won,arry_lvls)
                 
     def reset_players_hp(self, creature_hp, hp_val, hp_val2, hp_val3, hp_val4):
         is_val_negative = False

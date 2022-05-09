@@ -416,6 +416,7 @@ class compareCRandEC():
             print("negative hp values break")
             return -1
         else:
+            self.sim_cr = self.creature.challnge_rtg
             return percentage
         
         

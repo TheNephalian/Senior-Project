@@ -226,6 +226,7 @@ class Ui_testModWindow(creature):
         # self.ui.label_4.setText(str(numOfRounds))
         self.ui.numRounds = numOfRounds
 
+
         if(self.enemyComboBox.currentText() == "Fighter"):
             player1 = dummyFighter.Fighter()
             player1.lvl_change(self.spinBox.value())
@@ -496,7 +497,7 @@ class Ui_testModWindow(creature):
         self.roundSpinBox.setMinimum(1)
         self.roundSpinBox.setObjectName("roundSpinBox")
         self.gridLayout.addWidget(self.roundSpinBox, 2, 3, 1, 1)
-        self.runTestButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents,clicked=lambda: self.runTest())
+        self.runTestButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.runTestButton.setFont(font)
@@ -511,8 +512,8 @@ class Ui_testModWindow(creature):
         self.creatureComboBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.creatureComboBox.setObjectName("creatureComboBox")
         self.gridLayout.addWidget(self.creatureComboBox, 2, 0, 1, 1)
-        self.pushButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents, clicked=lambda: self.runTest_simCR())
-        # self.pushButton.setEnabled(False)
+        self.pushButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.pushButton.setEnabled(False)
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.pushButton.setFont(font)
@@ -617,19 +618,28 @@ class Ui_testModWindow(creature):
         self.statusbar = QtWidgets.QStatusBar(testModWindow)
         self.statusbar.setObjectName("statusbar")
         testModWindow.setStatusBar(self.statusbar)
+        self.player2set = None
+        self.player3set = False
+        self.player4set = False
 
         self.retranslateUi(testModWindow)
         QtCore.QMetaObject.connectSlotsByName(testModWindow)
 
-        self.enemyComboBox.currentIndexChanged.connect(self.enemyValChange)
-        self.enemyComboBox_2.currentIndexChanged.connect(self.enemyValChange)
-        self.enemyComboBox_3.currentIndexChanged.connect(self.enemyValChange)
-        self.enemyComboBox_4.currentIndexChanged.connect(self.enemyValChange)
+        # self.enemyComboBox.currentIndexChanged.connect(self.enemyValChange)
+        self.enemyComboBox_2.currentIndexChanged.connect(self.enemyValChange_1)
+        self.enemyComboBox_3.currentIndexChanged.connect(self.enemyValChange_2)
+        self.enemyComboBox_4.currentIndexChanged.connect(self.enemyValChange_3)
 
         self.spinBox.valueChanged.connect(self.enemyLevelChange)
         self.spinBox_2.valueChanged.connect(self.enemyLevelChange)
         self.spinBox_3.valueChanged.connect(self.enemyLevelChange)
         self.spinBox_4.valueChanged.connect(self.enemyLevelChange)
+
+        self.runTestButton.clicked.connect(self.runTest)
+        self.runTestButton.clicked.connect(testModWindow.close)
+
+        self.pushButton.clicked.connect(self.runTest_simCR)
+        self.pushButton.clicked.connect(testModWindow.close)
 
     def retranslateUi(self, testModWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -642,7 +652,7 @@ class Ui_testModWindow(creature):
         self.label_4.setText(_translate("testModWindow", "Level"))
         self.label.setText(_translate("testModWindow", "Creature"))
         self.label_5.setText(_translate("testModWindow", "Generated Simulated CR"))
-        self.runTestButton.setText(_translate("testModWindow", "Run Test!"))
+        self.runTestButton.setText(_translate("testModWindow", "Continue"))
         self.pushButton.setText(_translate("testModWindow", "Generate"))
         self.label_3.setText(_translate("testModWindow", "# of Rounds"))
         self.enemyComboBox.setItemText(0, _translate("testModWindow", "Fighter"))
@@ -661,11 +671,31 @@ class Ui_testModWindow(creature):
         self.enemyComboBox_3.setItemText(3, _translate("testModWindow", "Rogue"))
         self.enemyComboBox_3.setItemText(4, _translate("testModWindow", "Wizard"))
 
-    def enemyValChange(self):
-        print("Enemy changed!")
-        if(self.enemyComboBox_2.currentText != "-" and self.enemyComboBox_3.currentText != "-" and self.enemyComboBox_4.currentText != "-"):
+    def enemyValChange_1(self):
+        if(self.enemyComboBox_2.currentText() != "-" and self.enemyComboBox_3.currentText() != "-" and self.enemyComboBox_4.currentText()!= "-"):
             self.pushButton.setEnabled(True)
+        else:
+            self.pushButton.setEnabled(False)
 
+    def enemyValChange_2(self):
+        if(self.enemyComboBox_2.currentText() != "-" and self.enemyComboBox_3.currentText() != "-" and self.enemyComboBox_4.currentText()!= "-"):
+            self.pushButton.setEnabled(True)
+        else:
+            self.pushButton.setEnabled(False)
+
+    def enemyValChange_3(self):
+        if(self.enemyComboBox_2.currentText() != "-" and self.enemyComboBox_3.currentText() != "-" and self.enemyComboBox_4.currentText()!= "-"):
+            self.pushButton.setEnabled(True)
+        else:
+            self.pushButton.setEnabled(False)
+            
+
+    def enableBtn(self):
+        if (self.player2set == True ):
+            self.pushButton.setEnabled(True)
+        
+
+        #Irrelavent comments, delete before merging w/ main
     # Notice:
     # I am using made up numbers for the enemy DPR
     # Barbarian level 1: 7, Level 20: 50

@@ -30,8 +30,8 @@ den = numRoundsLost
 (n,d) = reduce(num, den)
 class Ui_MainWindow(object):
     def exitWin(self):
-        print("hello")
-        # self.window.close()
+        pass
+        
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(854, 549)
@@ -129,7 +129,7 @@ class Ui_MainWindow(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 0, 0, 1, 2)
-        self.pushButton = QtWidgets.QPushButton(self.frame,clicked = lambda: self.exitWin())
+        self.pushButton = QtWidgets.QPushButton(self.frame,clicked = lambda: MainWindow.close())
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.pushButton.setFont(font)

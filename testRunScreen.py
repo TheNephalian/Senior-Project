@@ -66,6 +66,7 @@ class testRunDialog(object):
             self.ratio = compSim.sim_cr 
             self.testCompleteLabel.show()
             self.showDetails()
+            
         
         #print("# of simulations:", compSim.num_rounds)
         #print("plyers size:", len(self.test_players))
@@ -122,7 +123,7 @@ class testRunDialog(object):
         self.label_5.setObjectName("label_5")
         self.gridLayout.addWidget(self.label_5, 1, 1, 1, 1)
         self.pushButton = QtWidgets.QPushButton(
-            self.scrollAreaWidgetContents, clicked=lambda: self.runProgressbar())
+            self.scrollAreaWidgetContents)
         self.pushButton.setEnabled(True)
         font = QtGui.QFont()
         font.setFamily("Merriweather")
@@ -185,6 +186,10 @@ class testRunDialog(object):
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+        self.pushButton.clicked.connect(self.runProgressbar)
+        self.pushButton.clicked.connect(Dialog.close)
+
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate

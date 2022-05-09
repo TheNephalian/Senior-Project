@@ -157,7 +157,7 @@ class Ui_MainWindow(object):
         self.winPercentageLabel.setText(_translate("MainWindow", "TextLabel"))
         self.label_8.setText(_translate("MainWindow", "Win Percentage:"))
         self.label_4.setText(_translate("MainWindow", "# of Rounds Lost:"))
-        self.label_10.setText(_translate("MainWindow", "W/L Ratio:"))
+        self.label_10.setText(_translate("MainWindow", "Actual Simulated CR:"))
         self.numRoundsLostLabel.setText(_translate("MainWindow", "TextLabel"))
         self.ratioLabel.setText(_translate("MainWindow", "TextLabel"))
         self.numRoundsWonLabel.setText(_translate("MainWindow", "TextLabel"))

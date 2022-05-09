@@ -4983,6 +4983,12 @@ class Ui_MainWindow(object):
         self.slightOfHandCheckBox.clicked.connect(self.add_profBns)
         self.stealthCheckBox.clicked.connect(self.add_profBns)
         self.survivalCheckBox.clicked.connect(self.add_profBns)
+        self.strSavingThrowCheckBox.clicked.connect(self.saving_throw_check)
+        self.dexSavingThrowCheckBox.clicked.connect(self.saving_throw_check)
+        self.conSavingThrowCheckBox.clicked.connect(self.saving_throw_check)
+        self.intSavingThrowCheckBox.clicked.connect(self.saving_throw_check)
+        self.wisSavingThrowCheckBox.clicked.connect(self.saving_throw_check)
+        self.chaSavingThrowCheckBox.clicked.connect(self.saving_throw_check)
         #######################
 
         self.retranslateUi(MainWindow)
@@ -6227,6 +6233,36 @@ class Ui_MainWindow(object):
         pros_prof_bns = cal_pros_prof_bns(value)
         print("Prospective proficiency bonus is ", pros_prof_bns)
 
+    def saving_throw_check(self):
+        num_saving_throws = 0
+
+        if (self.strSavingThrowCheckBox.isChecked() == True):
+            num_saving_throws += 1
+
+        if (self.dexSavingThrowCheckBox.isChecked() == True):
+            num_saving_throws += 1
+
+        if (self.conSavingThrowCheckBox.isChecked() == True):
+            num_saving_throws += 1
+
+        if (self.intSavingThrowCheckBox.isChecked() == True):
+            num_saving_throws += 1
+
+        if (self.wisSavingThrowCheckBox.isChecked() == True):
+            num_saving_throws += 1
+
+        if (self.chaSavingThrowCheckBox.isChecked() == True):
+            num_saving_throws += 1
+
+        if (num_saving_throws <= 2):
+            self.saveComboBox.setCurrentIndex(0)
+
+        elif (num_saving_throws <= 4):
+            self.saveComboBox.setCurrentIndex(1)
+
+        elif (num_saving_throws <= 6):
+            self.saveComboBox.setCurrentIndex(2)
+
     def add_profBns(self):
         str_bns = cal_attr_bns(self.strSpinBox.value())
         dex_bns = cal_attr_bns(self.dexSpinBox.value())
@@ -6775,6 +6811,7 @@ class Ui_MainWindow(object):
             self.slider.setValue(AvgCR)
 
     def saveValChange(self, value):
+        self.saving_throw_check()
         # Offensive CR
         uses_saves = False
         if (self.savesCheckBox.isChecked()):
@@ -7364,16 +7401,14 @@ class Ui_MainWindow(object):
         if(AvgCR >= 1):
             self.slider.setValue(AvgCR)
 
-        if state == QtCore.Qt.Checked:
-            print('Checked')
-        else:
-            print('Unchecked')
-
     def fliesChecker(self, state):
         if state == QtCore.Qt.Checked:
-            print('Checked')
-        else:
-            print('Unchecked')
+            if (int(self.sliderValTxt.text()) <= 9):
+                self.ArmorSpinBox.setValue(self.ArmorSpinBox.value() + 2)
+
+        if state == QtCore.Qt.Unchecked:
+            if (int(self.sliderValTxt.text()) <= 9):
+                self.ArmorSpinBox.setValue(self.ArmorSpinBox.value() - 2)
 
     def __init__(self):
         self.dpr = None

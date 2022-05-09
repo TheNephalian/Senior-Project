@@ -65,10 +65,9 @@ class Ui_testModWindow(creature):
         self.players = []
 
     #     #self.test_creature.print_stats()
-
-    def runTest(self):
+    def runTest_simCR(self):
         self.window = QtWidgets.QDialog()
-        self.ui = testRunDialog()
+        self.ui = testRunDialog(self.test_creature, self.players, True, self.roundSpinBox.value())
         self.ui.setupUi(self.window)
         self.window.show()
         numOfRounds = self.roundSpinBox.value()
@@ -211,11 +210,162 @@ class Ui_testModWindow(creature):
         #print(*self.players)
         #comSim = combat.combatSimulation(self.test_creature, self.players)
         #comSim.combatSim()
-        compSim = compare.compareCRandEC(self.test_creature, self.players)
-        rp = 1
-        num_lvl_chg = 0
+        #compSim = compare.compareCRandEC(self.test_creature, self.players)
+        #rp = 1
+        #num_rounds_won = 0
         #sim_num = 1
-        compSim.final_solution(rp, num_lvl_chg)
+        #compSim.final_solution(rp, num_rounds_won)
+
+    def runTest(self):
+        self.window = QtWidgets.QDialog()
+        self.ui = testRunDialog(self.test_creature, self.players, False, self.roundSpinBox.value())
+        self.ui.setupUi(self.window)
+        self.window.show()
+        numOfRounds = self.roundSpinBox.value()
+        self.ui.progressBar.setMaximum(numOfRounds)
+        # self.ui.label_4.setText(str(numOfRounds))
+        self.ui.numRounds = numOfRounds
+
+        if(self.enemyComboBox.currentText() == "Fighter"):
+            player1 = dummyFighter.Fighter()
+            player1.lvl_change(self.spinBox.value())
+            player1.dpr_change(np.rint(fighterYData[self.spinBox.value()-1]))
+            player1.hp_change(np.rint(fighterHpYdata[self.spinBox.value()-1]))
+            self.players.append(player1)
+
+        elif(self.enemyComboBox.currentText() == "Ranger"):
+            player1 = dummyRanger.Ranger()
+            player1.lvl_change(self.spinBox.value())
+            player1.dpr_change(np.rint(rangerYData[self.spinBox.value()-1]))
+            player1.hp_change(np.rint(rangerHpYData[self.spinBox.value()-1]))
+            self.players.append(player1)
+
+        elif(self.enemyComboBox.currentText() == "Rogue"):
+            player1 = dummyRogue.Rogue()
+            player1.lvl_change(self.spinBox.value())
+            player1.dpr_change(np.rint(rogueYData[self.spinBox.value()-1]))
+            player1.hp_change(np.rint(rogueHpYData[self.spinBox.value()-1]))
+            self.players.append(player1)
+
+        elif(self.enemyComboBox.currentText() == "Wizard"):
+            player1 = dummyWizard.Wizard()
+            player1.lvl_change(self.spinBox.value())
+            player1.dpr_change(np.rint(rogueYData[self.spinBox.value()-1]))
+            player1.hp_change(np.rint(wizardHpYData[self.spinBox.value()-1]))
+            self.players.append(player1)
+
+        #print("ATTENTION: Player 1 : ", player1.name, "Level:", str(player1.lvl), "DPR:", str(player1.dmg_per_rnd),"HP:", str(player1.hp))
+
+        if(self.enemyComboBox_2.currentText() != "-"):
+            if(self.enemyComboBox_2.currentText() == "Fighter"):
+                player2 = dummyFighter.Fighter()
+                player2.lvl_change(self.spinBox_2.value())
+                player2.dpr_change(np.rint(rogueYData[self.spinBox_2.value()-1]))
+                player2.hp_change(np.rint(fighterHpYdata[self.spinBox_2.value()-1]))
+                self.players.append(player2)
+
+            elif(self.enemyComboBox_2.currentText() == "Ranger"):
+                player2 = dummyRanger.Ranger()
+                player2.lvl_change(self.spinBox_2.value())
+                player2.dpr_change(np.rint(rangerYData[self.spinBox_2.value()-1]))
+                player2.hp_change(np.rint(rangerHpYData[self.spinBox.value()-1]))
+                self.players.append(player2)
+
+            elif(self.enemyComboBox_2.currentText() == "Rogue"):
+                player2 = dummyRogue.Rogue()
+                player2.lvl_change(self.spinBox_2.value())
+                player2.dpr_change(np.rint(rogueYData[self.spinBox_2.value()-1]))
+                player2.hp_change(np.rint(rogueHpYData[self.spinBox_2.value()-1]))
+                self.players.append(player2)
+
+            elif(self.enemyComboBox_2.currentText() == "Wizard"):
+                player2 = dummyWizard.Wizard()
+                player2.lvl_change(self.spinBox_2.value())
+                player2.dpr_change(np.rint(wizardYData[self.spinBox_2.value()-1]))
+                player2.hp_change(np.rint(wizardHpYData[self.spinBox_2.value()-1]))
+                self.players.append(player2)
+
+            #print("ATTENTION: Player 2 : ", player2.name, "Level:", str(player2.lvl), "DPR:", str(player2.dmg_per_rnd),"HP:", str(player2.hp))
+
+        else:
+            print("player 2 is blank")
+
+        if(self.enemyComboBox_3.currentText() != "-"):
+            if(self.enemyComboBox_3.currentText() == "Fighter"):
+                player3 = dummyFighter.Fighter()
+                player3.lvl_change(self.spinBox_3.value())
+                player3.dpr_change(np.rint(fighterYData[self.spinBox_3.value()-1]))
+                player3.hp_change(np.rint(fighterHpYdata[self.spinBox_3.value()-1]))
+                self.players.append(player3)
+
+            elif(self.enemyComboBox_3.currentText() == "Ranger"):
+                player3 = dummyRanger.Ranger()
+                player3.lvl_change(self.spinBox_3.value())
+                player3.dpr_change(np.rint(rangerYData[self.spinBox_3.value()-1]))
+                player3.hp_change(np.rint(rangerHpYData[self.spinBox_3.value()-1]))
+                self.players.append(player3)
+
+            elif(self.enemyComboBox_3.currentText() == "Rogue"):
+                player3 = dummyRogue.Rogue()
+                player3.lvl_change(self.spinBox_3.value())
+                player3.dpr_change(np.rint(rogueYData[self.spinBox_3.value()-1]))
+                player3.hp_change(np.rint(rogueHpYData[self.spinBox_3.value()-1]))
+                self.players.append(player3)
+
+            elif(self.enemyComboBox_3.currentText() == "Wizard"):
+                player3 = dummyWizard.Wizard()
+                player3.lvl_change(self.spinBox_3.value())
+                player3.dpr_change(np.rint(wizardYData[self.spinBox_3.value()-1]))
+                player3.hp_change(np.rint(wizardHpYData[self.spinBox_3.value()-1]))
+                self.players.append(player3)
+
+            #print("ATTENTION: Player 3 : ", player3.name, "Level:", str(player3.lvl), "DPR:", str(player3.dmg_per_rnd),"HP:", str(player3.hp))
+
+        else:
+            print("Player 3 is Blank")
+
+        if(self.enemyComboBox_4.currentText() != "-"):
+            if(self.enemyComboBox_4.currentText() == "Fighter"):
+                player4 = dummyFighter.Fighter()
+                player4.lvl_change(self.spinBox_4.value())
+                player4.dpr_change(np.rint(fighterYData[self.spinBox_4.value()-1]))
+                player4.hp_change(np.rint(fighterHpYdata[self.spinBox_4.value()-1]))
+                self.players.append(player4)
+
+            elif(self.enemyComboBox_4.currentText() == "Ranger"):
+                player4 = dummyRanger.Ranger()
+                player4.lvl_change(self.spinBox_4.value())
+                player4.dpr_change(np.rint(rangerYData[self.spinBox_4.value()-1]))
+                player4.hp_change(np.rint(rangerHpYData[self.spinBox_4.value()-1]))
+                self.players.append(player4)
+
+            elif(self.enemyComboBox_4.currentText() == "Rogue"):
+                player4 = dummyRogue.Rogue()
+                player4.lvl_change(self.spinBox_4.value())
+                player4.dpr_change(np.rint(rogueYData[self.spinBox_4.value()-1]))
+                player4.hp_change(np.rint(rogueHpYData[self.spinBox_4.value()-1]))
+                self.players.append(player4)
+
+            elif(self.enemyComboBox_4.currentText() == "Wizard"):
+                player4 = dummyWizard.Wizard()
+                player4.lvl_change(self.spinBox_4.value())
+                player4.dpr_change(np.rint(wizardYData[self.spinBox_4.value()-1]))
+                player4.hp_change(np.rint(wizardHpYData[self.spinBox_4.value()-1]))
+                self.players.append(player4)
+
+            #print("ATTENTION: Player 4 : ", player4.name, "Level:", str(player4.lvl), "DPR:", str(player4.dmg_per_rnd),"HP:", str(player4.hp))
+
+        else:
+            print("Player 4 is Blank")
+
+        #print(*self.players)
+        #comSim = combat.combatSimulation(self.test_creature, self.players)
+        #comSim.combatSim()
+        #compSim = compare.compareCRandEC(self.test_creature, self.players)
+        #rp = 1
+        #num_rounds_won = 0
+        #sim_num = 1
+        #compSim.final_solution(rp, num_rounds_won)
 
 
 
@@ -361,7 +511,7 @@ class Ui_testModWindow(creature):
         self.creatureComboBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.creatureComboBox.setObjectName("creatureComboBox")
         self.gridLayout.addWidget(self.creatureComboBox, 2, 0, 1, 1)
-        self.pushButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
+        self.pushButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents, clicked=lambda: self.runTest_simCR())
         # self.pushButton.setEnabled(False)
         font = QtGui.QFont()
         font.setFamily("Merriweather")

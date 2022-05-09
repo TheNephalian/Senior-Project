@@ -14,24 +14,59 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import numpy
 from testModScreen import *
 from StatBlockScreen import *
+import compare
 
 
 
 class testRunDialog(object):
-
+    def __init__(self, creature, players, which_button, rounds):
+        self.test_creature = creature
+        self.test_players = players
+        self.buttonPushed = which_button
+        self.num_rounds = rounds
+        self.cr_simulate = 0
+        self.rounds_won = 0
+        self.rounds_loss = 0
+        self.w_l_percetage = 0
+        self.ratio = " "
+        
+        
     def showDetails(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.window)
+        self.ui.numRoundsLabel.setText(str(self.cr_simulate))
+        self.ui.numRoundsWonLabel.setText(str(self.rounds_won))
+        self.ui.numRoundsLostLabel.setText(str(self.rounds_loss))
+        self.ui.winPercentageLabel.setText(str(self.w_l_percetage))
+        self.ui.ratioLabel.setText(str())
         self.window.show()
 
     def runProgressbar(self):
         self.progressBar.setMaximum(100_000)
+        compSim = compare.compareCRandEC(self.test_creature, self.test_players)
+        if (self.buttonPushed == False):
+            compSim.generate_cr_simulation(self.numRounds)
+        elif(self.buttonPushed == True):
+            rp = 1
+            num_rounds_won = 0
+            compSim.final_solution(rp, num_rounds_won)
         for i  in range(100_000):
             self.progressBar.setValue(i+1)
         if(self.progressBar.value()==self.progressBar.maximum()):
+            self.cr_simulate = compSim.num_rounds
+            self.rounds_won = compSim.num_rounds - compSim.players_wins
+            self.rounds_loss = compSim.players_wins
+            self.w_l_percetage = self.rounds_won / self.cr_simulate
+            self.ratio += str(self.rounds_won)
+            self.ratio += " / "
+            self.ratio += str(self.rounds_loss)
             self.testCompleteLabel.show()
             self.showDetails()
+        
+        #print("# of simulations:", compSim.num_rounds)
+        #print("plyers size:", len(self.test_players))
+        #print("which button is pressed: ", self.buttonPushed)
 
     def setupUi(self, Dialog):
         self.numRounds = 12

@@ -18,6 +18,8 @@ class compareCRandEC():
         for i in range (0, len(players)):
             self.players.append(players[i])
         
+        self.players_wins = 0
+        self.num_rounds = 0
         
     
     def playerEXP(self):
@@ -150,28 +152,33 @@ class compareCRandEC():
             #print("negative hp values break")
             return -1
         else:
-            return percentage
+            return creature_won
      
-    def final_solution(self, num_sim, lvl_chg):
+    def final_solution(self, num_sim, rounds_won):
         avg_players_lvl = 0
         for i in self.players:
             avg_players_lvl += i.lvl
         avg_players_lvl = avg_players_lvl / len(self.players)
         avg_players_lvl = int(avg_players_lvl)
-                
-        golden_num = self.simulate_rec()
+        rounds_won += self.simulate_rec()
+        golden_num = rounds_won / (num_sim * 1000)
+        
         over_twenty = False
         if (golden_num == -1):
             print("simulation over cause hp values did not reset")
         else:
             if ((golden_num > .45 and golden_num < .55) or num_sim >= 30):
                 for i in self.players:
-                    print ("player_lvl change: ", i.lvl)
+                    print ("player_lvl: ", i.lvl)
                 print ("golden ratio: ", golden_num)
                 print("creature cr: ", self.creature.challnge_rtg)
                 num_sim = num_sim * 1000
+                plyers_won = num_sim - rounds_won
                 print("num of simulations: ", num_sim)
-                print("num of lvl changes: ", lvl_chg)
+                print("num of simulations won (creature): ", rounds_won)
+                print("num of simulations won (players): ", plyers_won)
+                self.num_rounds = num_sim
+                self.players_wins = plyers_won
                 return golden_num
             if (golden_num == 0):
                 for i in self.players:
@@ -179,8 +186,10 @@ class compareCRandEC():
                 print ("golden ratio: ", golden_num)
                 print("creature cr: ", self.creature.challnge_rtg)
                 num_sim = num_sim * 1000
+                plyers_won = num_sim - rounds_won
                 print("num of simulations: ", num_sim)
-                print("num of lvl changes: ", lvl_chg)
+                print("num of simulations won (creature): ", rounds_won)
+                print("num of simulations won (players): ", plyers_won)
                 return golden_num
             elif (golden_num > .55):
                 for i in self.players:
@@ -195,18 +204,7 @@ class compareCRandEC():
                 if (over_twenty != True):
                     print("in lvl add one")
                     self.new_hpAndDmpr()
-                    self.final_solution(num_sim+1,lvl_chg+1)
-                    # if (avg_players_lvl > self.creature.challnge_rtg):
-                    #     print("players avg lvl is greater than creature cr: ", avg_players_lvl)
-                    #     print("creature cr: ", self.creature.challnge_rtg)
-                    #     num_sim = num_sim * 1000
-                    #     print("num of simulations: ", num_sim)
-                    # else:
-                    #     self.final_solution(num_sim+1, times_in_sim-1)
-                    #     num_sim = num_sim * 1000
-                    #     print("time num of simulations: ", num_sim)
-                #else:
-                    #print("player lvl was over twenty")
+                    self.final_solution(num_sim+1,rounds_won)
             elif (golden_num < .45):
                 for i in self.players:
                     if (i.lvl > 1):
@@ -220,18 +218,7 @@ class compareCRandEC():
                     print("in lvl minus one")
                     self.new_hpAndDmpr()
                     print("creature cr: ", self.creature.challnge_rtg)
-                    self.final_solution(num_sim+1, lvl_chg+1)
-                    # if (avg_players_lvl < self.creature.challnge_rtg):
-                    #     print("players avg lvl is less than creature cr: ", avg_players_lvl)
-                    #     print("creature cr: ", self.creature.challnge_rtg)
-                    #     num_sim = num_sim * 1000
-                    #     print("num of simulations: ", num_sim)
-                    # else:
-                    #     num_sim = num_sim * 1000
-                    #     print("time num of simulations: ", num_sim)
-                    #     self.final_solution(num_sim+1)
-                #else:
-                #    print("player lvl was over twenty")
+                    self.final_solution(num_sim+1, rounds_won)
                 
     def reset_players_hp(self, creature_hp, hp_val, hp_val2, hp_val3, hp_val4):
         is_val_negative = False
@@ -401,13 +388,18 @@ class compareCRandEC():
                 else:
                     creature_won += 1
                 some_num += 1
-        print("some_num: ", some_num)
+        #print("some_num: ", some_num)
         print("creature w's: ", creature_won)
         print("players w's: ", players_won)
         percentage = creature_won / some_num
+        self.num_rounds = some_num
+        self.players_wins = players_won
         creature_plyer_hp = self.reset_players_hp(creature_hp, hp_val, hp_val2, hp_val3, hp_val4)
         if(creature_plyer_hp == True):
             print("negative hp values break")
             return -1
         else:
             return percentage
+        
+        
+    

@@ -55,9 +55,16 @@ class testRunDialog(object):
                 lvl = i["lvl"]
                 wins = i["wins"]
                 rounds = i["rounds"]
-                final_string += "   Player level: " + str(lvl) + " Wins: " + str(wins) + " Number of Rounds Simulated: " + str(rounds)
+                creature_wins = rounds - wins 
+                win_rate = creature_wins / rounds
+                win_rate = win_rate * 100
+                win_rate = "{:.2f}".format(win_rate)
+                final_string += "   " + str(rounds) + " Combats simulated against Player Level: " +str(lvl) 
+                final_string += "\n"
+                final_string += " Player Wins: " + str(wins) + "  Creature wins: " + str(creature_wins) + "  Creature winrate: " + str(win_rate) + "%"
                 final_string += "\n"
                 final_string += "\n"
+            final_string += "\n" + "   Creature CR: " + str(self.test_creature.challnge_rtg) + "  Simulated CR: " + str(self.ratio)
             self.ui.label_2.setText(final_string)
             self.window.show()
 

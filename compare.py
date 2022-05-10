@@ -21,6 +21,7 @@ class compareCRandEC():
         self.players_wins = 0
         self.num_rounds = 0
         self.sim_cr = 0
+        self.store_info = []
         
     
     def playerEXP(self):
@@ -144,13 +145,24 @@ class compareCRandEC():
                 else:
                     creature_won += 1
                 some_num += 1
-        #print("some_num: ", some_num)
         print("creature w's: ", creature_won)
         print("players w's: ", players_won)
         percentage = creature_won / some_num
         creature_plyer_hp = self.reset_players_hp(creature_hp, hp_val, hp_val2, hp_val3, hp_val4)
+        if (len(self.store_info) == 0):
+            self.store_info.append({"lvl": self.players[0].lvl, "wins": players_won, "rounds": some_num})
+        else:
+            new_lvl = True
+            for i in self.store_info:
+                if (i["lvl"] == self.players[0].lvl):
+                    i["wins"] += players_won
+                    i["rounds"] += some_num
+                    new_lvl = False
+                    break
+            if(new_lvl == True):
+                self.store_info.append({"lvl": self.players[0].lvl, "wins": players_won, "rounds": some_num})
+                
         if(creature_plyer_hp == True):
-            #print("negative hp values break")
             return -1
         else:
             self.players_wins += players_won
@@ -181,13 +193,17 @@ class compareCRandEC():
                 print("num of simulations won (creature): ", rounds_won)
                 print("num of simulations won (players): ", self.players_wins)
                 self.num_rounds = num_sim
+                print("prints", self.store_info)
                 lvl_tracker = 0
                 if (num_sim >= 30):
                     for i in arry_lvls:
                         if (lvl_tracker < i):
                             lvl_tracker = i
-                    lvl_tracker -= 1
-                    self.sim_cr = lvl_tracker
+                    if (self.creature.challnge_rtg > 20 and lvl_tracker == 20):
+                        self.sim_cr = self.creature.challnge_rtg
+                    else:
+                        lvl_tracker -= 1
+                        self.sim_cr = lvl_tracker
                 else:
                     for i in arry_lvls:
                         if (lvl_tracker < i):
@@ -204,6 +220,7 @@ class compareCRandEC():
                 print("num of simulations: ", num_sim)
                 print("num of simulations won (creature): ", rounds_won)
                 print("num of simulations won (players): ", plyers_won)
+                print("prints", self.store_info)
                 self.num_rounds = num_sim
                 return golden_num
             elif (golden_num > .55):

@@ -14,6 +14,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import numpy
 from testModScreen import *
 from StatBlockScreen import *
+from testRunScreen import *
+from simulatedResults_WIP import * 
 import compare
 
 
@@ -29,20 +31,35 @@ class testRunDialog(object):
         self.rounds_loss = 0
         self.w_l_percetage = 0
         self.ratio = " "
+        self.arry_info = []
         
         
     def showDetails(self):
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_MainWindow()
-        self.ui.setupUi(self.window)
-        self.ui.numRoundsLabel.setText(str(self.cr_simulate))
-        self.ui.numRoundsWonLabel.setText(str(self.rounds_won))
-        self.ui.numRoundsLostLabel.setText(str(self.rounds_loss))
-        percentage_w_l = str(self.w_l_percetage)
-        percentage_w_l += "%"
-        self.ui.winPercentageLabel.setText(percentage_w_l)
-        self.ui.ratioLabel.setText(str(self.ratio))
-        self.window.show()
+        if (self.buttonPushed == False):
+            self.ui = Ui_MainWindow()
+            self.ui.setupUi(self.window)
+            self.ui.numRoundsLabel.setText(str(self.cr_simulate))
+            self.ui.numRoundsWonLabel.setText(str(self.rounds_won))
+            self.ui.numRoundsLostLabel.setText(str(self.rounds_loss))
+            percentage_w_l = str(self.w_l_percetage)
+            percentage_w_l += "%"
+            self.ui.winPercentageLabel.setText(percentage_w_l)
+            self.ui.ratioLabel.setText(str(self.ratio))
+            self.window.show()
+        else:
+            self.ui = Ui_simulatedWindow()
+            self.ui.setupUi(self.window)
+            final_string = " "
+            for i in self.arry_info:
+                lvl = i["lvl"]
+                wins = i["wins"]
+                rounds = i["rounds"]
+                final_string += "   Player level: " + str(lvl) + " Wins: " + str(wins) + " Number of Rounds Simulated: " + str(rounds)
+                final_string += "\n"
+                final_string += "\n"
+            self.ui.label_2.setText(final_string)
+            self.window.show()
 
     def runProgressbar(self):
         self.progressBar.setMaximum(100_000)
@@ -64,13 +81,9 @@ class testRunDialog(object):
             self.w_l_percetage = self.w_l_percetage * 100
             self.w_l_percetage = "{:.2f}".format(self.w_l_percetage)
             self.ratio = compSim.sim_cr 
+            self.arry_info = compSim.store_info
             self.testCompleteLabel.show()
             self.showDetails()
-            
-        
-        #print("# of simulations:", compSim.num_rounds)
-        #print("plyers size:", len(self.test_players))
-        #print("which button is pressed: ", self.buttonPushed)
 
     def setupUi(self, Dialog):
         self.numRounds = 12

@@ -54,6 +54,8 @@ class Ui_simulatedWindow(object):
 "border-right: 3px solid rgb(232, 74, 95);\n"
 "")
         self.label_2.setObjectName("label_2")
+        font.setPointSize(14)
+        self.label_2.setFont(font)
         self.verticalLayout_3.addWidget(self.label_2)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout_2.addWidget(self.scrollArea)

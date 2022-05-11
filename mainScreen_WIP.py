@@ -1366,6 +1366,12 @@ class Ui_MainWindow(object):
             "Attr_2" : self.attrComboBox_2.currentIndex(),
             "Attr_3" : self.attrComboBox_3.currentIndex(),
             "Attr_4" : self.attrComboBox_4.currentIndex(),
+            "CustAttk" : self.nameLineEdit_2.text(),
+            "DoesDam" :self.doesDamageCheckBox.isChecked(),
+            "CustNumDie" : self.customNumOfDiespinBox.value(),
+            "CustDie": self.typeOfDieComboBox.currentIndex(),
+            "AOE" : self.aoeButton.isChecked(),
+            "CustAttkBox" : self.plainTextEdit.toPlainText(),
             "Type" : self.typeComboBox.currentIndex(),
             "allignment" : self.allignmentComboBox.currentIndex(),
             "GroundSpeed" : self.movementSpinBox.value(),
@@ -1385,7 +1391,8 @@ class Ui_MainWindow(object):
             "Undercommon" : self.undercommonCheckBox.isChecked(),
             "Blindsight" : self.blindsightCheckBox.isChecked(),
             "Blindsight_dist" : self.blindSightSpinBox.value(),
-            "Darkvision" : self.darkVisionSpinBox.value(),
+            "Darkvision" : self.darkvisionCheckBox.isChecked(),
+            "darkVision_dist" :self.darkVisionSpinBox.setValue(),
             "Tremorsense" : self.tremorsenseCheckBox.isChecked(),
             "Tremorsense_dist" : self.tremorSenseSpinBox.value(),
             "Truesight" : self.truesightCheckBox.isChecked(),
@@ -1469,21 +1476,16 @@ class Ui_MainWindow(object):
             f.write(json_obj)
             print("The json file is created")
 
-        #copyFile()
-       
-
         self.show_popup()
 
         subprocess.Popen(rf'explorer /select,"{savePath}\savedCreatures\{fileName}.json"')
             
     def importCreature(self):
         savepath = os.getcwd()
-        #print("importing a creature")
 
         #get file
         fname = QFileDialog.getOpenFileName(None,'Open File',f"{savepath}\ImportCreatures",'Json files(*.json)')
         pathToFile = fname[0]
-        #print(pathToFile)
 
         #read File
         myJsonFile = open (pathToFile)
@@ -1570,7 +1572,7 @@ class Ui_MainWindow(object):
         self.blindsightCheckBox.setChecked(someObj['Blindsight'])
         self.blindSightSpinBox.setValue(someObj['Blindsight_dist'])
         self.darkvisionCheckBox.setChecked(someObj['Darkvision'])
-        self.darkVisionSpinBox.setValue(someObj['DarkVision_dist'])
+        self.darkVisionSpinBox.setValue(someObj['darkVision_dist'])
         self.tremorsenseCheckBox.setChecked(someObj['Tremorsense'])
         self.tremorSenseSpinBox.setValue(someObj['Tremorsense_dist'])
         self.truesightCheckBox.setChecked(someObj['Truesight'])
@@ -1646,6 +1648,12 @@ class Ui_MainWindow(object):
         self.superiorInvisibilityCheckBox.setChecked(someObj['SuperiorInvis'])
         self.udeadFortitudeCheckBox.setChecked(someObj['UndeadForti'])
         self.webCheckBox.setChecked(someObj['Web'])
+        self.nameLineEdit_2.setText(someObj['CustAttk'])
+        self.doesDamageCheckBox.setChecked(someObj['DoesDam'])
+        self.customNumOfDiespinBox.setValue(someObj['CustNumDie'])
+        self.typeOfDieComboBox.setCurrentIndex(someObj['CustDie'])
+        self.aoeButton.setChecked(someObj['AOE'])
+        self.plainTextEdit.setPlainText(someObj['CustAttkBox'])
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -1981,7 +1989,6 @@ class Ui_MainWindow(object):
         self.constitSpinBox.setMinimum(1)
         self.constitSpinBox.setMaximum(30)
         self.constitSpinBox.setValue(10)
-        
         self.gridLayout_2.addWidget(self.constitSpinBox, 10, 2, 1, 1)
         spacerItem1 = QtWidgets.QSpacerItem(
             0, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -2325,6 +2332,7 @@ class Ui_MainWindow(object):
         self.conSpinBox.setFont(font)
         self.conSpinBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.conSpinBox.setObjectName("conSpinBox")
+        self.conSpinBox.setMaximum(30)
         self.conSpinBox.setValue(10)
         self.gridLayout_4.addWidget(self.conSpinBox, 1, 4, 1, 1)
         self.label_19 = QtWidgets.QLabel(self.frame_5)

@@ -215,6 +215,10 @@ class Ui_MainWindow(object):
                 traits += self.webCheckBox.text()
 
         self.ui.label_105.setText(traits)
+        if(traits == ""):
+            self.ui.label_105.setText("None")
+
+
         resOrimmu = self.resComboBox.currentText()
         self.ui.label_33.setText(resOrimmu)
         langues = ""
@@ -280,6 +284,8 @@ class Ui_MainWindow(object):
                 langues += self.undercommonCheckBox.text()
 
         self.ui.label_32.setText(langues)
+        if(langues == ""):
+            self.ui.label_32.setText("None")
 
         # PROFICIENCY BONUS
         pb = 0
@@ -294,6 +300,8 @@ class Ui_MainWindow(object):
 
         # actions
         firstaction = self.actionName_1.text()
+        if (firstaction == ""):
+            self.ui.frame_6.hide()
         self.ui.label_47.setText(firstaction)
         meleeORrange = self.actionType_1.currentText()
         self.ui.label_48.setText(meleeORrange)
@@ -352,6 +360,8 @@ class Ui_MainWindow(object):
         self.ui.label_55.setText(str(numAttks))
 
         secondaction = self.actionName_2.text()
+        if (secondaction == ""):
+            self.ui.frame_8.hide()
         self.ui.label_68.setText(secondaction)
         meleeORrange2 = self.actionType_2.currentText()
         self.ui.label_69.setText(meleeORrange2)
@@ -410,6 +420,8 @@ class Ui_MainWindow(object):
         self.ui.label_61.setText(str(numAttks2))
 
         thirdaction = self.actionName_3.text()
+        if (thirdaction == ""):
+            self.ui.frame_9.hide()
         self.ui.label_49.setText(thirdaction)
         meleeORrange3 = self.actionType_3.currentText()
         self.ui.label_50.setText(meleeORrange3)
@@ -468,6 +480,8 @@ class Ui_MainWindow(object):
         self.ui.label_59.setText(str(numAttks3))
 
         forthaction = self.actionName_4.text()
+        if (forthaction == ""):
+            self.ui.frame_10.hide()
         self.ui.label_87.setText(forthaction)
         meleeORrange4 = self.actionType_4.currentText()
         self.ui.label_88.setText(meleeORrange4)
@@ -544,12 +558,12 @@ class Ui_MainWindow(object):
 
         # senses
         senses = ""
-        if(self.blindedCheckBox.isChecked()):
+        if(self.blindsightCheckBox.isChecked()):
             if(senses == ""):
-                senses += self.blindedCheckBox.text()
+                senses += self.blindsightCheckBox.text()
             else:
                 senses += ", "
-                senses += self.blindedCheckBox.text()
+                senses += self.blindsightCheckBox.text()
         if(self.darkvisionCheckBox.isChecked()):
             if(senses == ""):
                 senses += self.darkvisionCheckBox.text()
@@ -569,6 +583,8 @@ class Ui_MainWindow(object):
                 senses += ", "
                 senses += self.truesightCheckBox.text()
         self.ui.label_103.setText(senses)
+        if(senses == ""):
+            self.ui.label_103.setText("None")
 
         # condition immunities
         condImmu = ""
@@ -664,6 +680,9 @@ class Ui_MainWindow(object):
                 condImmu += self.unconsciosCheckBox.text()
 
         self.ui.label_107.setText(condImmu)
+        if(condImmu == ""):
+            self.ui.label_107.setText("None")
+        
 
         # saving Throws
         if(self.strSavingThrowCheckBox.isChecked()):
@@ -675,6 +694,9 @@ class Ui_MainWindow(object):
             strSTs += str(int(strST))
             self.ui.label_41.setText(strSTs)
         else:
+            hidecounter = 1
+            self.ui.label_41.hide()
+            self.ui.label_38.hide()
             strSTs = "+0"
             self.ui.label_41.setText(strSTs)
         if(self.dexSavingThrowCheckBox.isChecked()):
@@ -686,6 +708,9 @@ class Ui_MainWindow(object):
             strSTs2 += str(int(strST2))
             self.ui.label_42.setText(strSTs2)
         else:
+            hidecounter += 1
+            self.ui.label_42.hide()
+            self.ui.label_36.hide()
             strSTs2 = "+0"
             self.ui.label_42.setText(strSTs2)
         if(self.conSavingThrowCheckBox.isChecked()):
@@ -697,6 +722,9 @@ class Ui_MainWindow(object):
             strSTs3 += str(int(strST3))
             self.ui.label_43.setText(strSTs3)
         else:
+            hidecounter += 1
+            self.ui.label_43.hide()
+            self.ui.label_37.hide()
             strSTs3 = "+0"
             self.ui.label_43.setText(strSTs3)
         if(self.intSavingThrowCheckBox.isChecked()):
@@ -708,6 +736,9 @@ class Ui_MainWindow(object):
             strSTs4 += str(int(strST4))
             self.ui.label_44.setText(strSTs4)
         else:
+            hidecounter += 1
+            self.ui.label_44.hide()
+            self.ui.label_35.hide()
             strSTs4 = "+0"
             self.ui.label_44.setText(strSTs4)
         if(self.wisSavingThrowCheckBox.isChecked()):
@@ -719,6 +750,9 @@ class Ui_MainWindow(object):
             strSTs5 += str(int(strST5))
             self.ui.label_45.setText(strSTs5)
         else:
+            hidecounter+=1
+            self.ui.label_45.hide()
+            self.ui.label_40.hide()
             strSTs5 = "+0"
             self.ui.label_45.setText(strSTs5)
         if(self.chaSavingThrowCheckBox.isChecked()):
@@ -730,8 +764,11 @@ class Ui_MainWindow(object):
             strSTs6 += str(int(strST6))
             self.ui.label_46.setText(strSTs6)
         else:
-            strSTs6 = "+0"
-            self.ui.label_46.setText(strSTs6)
+            self.ui.label_39.hide()
+            # # self.ui.label_46.hide()
+            # strSTs6 = "+0"
+            if (hidecounter == 5):
+                self.ui.label_46.setText("None")
 
         # skills
         skills = ""
@@ -1132,8 +1169,12 @@ class Ui_MainWindow(object):
                 strSTs += str(int(strST))
                 skills += strSTs
         self.ui.label_34.setText(skills)
+        if(skills == ""):
+            self.ui.label_34.setText("None")
 
         #creature = monster(creature_name, str_value,dex_value,con_value,int_value,wis_value,cha_value, hp_value, armor_value, size, sizeofDie, self.dprSpinBox.value(), self.attkBonSpinBox.value(), numAttks, numAttks2, numAttks3, numAttks4, attdie, attdie2,attdie3,attdie4)
+        self.ui.label_67.setText(self.nameLineEdit_2.text())
+        self.ui.label_77.setText(self.plainTextEdit.toPlainText())
 
         self.window.show()
 
@@ -1392,7 +1433,7 @@ class Ui_MainWindow(object):
             "Blindsight" : self.blindsightCheckBox.isChecked(),
             "Blindsight_dist" : self.blindSightSpinBox.value(),
             "Darkvision" : self.darkvisionCheckBox.isChecked(),
-            "darkVision_dist" :self.darkVisionSpinBox.setValue(),
+            "darkVision_dist" :self.darkVisionSpinBox.value(),
             "Tremorsense" : self.tremorsenseCheckBox.isChecked(),
             "Tremorsense_dist" : self.tremorSenseSpinBox.value(),
             "Truesight" : self.truesightCheckBox.isChecked(),
@@ -3153,6 +3194,8 @@ class Ui_MainWindow(object):
         self.reachSpinBox_2.setStyleSheet(
             "background-color: rgb(255, 255, 255);")
         self.reachSpinBox_2.setObjectName("reachSpinBox_2")
+        self.reachSpinBox_2.setSingleStep(5)
+        self.reachSpinBox_2.setMaximum(300)
         self.gridLayout_5.addWidget(self.reachSpinBox_2, 6, 4, 1, 1)
         self.actionType_3 = QtWidgets.QComboBox(self.frame_6)
         font = QtGui.QFont()
@@ -3258,6 +3301,8 @@ class Ui_MainWindow(object):
         self.reachSpinBox_1.setStyleSheet(
             "background-color: rgb(255, 255, 255);")
         self.reachSpinBox_1.setObjectName("reachSpinBox_1")
+        self.reachSpinBox_1.setSingleStep(5)
+        self.reachSpinBox_1.setMaximum(300)
         self.gridLayout_5.addWidget(self.reachSpinBox_1, 2, 4, 1, 1)
         self.spinBox_4 = QtWidgets.QSpinBox(self.frame_6)
         font = QtGui.QFont()
@@ -3274,6 +3319,8 @@ class Ui_MainWindow(object):
         self.reachSpinBox_3.setStyleSheet(
             "background-color: rgb(255, 255, 255);")
         self.reachSpinBox_3.setObjectName("reachSpinBox_3")
+        self.reachSpinBox_3.setSingleStep(5)
+        self.reachSpinBox_3.setMaximum(300)
         self.gridLayout_5.addWidget(self.reachSpinBox_3, 9, 4, 1, 1)
         self.actionName_2 = QtWidgets.QLineEdit(self.frame_6)
         self.actionName_2.setMaximumSize(QtCore.QSize(400, 16777215))
@@ -4817,6 +4864,8 @@ class Ui_MainWindow(object):
         self.burrowSpinBox.setStyleSheet(
             "background-color: rgb(255, 255, 255);")
         self.burrowSpinBox.setObjectName("burrowSpinBox")
+        self.burrowSpinBox.setSingleStep(5)
+        self.burrowSpinBox.setMaximum(300)
         self.gridLayout_15.addWidget(self.burrowSpinBox, 2, 3, 1, 1)
         self.label_74 = QtWidgets.QLabel(self.frame_16)
         font = QtGui.QFont()
@@ -4860,6 +4909,8 @@ class Ui_MainWindow(object):
         self.climbSpinBox.setStyleSheet(
             "background-color: rgb(255, 255, 255);")
         self.climbSpinBox.setObjectName("climbSpinBox")
+        self.climbSpinBox.setMaximum(300)
+        self.climbSpinBox.setSingleStep(5)
         self.gridLayout_15.addWidget(self.climbSpinBox, 2, 5, 1, 1)
         self.label_33 = QtWidgets.QLabel(self.frame_16)
         font = QtGui.QFont()
@@ -4873,6 +4924,8 @@ class Ui_MainWindow(object):
         self.swimSpinBox.setFont(font)
         self.swimSpinBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.swimSpinBox.setObjectName("swimSpinBox")
+        self.swimSpinBox.setMaximum(300)
+        self.swimSpinBox.setSingleStep(5)
         self.gridLayout_15.addWidget(self.swimSpinBox, 2, 9, 1, 1)
         self.label_27 = QtWidgets.QLabel(self.frame_16)
         font = QtGui.QFont()
@@ -4892,6 +4945,8 @@ class Ui_MainWindow(object):
         self.flySpinBox.setFont(font)
         self.flySpinBox.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.flySpinBox.setObjectName("flySpinBox")
+        self.flySpinBox.setMaximum(300)
+        self.flySpinBox.setSingleStep(5)
         self.gridLayout_15.addWidget(self.flySpinBox, 2, 7, 1, 1)
         self.movementSpinBox = QtWidgets.QSpinBox(self.frame_16)
         self.movementSpinBox.setMinimumSize(QtCore.QSize(102, 29))
@@ -4901,6 +4956,8 @@ class Ui_MainWindow(object):
         self.movementSpinBox.setStyleSheet(
             "background-color: rgb(255, 255, 255);")
         self.movementSpinBox.setObjectName("movementSpinBox")
+        self.movementSpinBox.setSingleStep(5)
+        self.movementSpinBox.setMaximum(300)
         self.gridLayout_15.addWidget(self.movementSpinBox, 2, 1, 1, 1)
         self.gridLayout_12.addWidget(self.frame_16, 2, 0, 1, 2)
         self.line_9 = QtWidgets.QFrame(self.scrollAreaWidgetContents_2)

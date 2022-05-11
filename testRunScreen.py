@@ -94,8 +94,12 @@ class testRunDialog(object):
 
     def setupUi(self, Dialog):
         self.numRounds = 12
-        Dialog.setObjectName("Dialog")
+        Dialog.setObjectName("Run Test")
         Dialog.resize(400, 300)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("Assets/Images/icon_2.png"),
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Dialog.setWindowIcon(icon)
         self.verticalLayout = QtWidgets.QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName("verticalLayout")
         self.scrollArea = QtWidgets.QScrollArea(Dialog)
@@ -141,6 +145,7 @@ class testRunDialog(object):
         self.label_5.setFont(font)
         self.label_5.setAlignment(QtCore.Qt.AlignCenter)
         self.label_5.setObjectName("label_5")
+        self.label_5.hide()
         self.gridLayout.addWidget(self.label_5, 1, 1, 1, 1)
         self.pushButton = QtWidgets.QPushButton(
             self.scrollAreaWidgetContents)
@@ -162,6 +167,7 @@ class testRunDialog(object):
         self.label_2.setFont(font)
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
+        self.label_2.hide()
         self.gridLayout.addWidget(self.label_2, 0, 0, 1, 1)
         self.progressBar = QtWidgets.QProgressBar(
             self.scrollAreaWidgetContents)
@@ -180,6 +186,7 @@ class testRunDialog(object):
         self.label_3.setFont(font)
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_3.setObjectName("label_3")
+        self.label_3.hide()
         self.gridLayout.addWidget(self.label_3, 0, 1, 1, 1)
         self.calculatedCRLabel = QtWidgets.QLabel(
             self.scrollAreaWidgetContents)
@@ -188,6 +195,7 @@ class testRunDialog(object):
         self.calculatedCRLabel.setFont(font)
         self.calculatedCRLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.calculatedCRLabel.setObjectName("calculatedCRLabel")
+        self.calculatedCRLabel.hide()
         self.gridLayout.addWidget(self.calculatedCRLabel, 1, 0, 1, 1)
         self.testCompleteLabel = QtWidgets.QLabel(
             self.scrollAreaWidgetContents)
@@ -213,7 +221,7 @@ class testRunDialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Run Test"))
         self.label_5.setText(_translate("Dialog", "Calculating..."))
         self.pushButton.setText(_translate("Dialog", "Run Test"))
         self.label_2.setText(_translate("Dialog", "Calculated CR:"))

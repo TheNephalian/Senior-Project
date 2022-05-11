@@ -11,11 +11,14 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-
 class Ui_simulatedWindow(object):
     def setupUi(self, simulatedWindow):
         simulatedWindow.setObjectName("simulatedWindow")
         simulatedWindow.resize(800, 600)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("Assets/Images/icon_2.png"),
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        simulatedWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(simulatedWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -46,25 +49,30 @@ class Ui_simulatedWindow(object):
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 760, 457))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(
+            self.scrollAreaWidgetContents)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.label_2 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_2.setStyleSheet("background-color: rgba(232, 217, 219,90);\n"
-"border-left : 3px solid rgb(232, 74, 95);\n"
-"border-right: 3px solid rgb(232, 74, 95);\n"
-"")
+                                   "border-left : 3px solid rgb(232, 74, 95);\n"
+                                   "border-right: 3px solid rgb(232, 74, 95);\n"
+                                   "")
         self.label_2.setObjectName("label_2")
         font.setPointSize(14)
         self.label_2.setFont(font)
         self.verticalLayout_3.addWidget(self.label_2)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.verticalLayout_2.addWidget(self.scrollArea)
-        self.pushButton = QtWidgets.QPushButton(self.frame)
+        self.pushButton = QtWidgets.QPushButton(
+            self.frame, clicked=lambda: simulatedWindow.close())
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.pushButton.setFont(font)
         self.pushButton.setStyleSheet("color: rgb(42, 54, 59);\n"
-"background-color: rgb(153, 184, 152);")
+                                      "background-color: rgb(153, 184, 152);"
+                                      "color: rgb(42, 54, 59);\n""     padding: .25em;\n"
+                                      "     border: 1px solid black;\n"
+                                      "     border-radius: 0.4em;\n")
         self.pushButton.setObjectName("pushButton")
         self.verticalLayout_2.addWidget(self.pushButton)
         self.verticalLayout.addWidget(self.frame)
@@ -82,9 +90,11 @@ class Ui_simulatedWindow(object):
 
     def retranslateUi(self, simulatedWindow):
         _translate = QtCore.QCoreApplication.translate
-        simulatedWindow.setWindowTitle(_translate("simulatedWindow", "MainWindow"))
+        simulatedWindow.setWindowTitle(_translate(
+            "simulatedWindow", "Simulation Results"))
         self.label.setText(_translate("simulatedWindow", "Results:"))
-        self.label_2.setText(_translate("simulatedWindow", "EXPlanation goes here"))
+        self.label_2.setText(_translate(
+            "simulatedWindow", "EXPlanation goes here"))
         self.pushButton.setText(_translate("simulatedWindow", "Continue"))
 
 

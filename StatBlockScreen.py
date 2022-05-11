@@ -35,6 +35,10 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(854, 549)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("Assets/Images/icon_2.png"),
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setStyleSheet("QPushButton{\n"
 "     padding: .25em;\n"
@@ -152,7 +156,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Combat Stats"))
         self.label_3.setText(_translate("MainWindow", "# of Rounds Won:"))
         self.winPercentageLabel.setText(_translate("MainWindow", "TextLabel"))
         self.label_8.setText(_translate("MainWindow", "Win Percentage:"))

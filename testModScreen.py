@@ -373,6 +373,10 @@ class Ui_testModWindow(creature):
     def setupUi(self, testModWindow):
         testModWindow.setObjectName("testModWindow")
         testModWindow.resize(854, 247)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("Assets/Images/icon_2.png"),
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        testModWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(testModWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)

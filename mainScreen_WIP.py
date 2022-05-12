@@ -26,6 +26,7 @@ import monster_stats
 import json
 import subprocess
 
+
 class Ui_MainWindow(object):
     def open_window(self):
         self.name = QtWidgets.QLineEdit()
@@ -210,7 +211,6 @@ class Ui_MainWindow(object):
         self.ui.label_105.setText(traits)
         if(traits == ""):
             self.ui.label_105.setText("None")
-
 
         resOrimmu = self.resComboBox.currentText()
         self.ui.label_33.setText(resOrimmu)
@@ -675,7 +675,6 @@ class Ui_MainWindow(object):
         self.ui.label_107.setText(condImmu)
         if(condImmu == ""):
             self.ui.label_107.setText("None")
-        
 
         # saving Throws
         if(self.strSavingThrowCheckBox.isChecked()):
@@ -743,7 +742,7 @@ class Ui_MainWindow(object):
             strSTs5 += str(int(strST5))
             self.ui.label_45.setText(strSTs5)
         else:
-            hidecounter+=1
+            hidecounter += 1
             self.ui.label_45.hide()
             self.ui.label_40.hide()
             strSTs5 = "+0"
@@ -758,9 +757,10 @@ class Ui_MainWindow(object):
             self.ui.label_46.setText(strSTs6)
         else:
             self.ui.label_39.hide()
-            # # self.ui.label_46.hide()
+            self.ui.label_46.hide()
             # strSTs6 = "+0"
             if (hidecounter == 5):
+                self.ui.label_46.show()
                 self.ui.label_46.setText("None")
 
         # skills
@@ -1335,173 +1335,179 @@ class Ui_MainWindow(object):
         self.superiorInvisibilityCheckBox.setChecked(False)
         self.udeadFortitudeCheckBox.setChecked(False)
         self.webCheckBox.setChecked(False)
+        self.plainTextEdit.setPlainText("")
+        self.nameLineEdit_2.setText("")
+        self.aoeButton.setChecked(False)
+        self.doesDamageCheckBox.setChecked(False)
+        self.customNumOfDiespinBox.setValue(0)
+        self.typeOfDieComboBox.setCurrentIndex(0)
 
     def exportCreature(self):
         savePath = os.getcwd()
-        #print(savePath)
+        # print(savePath)
         fileName = self.nameLineEdit.text()
 
         creatureData = {
-            "name" : self.nameLineEdit.text(),
-            "STR" : self.strSpinBox.value(),
-            "DEX" : self.dexSpinBox.value(),
-            "CON" : self.conSpinBox.value(),
-            "INT" : self.intSpinBox.value(),
-            "WIS" : self.wisSpinBox.value(),
-            "CHA" : self.chaSpinBox.value(),
-            "STR_ST" : self.strSavingThrowCheckBox.isChecked(),
-            "DEX_ST" : self.dexSavingThrowCheckBox.isChecked(),
-            "CON_ST" : self.conSavingThrowCheckBox.isChecked(),
-            "INT_ST" : self.intSavingThrowCheckBox.isChecked(),
-            "WIS_ST" : self.wisSavingThrowCheckBox.isChecked(),
-            "CHA_ST" : self.chaSavingThrowCheckBox.isChecked(),
-            "HitPoints" : self.hitPointsSpinBox.value(),
-            "ArmorClass" : self.ArmorSpinBox.value(),
-            "Size" : self.sizeComboBox.currentIndex(),
-            "HitDice" :self.diceSpinBox.value(),
-            "Constit" : self.constitSpinBox.value(),
-            "DPR" : self.dprSpinBox.value(),
-            "AB/SDC" :self.attkBonSpinBox.value(),
-            "useSaves" : self.savesCheckBox.isChecked(),
-            "Vuln" : self.vulCheckBox.isChecked(),
-            "Resit/Immun" : self.resComboBox.currentIndex(),
-            "flies" : self.fliesCheckBox.isChecked(),
-            "savePof" : self.saveComboBox.currentIndex(),
-            "MultiAttk" : self.multiAttackCheckBox.isChecked(),
-            "numAttk_1" : self.spinBox.value(),
-            "numAttk_2" : self.spinBox_2.value(),
-            "numAttk_3" : self.spinBox_3.value(),
-            "numAttk_4" : self.spinBox_4.value(),
-            "action_1" : self.actionName_1.text(),
-            "action_2" : self.actionName_2.text(),
-            "action_3" : self.actionName_3.text(),
-            "action_4" : self.actionName_4.text(),
-            "actionType_1" : self.actionType_1.currentIndex(),
-            "actionType_2" : self.actionType_2.currentIndex(),
-            "actionType_3" : self.actionType_3.currentIndex(),
-            "actionType_4" : self.actionType_4.currentIndex(),
-            "reach_1" : self.reachSpinBox_1.value(),
-            "reach_2" : self.reachSpinBox_2.value(),
-            "reach_3" : self.reachSpinBox_3.value(),
-            "reach_4" : self.reachSpinBox_4.value(),
-            "numDie_1" : self.numDieSpinBox.value(),
-            "numDie_2" : self.numDieSpinBox_2.value(),
-            "numDie_3" : self.numDieSpinBox_3.value(),
-            "numDie_4" : self.numDieSpinBox_4.value(),
-            "AcDie_1" : self.actionDice_1.currentIndex(),
-            "AcDie_2" : self.actionDice_2.currentIndex(),
-            "AcDie_3" : self.actionDice_3.currentIndex(),
-            "AcDie_4" : self.actionDice_4.currentIndex(),
-            "damType_1" : self.actionDamageType_1.currentIndex(),
-            "damType_2" : self.actionDamageType_2.currentIndex(),
-            "damType_3" : self.actionDamageType_3.currentIndex(),
-            "damType_4" : self.actionDamageType_4.currentIndex(),
-            "Attr_1" : self.attrComboBox_1.currentIndex(),
-            "Attr_2" : self.attrComboBox_2.currentIndex(),
-            "Attr_3" : self.attrComboBox_3.currentIndex(),
-            "Attr_4" : self.attrComboBox_4.currentIndex(),
-            "CustAttk" : self.nameLineEdit_2.text(),
-            "DoesDam" :self.doesDamageCheckBox.isChecked(),
-            "CustNumDie" : self.customNumOfDiespinBox.value(),
+            "name": self.nameLineEdit.text(),
+            "STR": self.strSpinBox.value(),
+            "DEX": self.dexSpinBox.value(),
+            "CON": self.conSpinBox.value(),
+            "INT": self.intSpinBox.value(),
+            "WIS": self.wisSpinBox.value(),
+            "CHA": self.chaSpinBox.value(),
+            "STR_ST": self.strSavingThrowCheckBox.isChecked(),
+            "DEX_ST": self.dexSavingThrowCheckBox.isChecked(),
+            "CON_ST": self.conSavingThrowCheckBox.isChecked(),
+            "INT_ST": self.intSavingThrowCheckBox.isChecked(),
+            "WIS_ST": self.wisSavingThrowCheckBox.isChecked(),
+            "CHA_ST": self.chaSavingThrowCheckBox.isChecked(),
+            "HitPoints": self.hitPointsSpinBox.value(),
+            "ArmorClass": self.ArmorSpinBox.value(),
+            "Size": self.sizeComboBox.currentIndex(),
+            "HitDice": self.diceSpinBox.value(),
+            "Constit": self.constitSpinBox.value(),
+            "DPR": self.dprSpinBox.value(),
+            "AB/SDC": self.attkBonSpinBox.value(),
+            "useSaves": self.savesCheckBox.isChecked(),
+            "Vuln": self.vulCheckBox.isChecked(),
+            "Resit/Immun": self.resComboBox.currentIndex(),
+            "flies": self.fliesCheckBox.isChecked(),
+            "savePof": self.saveComboBox.currentIndex(),
+            "MultiAttk": self.multiAttackCheckBox.isChecked(),
+            "numAttk_1": self.spinBox.value(),
+            "numAttk_2": self.spinBox_2.value(),
+            "numAttk_3": self.spinBox_3.value(),
+            "numAttk_4": self.spinBox_4.value(),
+            "action_1": self.actionName_1.text(),
+            "action_2": self.actionName_2.text(),
+            "action_3": self.actionName_3.text(),
+            "action_4": self.actionName_4.text(),
+            "actionType_1": self.actionType_1.currentIndex(),
+            "actionType_2": self.actionType_2.currentIndex(),
+            "actionType_3": self.actionType_3.currentIndex(),
+            "actionType_4": self.actionType_4.currentIndex(),
+            "reach_1": self.reachSpinBox_1.value(),
+            "reach_2": self.reachSpinBox_2.value(),
+            "reach_3": self.reachSpinBox_3.value(),
+            "reach_4": self.reachSpinBox_4.value(),
+            "numDie_1": self.numDieSpinBox.value(),
+            "numDie_2": self.numDieSpinBox_2.value(),
+            "numDie_3": self.numDieSpinBox_3.value(),
+            "numDie_4": self.numDieSpinBox_4.value(),
+            "AcDie_1": self.actionDice_1.currentIndex(),
+            "AcDie_2": self.actionDice_2.currentIndex(),
+            "AcDie_3": self.actionDice_3.currentIndex(),
+            "AcDie_4": self.actionDice_4.currentIndex(),
+            "damType_1": self.actionDamageType_1.currentIndex(),
+            "damType_2": self.actionDamageType_2.currentIndex(),
+            "damType_3": self.actionDamageType_3.currentIndex(),
+            "damType_4": self.actionDamageType_4.currentIndex(),
+            "Attr_1": self.attrComboBox_1.currentIndex(),
+            "Attr_2": self.attrComboBox_2.currentIndex(),
+            "Attr_3": self.attrComboBox_3.currentIndex(),
+            "Attr_4": self.attrComboBox_4.currentIndex(),
+            "CustAttk": self.nameLineEdit_2.text(),
+            "DoesDam": self.doesDamageCheckBox.isChecked(),
+            "CustNumDie": self.customNumOfDiespinBox.value(),
             "CustDie": self.typeOfDieComboBox.currentIndex(),
-            "AOE" : self.aoeButton.isChecked(),
-            "CustAttkBox" : self.plainTextEdit.toPlainText(),
-            "Type" : self.typeComboBox.currentIndex(),
-            "allignment" : self.allignmentComboBox.currentIndex(),
-            "GroundSpeed" : self.movementSpinBox.value(),
-            "BurrowSpeed" : self.burrowSpinBox.value(),
-            "ClimbSpeed" : self.climbSpinBox.value(),
-            "FlySpeed" : self.flySpinBox.value(),
-            "SwimSpeed" : self.swimSpinBox.value(),
-            "Elvish" : self.elvishCheckBox.isChecked(),
-            "Giant" : self.giantCheckBox.isChecked(),
-            "Gnomish" : self.gnomishCheckBox.isChecked(),
-            "Goblin" : self.goblinCheckBox.isChecked(),
-            "Halfling" : self.halflingCheckBox.isChecked(),
-            "Orc" : self.orcCheckBox.isChecked(),
-            "Primordial" : self.primordialCheckBox.isChecked(),
-            "Sylvan" : self.sylvanCheckBox.isChecked(),
-            "ThievesCant" : self.thievesCantCheckBox.isChecked(),
-            "Undercommon" : self.undercommonCheckBox.isChecked(),
-            "Blindsight" : self.blindsightCheckBox.isChecked(),
-            "Blindsight_dist" : self.blindSightSpinBox.value(),
-            "Darkvision" : self.darkvisionCheckBox.isChecked(),
-            "darkVision_dist" :self.darkVisionSpinBox.value(),
-            "Tremorsense" : self.tremorsenseCheckBox.isChecked(),
-            "Tremorsense_dist" : self.tremorSenseSpinBox.value(),
-            "Truesight" : self.truesightCheckBox.isChecked(),
-            "Truesight_dist" : self.trueSightSpinBox.value(),
-            "Acrobatics" : self.acrobaticsCheckBox.isChecked(),
-            "AnimalHandling" : self.animalHandlingCheckBox.isChecked(),
-            "Arcana" : self.arcanaCheckBox.isChecked(),
-            "Athletics" : self.athleticsCheckBox.isChecked(),
-            "Deception" : self.deceptionCheckBox.isChecked(),
-            "History" : self.historyCheckBox.isChecked(),
-            "Insight" : self.historyCheckBox.isChecked(),
-            "Intimidation" : self.intimidationCheckBox.isChecked(),
-            "Investigation" : self.investigationCheckBox.isChecked(),
-            "Medicine" : self.medicineCheckBox.isChecked(),
-            "Nature" : self.natureCheckBox.isChecked(),
-            "Perception" : self.perceptionCheckBox.isChecked(),
-            "Performance" : self.performanceCheckBox.isChecked(),
-            "Persuasion" : self.persuasionCheckBox.isChecked(),
-            "Religion" : self.religionCheckBox.isChecked(),
-            "SlightOfHand" : self.slightOfHandCheckBox.isChecked(),
-            "Stealth" : self.stealthCheckBox.isChecked(),
-            "Survival" : self.survivalCheckBox.isChecked(),
-            "Blinded" :self.blindedCheckBox.isChecked(),
-            "Charmed" : self.charmedCheckBox.isChecked(),
-            "Deafened" : self.deafendedCheckBox.isChecked(),
-            "Exhaustion" : self.exhaustionCheckBox.isChecked(),
-            "Frightened" : self.frightenedCheckBox.isChecked(),
-            "Grappled" : self.grappledCheckBox.isChecked(),
-            "Incapacitated" : self.incapacitatedCheckBox.isChecked(),
-            "Invisible" : self.invisibleCheckBox.isChecked(),
-            "Paralyzed" : self.paralyzedCheckBox.isChecked(),
-            "Petrified" : self.petrifiedCheckBox.isChecked(),
-            "Poisoned" : self.petrifiedCheckBox.isChecked(),
-            "Prone" : self.proneCheckBox.isChecked(),
-            "Restrained" : self.restrainedCheckBox.isChecked(),
-            "Stunned" : self.stunnedCheckBox.isChecked(),
-            "Unconscious" : self.unconsciosCheckBox.isChecked(),
-            "Acid" : self.acidComboBox.currentIndex(),
-            "Bludgeoning" : self.bludgeoningComboBox.currentIndex(),
-            "Cold" : self.coldComboBox.currentIndex(),
-            "Fire" : self.fireComboBox.currentIndex(),
-            "Force" : self.forceComboBox.currentIndex(),
-            "Lightning" : self.lightningComboBox.currentIndex(),
-            "Necrotic" : self.necroticComboBox.currentIndex(),
-            "Piercing" : self.piercingComboBox.currentIndex(),
-            "Poison" : self.poisonComboBox.currentIndex(),
-            "Psychic" : self.psychicComboBox.currentIndex(),
-            "Radiant" : self.radiantComboBox.currentIndex(),
-            "Slashing" : self.slashingComboBox.currentIndex(),
-            "Thunder" : self.thunderComboBox.currentIndex(),
-            "Agressive" : self.aggressiveCheckBox.isChecked(),
-            "Ambusher" : self.ambusherCheckBox.isChecked(),
-            "AngelicWeapons" : self.angelicWeaponsCheckBox.isChecked(),
-            "Avoidance" : self.avoidanceCheckBox.isChecked(),
-            "BloodFrenzy" : self.bloodFrenzyCheckBox.isChecked(),
-            "Constrict" : self.constructCheckBox.isChecked(),
-            "DamageTransfer" : self.damageTransferCheckBox.isChecked(),
-            "Enlarge" : self.enlargeCheckBox.isChecked(),
-            "FrightfulPresence" : self.frightfulPresenceCheckBox.isChecked(),
-            "HeatedBody" : self.heatedBodyCheckBox.isChecked(),
-            "HorrifyingVisage" : self.horrifyingVisageCheckBox.isChecked(),
-            "LegendaryResist" : self.legendaryResistanceCheckBox.isChecked(),
-            "MagicResist" : self.magicResistanceCheckBox.isChecked(),
-            "MartialAdvantage" : self.martialAdvantageCheckBox.isChecked(),
-            "NimbleEscape" : self.nimbleEscapeCheckBox.isChecked(),
-            "PackTactics" : self.packTacticsCheckBox.isChecked(),
-            "Parry" : self.parryCheckBox.isChecked(),
-            "Possesion" : self.possessionCheckBox.isChecked(),
-            "Regeneration" : self.regenerationCheckBox.isChecked(),
-            "Relentless" : self.relentlessCheckBox.isChecked(),
-            "ShadowStealth" : self.shadowStealthCheckBox.isChecked(),
-            "Stench" : self.stenchCheckBox.isChecked(),
-            "SuperiorInvis" : self.superiorInvisibilityCheckBox.isChecked(),
-            "UndeadForti" : self.udeadFortitudeCheckBox.isChecked(),
-            "Web" : self.webCheckBox.isChecked(),
+            "AOE": self.aoeButton.isChecked(),
+            "CustAttkBox": self.plainTextEdit.toPlainText(),
+            "Type": self.typeComboBox.currentIndex(),
+            "allignment": self.allignmentComboBox.currentIndex(),
+            "GroundSpeed": self.movementSpinBox.value(),
+            "BurrowSpeed": self.burrowSpinBox.value(),
+            "ClimbSpeed": self.climbSpinBox.value(),
+            "FlySpeed": self.flySpinBox.value(),
+            "SwimSpeed": self.swimSpinBox.value(),
+            "Elvish": self.elvishCheckBox.isChecked(),
+            "Giant": self.giantCheckBox.isChecked(),
+            "Gnomish": self.gnomishCheckBox.isChecked(),
+            "Goblin": self.goblinCheckBox.isChecked(),
+            "Halfling": self.halflingCheckBox.isChecked(),
+            "Orc": self.orcCheckBox.isChecked(),
+            "Primordial": self.primordialCheckBox.isChecked(),
+            "Sylvan": self.sylvanCheckBox.isChecked(),
+            "ThievesCant": self.thievesCantCheckBox.isChecked(),
+            "Undercommon": self.undercommonCheckBox.isChecked(),
+            "Blindsight": self.blindsightCheckBox.isChecked(),
+            "Blindsight_dist": self.blindSightSpinBox.value(),
+            "Darkvision": self.darkvisionCheckBox.isChecked(),
+            "darkVision_dist": self.darkVisionSpinBox.value(),
+            "Tremorsense": self.tremorsenseCheckBox.isChecked(),
+            "Tremorsense_dist": self.tremorSenseSpinBox.value(),
+            "Truesight": self.truesightCheckBox.isChecked(),
+            "Truesight_dist": self.trueSightSpinBox.value(),
+            "Acrobatics": self.acrobaticsCheckBox.isChecked(),
+            "AnimalHandling": self.animalHandlingCheckBox.isChecked(),
+            "Arcana": self.arcanaCheckBox.isChecked(),
+            "Athletics": self.athleticsCheckBox.isChecked(),
+            "Deception": self.deceptionCheckBox.isChecked(),
+            "History": self.historyCheckBox.isChecked(),
+            "Insight": self.historyCheckBox.isChecked(),
+            "Intimidation": self.intimidationCheckBox.isChecked(),
+            "Investigation": self.investigationCheckBox.isChecked(),
+            "Medicine": self.medicineCheckBox.isChecked(),
+            "Nature": self.natureCheckBox.isChecked(),
+            "Perception": self.perceptionCheckBox.isChecked(),
+            "Performance": self.performanceCheckBox.isChecked(),
+            "Persuasion": self.persuasionCheckBox.isChecked(),
+            "Religion": self.religionCheckBox.isChecked(),
+            "SlightOfHand": self.slightOfHandCheckBox.isChecked(),
+            "Stealth": self.stealthCheckBox.isChecked(),
+            "Survival": self.survivalCheckBox.isChecked(),
+            "Blinded": self.blindedCheckBox.isChecked(),
+            "Charmed": self.charmedCheckBox.isChecked(),
+            "Deafened": self.deafendedCheckBox.isChecked(),
+            "Exhaustion": self.exhaustionCheckBox.isChecked(),
+            "Frightened": self.frightenedCheckBox.isChecked(),
+            "Grappled": self.grappledCheckBox.isChecked(),
+            "Incapacitated": self.incapacitatedCheckBox.isChecked(),
+            "Invisible": self.invisibleCheckBox.isChecked(),
+            "Paralyzed": self.paralyzedCheckBox.isChecked(),
+            "Petrified": self.petrifiedCheckBox.isChecked(),
+            "Poisoned": self.petrifiedCheckBox.isChecked(),
+            "Prone": self.proneCheckBox.isChecked(),
+            "Restrained": self.restrainedCheckBox.isChecked(),
+            "Stunned": self.stunnedCheckBox.isChecked(),
+            "Unconscious": self.unconsciosCheckBox.isChecked(),
+            "Acid": self.acidComboBox.currentIndex(),
+            "Bludgeoning": self.bludgeoningComboBox.currentIndex(),
+            "Cold": self.coldComboBox.currentIndex(),
+            "Fire": self.fireComboBox.currentIndex(),
+            "Force": self.forceComboBox.currentIndex(),
+            "Lightning": self.lightningComboBox.currentIndex(),
+            "Necrotic": self.necroticComboBox.currentIndex(),
+            "Piercing": self.piercingComboBox.currentIndex(),
+            "Poison": self.poisonComboBox.currentIndex(),
+            "Psychic": self.psychicComboBox.currentIndex(),
+            "Radiant": self.radiantComboBox.currentIndex(),
+            "Slashing": self.slashingComboBox.currentIndex(),
+            "Thunder": self.thunderComboBox.currentIndex(),
+            "Agressive": self.aggressiveCheckBox.isChecked(),
+            "Ambusher": self.ambusherCheckBox.isChecked(),
+            "AngelicWeapons": self.angelicWeaponsCheckBox.isChecked(),
+            "Avoidance": self.avoidanceCheckBox.isChecked(),
+            "BloodFrenzy": self.bloodFrenzyCheckBox.isChecked(),
+            "Constrict": self.constructCheckBox.isChecked(),
+            "DamageTransfer": self.damageTransferCheckBox.isChecked(),
+            "Enlarge": self.enlargeCheckBox.isChecked(),
+            "FrightfulPresence": self.frightfulPresenceCheckBox.isChecked(),
+            "HeatedBody": self.heatedBodyCheckBox.isChecked(),
+            "HorrifyingVisage": self.horrifyingVisageCheckBox.isChecked(),
+            "LegendaryResist": self.legendaryResistanceCheckBox.isChecked(),
+            "MagicResist": self.magicResistanceCheckBox.isChecked(),
+            "MartialAdvantage": self.martialAdvantageCheckBox.isChecked(),
+            "NimbleEscape": self.nimbleEscapeCheckBox.isChecked(),
+            "PackTactics": self.packTacticsCheckBox.isChecked(),
+            "Parry": self.parryCheckBox.isChecked(),
+            "Possesion": self.possessionCheckBox.isChecked(),
+            "Regeneration": self.regenerationCheckBox.isChecked(),
+            "Relentless": self.relentlessCheckBox.isChecked(),
+            "ShadowStealth": self.shadowStealthCheckBox.isChecked(),
+            "Stench": self.stenchCheckBox.isChecked(),
+            "SuperiorInvis": self.superiorInvisibilityCheckBox.isChecked(),
+            "UndeadForti": self.udeadFortitudeCheckBox.isChecked(),
+            "Web": self.webCheckBox.isChecked(),
         }
 
         json_obj = json.dumps(creatureData, indent=4)
@@ -1512,182 +1518,192 @@ class Ui_MainWindow(object):
 
         self.show_popup()
 
-        subprocess.Popen(rf'explorer /select,"{savePath}\savedCreatures\{fileName}.json"')
-            
+        subprocess.Popen(
+            rf'explorer /select,"{savePath}\savedCreatures\{fileName}.json"')
+
     def importCreature(self):
-        savepath = os.getcwd()
+        try:
+            savepath = os.getcwd()
 
-        #get file
-        fname = QFileDialog.getOpenFileName(None,'Open File',f"{savepath}\ImportCreatures",'Json files(*.json)')
-        pathToFile = fname[0]
+            # get file
+            fname = QFileDialog.getOpenFileName(
+                None, 'Open File', f"{savepath}\ImportCreatures", 'Json files(*.json)')
+            pathToFile = fname[0]
 
-        #read File
-        myJsonFile = open (pathToFile)
-        importedCreature = myJsonFile.read()
+            # read File
+            myJsonFile = open(pathToFile)
+            importedCreature = myJsonFile.read()
 
-        #parse file
-        someObj = json.loads(importedCreature)
-        print(str(someObj['name']))
-        self.nameLineEdit.setText(str(someObj['name']))
-        self.strSpinBox.setValue(someObj['STR'])
-        self.dexSpinBox.setValue(someObj['DEX'])
-        self.conSpinBox.setValue(someObj['CON'])
-        self.intSpinBox.setValue(someObj['INT'])
-        self.wisSpinBox.setValue(someObj['WIS'])
-        self.chaSpinBox.setValue(someObj['CHA'])
-        self.strSavingThrowCheckBox.setChecked(someObj['STR_ST'])
-        self.dexSavingThrowCheckBox.setChecked(someObj['DEX_ST'])
-        self.conSavingThrowCheckBox.setChecked(someObj['CON_ST'])
-        self.intSavingThrowCheckBox.setChecked(someObj['INT_ST'])
-        self.wisSavingThrowCheckBox.setChecked(someObj['WIS_ST'])
-        self.chaSavingThrowCheckBox.setChecked(someObj['CHA_ST'])
-        self.hitPointsSpinBox.setValue(someObj['HitPoints'])
-        self.ArmorSpinBox.setValue(someObj['ArmorClass'])
-        self.sizeComboBox.setCurrentIndex(someObj['Size'])
-        self.diceSpinBox.setValue(someObj['HitDice'])
-        self.constitSpinBox.setValue(someObj['Constit'])
-        self.dprSpinBox.setValue(someObj['DPR'])
-        self.attkBonSpinBox.setValue(someObj['AB/SDC'])
-        self.savesCheckBox.setChecked(someObj['useSaves'])
-        self.vulCheckBox.setChecked(someObj['Vuln'])
-        self.resComboBox.setCurrentIndex(someObj['Resit/Immun'])
-        self.fliesCheckBox.setChecked(someObj['flies'])
-        self.saveComboBox.setCurrentIndex(someObj['savePof'])
-        self.multiAttackCheckBox.setChecked(someObj['MultiAttk'])
-        self.actionName_1.setText(someObj['action_1'])
-        self.actionName_2.setText(someObj['action_2'])
-        self.actionName_3.setText(someObj['action_3'])
-        self.actionName_4.setText(someObj['action_4'])
-        self.actionType_1.setCurrentIndex(someObj['actionType_1'])
-        self.actionType_2.setCurrentIndex(someObj['actionType_2'])
-        self.actionType_3.setCurrentIndex(someObj['actionType_3'])
-        self.actionType_4.setCurrentIndex(someObj['actionType_4'])
-        self.reachSpinBox_1.setValue(someObj['reach_1'])
-        self.reachSpinBox_2.setValue(someObj['reach_2'])
-        self.reachSpinBox_3.setValue(someObj['reach_3'])
-        self.reachSpinBox_4.setValue(someObj['reach_4'])
-        self.numDieSpinBox.setValue(someObj['numDie_1'])
-        self.numDieSpinBox_2.setValue(someObj['numDie_2'])
-        self.numDieSpinBox_3.setValue(someObj['numDie_3'])
-        self.numDieSpinBox_4.setValue(someObj['numDie_4'])
-        self.actionDice_1.setCurrentIndex(someObj['AcDie_1'])
-        self.actionDice_2.setCurrentIndex(someObj['AcDie_2'])
-        self.actionDice_3.setCurrentIndex(someObj['AcDie_3'])
-        self.actionDice_4.setCurrentIndex(someObj['AcDie_3'])
-        self.actionDamageType_1.setCurrentIndex(someObj['damType_1'])
-        self.actionDamageType_2.setCurrentIndex(someObj['damType_2'])
-        self.actionDamageType_3.setCurrentIndex(someObj['damType_3'])
-        self.actionDamageType_4.setCurrentIndex(someObj['damType_4'])
-        self.attrComboBox_1.setCurrentIndex(someObj['Attr_1'])
-        self.attrComboBox_2.setCurrentIndex(someObj['Attr_2'])
-        self.attrComboBox_3.setCurrentIndex(someObj['Attr_3'])
-        self.attrComboBox_4.setCurrentIndex(someObj['Attr_4'])
-        self.spinBox.setValue(someObj['numAttk_1'])
-        self.spinBox_2.setValue(someObj['numAttk_2'])
-        self.spinBox_3.setValue(someObj['numAttk_3'])
-        self.spinBox_4.setValue(someObj['numAttk_4'])
-        self.typeComboBox.setCurrentIndex(someObj['Type'])
-        self.allignmentComboBox.setCurrentIndex(someObj['allignment'])
-        self.movementSpinBox.setValue(someObj['GroundSpeed'])
-        self.burrowSpinBox.setValue(someObj['BurrowSpeed'])
-        self.climbSpinBox.setValue(someObj['ClimbSpeed'])
-        self.flySpinBox.setValue(someObj['FlySpeed'])
-        self.swimSpinBox.setValue(someObj['SwimSpeed'])
-        self.elvishCheckBox.setChecked(someObj['Elvish'])
-        self.giantCheckBox.setChecked(someObj['Giant'])
-        self.gnomishCheckBox.setChecked(someObj['Gnomish'])
-        self.goblinCheckBox.setChecked(someObj['Goblin'])
-        self.halflingCheckBox.setChecked(someObj['Halfling'])
-        self.orcCheckBox.setChecked(someObj['Orc'])
-        self.primordialCheckBox.setChecked(someObj['Primordial'])
-        self.sylvanCheckBox.setChecked(someObj['Sylvan'])
-        self.thievesCantCheckBox.setChecked(someObj['ThievesCant'])
-        self.undercommonCheckBox.setChecked(someObj['Undercommon'])
-        self.blindsightCheckBox.setChecked(someObj['Blindsight'])
-        self.blindSightSpinBox.setValue(someObj['Blindsight_dist'])
-        self.darkvisionCheckBox.setChecked(someObj['Darkvision'])
-        self.darkVisionSpinBox.setValue(someObj['darkVision_dist'])
-        self.tremorsenseCheckBox.setChecked(someObj['Tremorsense'])
-        self.tremorSenseSpinBox.setValue(someObj['Tremorsense_dist'])
-        self.truesightCheckBox.setChecked(someObj['Truesight'])
-        self.trueSightSpinBox.setValue(someObj['Truesight_dist'])
-        self.acrobaticsCheckBox.setChecked(someObj['Acrobatics'])
-        self.animalHandlingCheckBox.setChecked(someObj['AnimalHandling'])
-        self.arcanaCheckBox.setChecked(someObj['Arcana'])
-        self.athleticsCheckBox.setChecked(someObj['Athletics'])
-        self.deceptionCheckBox.setChecked(someObj['Deception'])
-        self.historyCheckBox.setChecked(someObj['History'])
-        self.insightCheckBox.setChecked(someObj['Insight'])
-        self.intimidationCheckBox.setChecked(someObj['Intimidation'])
-        self.investigationCheckBox.setChecked(someObj['Investigation'])
-        self.medicineCheckBox.setChecked(someObj['Medicine'])
-        self.natureCheckBox.setChecked(someObj['Nature'])
-        self.perceptionCheckBox.setChecked(someObj['Perception'])
-        self.performanceCheckBox.setChecked(someObj['Performance'])
-        self.persuasionCheckBox.setChecked(someObj['Persuasion'])
-        self.religionCheckBox.setChecked(someObj['Religion'])
-        self.slightOfHandCheckBox.setChecked(someObj['SlightOfHand'])
-        self.stealthCheckBox.setChecked(someObj['Stealth'])
-        self.survivalCheckBox.setChecked(someObj['Survival'])
-        self.blindedCheckBox.setChecked(someObj['Blinded'])
-        self.charmedCheckBox.setChecked(someObj['Charmed'])
-        self.deafendedCheckBox.setChecked(someObj['Deafened'])
-        self.exhaustionCheckBox.setChecked(someObj['Exhaustion'])
-        self.frightenedCheckBox.setChecked(someObj['Frightened'])
-        self.grappledCheckBox.setChecked(someObj['Grappled'])
-        self.incapacitatedCheckBox.setChecked(someObj['Incapacitated'])
-        self.invisibleCheckBox.setChecked(someObj['Invisible'])
-        self.paralyzedCheckBox.setChecked(someObj['Paralyzed'])
-        self.petrifiedCheckBox.setChecked(someObj['Petrified'])
-        self.poisonedCheckBox.setChecked(someObj['Poisoned'])
-        self.proneCheckBox.setChecked(someObj['Prone'])
-        self.restrainedCheckBox.setChecked(someObj['Restrained'])
-        self.stunnedCheckBox.setChecked(someObj['Stunned'])
-        self.unconsciosCheckBox.setChecked(someObj['Unconscious'])
-        self.acidComboBox.setCurrentIndex(someObj['Acid'])
-        self.bludgeoningComboBox.setCurrentIndex(someObj['Bludgeoning'])
-        self.coldComboBox.setCurrentIndex(someObj['Cold'])
-        self.fireComboBox.setCurrentIndex(someObj['Fire'])
-        self.forceComboBox.setCurrentIndex(someObj['Force'])
-        self.lightningComboBox.setCurrentIndex(someObj['Lightning'])
-        self.necroticComboBox.setCurrentIndex(someObj['Necrotic'])
-        self.piercingComboBox.setCurrentIndex(someObj['Piercing'])
-        self.poisonComboBox.setCurrentIndex(someObj['Poison'])
-        self.psychicComboBox.setCurrentIndex(someObj['Psychic'])
-        self.radiantComboBox.setCurrentIndex(someObj['Radiant'])
-        self.slashingComboBox.setCurrentIndex(someObj['Slashing'])
-        self.thunderComboBox.setCurrentIndex(someObj['Thunder'])
-        self.aggressiveCheckBox.setChecked(someObj['Agressive'])
-        self.ambusherCheckBox.setChecked(someObj['Ambusher'])
-        self.angelicWeaponsCheckBox.setChecked(someObj['AngelicWeapons'])
-        self.avoidanceCheckBox.setChecked(someObj['Avoidance'])
-        self.bloodFrenzyCheckBox.setChecked(someObj['BloodFrenzy'])
-        self.constructCheckBox.setChecked(someObj['Constrict'])
-        self.damageTransferCheckBox.setChecked(someObj['DamageTransfer'])
-        self.enlargeCheckBox.setChecked(someObj['Enlarge'])
-        self.frightfulPresenceCheckBox.setChecked(someObj['FrightfulPresence'])
-        self.heatedBodyCheckBox.setChecked(someObj['HeatedBody'])
-        self.horrifyingVisageCheckBox.setChecked(someObj['HorrifyingVisage'])
-        self.legendaryResistanceCheckBox.setChecked(someObj['LegendaryResist'])
-        self.magicResistanceCheckBox.setChecked(someObj['MagicResist'])
-        self.martialAdvantageCheckBox.setChecked(someObj['MartialAdvantage'])
-        self.nimbleEscapeCheckBox.setChecked(someObj['NimbleEscape'])
-        self.packTacticsCheckBox.setChecked(someObj['PackTactics'])
-        self.parryCheckBox.setChecked(someObj['Parry'])
-        self.possessionCheckBox.setChecked(someObj['Possesion'])
-        self.regenerationCheckBox.setChecked(someObj['Regeneration'])
-        self.relentlessCheckBox.setChecked(someObj['Relentless'])
-        self.shadowStealthCheckBox.setChecked(someObj['ShadowStealth'])
-        self.stenchCheckBox.setChecked(someObj['Stench'])
-        self.superiorInvisibilityCheckBox.setChecked(someObj['SuperiorInvis'])
-        self.udeadFortitudeCheckBox.setChecked(someObj['UndeadForti'])
-        self.webCheckBox.setChecked(someObj['Web'])
-        self.nameLineEdit_2.setText(someObj['CustAttk'])
-        self.doesDamageCheckBox.setChecked(someObj['DoesDam'])
-        self.customNumOfDiespinBox.setValue(someObj['CustNumDie'])
-        self.typeOfDieComboBox.setCurrentIndex(someObj['CustDie'])
-        self.aoeButton.setChecked(someObj['AOE'])
-        self.plainTextEdit.setPlainText(someObj['CustAttkBox'])
+            # parse file
+            someObj = json.loads(importedCreature)
+            print(str(someObj['name']))
+            self.nameLineEdit.setText(str(someObj['name']))
+            self.strSpinBox.setValue(someObj['STR'])
+            self.dexSpinBox.setValue(someObj['DEX'])
+            self.conSpinBox.setValue(someObj['CON'])
+            self.intSpinBox.setValue(someObj['INT'])
+            self.wisSpinBox.setValue(someObj['WIS'])
+            self.chaSpinBox.setValue(someObj['CHA'])
+            self.strSavingThrowCheckBox.setChecked(someObj['STR_ST'])
+            self.dexSavingThrowCheckBox.setChecked(someObj['DEX_ST'])
+            self.conSavingThrowCheckBox.setChecked(someObj['CON_ST'])
+            self.intSavingThrowCheckBox.setChecked(someObj['INT_ST'])
+            self.wisSavingThrowCheckBox.setChecked(someObj['WIS_ST'])
+            self.chaSavingThrowCheckBox.setChecked(someObj['CHA_ST'])
+            self.hitPointsSpinBox.setValue(someObj['HitPoints'])
+            self.ArmorSpinBox.setValue(someObj['ArmorClass'])
+            self.sizeComboBox.setCurrentIndex(someObj['Size'])
+            self.diceSpinBox.setValue(someObj['HitDice'])
+            self.constitSpinBox.setValue(someObj['Constit'])
+            self.dprSpinBox.setValue(someObj['DPR'])
+            self.attkBonSpinBox.setValue(someObj['AB/SDC'])
+            self.savesCheckBox.setChecked(someObj['useSaves'])
+            self.vulCheckBox.setChecked(someObj['Vuln'])
+            self.resComboBox.setCurrentIndex(someObj['Resit/Immun'])
+            self.fliesCheckBox.setChecked(someObj['flies'])
+            self.saveComboBox.setCurrentIndex(someObj['savePof'])
+            self.multiAttackCheckBox.setChecked(someObj['MultiAttk'])
+            self.actionName_1.setText(someObj['action_1'])
+            self.actionName_2.setText(someObj['action_2'])
+            self.actionName_3.setText(someObj['action_3'])
+            self.actionName_4.setText(someObj['action_4'])
+            self.actionType_1.setCurrentIndex(someObj['actionType_1'])
+            self.actionType_2.setCurrentIndex(someObj['actionType_2'])
+            self.actionType_3.setCurrentIndex(someObj['actionType_3'])
+            self.actionType_4.setCurrentIndex(someObj['actionType_4'])
+            self.reachSpinBox_1.setValue(someObj['reach_1'])
+            self.reachSpinBox_2.setValue(someObj['reach_2'])
+            self.reachSpinBox_3.setValue(someObj['reach_3'])
+            self.reachSpinBox_4.setValue(someObj['reach_4'])
+            self.numDieSpinBox.setValue(someObj['numDie_1'])
+            self.numDieSpinBox_2.setValue(someObj['numDie_2'])
+            self.numDieSpinBox_3.setValue(someObj['numDie_3'])
+            self.numDieSpinBox_4.setValue(someObj['numDie_4'])
+            self.actionDice_1.setCurrentIndex(someObj['AcDie_1'])
+            self.actionDice_2.setCurrentIndex(someObj['AcDie_2'])
+            self.actionDice_3.setCurrentIndex(someObj['AcDie_3'])
+            self.actionDice_4.setCurrentIndex(someObj['AcDie_3'])
+            self.actionDamageType_1.setCurrentIndex(someObj['damType_1'])
+            self.actionDamageType_2.setCurrentIndex(someObj['damType_2'])
+            self.actionDamageType_3.setCurrentIndex(someObj['damType_3'])
+            self.actionDamageType_4.setCurrentIndex(someObj['damType_4'])
+            self.attrComboBox_1.setCurrentIndex(someObj['Attr_1'])
+            self.attrComboBox_2.setCurrentIndex(someObj['Attr_2'])
+            self.attrComboBox_3.setCurrentIndex(someObj['Attr_3'])
+            self.attrComboBox_4.setCurrentIndex(someObj['Attr_4'])
+            self.spinBox.setValue(someObj['numAttk_1'])
+            self.spinBox_2.setValue(someObj['numAttk_2'])
+            self.spinBox_3.setValue(someObj['numAttk_3'])
+            self.spinBox_4.setValue(someObj['numAttk_4'])
+            self.typeComboBox.setCurrentIndex(someObj['Type'])
+            self.allignmentComboBox.setCurrentIndex(someObj['allignment'])
+            self.movementSpinBox.setValue(someObj['GroundSpeed'])
+            self.burrowSpinBox.setValue(someObj['BurrowSpeed'])
+            self.climbSpinBox.setValue(someObj['ClimbSpeed'])
+            self.flySpinBox.setValue(someObj['FlySpeed'])
+            self.swimSpinBox.setValue(someObj['SwimSpeed'])
+            self.elvishCheckBox.setChecked(someObj['Elvish'])
+            self.giantCheckBox.setChecked(someObj['Giant'])
+            self.gnomishCheckBox.setChecked(someObj['Gnomish'])
+            self.goblinCheckBox.setChecked(someObj['Goblin'])
+            self.halflingCheckBox.setChecked(someObj['Halfling'])
+            self.orcCheckBox.setChecked(someObj['Orc'])
+            self.primordialCheckBox.setChecked(someObj['Primordial'])
+            self.sylvanCheckBox.setChecked(someObj['Sylvan'])
+            self.thievesCantCheckBox.setChecked(someObj['ThievesCant'])
+            self.undercommonCheckBox.setChecked(someObj['Undercommon'])
+            self.blindsightCheckBox.setChecked(someObj['Blindsight'])
+            self.blindSightSpinBox.setValue(someObj['Blindsight_dist'])
+            self.darkvisionCheckBox.setChecked(someObj['Darkvision'])
+            self.darkVisionSpinBox.setValue(someObj['darkVision_dist'])
+            self.tremorsenseCheckBox.setChecked(someObj['Tremorsense'])
+            self.tremorSenseSpinBox.setValue(someObj['Tremorsense_dist'])
+            self.truesightCheckBox.setChecked(someObj['Truesight'])
+            self.trueSightSpinBox.setValue(someObj['Truesight_dist'])
+            self.acrobaticsCheckBox.setChecked(someObj['Acrobatics'])
+            self.animalHandlingCheckBox.setChecked(someObj['AnimalHandling'])
+            self.arcanaCheckBox.setChecked(someObj['Arcana'])
+            self.athleticsCheckBox.setChecked(someObj['Athletics'])
+            self.deceptionCheckBox.setChecked(someObj['Deception'])
+            self.historyCheckBox.setChecked(someObj['History'])
+            self.insightCheckBox.setChecked(someObj['Insight'])
+            self.intimidationCheckBox.setChecked(someObj['Intimidation'])
+            self.investigationCheckBox.setChecked(someObj['Investigation'])
+            self.medicineCheckBox.setChecked(someObj['Medicine'])
+            self.natureCheckBox.setChecked(someObj['Nature'])
+            self.perceptionCheckBox.setChecked(someObj['Perception'])
+            self.performanceCheckBox.setChecked(someObj['Performance'])
+            self.persuasionCheckBox.setChecked(someObj['Persuasion'])
+            self.religionCheckBox.setChecked(someObj['Religion'])
+            self.slightOfHandCheckBox.setChecked(someObj['SlightOfHand'])
+            self.stealthCheckBox.setChecked(someObj['Stealth'])
+            self.survivalCheckBox.setChecked(someObj['Survival'])
+            self.blindedCheckBox.setChecked(someObj['Blinded'])
+            self.charmedCheckBox.setChecked(someObj['Charmed'])
+            self.deafendedCheckBox.setChecked(someObj['Deafened'])
+            self.exhaustionCheckBox.setChecked(someObj['Exhaustion'])
+            self.frightenedCheckBox.setChecked(someObj['Frightened'])
+            self.grappledCheckBox.setChecked(someObj['Grappled'])
+            self.incapacitatedCheckBox.setChecked(someObj['Incapacitated'])
+            self.invisibleCheckBox.setChecked(someObj['Invisible'])
+            self.paralyzedCheckBox.setChecked(someObj['Paralyzed'])
+            self.petrifiedCheckBox.setChecked(someObj['Petrified'])
+            self.poisonedCheckBox.setChecked(someObj['Poisoned'])
+            self.proneCheckBox.setChecked(someObj['Prone'])
+            self.restrainedCheckBox.setChecked(someObj['Restrained'])
+            self.stunnedCheckBox.setChecked(someObj['Stunned'])
+            self.unconsciosCheckBox.setChecked(someObj['Unconscious'])
+            self.acidComboBox.setCurrentIndex(someObj['Acid'])
+            self.bludgeoningComboBox.setCurrentIndex(someObj['Bludgeoning'])
+            self.coldComboBox.setCurrentIndex(someObj['Cold'])
+            self.fireComboBox.setCurrentIndex(someObj['Fire'])
+            self.forceComboBox.setCurrentIndex(someObj['Force'])
+            self.lightningComboBox.setCurrentIndex(someObj['Lightning'])
+            self.necroticComboBox.setCurrentIndex(someObj['Necrotic'])
+            self.piercingComboBox.setCurrentIndex(someObj['Piercing'])
+            self.poisonComboBox.setCurrentIndex(someObj['Poison'])
+            self.psychicComboBox.setCurrentIndex(someObj['Psychic'])
+            self.radiantComboBox.setCurrentIndex(someObj['Radiant'])
+            self.slashingComboBox.setCurrentIndex(someObj['Slashing'])
+            self.thunderComboBox.setCurrentIndex(someObj['Thunder'])
+            self.aggressiveCheckBox.setChecked(someObj['Agressive'])
+            self.ambusherCheckBox.setChecked(someObj['Ambusher'])
+            self.angelicWeaponsCheckBox.setChecked(someObj['AngelicWeapons'])
+            self.avoidanceCheckBox.setChecked(someObj['Avoidance'])
+            self.bloodFrenzyCheckBox.setChecked(someObj['BloodFrenzy'])
+            self.constructCheckBox.setChecked(someObj['Constrict'])
+            self.damageTransferCheckBox.setChecked(someObj['DamageTransfer'])
+            self.enlargeCheckBox.setChecked(someObj['Enlarge'])
+            self.frightfulPresenceCheckBox.setChecked(
+                someObj['FrightfulPresence'])
+            self.heatedBodyCheckBox.setChecked(someObj['HeatedBody'])
+            self.horrifyingVisageCheckBox.setChecked(
+                someObj['HorrifyingVisage'])
+            self.legendaryResistanceCheckBox.setChecked(
+                someObj['LegendaryResist'])
+            self.magicResistanceCheckBox.setChecked(someObj['MagicResist'])
+            self.martialAdvantageCheckBox.setChecked(
+                someObj['MartialAdvantage'])
+            self.nimbleEscapeCheckBox.setChecked(someObj['NimbleEscape'])
+            self.packTacticsCheckBox.setChecked(someObj['PackTactics'])
+            self.parryCheckBox.setChecked(someObj['Parry'])
+            self.possessionCheckBox.setChecked(someObj['Possesion'])
+            self.regenerationCheckBox.setChecked(someObj['Regeneration'])
+            self.relentlessCheckBox.setChecked(someObj['Relentless'])
+            self.shadowStealthCheckBox.setChecked(someObj['ShadowStealth'])
+            self.stenchCheckBox.setChecked(someObj['Stench'])
+            self.superiorInvisibilityCheckBox.setChecked(
+                someObj['SuperiorInvis'])
+            self.udeadFortitudeCheckBox.setChecked(someObj['UndeadForti'])
+            self.webCheckBox.setChecked(someObj['Web'])
+            self.nameLineEdit_2.setText(someObj['CustAttk'])
+            self.doesDamageCheckBox.setChecked(someObj['DoesDam'])
+            self.customNumOfDiespinBox.setValue(someObj['CustNumDie'])
+            self.typeOfDieComboBox.setCurrentIndex(someObj['CustDie'])
+            self.aoeButton.setChecked(someObj['AOE'])
+            self.plainTextEdit.setPlainText(someObj['CustAttkBox'])
+        except:
+            pass
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -1870,7 +1886,7 @@ class Ui_MainWindow(object):
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidget.setMinimumSize(QtCore.QSize(1267, 0))
         #font = QtGui.QFont()
-        #font.setFamily("Merriweather")
+        # font.setFamily("Merriweather")
         self.tabWidget.setFont(font)
         self.tabWidget.setStyleSheet("background-color: rgb(216, 208, 160);")
         self.tabWidget.setObjectName("tabWidget")
@@ -2201,7 +2217,8 @@ class Ui_MainWindow(object):
         self.frame_9.setObjectName("frame_9")
         self.formLayout = QtWidgets.QFormLayout(self.frame_9)
         self.formLayout.setObjectName("formLayout")
-        self.resetButton = QtWidgets.QPushButton(self.frame_9, clicked=lambda: self.resetStuff())
+        self.resetButton = QtWidgets.QPushButton(
+            self.frame_9, clicked=lambda: self.resetStuff())
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.resetButton.setFont(font)
@@ -2210,15 +2227,18 @@ class Ui_MainWindow(object):
         self.resetButton.setObjectName("resetButton")
         self.formLayout.setWidget(
             1, QtWidgets.QFormLayout.LabelRole, self.resetButton)
-        self.createCreatureButton = QtWidgets.QPushButton(self.frame_9, clicked = lambda: self.open_window())
+        self.createCreatureButton = QtWidgets.QPushButton(
+            self.frame_9, clicked=lambda: self.open_window())
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.createCreatureButton.setFont(font)
         self.createCreatureButton.setStyleSheet(
             "background-color: rgb(85, 170, 255);")
         self.createCreatureButton.setObjectName("createCreatureButton")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.SpanningRole, self.createCreatureButton)
-        self.testButton = QtWidgets.QPushButton(self.frame_9, clicked = lambda: self.openWindow())
+        self.formLayout.setWidget(
+            0, QtWidgets.QFormLayout.SpanningRole, self.createCreatureButton)
+        self.testButton = QtWidgets.QPushButton(
+            self.frame_9, clicked=lambda: self.openWindow())
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.testButton.setFont(font)
@@ -2519,7 +2539,8 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.nameLineEdit.setFont(font)
-        self.nameLineEdit.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.nameLineEdit.setStyleSheet(
+            "background-color: rgb(255, 255, 255);")
         self.nameLineEdit.setText("")
         self.nameLineEdit.setObjectName("nameLineEdit")
         self.gridLayout_3.addWidget(self.nameLineEdit, 0, 1, 1, 1)
@@ -3671,14 +3692,16 @@ class Ui_MainWindow(object):
         self.frame_17.setObjectName("frame_17")
         self.gridLayout_18 = QtWidgets.QGridLayout(self.frame_17)
         self.gridLayout_18.setObjectName("gridLayout_18")
-        self.pushButton = QtWidgets.QPushButton(self.frame_17,clicked = lambda: self.importCreature())
+        self.pushButton = QtWidgets.QPushButton(
+            self.frame_17, clicked=lambda: self.importCreature())
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.pushButton.setFont(font)
         self.pushButton.setStyleSheet("background-color: rgb(196, 205, 217);")
         self.pushButton.setObjectName("pushButton")
         self.gridLayout_18.addWidget(self.pushButton, 0, 0, 1, 1)
-        self.pushButton_2 = QtWidgets.QPushButton(self.frame_17, clicked = lambda: self.exportCreature())
+        self.pushButton_2 = QtWidgets.QPushButton(
+            self.frame_17, clicked=lambda: self.exportCreature())
         font = QtGui.QFont()
         font.setFamily("Merriweather")
         self.pushButton_2.setFont(font)
@@ -5090,7 +5113,7 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
-         # exCRLineEdit is the line edit for the Expected CR
+        # exCRLineEdit is the line edit for the Expected CR
 
         # sizeComboBox is the combo box associated with size
 
@@ -5267,8 +5290,10 @@ class Ui_MainWindow(object):
         self.label_35.setText(_translate("MainWindow", "Warning:"))
         self.doesDamageCheckBox.setText(
             _translate("MainWindow", "Does damage?"))
-        self.nameLineEdit.setText(_translate("MainWindow", "Salsimjo's Creature"))
-        self.nameLineEdit_2.setPlaceholderText(_translate("MainWindow", "Action Name"))
+        self.nameLineEdit.setText(_translate(
+            "MainWindow", "Salsimjo's Creature"))
+        self.nameLineEdit_2.setPlaceholderText(
+            _translate("MainWindow", "Action Name"))
         self.aoeButton.setText(_translate("MainWindow", "AOE?"))
         self.typeOfDieComboBox.setItemText(0, _translate("MainWindow", "4"))
         self.typeOfDieComboBox.setItemText(1, _translate("MainWindow", "6"))
@@ -6399,7 +6424,7 @@ class Ui_MainWindow(object):
         self.label_183.setText(_translate("MainWindow", "ft."))
         self.tabWidget.setTabText(self.tabWidget.indexOf(
             self.tab_2), _translate("MainWindow", "Features"))
-            # exCRLineChange is the line function for the Expected CR
+        # exCRLineChange is the line function for the Expected CR
 
     # sizeComboBox is the function associated with size
 
@@ -6430,7 +6455,7 @@ class Ui_MainWindow(object):
     # vulChecker is the function for Vulnerabilities
     # fliesChecker is the function for Flies and can deal damage at range (CR 0-9 only):
 
-#################################   
+#################################
     def exCRValChange(self, value):
         ###pros_prof_bns = cal_pros_prof_bns(self.exCRLineEdit.text())
         ###print("You typed "+ self.exCRLineEdit.text())
@@ -6495,7 +6520,8 @@ class Ui_MainWindow(object):
                 self.animalHandlingLevelLabel.setText(str(wis_bns + profBns))
 
             else:
-                self.animalHandlingLevelLabel.setText("+" + str(wis_bns + profBns))
+                self.animalHandlingLevelLabel.setText(
+                    "+" + str(wis_bns + profBns))
 
         elif (self.animalHandlingCheckBox.isChecked() == False):
             if (wis_bns < 0):
@@ -6579,7 +6605,8 @@ class Ui_MainWindow(object):
                 self.intimidationLevelLabel.setText(str(cha_bns + profBns))
 
             else:
-                self.intimidationLevelLabel.setText("+" + str(cha_bns + profBns))
+                self.intimidationLevelLabel.setText(
+                    "+" + str(cha_bns + profBns))
 
         elif (self.intimidationCheckBox.isChecked() == False):
             if (cha_bns < 0):
@@ -6593,7 +6620,8 @@ class Ui_MainWindow(object):
                 self.investigationLevelLabel.setText(str(int_bns + profBns))
 
             else:
-                self.investigationLevelLabel.setText("+" + str(int_bns + profBns))
+                self.investigationLevelLabel.setText(
+                    "+" + str(int_bns + profBns))
 
         elif (self.investigationCheckBox.isChecked() == False):
             if (int_bns < 0):
@@ -6649,7 +6677,8 @@ class Ui_MainWindow(object):
                 self.performanceLevelLabel.setText(str(cha_bns + profBns))
 
             else:
-                self.performanceLevelLabel.setText("+" + str(cha_bns + profBns))
+                self.performanceLevelLabel.setText(
+                    "+" + str(cha_bns + profBns))
 
         elif (self.performanceCheckBox.isChecked() == False):
             if (cha_bns < 0):
@@ -6691,7 +6720,8 @@ class Ui_MainWindow(object):
                 self.slightOfHandLevelLabel.setText(str(dex_bns + profBns))
 
             else:
-                self.slightOfHandLevelLabel.setText("+" + str(dex_bns + profBns))
+                self.slightOfHandLevelLabel.setText(
+                    "+" + str(dex_bns + profBns))
 
         elif (self.slightOfHandCheckBox.isChecked() == False):
             if (dex_bns < 0):
@@ -6801,8 +6831,8 @@ class Ui_MainWindow(object):
             ), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal)
             if(deff_CR >= 1 or deff_CR == 0):
                 self.slider.setValue(deff_CR)
-            #print("CR: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(), self.sizeComboBox.currentText(
-            #), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
+            # print("CR: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(), self.sizeComboBox.currentText(
+            # ), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
         else:
             valueHP = this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(
             ), self.sizeComboBox.currentText(), False, self.resComboBox.currentText())
@@ -6813,8 +6843,8 @@ class Ui_MainWindow(object):
             ), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal)
             if(deff_CR >= 1 or deff_CR == 0):
                 self.slider.setValue(deff_CR)
-            #print("CR: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(), self.sizeComboBox.currentText(
-            #), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
+            # print("CR: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(), self.sizeComboBox.currentText(
+            # ), True, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
 
         print("comboBox changed", value)
         if self.sizeComboBox.currentText() == "Tiny":
@@ -6968,8 +6998,8 @@ class Ui_MainWindow(object):
     def diceValChange(self, value):
         # self.diceSpinBox.value() val of dice input
         saveProfVal = saveProficienciesCal(self.saveComboBox.currentText())
-        #print("CR: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(), self.sizeComboBox.currentText(
-        #), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
+        # print("CR: ", cal_init_def_CR(this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(), self.sizeComboBox.currentText(
+        # ), False, self.resComboBox.currentText()), this_fun_adds_AC(self.saveComboBox.currentText(), self.ArmorSpinBox.value()), saveProfVal))
         valueHP = this_fun_cal_totalHP(self.diceSpinBox.value(), self.constitSpinBox.value(
         ), self.sizeComboBox.currentText(), False, self.resComboBox.currentText())
         if(valueHP < 1):
@@ -7637,9 +7667,11 @@ class Ui_MainWindow(object):
         msg.setText("Creature Exported!")
         msg.setWindowIcon(QtGui.QIcon("Assets/Images/icon_2.png"))
         msg.setIcon(QMessageBox.Information)
-        msg.setDetailedText(f"Creature has been created, fill is currently saved in {savePath}\importCreatures\{self.nameLineEdit.text()}.json \nAny Created Creature sharing the same name will be overwritten! \nFeel Free to share your creature with other users.")
+        msg.setDetailedText(
+            f"Creature has been created, fill is currently saved in {savePath}\importCreatures\{self.nameLineEdit.text()}.json \nAny Created Creature sharing the same name will be overwritten! \nFeel Free to share your creature with other users.")
 
         popUP = msg.exec_()
+
 
 if __name__ == "__main__":
     import sys
@@ -7656,6 +7688,6 @@ if __name__ == "__main__":
     #comSim = combat.combatSimulation()
     # comSim.combatSim()
     #compSim = compare.compareCRandEC()
-    #compSim.compare_Winpercent_and_CE()
+    # compSim.compare_Winpercent_and_CE()
 
     sys.exit(app.exec_())
